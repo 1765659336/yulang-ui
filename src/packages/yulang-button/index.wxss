@@ -1,0 +1,22 @@
+.packages-yulang-button-container {
+  border: 1px solid #ccc;
+  padding: var(--margin-top-botton--) var(--margin-left-right--);
+  display: inline-block;
+  border-radius: 5px;
+}
+.is-disable {
+  opacity: .5;
+  cursor: not-allowed;
+}
+.not-disable:hover {
+  cursor: pointer;
+  opacity: .5;
+}
+.is-success {
+  color: #fff;
+  background-color: green;
+}
+.is-error {
+  color: #fff;
+  background-color: red;
+}
