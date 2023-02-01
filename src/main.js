@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+
 // 引入样式重置文件
 import "normalize.css";
 import "@/assets/style/public.less";
@@ -16,6 +17,12 @@ for (const key in Packages) {
     Vue.component(key, element);
   }
 }
+
+// element引入
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+// 注册ele
+Vue.use(ElementUI, { size: 'small', zIndex: 3000 });
 
 Vue.config.productionTip = false;
 

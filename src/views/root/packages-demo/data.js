@@ -29,4 +29,16 @@ export const unionData = [
     path: "/root/packages-demo/yulang-signaure",
     active: false,
   },
+  {
+    level: 2,
+    title: "Upload 上传",
+    path: "/root/packages-demo/yulang-upload",
+    active: false,
+  },
+  {
+    level: 2,
+    title: "canvas 画布",
+    path: "/root/packages-demo/yulang-canvas",
+    active: false,
+  }
 ];
