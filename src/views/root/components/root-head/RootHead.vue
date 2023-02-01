@@ -1,6 +1,8 @@
 <template>
   <div class="yulang-head-container">
-    <h3 class="yulang-head-title">喻浪的组件</h3>
+    <h3 class="yulang-head-title">
+     王元肉和喻浪的组件
+    </h3>
     <div class="yulang-head-menu-items">
       <div
         @click="jump(index, item)"

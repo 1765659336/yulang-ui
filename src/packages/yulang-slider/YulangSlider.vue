@@ -2,7 +2,14 @@
   <div>
     <div class="packages-yulang-slider-container" ref="container">
       <div class="left" ref="left"></div>
-      <div class="knob" ref="knob" id="knob" :title="sliderValue"></div>
+      <div
+        class="knob"
+        ref="knob"
+        id="knob"
+        :title="sliderValue"
+      >
+        <div class="knobContent"></div>
+      </div>
       <div class="right"></div>
     </div>
     <!-- <el-input-number
@@ -22,7 +29,7 @@
 
 <script>
 export default {
-  name: "packages-yulang-slider",
+  name: 'packages-yulang-slider',
   props: {
     sliderValue: {
       type: Number,
@@ -64,10 +71,11 @@ export default {
         return this.sliderValue;
       },
       set(value) {
-        this.$emit("update:sliderValue", value);
+        this.$emit('update:sliderValue', value);
         this.$listeners.input && this.$listeners.input(value);
       },
     },
+
   },
   methods: {
     // 鼠标按下事件
@@ -77,8 +85,11 @@ export default {
       this.mouseY = e.clientY;
       this.leftWidth = this.$refs.left.getBoundingClientRect().width;
       // 在 `document` 上添加事件
-      document.addEventListener("mousemove", this.mouseMoveHandler);
-      document.addEventListener("mouseup", this.mouseUpHandler);
+      document.addEventListener('mousemove', this.mouseMoveHandler);
+      document.addEventListener('mouseup', this.mouseUpHandler);
+
+      // 添加按钮放大的样式
+      this.$refs.knob.classList.add('knobClickClass')
     },
     // 鼠标移动事件
     mouseMoveHandler(e) {
@@ -93,20 +104,22 @@ export default {
     // 鼠标松开事件
     mouseUpHandler: function () {
       // 移除事件
-      document.removeEventListener("mousemove", this.mouseMoveHandler);
-      document.removeEventListener("mouseup", this.mouseUpHandler);
+      document.removeEventListener('mousemove', this.mouseMoveHandler);
+      document.removeEventListener('mouseup', this.mouseUpHandler);
       this.$listeners.change && this.$listeners.change(this.elInputNumberValue);
+    
+      // 关闭按钮放大样式
+      this.$refs.knob.classList.remove('knobClickClass')
     },
     // 修改slider的值
     changeSliderValue: function (newLeftWidth) {
-      console.log(newLeftWidth);
       // 根据步长来移动(求商向下取整再乘回来)
       // 限制范围在 0 - 100的整数
       newLeftWidth = Math.round(
         Math.min(
           Math.round(
             Math.max(
-              Math.round(newLeftWidth / this.sliderStep + 1) * this.sliderStep,
+              Math.round(newLeftWidth / this.sliderStep) * this.sliderStep,
               0
             )
           ),
@@ -118,12 +131,12 @@ export default {
       this.elInputNumberValue = newLeftWidth;
     },
     handleClick(type) {
-      type === "sub" && this.changeSliderValue(this.elInputNumberValue - 10);
-      type === "add" && this.changeSliderValue(this.elInputNumberValue + 10);
+      type === 'sub' && this.changeSliderValue(this.elInputNumberValue - 10);
+      type === 'add' && this.changeSliderValue(this.elInputNumberValue + 10);
     },
   },
   mounted() {
-    this.$refs.knob.addEventListener("mousedown", this.mouseDownHandler);
+    this.$refs.knob.addEventListener('mousedown', this.mouseDownHandler);
     // 读取传递进来的默认值，设置滑块的位置
     this.$refs.left.style.width = `${this.sliderValue}%`;
   },
@@ -131,5 +144,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import url("./index.less");
+@import url('./index.less');
 </style>

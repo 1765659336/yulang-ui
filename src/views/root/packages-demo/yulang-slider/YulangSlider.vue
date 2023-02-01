@@ -4,9 +4,9 @@
       :sliderValue.sync="sliderValue"
       :sliderStep="10"
       isOpenDigitalModulation
-      @input="input"
-      @change="change"
     ></yulang-slider>
+    <!-- @input="input"
+      @change="change" -->
   </div>
 </template>
 
@@ -19,12 +19,12 @@ export default {
     };
   },
   methods: {
-    input(value) {
-      console.log("实时预览修改的值", value);
-    },
-    change(value) {
-      console.log("鼠标松开之后触发", value);
-    },
+    // input(value) {
+    //   console.log("实时预览修改的值", value);
+    // },
+    // change(value) {
+    //   console.log("鼠标松开之后触发", value);
+    // },
   },
 };
 </script>
