@@ -6,6 +6,7 @@ import PackagesDemo from "@/views/root/packages-demo/PackagesDemo.vue";
 import Guide from "@/views/root/guide/Guide.vue";
 import YulangButton from "@/views/root/packages-demo/yulang-button/YulangButton.vue";
 import YulangSwitch from "@/views/root/packages-demo/yulang-switch/YulangSwitch.vue";
+import YulangSlider from "@/views/root/packages-demo/yulang-slider/YulangSlider.vue";
 
 // 处理路由重复跳转控制台报错
 const originalPush = VueRouter.prototype.push;
@@ -90,6 +91,16 @@ const routes = [
               keepAlive: true,
               isAuth: true,
               title: "开关 Switch",
+            },
+          },
+          {
+            path: "yulang-slider",
+            name: "yulang-slider",
+            component: YulangSlider,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "滑块 Slider",
             },
           },
         ],
