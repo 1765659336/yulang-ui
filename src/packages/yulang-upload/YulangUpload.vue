@@ -1,0 +1,117 @@
+<template>
+  <div>
+    <!-- 提交点击区 -->
+    <div @click="clickBtn" ref="upload">
+      <slot></slot>
+    </div>
+
+    <!-- 文件提交注意事项 -->
+    <div class="TipClass">
+      <slot name="tips"></slot>
+    </div>
+
+    <!-- 文件提交的列表 -->
+    <div
+      v-for="(item, index) in fileListSuccess"
+      :key="index"
+      class="fileListClass"
+    >
+      <!-- 如果是其他类型（.txt,md）就用其他写法，这里只写了图片 -->
+      <img :src="item.url" alt="" class="fileItemImageClass"/>
+      {{ item.name }}
+      <img src="@/assets/images/delete.svg" alt="" @click="deleteItem(index)" />
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'packages-yulang-upload',
+  data() {
+    return {};
+  },
+  props: {
+    action: {
+      type: String,
+      default: undefined,
+    },
+    fileList: {
+      type: Array,
+      default: () => [],
+    },
+    limit: {
+      type: Number,
+      default: 3,
+    },
+    onPreview: {
+      type: Function,
+      default: undefined,
+    },
+    // 单个图片大小限制，写成多少kb或者mb
+    singlePicExceed: {
+      type: String,
+      validator: (val) => {
+        const onePattern = /^([0]|[1-9][0-9]*)[k][b]$/;
+        const twoPattern = /^([0]|[1-9][0-9]*)[m][b]$/;
+        return onePattern.test(val) || twoPattern.test(val);
+      },
+    },
+  },
+  computed: {
+    // 上传成功列表
+    fileListSuccess: {
+      get() {
+        return this.fileList;
+      },
+      set(value) {
+        this.$emit('update:fileList', value);
+      },
+    },
+  },
+  methods: {
+    clickBtn() {
+      // 创建之前判断是否超出上传限制
+      if (this.fileListSuccess.length >= this.limit) {
+        this.onPreview(this.limit, this.fileListSuccess);
+      } else {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.click();
+        input.addEventListener('change', (e) => {
+          // 如果上传的是图片类型
+          if (e.target.files[0].type.includes('image')) {
+            // 图片限制的大小转换为byte
+            let maxSize;
+            if (this.singlePicExceed.includes('kb')) {
+              maxSize = this.singlePicExceed.split('kb')[0] * 1024;
+            } else if (this.singlePicExceed.includes('mb')) {
+              maxSize = this.singlePicExceed.split('mb')[0] * 1024 * 1024;
+            }
+            // 创建前判断图片是否过大
+            if (maxSize < e.target.files[0].size) {
+              alert('图片太大了捏');
+            } else {
+              let url = URL.createObjectURL(e.target.files[0]);
+
+              // 上传给后端，如果成功将其丢到成功的列表中
+              let newImg = {};
+              newImg.name = e.target.files[0].name;
+              newImg.url = url;
+              this.fileListSuccess.push(newImg);
+            }
+          }
+        });
+      }
+    },
+    // 删除这个子项
+    deleteItem(index) {
+      this.fileListSuccess.splice(index, 1);
+    },
+  },
+  mounted() {},
+};
+</script>
+
+<style lang="less" scoped>
+@import url(./index.less);
+</style>

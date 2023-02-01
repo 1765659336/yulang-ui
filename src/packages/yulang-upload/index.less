@@ -1,0 +1,34 @@
+// 灰色字体
+@FontColor : #aaa;
+// 灰色背景
+@backColor : #f5f7fa;
+
+.fileListClass{
+  color: @FontColor;
+  font-size: .8rem;
+  display: flex;
+  align-items: center;
+  padding: .5em;
+  margin-top: .3em;
+  cursor: pointer;
+
+  .fileItemImageClass{
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 1em;
+  }
+
+  img:nth-last-child(1){
+    width: 1em;
+    height: 1em;
+    margin-left: auto;
+  }
+
+  &:hover{
+    background: @backColor;
+  }
+}
+
+.TipClass{
+  color: @FontColor;
+}
