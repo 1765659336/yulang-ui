@@ -23,4 +23,10 @@ export const unionData = [
     path: "/root/packages-demo/yulang-slider",
     active: false,
   },
+  {
+    level: 2,
+    title: "Signaure 签名板",
+    path: "/root/packages-demo/yulang-signaure",
+    active: false,
+  },
 ];
