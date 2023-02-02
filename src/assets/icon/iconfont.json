@@ -1,0 +1,100 @@
+{
+  "id": "3878120",
+  "name": "yulang-ui",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "33702761",
+      "name": "chevron-down",
+      "font_class": "chevron-down",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "33702762",
+      "name": "chevron-left",
+      "font_class": "chevron-left",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "33702763",
+      "name": "chevron-right",
+      "font_class": "chevron-right",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "33702764",
+      "name": "chevron-up",
+      "font_class": "chevron-up",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "33702769",
+      "name": "更多",
+      "font_class": "gengduo",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "33702770",
+      "name": "关闭",
+      "font_class": "guanbi",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "33702772",
+      "name": "全屏",
+      "font_class": "quanping",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "33702773",
+      "name": "全屏退出",
+      "font_class": "quanpingtuichu",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "33702778",
+      "name": "九屏",
+      "font_class": "jiuping",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "33702785",
+      "name": "消息",
+      "font_class": "xiaoxi",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "33702786",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "33702802",
+      "name": "导出",
+      "font_class": "daochu",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "33702806",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    }
+  ]
+}

@@ -47,4 +47,10 @@ export const unionData = [
     path: "/root/packages-demo/yulang-anchor-point",
     active: false,
   },
+  {
+    level: 2,
+    title: "Icon 图标",
+    path: "/root/packages-demo/yulang-icon",
+    active: false,
+  },
 ];

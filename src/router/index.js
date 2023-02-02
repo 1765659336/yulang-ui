@@ -11,6 +11,7 @@ import YulangSignaure from "@/views/root/packages-demo/yulang-signaure/YulangSig
 import YulangUpload from "@/views/root/packages-demo/yulang-upload/YulangUpload.vue";
 import YulangCanvas from "@/views/root/packages-demo/yulang-canvas/YulangCanvas.vue";
 import YulangAnchorPoint from "@/views/root/packages-demo/yulang-anchor-point/YulangAnchorPoint.vue";
+import YulangIcon from "@/views/root/packages-demo/yulang-icon/YulangIcon.vue";
 
 // 处理路由重复跳转控制台报错
 const originalPush = VueRouter.prototype.push;
@@ -27,7 +28,6 @@ VueRouter.prototype.go = function go(location) {
 };
 
 Vue.use(VueRouter);
-
 
 /* 
   meta: {
@@ -116,7 +116,7 @@ const routes = [
               keepAlive: true,
               isAuth: true,
               title: "签名板 Signaure",
-            }
+            },
           },
           {
             path: "yulang-upload",
@@ -146,6 +146,16 @@ const routes = [
               keepAlive: true,
               isAuth: true,
               title: "锚点 AnchorPoint",
+            },
+          },
+          {
+            path: "yulang-icon",
+            name: "yulang-icon",
+            component: YulangIcon,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "图标 Icon",
             },
           },
         ],

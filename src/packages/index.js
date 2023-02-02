@@ -6,6 +6,12 @@ import YulangUpload from "./yulang-upload/YulangUpload.vue";
 import YulangCanvas from "./yulang-canvas/YulangCanvas.vue";
 import YulangAnchorPoint from "./yulamg-anchor-point/YulangAnchorPoint.vue";
 
+// 引入icon
+import '../assets/icon/iconfont.css';
+// 阿里图标初始化样式文件
+import '../assets/icon/reset.css';
+
+
 export const Packages = [
   YulangButton,
   YulangSlider,
