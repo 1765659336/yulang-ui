@@ -2,14 +2,18 @@
   <div>
     <h2>上传页面</h2>
     <yulang-upload
+      v-model="fileList"
       action="https://jsonplaceholder.typicode.com/posts/"
-      :file-list.sync="fileList"
       :limit="3"
       :on-preview="handlePreviews"
       single-pic-exceed="200kb"
+      
     >
       <yulang-button>上传图片</yulang-button>
       <template #tips> 上传文件大小不超过200kb、数量不超过3个 </template>
+      <!-- <template #fileListSlot="{ fileListSuccess }">
+        {{ fileListSuccess }}
+      </template> -->
     </yulang-upload>
     <br />
     <br />
@@ -38,14 +42,15 @@ export default {
   name: 'packages-demo-yulang-upload',
   data() {
     return {
+      a: 1,
       fileList: [
         {
-          id:1,
+          id: 1,
           name: 'food.jpeg',
           url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
         },
         {
-          id:2,
+          id: 2,
           name: 'food2.jpeg',
           url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
         },
@@ -79,6 +84,15 @@ export default {
     },
     beforeRemove(file) {
       return this.$confirm(`确定移除 ${file.name}？`);
+    },
+    uploadSuccessCallback(file) {
+      let url = URL.createObjectURL(file);
+      // 上传给后端，如果成功将其丢到成功的列表中
+      let newImg = {};
+      newImg.id = new Date().getTime(); // 设置一个唯一id
+      newImg.name = file.name;
+      newImg.url = url;
+      this.fileList.push(newImg);
     },
   },
 };
