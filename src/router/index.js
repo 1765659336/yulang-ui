@@ -12,6 +12,7 @@ import YulangUpload from "@/views/root/packages-demo/yulang-upload/YulangUpload.
 import YulangCanvas from "@/views/root/packages-demo/yulang-canvas/YulangCanvas.vue";
 import YulangAnchorPoint from "@/views/root/packages-demo/yulang-anchor-point/YulangAnchorPoint.vue";
 import YulangIcon from "@/views/root/packages-demo/yulang-icon/YulangIcon.vue";
+import YulangLink from "@/views/root/packages-demo/yulang-link/YulangLink.vue";
 
 // 处理路由重复跳转控制台报错
 const originalPush = VueRouter.prototype.push;
@@ -156,6 +157,16 @@ const routes = [
               keepAlive: true,
               isAuth: true,
               title: "图标 Icon",
+            },
+          },
+          {
+            path: "yulang-link",
+            name: "yulang-link",
+            component: YulangLink,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "文字链接 Link",
             },
           },
         ],
