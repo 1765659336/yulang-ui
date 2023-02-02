@@ -3,6 +3,22 @@
 // 灰色背景
 @backColor : #f5f7fa;
 
+// 文件提交列表的动画效果
+/* 进入的第一帧和离开的最后一帧 */
+.fileItemAnimation-enter,.fileItemAnimation-leave-to{
+  transform: translateY(-100%);
+}
+/* 进入的最后一帧和离开的第一帧 */
+.fileItemAnimation-enter-to,.fileItemAnimation-leave{
+  transform: translateX(0%);
+}
+
+/* 进入和离开的时间、节奏等效果 */
+.fileItemAnimation-enter-active,.fileItemAnimation-enter-active{
+  transition: 1s linear;
+}
+
+
 .fileListClass{
   color: @FontColor;
   font-size: .8rem;

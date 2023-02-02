@@ -11,16 +11,22 @@
     </div>
 
     <!-- 文件提交的列表 -->
-    <div
-      v-for="(item, index) in fileListSuccess"
-      :key="index"
-      class="fileListClass"
-    >
-      <!-- 如果是其他类型（.txt,md）就用其他写法，这里只写了图片 -->
-      <img :src="item.url" alt="" class="fileItemImageClass"/>
-      {{ item.name }}
-      <img src="@/assets/images/delete.svg" alt="" @click="deleteItem(index)" />
-    </div>
+    <transition-group name="fileItemAnimation">
+      <div
+        v-for="(item) in fileListSuccess"
+        :key="item.id"
+        class="fileListClass"
+      >
+        <!-- 如果是其他类型（.txt,md）就用if判断，这里只写了图片 -->
+        <img :src="item.url" alt="" class="fileItemImageClass" />
+        {{ item.name }}
+        <img
+          src="@/assets/images/delete.svg"
+          alt=""
+          @click="deleteItem(item)"
+        />
+      </div>
+    </transition-group>
   </div>
 </template>
 
@@ -95,6 +101,7 @@ export default {
 
               // 上传给后端，如果成功将其丢到成功的列表中
               let newImg = {};
+              newImg.id = new Date().getTime()  // 设置一个唯一id
               newImg.name = e.target.files[0].name;
               newImg.url = url;
               this.fileListSuccess.push(newImg);
@@ -104,8 +111,11 @@ export default {
       }
     },
     // 删除这个子项
-    deleteItem(index) {
-      this.fileListSuccess.splice(index, 1);
+    deleteItem(row) {
+      // this.fileListSuccess.splice(index,1);
+      console.log(this);
+      this.fileListSuccess = this.fileListSuccess.filter((item) => item.id != row.id);
+      // this.fileListSuccess.pop()
     },
   },
   mounted() {},
