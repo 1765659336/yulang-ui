@@ -56,7 +56,7 @@
 <script>
 /* eslint-disable */
 export default {
-  name:'packages-yulang-canvas',
+  name:'yulang-canvas',
   data() {
     return {
       status: "pencil",

@@ -22,7 +22,7 @@
           <img :src="item.url" alt="" class="fileItemImageClass" />
           {{ item.name }}
           <img
-            src="@/assets/images/delete.svg"
+            src="./assets/delete.svg"
             alt=""
             @click="deleteItem(item)"
           />
@@ -34,7 +34,7 @@
 
 <script>
 export default {
-  name: 'packages-yulang-upload',
+  name: 'yulang-upload',
   model: {
     prop: 'fileList',
     event: 'input',

@@ -1,7 +1,7 @@
 .DS_Store
 node_modules
 /dist
-
+/yulang-ui-dist
 
 # local env files
 .env.local

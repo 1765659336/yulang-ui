@@ -38,7 +38,7 @@
 
 <script>
 export default {
-  name: 'packages-yulang-anchor-point',
+  name: 'yulang-anchor-point',
   model: {
     prop: 'slotArr',
     event: 'slotArr',

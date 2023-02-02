@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'packages-yulang-switch',
+  name: 'yulang-switch',
   props: {
     value: {
       type: Boolean,

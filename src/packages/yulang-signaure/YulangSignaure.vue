@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "packages-yulang-signaure",
+  name: "yulang-signaure",
   props: {
     // 画笔的宽度
     lineWidth: {

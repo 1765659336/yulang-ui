@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  name: 'packages-yulang-slider',
+  name: 'yulang-slider',
   props: {
     sliderValue: {
       type: Number,

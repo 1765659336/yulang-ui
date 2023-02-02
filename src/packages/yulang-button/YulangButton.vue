@@ -18,7 +18,7 @@ const sizeRuler = {
   mini: { marginTopBotton: '2px', marginLeftRight: '10px' },
 };
 export default {
-  name: 'packages-yulang-button',
+  name: 'yulang-button',
   props: {
     // 控制按钮是否禁用
     disabled: {
