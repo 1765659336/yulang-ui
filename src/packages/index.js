@@ -7,10 +7,16 @@ import YulangCanvas from "./yulang-canvas/YulangCanvas.vue";
 import YulangAnchorPoint from "./yulamg-anchor-point/YulangAnchorPoint.vue";
 
 // 引入icon
-import '../assets/icon/iconfont.css';
+import "../assets/icon/iconfont.css";
 // 阿里图标初始化样式文件
-import '../assets/icon/reset.css';
+import "../assets/icon/reset.css";
 
+// 自定义指令
+import Copy from "@/instruction/copy";
+// 自定义指令
+export const Directives = {
+  Copy,
+};
 
 export const Packages = [
   YulangButton,
@@ -26,6 +32,9 @@ const install = function (Vue, option) {
   console.log(option);
   Packages.forEach((component) => {
     Vue.component(component.name, component);
+  });
+  Object.keys(Directives).forEach((key) => {
+    Vue.directive(key, Directives[key]);
   });
 };
 
