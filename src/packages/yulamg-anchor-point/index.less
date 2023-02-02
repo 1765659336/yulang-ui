@@ -9,13 +9,13 @@
 
 
 .packages-main-form-anchor-point-container {
-    height: 100%;
-    position: relative;
     width: 100%;
-    
+    overflow-y: auto;
+    height: calc(100vh - var(--offsetTop-container--));
+
     .packages-main-form-anchor-point-content {
         width: @anchor-point-content-width;
-        overflow-y: auto;
+
 
         .packages-main-form-anchor-point-content-item-title {
             width: 100%;
@@ -29,9 +29,9 @@
     }
 
     .packages-main-form-anchor-point-click {
-        position: absolute;
+        position: fixed;
         right: 0;
-        top: 0;
+        top: var(--offsetTop-container--);
         width: calc(100% - @anchor-point-content-width - @anchor-point-absolute-right - 4px);
         right: @anchor-point-absolute-right;
         // 减去上下两个边框的大小

@@ -1,5 +1,12 @@
 <template>
-  <div class="packages-main-form-anchor-point-container">
+  <div
+    class="packages-main-form-anchor-point-container"
+    ref="container"
+    :style="{
+      '--offsetTop-container--': containerOffsetTop + 'px',
+      '--container-father-height--': containerFatherHeight + 'px',
+    }"
+  >
     <div class="packages-main-form-anchor-point-content">
       <div
         class="packages-main-form-anchor-point-content-item"
@@ -39,6 +46,14 @@ export default {
       type: Array,
     },
   },
+  data() {
+    return {
+      // 锚点距离浏览器顶部的高度
+      containerOffsetTop: null,
+      // 父盒子的高度
+      // containerFatherHeight: null,
+    };
+  },
   computed: {
     slotArrComputed: {
       get() {
@@ -53,6 +68,13 @@ export default {
     jumpAnchor(item) {
       document.querySelector("#" + item.slotName).scrollIntoView();
     },
+  },
+  mounted() {
+    this.$nextTick(function () {
+      console.log([this.$refs.container.parentNode])
+      this.containerOffsetTop = this.$refs.container.offsetTop;
+      // this.containerFatherHeight = this.$refs.container.parentNode.offsetHeight;
+    });
   },
 };
 </script>
