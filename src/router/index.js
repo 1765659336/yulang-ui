@@ -10,6 +10,7 @@ import YulangSlider from "@/views/root/packages-demo/yulang-slider/YulangSlider.
 import YulangSignaure from "@/views/root/packages-demo/yulang-signaure/YulangSignaure.vue";
 import YulangUpload from "@/views/root/packages-demo/yulang-upload/YulangUpload.vue";
 import YulangCanvas from "@/views/root/packages-demo/yulang-canvas/YulangCanvas.vue";
+import YulangAnchorPoint from "@/views/root/packages-demo/yulang-anchor-point/YulangAnchorPoint.vue";
 
 // 处理路由重复跳转控制台报错
 const originalPush = VueRouter.prototype.push;
@@ -135,6 +136,16 @@ const routes = [
               keepAlive: true,
               isAuth: true,
               title: "画布 canvas",
+            },
+          },
+          {
+            path: "yulang-anchor-point",
+            name: "yulang-anchor-point",
+            component: YulangAnchorPoint,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "锚点 AnchorPoint",
             },
           },
         ],

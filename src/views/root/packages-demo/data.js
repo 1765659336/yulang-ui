@@ -40,5 +40,11 @@ export const unionData = [
     title: "canvas 画布",
     path: "/root/packages-demo/yulang-canvas",
     active: false,
-  }
+  },
+  {
+    level: 2,
+    title: "AnchorPoint 锚点",
+    path: "/root/packages-demo/yulang-anchor-point",
+    active: false,
+  },
 ];

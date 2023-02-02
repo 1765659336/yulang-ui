@@ -1,0 +1,52 @@
+// 锚点导航距离父级右侧的距离
+@anchor-point-absolute-right: 10px;
+
+// 锚点导航距离顶部和底部的距离
+@anchor-point-margin-top-bottom: 20px;
+
+// 锚点内容区的宽度
+@anchor-point-content-width: 80%;
+
+
+.packages-main-form-anchor-point-container {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    
+    .packages-main-form-anchor-point-content {
+        width: @anchor-point-content-width;
+        overflow-y: auto;
+
+        .packages-main-form-anchor-point-content-item-title {
+            width: 100%;
+            height: 24px;
+            line-height: 24px;
+            background-color: #ccc;
+            font-weight: 1000;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+    }
+
+    .packages-main-form-anchor-point-click {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: calc(100% - @anchor-point-content-width - @anchor-point-absolute-right - 4px);
+        right: @anchor-point-absolute-right;
+        // 减去上下两个边框的大小
+        max-height: calc(100% - @anchor-point-margin-top-bottom * 2 - 4px);
+        margin: @anchor-point-margin-top-bottom 0;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+
+
+        .packages-main-form-anchor-point-click-item {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            height: 24px;
+            line-height: 24px;
+        }
+    }
+}
