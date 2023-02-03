@@ -7,6 +7,7 @@ import YulangUpload from "@/packages/yulang-upload/YulangUpload.vue";
 import YulangCanvas from "@/packages/yulang-canvas/YulangCanvas.vue";
 import YulangAnchorPoint from "@/packages/yulamg-anchor-point/YulangAnchorPoint.vue";
 import YulangLink from "@/packages/yulang-link/YulangLink.vue";
+import YulangDescribeFrame from "@/packages/yulang-describe-frame/YulangDescribeFrame.vue";
 
 // 引入icon
 import "../assets/icon/iconfont.css";
@@ -28,6 +29,7 @@ export const Packages = [
   YulangUpload,
   YulangCanvas,
   YulangAnchorPoint,
+  YulangDescribeFrame,
   YulangLink,
 ];
 
@@ -55,4 +57,6 @@ export default {
   YulangUpload,
   YulangCanvas,
   YulangAnchorPoint,
+  YulangDescribeFrame,
+  YulangLink
 };

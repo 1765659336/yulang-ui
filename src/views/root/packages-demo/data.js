@@ -55,6 +55,12 @@ export const unionData = [
   },
   {
     level: 2,
+    title: "DescribeFrame 描述框",
+    path: "/root/packages-demo/yulang-describe-frame",
+    active: false
+  },
+  {
+    level: 2,
     title: "Link 文字链接",
     path: "/root/packages-demo/yulang-link",
     active: false,

@@ -1,7 +1,7 @@
 <template>
   <div class="yulang-head-container">
     <h3 class="yulang-head-title">
-     王元肉和喻浪的组件
+      喻浪的组件
     </h3>
     <div class="yulang-head-menu-items">
       <div

@@ -5,7 +5,10 @@ export default {
     // 复制成功触发回调事件
     const success = binding.arg;
     // click事件会不会冲突，待测试
-    el.addEventListener("click", () => {
+    el.addEventListener("click", (e) => {
+      // 加上禁止冒泡
+      e.stopPropagation();
+      
       if (!el.targetContent)
         return console.warn(
           `v-copy warning: [${el}]-The value of the copy is empty`
