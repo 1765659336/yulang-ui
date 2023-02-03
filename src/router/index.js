@@ -14,6 +14,7 @@ import YulangAnchorPoint from "@/views/root/packages-demo/yulang-anchor-point/Yu
 import YulangIcon from "@/views/root/packages-demo/yulang-icon/YulangIcon.vue";
 import YulangDescribeFrame from "@/views/root/packages-demo/yulang-describe-frame/YulangDescribeFrame.vue";
 import YulangLink from "@/views/root/packages-demo/yulang-link/YulangLink.vue";
+import YulangBackTop from "@/views/root/packages-demo/yulang-back-top/YulangBackTop.vue";
 
 // 处理路由重复跳转控制台报错
 const originalPush = VueRouter.prototype.push;
@@ -158,7 +159,7 @@ const routes = [
               keepAlive: true,
               isAuth: true,
               title: "图标 Icon",
-            }
+            },
           },
           {
             path: "yulang-describe-frame",
@@ -178,6 +179,16 @@ const routes = [
               keepAlive: true,
               isAuth: true,
               title: "文字链接 Link",
+            },
+          },
+          {
+            path: "yulang-back-top",
+            name: "yulang-back-top",
+            component: YulangBackTop,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "回到顶部 BackTop",
             },
           },
         ],
