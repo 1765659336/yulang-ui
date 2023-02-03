@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div>开关按钮</div>
     <!-- :class="[buttonVal ? 'circleSuccess' : 'circleFail']" -->
     <!-- <div class="test">{{ value }}</div> -->
     <div class="button">

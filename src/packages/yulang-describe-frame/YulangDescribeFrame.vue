@@ -15,7 +15,7 @@
         class="describe-frame-content"
         v-show="isShow"
         ref="describeFrameContent"
-        v-if="isTipShow && codeStr"
+        v-if="codeStr"
       >
         <div class="describe-frame-content-tip" v-if="isTipShow">
           <slot name="tip"></slot>
