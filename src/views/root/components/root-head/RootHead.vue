@@ -1,7 +1,7 @@
 <template>
   <div class="yulang-head-container">
     <h3 class="yulang-head-title">
-      喻浪的组件
+      <img src="@/assets/images/langicon.png" alt="">
     </h3>
     <div class="yulang-head-menu-items">
       <div

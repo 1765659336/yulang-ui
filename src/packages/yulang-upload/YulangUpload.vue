@@ -128,11 +128,9 @@ export default {
     },
     // 删除这个子项
     deleteItem(row) {
-      // this.fileListSuccess.splice(index,1);
       this.fileListSuccess = this.fileListSuccess.filter(
         (item) => item.id != row.id
       );
-      // this.fileListSuccess.pop()
     },
     getBlobImage(img) {
       var canvas = document.createElement('canvas');

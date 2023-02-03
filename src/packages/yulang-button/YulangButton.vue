@@ -13,9 +13,9 @@
 
 <script>
 const sizeRuler = {
-  medium: { marginTopBotton: '10px', marginLeftRight: '20px' },
-  small: { marginTopBotton: '5px', marginLeftRight: '15px' },
-  mini: { marginTopBotton: '2px', marginLeftRight: '10px' },
+  medium: { marginTopBotton: '50px', marginLeftRight: '80px' },
+  small: { marginTopBotton: '40px', marginLeftRight: '60px' },
+  mini: { marginTopBotton: '30px', marginLeftRight: '40px' },
 };
 export default {
   name: 'yulang-button',

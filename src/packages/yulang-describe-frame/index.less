@@ -7,6 +7,7 @@
 .describe-frame-container{
   border: 1px solid @font-color;
   border-radius: 3px;
+  width: var(--container-width--);
 }
 
 .describe-frame-header{
@@ -16,13 +17,12 @@
 }
 
 .describe-frame-content{
-  background-color: rgba(10, 6, 6, 0.2);
+  background-color: rgb(250, 250, 250);
   padding-top: .3em;
 
   .describe-frame-content-tip{
     background-color: white;
-    width: 90%;
-    margin: 1em auto 0;
+    margin: 1em 1em 0;
     padding: 1em;
     border: 1px solid @font-color;
     border-radius: 3px;
@@ -30,20 +30,23 @@
 
   .describe-frame-content-code{
     padding: 1em 2em;
-    color: @font-blue-color;
+    color: rgb(49, 130, 189);
   }
 }
 
 .describe-frame-footer{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   background-color: white;
   padding: 1.5em;
+  border-top: 1px solid @font-color;
 
 
   .describe-frame-footer-center{
+    width: 60%;
     display: flex;
+    justify-content: center;
 
     img{
       width:1em;
@@ -61,6 +64,9 @@
   }
 
   .copy{
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
     
     &:hover{
       color: @font-blue-color;

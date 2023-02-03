@@ -18,28 +18,13 @@
 </template>
 
 <script>
+import { codeStr } from './index.js';
 export default {
   name: 'packages-demo-yulang-describe-frame',
   data() {
     return {
       value3: true,
-      codeStr:`
-      <yulang-switch
-        v-model="value"
-        active-text="按月付费"
-        inactive-text="按年付费"
-      >
-      </yulang-switch>
-      <script>
-        export default {
-          data() {
-            return {
-              value: true
-            }
-          }
-        };
-      <//script>
-      `
+      codeStr,
     };
   },
 };

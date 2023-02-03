@@ -14,9 +14,14 @@
         :key="item.slotName"
         :id="item.slotName"
       >
-        <div class="packages-main-form-anchor-point-content-item-title">
+        <!-- 根据标签等级给标题大小 -->
+        <h2
+          class="packages-main-form-anchor-point-content-item-title"
+          :style="{ '--title-font-size--': titleFontSize(item) }"
+        >
           {{ item.slotTitle }}
-        </div>
+        </h2>
+
         <slot :name="[item.slotName]"> </slot>
       </div>
     </div>
@@ -37,6 +42,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'yulang-anchor-point',
   model: {
@@ -56,6 +62,17 @@ export default {
       containerHeight: null,
       level1Index: 0,
       level2Index: 0,
+      fontSizeLevel:{
+        1:{
+          fontsize:'2rem'
+        },
+        2:{
+          fontsize:'1.5rem'
+        },
+        3:{
+          fontsize:'1rem'
+        }
+      }
     };
   },
   computed: {
@@ -80,6 +97,12 @@ export default {
           this.slotArrComputed[index].level === 2,
       };
     },
+    titleFontSize(item){
+      console.log(item.level,'item');
+      //根据标题等级给字体大小
+      if(item.level === 1 ) return this.fontSizeLevel[item.level].fontsize
+      if(item.level === 2 ) return this.fontSizeLevel[item.level].fontsize
+    }
   },
   mounted() {
     this.$nextTick(function () {

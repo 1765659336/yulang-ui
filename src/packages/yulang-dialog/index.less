@@ -1,0 +1,41 @@
+// 遮蔽层背景颜色
+@bg-color: rgba(128,128,128,0.4);
+
+// dialog框所有部分的边框间距
+@box-padding:2em;
+
+.dialog-mask-layer{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: @bg-color;
+}
+
+.dialog-frame{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: calc(3em + 15vw);  
+  background-color: white;
+  border-radius: 5px;
+}
+
+.dialog-frame-header{
+  padding: @box-padding;
+  display: flex;
+  justify-content: space-between;
+  color: black;
+}
+
+.dialog-frame-body{
+  padding: @box-padding;
+}
+
+.dialog-frame-footer{
+  display: flex;
+  justify-content: flex-end;
+  padding: @box-padding;
+}

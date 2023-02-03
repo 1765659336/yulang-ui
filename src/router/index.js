@@ -14,6 +14,7 @@ import YulangAnchorPoint from "@/views/root/packages-demo/yulang-anchor-point/Yu
 import YulangIcon from "@/views/root/packages-demo/yulang-icon/YulangIcon.vue";
 import YulangDescribeFrame from "@/views/root/packages-demo/yulang-describe-frame/YulangDescribeFrame.vue";
 import YulangLink from "@/views/root/packages-demo/yulang-link/YulangLink.vue";
+import YulangDialog from "@/views/root/packages-demo/yulang-dialog/YulangDialog.vue";
 import YulangBackTop from "@/views/root/packages-demo/yulang-back-top/YulangBackTop.vue";
 import YulangCheckbox from "@/views/root/packages-demo/yulang-checkbox/YulangCheckbox.vue";
 import YulangSwitchCopy from "@/views/root/packages-demo/yulang-switch-copy/YulangSwitchCopy.vue";
@@ -182,6 +183,16 @@ const routes = [
               isAuth: true,
               title: "文字链接 Link",
             },
+          },
+          {
+            path: "yulang-dialog",
+            name: "yulang-dialog",
+            component: YulangDialog,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "对话框 Dialog",
+            }
           },
           {
             path: "yulang-back-top",
