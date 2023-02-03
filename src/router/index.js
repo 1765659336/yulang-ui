@@ -15,6 +15,8 @@ import YulangIcon from "@/views/root/packages-demo/yulang-icon/YulangIcon.vue";
 import YulangDescribeFrame from "@/views/root/packages-demo/yulang-describe-frame/YulangDescribeFrame.vue";
 import YulangLink from "@/views/root/packages-demo/yulang-link/YulangLink.vue";
 import YulangBackTop from "@/views/root/packages-demo/yulang-back-top/YulangBackTop.vue";
+import YulangCheckbox from "@/views/root/packages-demo/yulang-checkbox/YulangCheckbox.vue";
+import YulangSwitchCopy from "@/views/root/packages-demo/yulang-switch-copy/YulangSwitchCopy.vue";
 
 // 处理路由重复跳转控制台报错
 const originalPush = VueRouter.prototype.push;
@@ -189,6 +191,26 @@ const routes = [
               keepAlive: true,
               isAuth: true,
               title: "回到顶部 BackTop",
+            },
+          },
+          {
+            path: "yulang-checkbox",
+            name: "yulang-checkbox",
+            component: YulangCheckbox,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "复选框 Checkbox",
+            },
+          },
+          {
+            path: "yulang-switch-copy",
+            name: "yulang-switch-copy",
+            component: YulangSwitchCopy,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "开关Copy SwitchCopy",
             },
           },
         ],

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <span v-if="props.textTitle[0]" :class="!inputValue ? 'close' : ''">{{
-      props.textTitle[0]
+    <span v-if="textTitle[0]" :class="!inputValue ? 'close' : ''">{{
+      textTitle[0]
     }}</span>
     <div
       class="custom-switch-container"
@@ -13,17 +13,17 @@
     >
       <div class="custom-switch-switch"></div>
     </div>
-    <span v-if="props.textTitle[1]" :class="inputValue ? 'open' : ''">{{
-      props.textTitle[1]
+    <span v-if="textTitle[1]" :class="inputValue ? 'open' : ''">{{
+      textTitle[1]
     }}</span>
   </div>
 </template>
 
 <script>
 export default {
-  name: "yulang-switch",
+  name: "yulang-switch-copy",
   props: {
-    modelValue: {
+    value: {
       type: Boolean,
       default: () => {
         return false;
@@ -38,17 +38,17 @@ export default {
   },
   computed: {
     inputValue: {
-      get: () => {
-        return this.modelValue;
+      get() {
+        return this.value;
       },
-      set: (newValue) => {
-        this.$emits("update:modelValue", newValue);
+      set(value) {
+        this.$emit("input", value);
       },
     },
   },
   methods: {
     inputValueChange() {
-      this.emits("update:modelValue", !this.inputValue);
+      this.inputValue = !this.inputValue;
     },
   },
 };

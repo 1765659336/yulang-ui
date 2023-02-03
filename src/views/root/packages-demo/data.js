@@ -57,7 +57,7 @@ export const unionData = [
     level: 2,
     title: "DescribeFrame 描述框",
     path: "/root/packages-demo/yulang-describe-frame",
-    active: false
+    active: false,
   },
   {
     level: 2,
@@ -69,6 +69,18 @@ export const unionData = [
     level: 2,
     title: "BackTop 回到顶部",
     path: "/root/packages-demo/yulang-back-top",
+    active: false,
+  },
+  {
+    level: 2,
+    title: "Checkbox 复选框",
+    path: "/root/packages-demo/yulang-checkbox",
+    active: false,
+  },
+  {
+    level: 2,
+    title: "SwitchCopy 开关Copy",
+    path: "/root/packages-demo/yulang-switch-copy",
     active: false,
   },
 ];
