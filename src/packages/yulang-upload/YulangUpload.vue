@@ -10,8 +10,12 @@
       <slot name="tips"></slot>
     </div>
 
-    <!-- 文件提交的列表 -->
-    <slot name="fileListSlot" :fileListSuccess="fileListSuccess">
+    <!-- 文件提交的列表展示出来的样式 -->
+    <slot
+      name="fileListSlot"
+      :fileListSuccess="fileListSuccess"
+      :fileListDelete="deleteItem"
+    >
       <transition-group name="fileItemAnimation">
         <div
           v-for="item in fileListSuccess"
@@ -21,11 +25,7 @@
           <!-- 如果是其他类型（.txt,md）就用if判断，这里只写了图片 -->
           <img :src="item.url" alt="" class="fileItemImageClass" />
           {{ item.name }}
-          <img
-            src="./assets/delete.svg"
-            alt=""
-            @click="deleteItem(item)"
-          />
+          <img src="./assets/delete.svg" alt="" @click="deleteItem(item)" />
         </div>
       </transition-group>
     </slot>
@@ -40,7 +40,9 @@ export default {
     event: 'input',
   },
   data() {
-    return {};
+    return {
+      fileListCopy: this.fileList,
+    };
   },
   props: {
     action: {
@@ -69,17 +71,17 @@ export default {
       },
     },
   },
-  computed: {
-    // 上传成功列表
-    fileListSuccess: {
-      get() {
-        return this.fileList;
-      },
-      set(value) {
-        this.$emit('input', value);
-      },
+computed: {
+  // 上传成功列表
+  fileListSuccess: {
+    get() {
+      return this.fileList;
+    },
+    set(value) {
+      this.$emit('input', value);
     },
   },
+},
   methods: {
     clickBtn() {
       // 创建之前判断是否超出上传限制
@@ -108,18 +110,30 @@ export default {
 
               // 如果用户未设置发请求的写法，就按默认的请求方式来
               if (!this.$listeners.uploadSuccessCallback) {
-                let url = URL.createObjectURL(e.target.files[0]);
-                var image = new Image();
-                image.src = url;
+                // 如果设置了请求地址走这个判定条件
+                if (this.action) {
+                  let url = URL.createObjectURL(e.target.files[0]);
+                  var image = new Image();
+                  image.src = url;
 
-                image.onload = () => {
-                  let BlobData = this.getBlobImage(image);
-                  console.log(BlobData);
-                  // 将base64文件发送后端请求
-                  this.sendXML(BlobData).then((res) => {
-                    console.log(res);
-                  });
-                };
+                  image.onload = () => {
+                    let BlobData = this.getBlobImage(image);
+                    // 将base64文件发送后端请求
+                    this.sendXML(BlobData).then((res) => {
+                      console.log(res);
+                    });
+                  };
+                } else {
+                  // 直接添加,没有填写action的情况下
+                  let obj = {};
+                  let url = URL.createObjectURL(e.target.files[0]);
+                  let image = new Image();
+                  image.src = url;
+                  obj.url = url;
+                  obj.id = new Date().getTime();
+                  obj.name = e.target.files[0].name;
+                  this.fileListSuccess.push(obj)
+                }
               }
             }
           }
@@ -161,27 +175,25 @@ export default {
       return dataURL;
     },
     sendXML(imgbase64) {
-      return new Promise(
-        (resolve) => {
-          // 要是用户不自己发请求，自己走xml发请求
-          const xhr = new XMLHttpRequest();
-          // 初始化(请求类型和请求地址)
-          xhr.open('POST', this.action);
-          // 发送
-          xhr.send(imgbase64);
+      return new Promise((resolve) => {
+        // 要是用户不自己发请求，自己走xml发请求
+        const xhr = new XMLHttpRequest();
+        // 初始化(请求类型和请求地址)
+        xhr.open('POST', this.action);
+        // 发送
+        xhr.send(imgbase64);
 
-          xhr.onreadystatechange = function () {
-            // 查看响应数字是否为4，表示响应数据全部返回
-            console.log(xhr.readyState);
-            if (xhr.readyState === 4) {
-              // 查看响应码是否在200到300之间
-              if (xhr.status >= 200 && xhr.status < 300) {
-                resolve(xhr);
-              }
+        xhr.onreadystatechange = function () {
+          // 查看响应数字是否为4，表示响应数据全部返回
+          console.log(xhr.readyState);
+          if (xhr.readyState === 4) {
+            // 查看响应码是否在200到300之间
+            if (xhr.status >= 200 && xhr.status < 300) {
+              resolve(xhr);
             }
-          };
-        }
-      );
+          }
+        };
+      });
     },
   },
   mounted() {},

@@ -1,48 +1,85 @@
 <template>
   <div>
-    <h2>上传页面</h2>
-    <yulang-upload
-      v-model="fileList"
-      action="https://jsonplaceholder.typicode.com/posts/"
-      :limit="3"
-      :on-preview="handlePreviews"
-      single-pic-exceed="200kb"
-      
-    >
-      <yulang-button>上传图片</yulang-button>
-      <template #tips> 上传文件大小不超过200kb、数量不超过3个 </template>
-      <!-- <template #fileListSlot="{ fileListSuccess }">
-        {{ fileListSuccess }}
-      </template> -->
-    </yulang-upload>
-    <br />
-    <br />
-    <br />
-    <el-upload
-      class="upload-demo"
-      action="https://jsonplaceholder.typicode.com/posts/"
-      :on-preview="handlePreview"
-      :on-remove="handleRemove"
-      :before-remove="beforeRemove"
-      multiple
-      :limit="3"
-      :on-exceed="handleExceed"
-      :file-list="fileList"
-    >
-      <el-button size="small" type="primary">点击上传</el-button>
-      <div slot="tip" class="el-upload__tip">
-        只能上传jpg/png文件,且不超过500kb
-      </div>
-    </el-upload>
+    <yulang-anchor-point v-model="slotArr">
+      <template #a></template>
+
+      <!-- 基本用法 -->
+      <template #b>
+        <yulang-describe-frame :codeStr="codeStr">
+          <!-- action="https://jsonplaceholder.typicode.com/posts/" -->
+          <yulang-upload
+            v-model="fileList"
+            :limit="3"
+            :on-preview="handlePreviews"
+            single-pic-exceed="200kb"
+          >
+            <yulang-button>上传图片</yulang-button>
+            <!-- 标志提示语 -->
+            <template #tips> 上传文件大小不超过200kb、数量不超过3个 </template>
+          </yulang-upload>
+          <template #tip>
+            <div>action属性来定义 upload 的请求地址</div>
+            <div>limit属性来定义 upload 的请求文件数量,默认为3</div>
+            <div>handlePreviews属性来定义 upload 的请求失败的回调函数</div>
+            <div>single-pic-exceed属性来定义 upload 的单个请求文件大小</div>
+            <div>tip插槽时写明文件提交注意事项</div>
+          </template>
+        </yulang-describe-frame>
+      </template>
+
+      <!-- 列表展示出来的样式插槽 -->
+      <template #c>
+        <yulang-describe-frame :codeStr="codeStr2">
+          <yulang-upload
+            v-model="fileList"
+            action="https://jsonplaceholder.typicode.com/posts/"
+            :on-preview="handlePreviews"
+          >
+            <yulang-button>上传图片</yulang-button>
+            <template #fileListSlot="{ fileListSuccess, fileListDelete }">
+              <div v-for="item in fileListSuccess" :key="item.id">
+                {{ item.name }}
+                <button @click="fileListDelete(item)">点我删除哦</button>
+              </div>
+            </template>
+          </yulang-upload>
+          <template #tip>
+            <div>fileListSlot插槽提供两个参数</div>
+            <div>fileListSuccess返回下载成功列表</div>
+            <div>fileListDelete为删除执行函数,参数表示删除那一行</div>
+          </template>
+        </yulang-describe-frame>
+      </template>
+
+      <!-- 饿了么的上传组件 -->
+      <template #d>
+        <el-upload
+          class="upload-demo"
+          action="https://jsonplaceholder.typicode.com/posts/"
+          :on-preview="handlePreview"
+          :on-remove="handleRemove"
+          :before-remove="beforeRemove"
+          multiple
+          :limit="3"
+          :on-exceed="handleExceed"
+          :file-list="fileList"
+        >
+          <el-button size="small" type="primary">点击上传</el-button>
+          <div slot="tip" class="el-upload__tip">
+            只能上传jpg/png文件,且不超过500kb
+          </div>
+        </el-upload>
+      </template>
+    </yulang-anchor-point>
   </div>
 </template>
 
 <script>
+import { codeStr, codeStr2 } from './data.js';
 export default {
   name: 'packages-demo-yulang-upload',
   data() {
     return {
-      a: 1,
       fileList: [
         {
           id: 1,
@@ -55,6 +92,14 @@ export default {
           url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
         },
       ],
+      slotArr: [
+        { slotName: 'a', slotTitle: 'Upload 上传', level: 1 },
+        { slotName: 'b', slotTitle: '基本用法', level: 2 },
+        { slotName: 'c', slotTitle: '列表展示出来的样式插槽', level: 2 },
+        { slotName: 'd', slotTitle: '饿了么的上传组件', level: 2 },
+      ],
+      codeStr,
+      codeStr2,
     };
   },
   methods: {
@@ -83,7 +128,7 @@ export default {
       );
     },
     beforeRemove(file) {
-      return this.$confirm(`确定移除 ${file.name}？`);
+      return this.$confirm(`确定移除 ${file.name}?`);
     },
     uploadSuccessCallback(file) {
       let url = URL.createObjectURL(file);

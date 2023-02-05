@@ -1,6 +1,6 @@
 <template>
   <div class="yulang-describe-frame-container">
-    <h2>这是一个描述框</h2>
+    <h1>DescribeFrame 描述框</h1>
     <div class="yulang-describe-frame-content">
       <yulang-describe-frame :codeStr="codeStr">
         <yulang-switch
