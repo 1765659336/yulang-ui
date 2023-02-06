@@ -90,7 +90,7 @@ export default {
         { slotName: 'b', slotTitle: '基本用法', level: 2 },
         { slotName: 'c', slotTitle: '跳转方式设置', level: 2 },
         { slotName: 'd', slotTitle: '是否可以跳转设置', level: 2 },
-        { slotName: 'e', slotTitle: '是否可以跳转设置', level: 2 },
+        { slotName: 'e', slotTitle: '是否打开下划线设置', level: 2 },
         { slotName: 'f', slotTitle: 'div使用跳转', level: 2 },
       ],
       codeStr,

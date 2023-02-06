@@ -45,18 +45,22 @@ export default {
     };
   },
   props: {
+    // 请求后端的地址
     action: {
       type: String,
       default: undefined,
     },
+    // 发送图片的列表
     fileList: {
       type: Array,
       default: () => [],
     },
+    // 限制发送的图片数量
     limit: {
       type: Number,
       default: 3,
     },
+    // 图片数量超出的回调函数
     onPreview: {
       type: Function,
       default: undefined,

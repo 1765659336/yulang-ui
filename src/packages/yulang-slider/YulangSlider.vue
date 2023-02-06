@@ -31,13 +31,14 @@
 export default {
   name: 'yulang-slider',
   props: {
+    // 默认初始值
     sliderValue: {
       type: Number,
       default: () => {
         return 0;
       },
     },
-    // 步长
+    // 每次移动最小步数
     sliderStep: {
       type: Number,
       default: () => {
@@ -50,7 +51,7 @@ export default {
         );
       },
     },
-    // 是否开启数字调节滑块的值
+    // 是否开启按钮调节滑块
     isOpenDigitalModulation: {
       type: Boolean,
       default: () => {

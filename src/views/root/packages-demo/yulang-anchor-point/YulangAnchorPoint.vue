@@ -20,11 +20,19 @@
         <div>level是标题等级,等级越高字体越大</div>
       </template>
     </yulang-describe-frame>
+
+    <yulang-table :data="tableDataAttributes">
+      <yulang-table-item prop="attributeName" label="属性名">
+      </yulang-table-item>
+      <yulang-table-item prop="explain" label="说明"> </yulang-table-item>
+      <yulang-table-item prop="type" label="类型"> </yulang-table-item>
+      <yulang-table-item prop="default" label="默认值"> </yulang-table-item>
+    </yulang-table>
   </div>
 </template>
 
 <script>
-import { codeStr } from './data.js';
+import { codeStr, tableDataAttributes } from './data.js';
 
 export default {
   name: 'packages-demo-yulang-anchor-point',
@@ -40,7 +48,8 @@ export default {
         { slotName: 'g', slotTitle: '创建文档', level: 2 },
         { slotName: 'h', slotTitle: '创建文档的另一种方式', level: 2 },
       ],
-      codeStr
+      codeStr,
+      tableDataAttributes,
     };
   },
 };

@@ -31,3 +31,30 @@ export default {
 }
 </script>
 `
+
+export const tableDataAttributes = [
+  {
+    attributeName: 'slotArr',
+    explain: '包含所有title的slot名、标题、标题等级',
+    type: 'Array',
+    default: 'undefined',
+  },
+  {
+    attributeName: 'slotName',
+    explain: '与对应插槽的名字相匹配',
+    type: 'String',
+    default: 'undefined',
+  },
+  {
+    attributeName: 'slotTitle',
+    explain: '标题名',
+    type: 'String',
+    default: 'undefined',
+  },
+  {
+    attributeName: 'level',
+    explain: '标题等级(1级最高)',
+    type: 'Number',
+    default: 'undefined',
+  },
+]

@@ -48,8 +48,23 @@ export default {
 </script>
 `
 
-export default {
-  codeStr,
-  codeStr2,
-  codeStr3
-}
+export const tableDataAttributes = [
+  {
+    attributeName: 'sliderValue',
+    explain: '默认初始值',
+    type: 'Number',
+    default: '0'
+  },
+  {
+    attributeName: 'sliderStep',
+    explain: '每次移动最小步数',
+    type: 'Number([1,100]整数)',
+    default: '1'
+  },
+  {
+    attributeName: 'isOpenDigitalModulation',
+    explain: '是否开启按钮调节滑块',
+    type: 'Boolean',
+    default: 'false'
+  }
+]

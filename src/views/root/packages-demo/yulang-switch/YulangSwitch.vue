@@ -41,13 +41,46 @@
           <yulang-switch v-model="value4" disabled></yulang-switch>
         </yulang-describe-frame>
       </template>
+
+      <!-- 以下开始是阅读文档 -->
+      <template #u></template>
+
+      <template #v>
+        <yulang-table :data="tableDataAttributes">
+          <yulang-table-item prop="attributeName" label="属性名" width="100px">
+          </yulang-table-item>
+          <yulang-table-item prop="explain" label="说明" width="250px">
+          </yulang-table-item>
+          <yulang-table-item prop="type" label="类型" width="300px">
+          </yulang-table-item>
+          <yulang-table-item prop="default" label="默认值" width="300px">
+          </yulang-table-item>
+        </yulang-table>
+      </template>
+
+      <template #w>
+        <yulang-table :data="tableDataEvent">
+          <yulang-table-item prop="eventName" label="事件名" width="100px">
+          </yulang-table-item>
+          <yulang-table-item prop="explain" label="说明" width="400px">
+          </yulang-table-item>
+          <yulang-table-item prop="callback" label="回调值" width="300px">
+          </yulang-table-item>
+        </yulang-table>
+      </template>
     </yulang-anchor-point>
   </div>
 </template>
 
 <script>
-import { codeStr, codeStr2, codeStr3, codeStr4 } from './data.js';
-
+import {
+  codeStr,
+  codeStr2,
+  codeStr3,
+  codeStr4,
+  tableDataAttributes,
+  tableDataEvent
+} from './data.js';
 
 export default {
   name: 'packages-demo-yulang-switch',
@@ -63,11 +96,16 @@ export default {
         { slotName: 'c', slotTitle: '文字描述', level: 2 },
         { slotName: 'd', slotTitle: '背景颜色设置', level: 2 },
         { slotName: 'e', slotTitle: '禁用设置', level: 2 },
+        { slotName: 'u', slotTitle: '阅读文档', level: 1 },
+        { slotName: 'v', slotTitle: '属性', level: 2 },
+        { slotName: 'w', slotTitle: '事件', level: 2 },
       ],
       codeStr,
       codeStr2,
       codeStr3,
       codeStr4,
+      tableDataAttributes, // 属性的table数据
+      tableDataEvent, // 事件的table数据
     };
   },
   methods: {

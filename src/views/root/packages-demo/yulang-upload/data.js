@@ -95,3 +95,52 @@ export default {
 }
 </script>
 `
+
+export const tableDataAttributes = [
+  {
+    attributeName: 'action',
+    explain: '上传给后端的地址',
+    type: 'String',
+    default: 'undefined',
+  },
+  {
+    attributeName: 'fileList',
+    explain: '传入的要上传的列表',
+    type: 'Array',
+    default: '[]',
+  },
+  {
+    attributeName: 'limit',
+    explain: '限制上传的数量',
+    type: 'Number',
+    default: '3',
+  },
+  {
+    attributeName: 'onPreview',
+    explain: '上传数量出错的回调函数',
+    type: 'Function',
+    default: 'undefined',
+    callback: 'limit,fileList'
+  },
+  {
+    attributeName: 'singlePicExceed',
+    explain: '限制单张图片大小',
+    type: 'String(kb或者mb)',
+    default: 'undefined',
+  },
+]
+
+export const tableDataSlots = [
+  {
+    slotName: '默认插槽',
+    explain: '提交点击区'
+  },
+  {
+    slotName: 'tips',
+    explain: '上传备注事项'
+  },
+  {
+    slotName: 'fileListSlot',
+    explain: '上传列表样式插槽'
+  }
+]

@@ -36,12 +36,28 @@
           >
         </yulang-describe-frame>
       </template>
+
+      <!-- 以下开始是阅读文档 -->
+      <template #u></template>
+
+      <template #v>
+        <yulang-table :data="tableDataAttributes">
+          <yulang-table-item prop="attributeName" label="属性名" width="250px">
+          </yulang-table-item>
+          <yulang-table-item prop="explain" label="说明" >
+          </yulang-table-item>
+          <yulang-table-item prop="type" label="类型">
+          </yulang-table-item>
+          <yulang-table-item prop="default" label="默认值" >
+          </yulang-table-item>
+        </yulang-table>
+      </template>
     </yulang-anchor-point>
   </div>
 </template>
 
 <script>
-import { codeStr, codeStr2, codeStr3 } from './data.js';
+import { codeStr, codeStr2, codeStr3,tableDataAttributes } from './data.js';
 
 export default {
   name: 'packages-demo-yulang-slider',
@@ -55,10 +71,13 @@ export default {
         { slotName: 'b', slotTitle: '基本用法', level: 2 },
         { slotName: 'c', slotTitle: '改变每一小步大小', level: 2 },
         { slotName: 'd', slotTitle: '外部点击框', level: 2 },
+        { slotName: 'u', slotTitle: '阅读文档', level: 1 },
+        { slotName: 'v', slotTitle: '属性', level: 2 },
       ],
       codeStr,
       codeStr2,
       codeStr3,
+      tableDataAttributes
     };
   },
   methods: {},
