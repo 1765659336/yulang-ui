@@ -13,11 +13,10 @@
 .describe-frame-header{
   background-color: white;
   margin: 1.5em;
-  color: @font-color;
 }
 
 .describe-frame-content{
-  background-color: rgb(250, 250, 250);
+  background-color: black;
   padding-top: .3em;
 
   .describe-frame-content-tip{
@@ -30,7 +29,7 @@
 
   .describe-frame-content-code{
     padding: 1em 2em;
-    color: rgb(49, 130, 189);
+    color: white;
   }
 }
 
@@ -67,6 +66,12 @@
     width: 20%;
     display: flex;
     justify-content: flex-end;
+
+    .copyBtn{
+      border:1px solid black;
+      padding: .3em .6em;
+      border-radius: 3px;
+    }
     
     &:hover{
       color: @font-blue-color;

@@ -98,7 +98,6 @@ export default {
       };
     },
     titleFontSize(item){
-      console.log(item.level,'item');
       //根据标题等级给字体大小
       if(item.level === 1 ) return this.fontSizeLevel[item.level].fontsize
       if(item.level === 2 ) return this.fontSizeLevel[item.level].fontsize

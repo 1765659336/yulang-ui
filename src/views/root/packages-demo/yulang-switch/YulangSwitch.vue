@@ -48,6 +48,7 @@
 <script>
 import { codeStr, codeStr2, codeStr3, codeStr4 } from './data.js';
 
+
 export default {
   name: 'packages-demo-yulang-switch',
   data() {

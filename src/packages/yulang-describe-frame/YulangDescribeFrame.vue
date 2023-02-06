@@ -3,7 +3,7 @@
     class="describe-frame-container"
     :style="{ '--container-width--': width }"
   >
-    <div class="describe-frame-header">
+    <div class="describe-frame-header" v-if="isheaderShow">
       <slot></slot>
     </div>
 
@@ -38,7 +38,9 @@
         <div v-else>隐藏代码</div>
       </div>
 
-      <div class="copy" v-copy="codeStr">复制</div>
+      <div class="copy">
+        <div class="copyBtn" v-copy="codeStr">复制</div>
+      </div>
     </div>
   </div>
 </template>
@@ -68,6 +70,9 @@ export default {
     isTipShow() {
       return this.$slots.tip;
     },
+    isheaderShow(){
+      return this.$slots.default
+    }
   },
   methods: {
     changeDescribeFrameHeight() {
@@ -98,7 +103,7 @@ export default {
           this.isShow = !this.isShow;
         }, 300);
       }
-    console.log(this, 'YulangDe');
+      console.log(this, 'YulangDe');
     },
   },
   mounted() {

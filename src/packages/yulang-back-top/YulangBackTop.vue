@@ -31,6 +31,7 @@ export default {
         return 0;
       },
     },
+    // 每次移动的间隔时间
     animationTime: {
       type: Number,
       default: () => {
