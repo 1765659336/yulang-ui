@@ -12,6 +12,11 @@ import YulangDialog from "@/packages/yulang-dialog/YulangDialog.vue";
 import YulangBackTop from "@/packages/yulang-back-top/YulangBackTop.vue";
 import YulangCheckbox from "@/packages/yulang-checkbox/YulangCheckbox.vue";
 import YulangSwitchCopy from "@/packages/yulang-switch-copy/YulangSwitchCopy.vue";
+import YulangForm from "@/packages/yulang-form/YulangForm.vue";
+import YulangFormItem from "@/packages/yulang-form-item/YulangFormItem.vue";
+import YulangInput from "@/packages/yulang-input/YulangInput.vue";
+import YulangTable from "@/packages/yulang-table/YulangTable.vue";
+import YulangTableItem from "@/packages/yulang-table-item/YulangTableItem.vue";
 
 // 引入icon
 import "../assets/icon/iconfont.css";
@@ -39,6 +44,11 @@ export const Packages = [
   YulangBackTop,
   YulangCheckbox,
   YulangSwitchCopy,
+  YulangForm,
+  YulangFormItem,
+  YulangInput,
+  YulangTable,
+  YulangTableItem
 ];
 
 const install = function (Vue, option) {
@@ -72,4 +82,9 @@ export default {
   YulangBackTop,
   YulangCheckbox,
   YulangSwitchCopy,
+  YulangForm,
+  YulangFormItem,
+  YulangInput,
+  YulangTable,
+  YulangTableItem
 };

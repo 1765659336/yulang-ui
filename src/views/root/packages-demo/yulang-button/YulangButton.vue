@@ -30,7 +30,6 @@
 
 <script>
 import { codeStr } from './data.js';
-
 export default {
   name: 'packages-demo-yulang-button',
   data() {

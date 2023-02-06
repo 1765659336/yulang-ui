@@ -15,6 +15,7 @@
     "package": "vue-cli-service build --target lib ./src/packages/index.js --dest yulang-ui-dist --name yulang-ui"
   },
   "dependencies": {
+    "async-validator": "^4.2.5",
     "core-js": "^3.8.3",
     "element-ui": "^2.15.12",
     "normalize.css": "^8.0.1",

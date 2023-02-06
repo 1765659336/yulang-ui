@@ -78,7 +78,7 @@ export const unionData = [
     active: false,
   },
   {
-    level: 2,
+    level: 2, 
     title: "Checkbox 复选框",
     path: "/root/packages-demo/yulang-checkbox",
     active: false,
@@ -87,6 +87,18 @@ export const unionData = [
     level: 2,
     title: "SwitchCopy 开关Copy",
     path: "/root/packages-demo/yulang-switch-copy",
+    active: false,
+  },
+  {
+    level: 2,
+    title: "Form 表单",
+    path: "/root/packages-demo/yulang-form",
+    active: false,
+  },
+  {
+    level: 2,
+    title: "Table 表格",
+    path: "/root/packages-demo/yulang-table",
     active: false,
   },
 ];
