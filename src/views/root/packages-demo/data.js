@@ -101,4 +101,10 @@ export const unionData = [
     path: "/root/packages-demo/yulang-table",
     active: false,
   },
+  {
+    level: 2,
+    title: "Notification 通知",
+    path: "/root/packages-demo/yulang-notification",
+    active: false,
+  },
 ];

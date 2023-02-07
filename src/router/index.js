@@ -20,6 +20,7 @@ import YulangCheckbox from "@/views/root/packages-demo/yulang-checkbox/YulangChe
 import YulangSwitchCopy from "@/views/root/packages-demo/yulang-switch-copy/YulangSwitchCopy.vue";
 import YulangForm from "@/views/root/packages-demo/yulang-form/YulangForm.vue";
 import YulangTable from "@/views/root/packages-demo/yulang-table/YulangTable.vue";
+import YulangNotification from "@/views/root/packages-demo/yulang-notification/YulangNotification.vue";
 
 // 处理路由重复跳转控制台报错
 const originalPush = VueRouter.prototype.push;
@@ -244,6 +245,16 @@ const routes = [
               keepAlive: true,
               isAuth: true,
               title: "表格Table Table",
+            },
+          },
+          {
+            path: "yulang-notification",
+            name: "yulang-notification",
+            component: YulangNotification,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "通知 Notification",
             },
           },
         ],

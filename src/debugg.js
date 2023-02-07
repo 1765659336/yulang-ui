@@ -4,6 +4,10 @@ import "@/assets/icon/reset.css";
 // 引入icon
 import "@/assets/icon/iconfont.css";
 import { Packages, Directives } from "@/packages/index";
+
+// 引入自定义方法(通知)
+import "@/packages/yulang-notification/index";
+
 Packages.forEach((component) => {
   Vue.component(component.name, component);
 });
