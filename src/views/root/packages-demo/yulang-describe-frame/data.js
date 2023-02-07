@@ -37,3 +37,29 @@ export const codeStr2 = `
   };
 </script>
 `
+
+export const tableDataAttributes = [
+  {
+    attributeName: 'codeStr',
+    explain: '传入的内容区代码',
+    type: 'String',
+    default: 'null',
+  },
+  {
+    attributeName: 'width',
+    explain: '描述框的宽度',
+    type: 'String',
+    default: 'undefined',
+  },
+]
+
+export const tableDataSlots = [
+  {
+    slotName:'默认插槽',
+    explain:'顶部显示区'
+  },
+  {
+    slotName:'tip',
+    explain:'代码提示区'
+  },
+]

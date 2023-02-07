@@ -15,30 +15,35 @@
 export default {
   name: "yulang-link",
   props: {
+    // 文字颜色、a标签背景色
     mainColor: {
       type: String,
       default: () => {
         return "#54138c";
       },
     },
+    // 跳转地址
     url: {
       type: String,
       default: () => {
         return "";
       },
     },
+    // a标签target对应的属性
     target: {
       type: String,
       default: () => {
         return "_self";
       },
     },
+    // 是否不可点击
     disabled: {
       type: Boolean,
       default: () => {
         return false;
       },
     },
+    // 是否存在下划线
     openUnderline: {
       type: Boolean,
       default: () => {

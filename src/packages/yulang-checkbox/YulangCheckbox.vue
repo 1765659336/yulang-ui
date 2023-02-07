@@ -17,12 +17,16 @@
 export default {
   name: "yulang-checkbox",
   props: {
+    // 是否选中
     value: {
       type: Boolean,
+      default:false
     },
+    // 右侧标签名
     label: {
       type: String,
     },
+    // 是否禁用
     disabled: {
       type: Boolean,
       default: () => {

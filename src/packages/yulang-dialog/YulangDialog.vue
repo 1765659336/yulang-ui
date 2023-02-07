@@ -41,8 +41,10 @@ export default {
     return {};
   },
   props: {
+    // 弹窗是否可见
     visible: {
       type: Boolean,
+      default: false
     },
     // 关闭对话框的之前的函数
     beforeClose: {

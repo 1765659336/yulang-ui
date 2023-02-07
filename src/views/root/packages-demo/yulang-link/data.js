@@ -55,3 +55,51 @@ export const codeStr5 = `
   ></div>
 </yulang-link>
 `
+
+export const tableDataAttributes = [
+  {
+    attributeName: 'mainColor',
+    explain: '文字颜色、a标签背景色',
+    type: 'String(HEX、RGB)',
+    default: '#54138c',
+  },
+  {
+    attributeName: 'url',
+    explain: '跳转地址',
+    type: 'String',
+    default: '\'\'',
+  },
+  {
+    attributeName: 'target',
+    explain: 'a标签target对应的属性',
+    type: 'String(_blank、_self、_parent、_top)',
+    default: '_self',
+  },
+  {
+    attributeName: 'disabled',
+    explain: '是否不可点击',
+    type: 'Boolean',
+    default: 'false',
+  },
+  {
+    attributeName: 'openUnderline',
+    explain: '是否存在下划线',
+    type: 'Boolean',
+    default: 'true',
+  },
+]
+
+export const tableDataSlots = [
+  {
+    slotName: '默认插槽',
+    explain: '点击跳转区'
+  },
+]
+
+export const tableDataEvents = [
+  {
+    eventName:'clickCallback',
+    explain:'跳转后触发',
+    callback:'(event: Event)'
+  }
+]

@@ -13,18 +13,21 @@
 export default {
   name: "yulang-back-top",
   props: {
+    // 相对于屏幕右边的位置
     right: {
       type: Number,
       default: () => {
         return 0;
       },
     },
+    // 相对于屏幕下边的位置
     bottom: {
       type: Number,
       default: () => {
         return 0;
       },
     },
+    // 下移距离顶部多少时出现或者消失
     hiddenValue: {
       type: Number,
       default: () => {

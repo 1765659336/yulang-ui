@@ -9,7 +9,6 @@
           <yulang-dialog
             :visible.sync="dialogVisible"
             :before-close="handleClose"
-            key="1"
           >
           </yulang-dialog>
           <template #tip>
@@ -39,12 +38,45 @@
           </template>
         </yulang-describe-frame>
       </template>
+
+      <!-- 以下开始是阅读文档 -->
+      <template #u></template>
+
+      <template #v>
+        <yulang-table :data="tableDataAttributes">
+          <yulang-table-item prop="attributeName" label="属性名">
+          </yulang-table-item>
+          <yulang-table-item prop="explain" label="说明"> </yulang-table-item>
+          <yulang-table-item prop="type" label="类型"> </yulang-table-item>
+          <yulang-table-item prop="default" label="默认值"> </yulang-table-item>
+          <yulang-table-item prop="callback" label="回调函数参数">
+          </yulang-table-item>
+        </yulang-table>
+      </template>
+
+      <template #w>
+        <yulang-table :data="tableDataSlots">
+          <yulang-table-item prop="slotName" label="插槽名">
+          </yulang-table-item>
+          <yulang-table-item prop="explain" label="说明"> </yulang-table-item>
+        </yulang-table>
+      </template>
+
+      <template #x>
+        <yulang-table :data="tableDataSlotAttributes">
+          <yulang-table-item prop="slotName" label="插槽名">
+          </yulang-table-item>
+          <yulang-table-item prop="scopeAttributeName" label="作用域属性名"> </yulang-table-item>
+          <yulang-table-item prop="explain" label="说明"> </yulang-table-item>
+          <yulang-table-item prop="arguments" label="参数"> </yulang-table-item>
+        </yulang-table>
+      </template>
     </yulang-anchor-point>
   </div>
 </template>
 
 <script>
-import { codeStr, codeStr2 } from './data.js';
+import { codeStr, codeStr2,tableDataAttributes,tableDataSlots,tableDataSlotAttributes } from './data.js';
 
 export default {
   name: 'packages-demo-yulang-dialog',
@@ -56,9 +88,16 @@ export default {
         { slotName: 'a', slotTitle: 'Dialog 对话框', level: 1 },
         { slotName: 'b', slotTitle: '基本用法', level: 2 },
         { slotName: 'c', slotTitle: '可以定义footer插槽', level: 2 },
+        { slotName: 'u', slotTitle: '阅读文档', level: 1 },
+        { slotName: 'v', slotTitle: '属性', level: 2 },
+        { slotName: 'w', slotTitle: '插槽', level: 2 },
+        { slotName: 'x', slotTitle: '插槽作用域属性', level: 2 },
       ],
       codeStr,
       codeStr2,
+      tableDataAttributes,
+      tableDataSlots,
+      tableDataSlotAttributes
     };
   },
   methods: {

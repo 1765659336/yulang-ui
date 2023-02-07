@@ -9,7 +9,7 @@
     <yulang-describe-frame :codeStr="codeStr">
       <template #tip>
         <div>通过bottom、right来设置位置</div>
-        <div>hiddenValue是表示距离顶部多少时出现或者消失</div>
+        <div>hiddenValue是表示下移距离顶部多少时出现或者消失</div>
         <div>animationTime表示滚动时间间隔</div>
       </template>
     </yulang-describe-frame>
@@ -25,27 +25,31 @@
       :animationTime="100"
       >慢速回到顶部
     </yulang-back-top>
+    <br /><br />
+
+    <!-- 文档部分 -->
+    <h1>阅读文档</h1>
+    <h2>属性</h2>
+    <yulang-table :data="tableDataAttributes">
+      <yulang-table-item prop="attributeName" label="属性名">
+      </yulang-table-item>
+      <yulang-table-item prop="explain" label="说明"> </yulang-table-item>
+      <yulang-table-item prop="type" label="类型"> </yulang-table-item>
+      <yulang-table-item prop="default" label="默认值"> </yulang-table-item>
+    </yulang-table>
   </div>
 </template>
 
 <script>
-import { article, codeStr } from './data.js';
+import { article, codeStr,tableDataAttributes } from './data.js';
 
 export default {
   name: 'packages-yulang-back-top',
   data() {
     return {
-      slotArr: [
-        { slotName: 'a', slotTitle: 'BackTop 回到顶部', level: 1 },
-        {
-          slotName: 'b',
-          slotTitle: '请向下滚动(右下角会有回到顶部的按钮)',
-          level: 2,
-        },
-        { slotName: 'c', slotTitle: '基本使用', level: 2 },
-      ],
       article,
       codeStr,
+      tableDataAttributes
     };
   },
 };

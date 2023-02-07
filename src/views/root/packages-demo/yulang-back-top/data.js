@@ -14,6 +14,33 @@ export const codeStr = `
 </yulang-back-top>
 `
 
+export const tableDataAttributes = [
+  {
+    attributeName: 'right',
+    explain: '相对于屏幕右边的位置',
+    type: 'Number',
+    default: '0',
+  },
+  {
+    attributeName: 'bottom',
+    explain: '相对于屏幕下边的位置',
+    type: 'Number',
+    default: '0',
+  },
+  {
+    attributeName: 'hiddenValue',
+    explain: '下移距离顶部多少时出现或者消失',
+    type: 'Number',
+    default: '0',
+  },
+  {
+    attributeName: 'animationTime',
+    explain: '每次移动的间隔时间',
+    type: 'Number',
+    default: '0',
+  },
+]
+
 export const article = `
 琵琶行 / 琵琶引
 

@@ -22,3 +22,24 @@ export default {
 }
 </script>
 `
+
+export const tableDataAttributes = [
+  {
+    attributeName: 'value',
+    explain: '是否选中',
+    type: 'Boolean',
+    default: 'false',
+  },
+  {
+    attributeName: 'label',
+    explain: '右侧标签名',
+    type: 'String',
+    default: 'undefined',
+  },
+  {
+    attributeName: 'disabled',
+    explain: '是否禁用',
+    type: 'Boolean',
+    default: 'false',
+  },
+]

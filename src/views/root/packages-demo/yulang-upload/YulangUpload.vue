@@ -51,26 +51,6 @@
         </yulang-describe-frame>
       </template>
 
-      <!-- 饿了么的上传组件 -->
-      <template #d>
-        <el-upload
-          class="upload-demo"
-          action="https://jsonplaceholder.typicode.com/posts/"
-          :on-preview="handlePreview"
-          :on-remove="handleRemove"
-          :before-remove="beforeRemove"
-          multiple
-          :limit="3"
-          :on-exceed="handleExceed"
-          :file-list="fileList"
-        >
-          <el-button size="small" type="primary">点击上传</el-button>
-          <div slot="tip" class="el-upload__tip">
-            只能上传jpg/png文件,且不超过500kb
-          </div>
-        </el-upload>
-      </template>
-
       <!-- 以下开始是阅读文档 -->
       <template #u></template>
 
@@ -122,7 +102,6 @@ export default {
         { slotName: 'a', slotTitle: 'Upload 上传', level: 1 },
         { slotName: 'b', slotTitle: '基本用法', level: 2 },
         { slotName: 'c', slotTitle: '列表展示出来的样式插槽', level: 2 },
-        { slotName: 'd', slotTitle: '饿了么的上传组件', level: 2 },
         { slotName: 'u', slotTitle: '阅读文档', level: 1 },
         { slotName: 'v', slotTitle: '属性', level: 2 },
         { slotName: 'w', slotTitle: '插槽', level: 2 },
