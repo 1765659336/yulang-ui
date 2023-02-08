@@ -1,7 +1,18 @@
+// 通知父组件的样式
+#notificationParentId {
+  position: fixed;
+  top: 150px;
+  left: 20px;
+  height: 80vh;
+  overflow: scroll;
+}
+
 .notification-container {
+  z-index: var(--index--);
   display: flex;
   padding: 1em;
   margin-bottom: 1em;
+  width: 17em;
   border: 1px solid black;
   border-radius: 4px;
   background-color: white;
@@ -34,4 +45,20 @@
     width: 1em;
     height: 1em;
   }
+}
+
+/* 进入的第一帧和离开的最后一帧 */
+.hh-enter,
+.hh-leave-to {
+  transform: translateX(-100%);
+}
+/* 进入的最后一帧和离开的第一帧 */
+.hh-enter-to,
+.hh-leave {
+  transform: translateX(0%);
+}
+/* 进入和离开的时间、节奏等效果 */
+.hh-enter-active,
+.hh-leave-active {
+  transition: 0.5s linear;
 }

@@ -8,6 +8,10 @@ import { Packages, Directives } from "@/packages/index";
 // 引入自定义方法(通知)
 import "@/packages/yulang-notification/index";
 
+// 引入全局index
+import Index from '@/tools/getIndex'
+Vue.prototype.$index = new Index(3000)
+
 Packages.forEach((component) => {
   Vue.component(component.name, component);
 });
