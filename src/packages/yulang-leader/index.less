@@ -1,0 +1,66 @@
+// 格子直接间隙
+@celldpace: 0.7em;
+
+.mask-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(178, 179, 180, 0.4);
+}
+
+.leader-container-Item {
+  position: absolute;
+  top: var(--box-item-top--);
+  left: var(--box-item-left--);
+  width: 15em;
+  padding: @celldpace;
+  border-radius: 4px;
+  background-color: white;
+  transform: var(--box-item-transform--);
+}
+
+.leader-container-Item-haeder {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: @celldpace;
+
+  img {
+    height: 1em;
+    width: 1em;
+    cursor: pointer;
+  }
+}
+
+.leader-container-Item-body {
+  padding-bottom: @celldpace;
+}
+
+.leader-container-Item-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  .leader-container-Item-footer-progress{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+
+    .leader-container-Item-footer-progress-one{
+      margin: 0em .5em;
+      width: .5em;
+      height: .5em;
+      border: 1px solid black;
+      border-radius: 100%;
+    }
+  }
+
+  .leader-container-Item-footer-nextstep {
+    width: 20%;
+    padding: 0.2em 0.4em;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;  
+  }
+}

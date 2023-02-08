@@ -41,7 +41,6 @@ export default {
     };
   },
   mounted() {
-    console.log('this.$children',this.$children);
     this.$children.map((item) => {
       if (item.prop) {
         this.fieldSort.push({ prop: item.prop, width: item.width });

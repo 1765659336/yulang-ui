@@ -64,28 +64,37 @@ export default {
   },
   methods: {
     deleteNotificationComponent() {
-      document.querySelector('#notificationParentId').removeChild(this.$el);
+      document.querySelector('#notificationParentId')?.removeChild(this.$el);
+      this.deleteParentNode();
+    },
+    // 是否删除父元素
+    deleteParentNode() {
+      const notificationParentId = document.querySelector(
+        '#notificationParentId'
+      );
+      console.log(notificationParentId.children.length);
+      // 最后一个,删除父元素
+      if (notificationParentId.children.length <= 0) {
+        console.log(notificationParentId.parentNode);
+        notificationParentId.parentNode.removeChild(notificationParentId);
+      }
     },
   },
   mounted() {
     // 如果未设置参数则持久显示
     if (this.timeout) {
       // 判断是否这个结束时间最小不小于500ms,小于500ms则为500ms
-      if (this.timeout < 500) {
-        this.$nextTick(() => {
-          const time = setTimeout(() => {
+      this.$nextTick(() => {
+        const time = setTimeout(
+          () => {
             clearTimeout(time);
             this.isShow = false;
-          }, 500);
-        });
-      } else {
-        this.$nextTick(() => {
-          const time = setTimeout(() => {
-            clearTimeout(time);
-            this.isShow = false;
-          }, this.timeout - 500);
-        });
-      }
+            // 这个时间要稍微长一点，不然会认为还没删
+            setTimeout(() => this.deleteParentNode(), 600);
+          },
+          this.timeout > 500 ? this.timeout - 500 : 500
+        );
+      });
     }
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <div class="yulang-head-container">
+  <div class="yulang-head-container" id="yulang-head-container">
     <h3 class="yulang-head-title">
       <img src="@/assets/images/langicon.png" alt="">
     </h3>
@@ -15,12 +15,6 @@
       </div>
     </div>
     <div>中文</div>
-    <!-- <yulang-button @click="btn" size="small">不禁用按钮</yulang-button>
-    <yulang-button type="success" size="mini">不禁用按钮</yulang-button>
-    <yulang-button type="error">不禁用按钮</yulang-button>
-    <yulang-button disabled @click="btn">按钮</yulang-button>
-    <yulang-button disabled>不禁用按钮</yulang-button>
-    <yulang-button disabled>不禁用按钮</yulang-button> -->
   </div>
 </template>
 

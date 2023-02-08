@@ -55,6 +55,14 @@
         </yulang-describe-frame>
       </template>
 
+      <!-- <template #f>
+        <yulang-describe-frame>
+          <yulang-button @click="showNoticeSetH()" type="success">
+            成功消息
+          </yulang-button>
+        </yulang-describe-frame>
+      </template> -->
+
       <!-- 以下开始是阅读文档 -->
       <template #u></template>
 
@@ -90,6 +98,7 @@ export default {
         { slotName: 'c', slotTitle: '自动消失', level: 2 },
         { slotName: 'd', slotTitle: '默认标题无类型', level: 2 },
         { slotName: 'e', slotTitle: '设置标题', level: 2 },
+        { slotName: 'f', slotTitle: '使用h函数渲染', level: 2 },
         { slotName: 'u', slotTitle: '阅读文档', level: 1 },
         { slotName: 'v', slotTitle: '属性', level: 2 },
       ],
@@ -114,7 +123,7 @@ export default {
     showNoticeDefault() {
       this.$notification({
         message: '开来玩摇摇车',
-      })
+      });
     },
     showNoticeSetTitle(type) {
       this.$notification({
@@ -122,6 +131,19 @@ export default {
         type,
       });
     },
+    // showNoticeSetH() {
+    //   const h = this.$createElement;
+
+    //   this.$notification({
+    //     title: h('div', null, { default: h('div', null, 'can can need') }),
+    //     title: h('div', null, { default: h('div', null, 'can can need') }),
+    //     title: h('div', null,[
+    //       this.$slots.default({
+    //         text: '1111',
+    //       }),
+    //     ]),
+    //   });
+    // },
   },
 };
 </script>

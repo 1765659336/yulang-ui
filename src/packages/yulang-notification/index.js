@@ -17,9 +17,13 @@ function install(option) {
       return { ...option }
     }
   }).$mount()
+
+  // 判断是否存在notificationParentId,不存在创建
+  !document.querySelector('#notificationParentId') && createNotificationParent()
+
   // 将实例对象挂载到bod上的id为notificationParentId身上
   document.querySelector('#notificationParentId').appendChild(instance.$el)
-}
+} 
 
 // 创建所有通知消息的父盒子(用于自盒子自动向下延展)
 function createNotificationParent() {
@@ -28,5 +32,5 @@ function createNotificationParent() {
   document.body.appendChild(notificationParent)
 }
 
-createNotificationParent()
+
 Vue.prototype.$notification = install

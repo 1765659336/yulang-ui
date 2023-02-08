@@ -1,6 +1,6 @@
 <template>
   <div class="yulang-packages-union">
-    <div class="component-menu">
+    <div class="component-menu" id="component-menu">
       <div class="menu-title-1 menu-title-level2-common">更新日志</div>
       <div class="menu-title-1 menu-title-level2-common">开发指南</div>
       <div

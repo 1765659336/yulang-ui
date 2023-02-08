@@ -119,4 +119,10 @@ export const unionData = [
     path: "/root/packages-demo/yulang-loading",
     active: false,
   },
+  {
+    level: 2,
+    title: "Leader 引导",
+    path: "/root/packages-demo/yulang-leader",
+    active: false,
+  },
 ];

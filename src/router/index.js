@@ -23,6 +23,7 @@ import YulangTable from "@/views/root/packages-demo/yulang-table/YulangTable.vue
 import YulangNotification from "@/views/root/packages-demo/yulang-notification/YulangNotification.vue";
 import YulangMessage from "@/views/root/packages-demo/yulang-message/YulangMessage.vue";
 import YulangLoading from "@/views/root/packages-demo/yulang-loading/YulangLoading.vue";
+import YulangLeader from "@/views/root/packages-demo/yulang-leader/YulangLeader.vue";
 
 // 处理路由重复跳转控制台报错
 const originalPush = VueRouter.prototype.push;
@@ -276,7 +277,17 @@ const routes = [
             meta: {
               keepAlive: true,
               isAuth: true,
-              title: "消息提示Loading Loading",
+              title: "加载中Loading Loading",
+            }
+          },
+          {
+            path: "yulang-leader",
+            name: "yulang-leader",
+            component: YulangLeader,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "引导 Leader",
             },
           },
         ],

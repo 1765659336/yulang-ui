@@ -17,6 +17,7 @@ import YulangFormItem from "@/packages/yulang-form-item/YulangFormItem.vue";
 import YulangInput from "@/packages/yulang-input/YulangInput.vue";
 import YulangTable from "@/packages/yulang-table/YulangTable.vue";
 import YulangTableItem from "@/packages/yulang-table-item/YulangTableItem.vue";
+import YulangLeader from "@/packages/yulang-leader/YulangLeader.vue";
 
 // 引入icon
 import "../assets/icon/iconfont.css";
@@ -57,6 +58,7 @@ export const Packages = [
   YulangInput,
   YulangTable,
   YulangTableItem,
+  YulangLeader
 ];
 
 const install = function (Vue, option) {
@@ -99,4 +101,5 @@ export default {
   YulangInput,
   YulangTable,
   YulangTableItem,
+  YulangLeader
 };
