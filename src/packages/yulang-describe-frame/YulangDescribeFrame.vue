@@ -40,7 +40,7 @@
       </div>
 
       <div class="copy">
-        <div class="copyBtn" v-copy="codeStr">复制</div>
+        <div class="copyBtn" v-YulangCopy="codeStr">复制</div>
       </div>
     </div>
   </div>

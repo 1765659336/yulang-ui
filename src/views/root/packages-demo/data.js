@@ -78,7 +78,7 @@ export const unionData = [
     active: false,
   },
   {
-    level: 2, 
+    level: 2,
     title: "Checkbox 复选框",
     path: "/root/packages-demo/yulang-checkbox",
     active: false,
@@ -105,6 +105,18 @@ export const unionData = [
     level: 2,
     title: "Notification 通知",
     path: "/root/packages-demo/yulang-notification",
+    active: false,
+  },
+  {
+    level: 2,
+    title: "Message 消息提示",
+    path: "/root/packages-demo/yulang-message",
+    active: false,
+  },
+  {
+    level: 2,
+    title: "Loading 加载中",
+    path: "/root/packages-demo/yulang-loading",
     active: false,
   },
 ];

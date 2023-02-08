@@ -21,6 +21,8 @@ import YulangSwitchCopy from "@/views/root/packages-demo/yulang-switch-copy/Yula
 import YulangForm from "@/views/root/packages-demo/yulang-form/YulangForm.vue";
 import YulangTable from "@/views/root/packages-demo/yulang-table/YulangTable.vue";
 import YulangNotification from "@/views/root/packages-demo/yulang-notification/YulangNotification.vue";
+import YulangMessage from "@/views/root/packages-demo/yulang-message/YulangMessage.vue";
+import YulangLoading from "@/views/root/packages-demo/yulang-loading/YulangLoading.vue";
 
 // 处理路由重复跳转控制台报错
 const originalPush = VueRouter.prototype.push;
@@ -255,6 +257,26 @@ const routes = [
               keepAlive: true,
               isAuth: true,
               title: "通知 Notification",
+            },
+          },
+          {
+            path: "yulang-message",
+            name: "yulang-message",
+            component: YulangMessage,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "消息提示Message Message",
+            },
+          },
+          {
+            path: "yulang-loading",
+            name: "yulang-loading",
+            component: YulangLoading,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "消息提示Loading Loading",
             },
           },
         ],

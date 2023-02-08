@@ -11,7 +11,7 @@ export default {
       
       if (!el.targetContent)
         return console.warn(
-          `v-copy warning: [${el}]-The value of the copy is empty`
+          `v-YulangCopy warning: [${el}]-The value of the copy is empty`
         );
       // 创建textarea标签
       const textarea = document.createElement("textarea");

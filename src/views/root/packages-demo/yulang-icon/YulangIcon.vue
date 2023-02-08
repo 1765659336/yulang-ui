@@ -4,7 +4,7 @@
       v-for="(item, index) in iconArr"
       :key="index"
       class="icon-container-item"
-      v-copy:[copySuccess]="item.value"
+      v-YulangCopy:[copySuccess]="item.value"
     >
       <div class="icon center">
         <i :class="['iconfont', item.name]"></i>

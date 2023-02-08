@@ -24,11 +24,19 @@ import "../assets/icon/iconfont.css";
 import "../assets/icon/reset.css";
 
 // 自定义指令
-import Copy from "@/instruction/copy";
+import YulangCopy from "@/instruction/copy";
+import YulangLoading from "@/instruction/loading";
 // 自定义指令对象
 export const Directives = {
-  Copy,
+  YulangCopy,
+  YulangLoading,
 };
+
+// 自定义函数
+import { Loading } from "@/createNode/loading";
+// 自定义函数对象
+export const CreateNode = [{ name: "$yulangLoading", value: Loading }];
+
 // 自定义组件数组
 export const Packages = [
   YulangButton,
@@ -48,7 +56,7 @@ export const Packages = [
   YulangFormItem,
   YulangInput,
   YulangTable,
-  YulangTableItem
+  YulangTableItem,
 ];
 
 const install = function (Vue, option) {
@@ -59,6 +67,10 @@ const install = function (Vue, option) {
 
   Object.keys(Directives).forEach((key) => {
     Vue.directive(key, Directives[key]);
+  });
+
+  CreateNode.forEach((createNodeObj) => {
+    Vue.prototype[createNodeObj.name] = createNodeObj.value;
   });
 };
 
@@ -86,5 +98,5 @@ export default {
   YulangFormItem,
   YulangInput,
   YulangTable,
-  YulangTableItem
+  YulangTableItem,
 };

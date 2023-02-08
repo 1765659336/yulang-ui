@@ -3,7 +3,7 @@ import Vue from "vue";
 import "@/assets/icon/reset.css";
 // 引入icon
 import "@/assets/icon/iconfont.css";
-import { Packages, Directives } from "@/packages/index";
+import { Packages, Directives, CreateNode } from "@/packages/index";
 
 // 引入自定义方法(通知)
 import "@/packages/yulang-notification/index";
@@ -18,4 +18,8 @@ Packages.forEach((component) => {
 
 Object.keys(Directives).forEach((key) => {
   Vue.directive(key, Directives[key]);
+});
+
+CreateNode.forEach((createNodeObj) => {
+  Vue.prototype[createNodeObj.name] = createNodeObj.value;
 });
