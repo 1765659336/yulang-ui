@@ -1,5 +1,5 @@
 <template>
-  <div class="packages-checkbox-container">
+  <div class="packages-checkbox-container" @click="$listeners.click">
     <input
       ref="checkboxRef"
       type="checkbox"
@@ -20,7 +20,7 @@ export default {
     // 是否选中
     value: {
       type: Boolean,
-      default:false
+      default: false,
     },
     // 右侧标签名
     label: {
@@ -32,6 +32,10 @@ export default {
       default: () => {
         return false;
       },
+    },
+    // 值改变发生的回调
+    valueChange: {
+      type: Function,
     },
   },
   computed: {
@@ -47,12 +51,14 @@ export default {
   methods: {
     inputValueChange(value) {
       this.inputValue = value.target.checked;
+      this.valueChange && this.valueChange(this.inputValue);
     },
-  },
-  mounted() {
-    console.log(this);
   },
 };
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.packages-checkbox-container {
+  display: inline-block;
+}
+</style>

@@ -1,9 +1,12 @@
 <template>
   <div>
+    {{ data }}
     <yulang-tree
-      :data="data"
+      v-model="data"
       :props="defaultProps"
+      showCheckbox
       @nodeClick="handleNodeClick"
+      @checkChange="handleCheckChange"
     ></yulang-tree>
   </div>
 </template>
@@ -78,7 +81,10 @@ export default {
   },
   methods: {
     handleNodeClick(data) {
-      console.log(data);
+      console.log(data, "handleNodeClick");
+    },
+    handleCheckChange(data) {
+      console.log(data, "handleCheckChange");
     },
   },
 };
