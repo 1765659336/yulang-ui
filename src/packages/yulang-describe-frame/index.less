@@ -1,0 +1,112 @@
+// 灰色字体颜色
+@font-color:#aaa;
+
+// 蓝色字体
+@font-blue-color:#409eff;
+
+.describe-frame-container{
+  border: 1px solid @font-color;
+  border-radius: 3px;
+  width: var(--container-width--);
+}
+
+.describe-frame-header{
+  background-color: white;
+  margin: 1.5em;
+}
+
+.describe-frame-content{
+  background-color: black;
+  padding-top: .3em;
+
+  .describe-frame-content-tip{
+    background-color: white;
+    margin: 1em 1em 0;
+    padding: 1em;
+    border: 1px solid @font-color;
+    border-radius: 3px;
+  }
+
+  .describe-frame-content-code{
+    padding: 1em 2em;
+    color: white;
+  }
+}
+
+.describe-frame-footer{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: white;
+  padding: 1.5em;
+  border-top: 1px solid @font-color;
+
+
+  .describe-frame-footer-center{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+
+    img{
+      width:1em;
+      height: 1em;
+    }
+
+    &:hover{
+      color: @font-blue-color;
+    }
+  }
+
+
+  div{
+    cursor: pointer;
+  }
+
+  .copy{
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+
+    .copyBtn{
+      border:1px solid black;
+      padding: .3em .6em;
+      border-radius: 3px;
+    }
+    
+    &:hover{
+      color: @font-blue-color;
+    }
+  }
+}
+
+.describe-frame-content-animation{
+  overflow: hidden;
+  background-color: white;
+}
+
+.describeFrameContentAnimation{
+  animation: showContent .3s forwards;
+}
+
+.describeFrameContentAnimationReverse{
+  animation: noshowContent .3s forwards;
+}
+
+@keyframes showContent{
+  0%{
+    height: 0px;
+  }
+  100% {
+    height: var(--height-content--);
+  }
+}
+
+@keyframes noshowContent{
+  0%{
+    height: var(--height-content--);
+  }
+  100% {
+    height: 0px;
+  }
+}
+

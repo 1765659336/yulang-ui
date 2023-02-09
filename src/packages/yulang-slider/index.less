@@ -1,0 +1,64 @@
+// 整个组件的高度
+@wholeHeight: 16px;
+// 滑块行高度
+@silderHeight: 6px;
+// 滑块行弧度
+@silderRowRadius: 5px;
+// 完成颜色
+@successColor:#57a3f3;
+
+.packages-yulang-slider-container {
+    align-items: center;
+    display: flex;
+    height: @wholeHeight;
+    width: 300px;
+}
+
+.left {
+    height: @silderHeight;
+    background-color: @successColor;
+    border-bottom-left-radius: @silderRowRadius;    
+    border-top-left-radius: @silderRowRadius;    
+}
+
+.knob {
+    display: flex;
+    height: @wholeHeight;
+    width: @wholeHeight;
+    border-radius: 50%;
+    background-color:@successColor;
+    cursor: pointer;
+
+    .knobContent{
+        height: 80%;
+        width: 80%;
+        margin: auto;
+        border-radius: 50%;
+        background-color: #e8eaec;
+    }
+
+    &:hover{
+        animation: scaleAnimation  .3s forwards;
+    }
+}
+
+@keyframes scaleAnimation { // 动画设置
+    0%{
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+.knobClickClass{
+    animation: scaleAnimation  .3s forwards;
+}
+
+.right {
+    flex: 1;
+    height: @silderHeight;
+    background-color: #e8eaec;
+    border-bottom-right-radius: @silderRowRadius;    
+    border-top-right-radius: @silderRowRadius;  
+}

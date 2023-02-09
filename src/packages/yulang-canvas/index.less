@@ -1,0 +1,46 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 600px;
+
+  .canvasBroad {
+    position: relative;
+    flex: 1;
+
+    .canvas {
+      position: fixed;
+      border: 1px red solid;
+    }
+    .canvas2 {
+      position: fixed;
+      top: 80px;
+      border: 1px black solid;
+    }
+    .canvas3 {
+      position: fixed;
+      top: 70px;
+      border: 1px blue solid;
+    }
+  }
+
+  .bottomMenu {
+    height: 10vh;
+
+    .chooseColor {
+      margin: 30px 15px 0px 0;
+      width: 20px;
+      height: 20px;
+      border: 1px black solid;
+      cursor: pointer;
+    }
+
+    .chooseingColor {
+      margin: 30px 15px 0px 0;
+      width: 20px;
+      height: 20px;
+      border: 1px red solid;
+      cursor: pointer;
+    }
+  }
+}

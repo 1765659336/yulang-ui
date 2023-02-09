@@ -1,0 +1,59 @@
+// 锚点导航距离父级右侧的距离
+@anchor-point-absolute-right: 10px;
+
+// 锚点导航距离顶部和底部的距离
+@anchor-point-margin-top-bottom: 20px;
+
+// 锚点内容区的宽度
+@anchor-point-content-width: 80%;
+
+
+.packages-main-form-anchor-point-container {
+    width: 100%;
+    overflow-y: auto;
+    height: var(--height-container--);
+
+    .packages-main-form-anchor-point-content {
+        width: 100%;
+
+
+        .packages-main-form-anchor-point-content-item-title {
+            width: 100%;
+            height: 24px;
+            line-height: 24px;
+            font-weight: 1000;
+            font-size: var(--title-font-size--);
+            border-radius: 5px;
+        }
+    }
+
+    .packages-main-form-anchor-point-click {
+        position: fixed;
+        top: var(--offsetTop-container--);
+        width: calc(100% - @anchor-point-content-width - @anchor-point-absolute-right - 4px);
+        right: @anchor-point-absolute-right;
+        // 减去上下两个边框的大小
+        max-height: calc(100% - @anchor-point-margin-top-bottom * 2 - 4px);
+        margin: @anchor-point-margin-top-bottom 0;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        background-color: white;
+
+        .packages-main-form-anchor-point-click-item {
+            width: 100%;
+            display: flex;
+            margin: .5em;
+            justify-content: flex-start;
+        }
+
+        .packages-main-form-anchor-point-click-item-level1{
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+
+        .packages-main-form-anchor-point-click-item-level2{
+            font-size: 1rem;
+            font-weight: 600;
+        }
+    }
+}

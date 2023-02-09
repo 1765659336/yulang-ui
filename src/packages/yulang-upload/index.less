@@ -1,0 +1,51 @@
+// 灰色字体
+@FontColor : #aaa;
+// 灰色背景
+@backColor : #f5f7fa;
+
+// 文件提交列表的动画效果
+/* 进入的第一帧和离开的最后一帧 */
+.fileItemAnimation-enter,.fileItemAnimation-leave-to{
+  // transform: translateY(-100%);
+  opacity: 0;
+}
+/* 进入的最后一帧和离开的第一帧 */
+.fileItemAnimation-enter-to,.fileItemAnimation-leave{
+  // transform: translateX(0%);
+  opacity: 1;
+}
+
+/* 进入和离开的时间、节奏等效果 */
+.fileItemAnimation-enter-active,.fileItemAnimation-leave-active{
+  transition: .5s linear;
+}
+
+.fileListClass{
+  color: @FontColor;
+  font-size: .8rem;
+  display: flex;
+  align-items: center;
+  padding: .5em;
+  margin-top: .3em;
+  cursor: pointer;
+
+  .fileItemImageClass{
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 1em;
+  }
+
+  img:nth-last-child(1){
+    width: 1em;
+    height: 1em;
+    margin-left: auto;
+  }
+
+  &:hover{
+    background: @backColor;
+  }
+}
+
+.TipClass{
+  color: @FontColor;
+}
