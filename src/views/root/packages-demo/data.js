@@ -121,6 +121,12 @@ export const unionData = [
   },
   {
     level: 2,
+    title: "Tree 树",
+    path: "/root/packages-demo/yulang-tree",
+    active:false,
+  },
+  { 
+    level:2,
     title: "Leader 引导",
     path: "/root/packages-demo/yulang-leader",
     active: false,

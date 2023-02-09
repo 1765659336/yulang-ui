@@ -17,6 +17,7 @@ import YulangFormItem from "@/packages/yulang-form-item/YulangFormItem.vue";
 import YulangInput from "@/packages/yulang-input/YulangInput.vue";
 import YulangTable from "@/packages/yulang-table/YulangTable.vue";
 import YulangTableItem from "@/packages/yulang-table-item/YulangTableItem.vue";
+import YulangTree from "@/packages/yulang-tree/YulangTree.vue";
 import YulangLeader from "@/packages/yulang-leader/YulangLeader.vue";
 
 // 引入icon
@@ -58,8 +59,12 @@ export const Packages = [
   YulangInput,
   YulangTable,
   YulangTableItem,
+  YulangTree,
   YulangLeader
 ];
+
+// 工具函数
+import * as Lib from "@/packages/lib";
 
 const install = function (Vue, option) {
   console.log(option);
@@ -83,23 +88,6 @@ if (typeof window !== "undefined" && window.Vue) {
 
 export default {
   install,
-  YulangButton,
-  YulangSlider,
-  YulangSignaure,
-  YulangSwitch,
-  YulangUpload,
-  YulangCanvas,
-  YulangAnchorPoint,
-  YulangDescribeFrame,
-  YulangLink,
-  YulangDialog,
-  YulangBackTop,
-  YulangCheckbox,
-  YulangSwitchCopy,
-  YulangForm,
-  YulangFormItem,
-  YulangInput,
-  YulangTable,
-  YulangTableItem,
-  YulangLeader
+  ...Packages,
+  Lib
 };

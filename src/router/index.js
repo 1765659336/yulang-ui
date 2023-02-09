@@ -23,6 +23,7 @@ import YulangTable from "@/views/root/packages-demo/yulang-table/YulangTable.vue
 import YulangNotification from "@/views/root/packages-demo/yulang-notification/YulangNotification.vue";
 import YulangMessage from "@/views/root/packages-demo/yulang-message/YulangMessage.vue";
 import YulangLoading from "@/views/root/packages-demo/yulang-loading/YulangLoading.vue";
+import YulangTree from "@/views/root/packages-demo/yulang-tree/YulangTree.vue";
 import YulangLeader from "@/views/root/packages-demo/yulang-leader/YulangLeader.vue";
 
 // 处理路由重复跳转控制台报错
@@ -288,6 +289,16 @@ const routes = [
               keepAlive: true,
               isAuth: true,
               title: "引导 Leader",
+            },
+          },
+          {
+            path: "yulang-tree",
+            name: "yulang-tree",
+            component: YulangTree,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "树Tree Tree",
             },
           },
         ],
