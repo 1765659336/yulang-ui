@@ -44,31 +44,42 @@
 
       <template #v>
         <yulang-table :data="tableDataAttributes">
-          <yulang-table-item prop="attributeName" label="属性名">
+          <yulang-table-item prop="attributeName" label="属性名" width="200px">
           </yulang-table-item>
-          <yulang-table-item prop="explain" label="说明"> </yulang-table-item>
-          <yulang-table-item prop="type" label="类型"> </yulang-table-item>
-          <yulang-table-item prop="default" label="默认值"> </yulang-table-item>
-          <yulang-table-item prop="callback" label="回调函数参数">
+          <yulang-table-item prop="explain" label="说明" width="150px">
+          </yulang-table-item>
+          <yulang-table-item prop="type" label="类型" width="150px">
+          </yulang-table-item>
+          <yulang-table-item prop="default" label="默认值" width="150px">
+          </yulang-table-item>
+          <yulang-table-item prop="callback" label="回调函数参数" width="150px">
           </yulang-table-item>
         </yulang-table>
       </template>
 
       <template #w>
         <yulang-table :data="tableDataSlots">
-          <yulang-table-item prop="slotName" label="插槽名">
+          <yulang-table-item prop="slotName" label="插槽名" width="200px">
           </yulang-table-item>
-          <yulang-table-item prop="explain" label="说明"> </yulang-table-item>
+          <yulang-table-item prop="explain" label="说明" width="200px">
+          </yulang-table-item>
         </yulang-table>
       </template>
 
       <template #x>
         <yulang-table :data="tableDataSlotAttributes">
-          <yulang-table-item prop="slotName" label="插槽名">
+          <yulang-table-item prop="slotName" label="插槽名" width="200px">
           </yulang-table-item>
-          <yulang-table-item prop="scopeAttributeName" label="作用域属性名"> </yulang-table-item>
-          <yulang-table-item prop="explain" label="说明"> </yulang-table-item>
-          <yulang-table-item prop="arguments" label="参数"> </yulang-table-item>
+          <yulang-table-item
+            prop="scopeAttributeName"
+            label="作用域属性名"
+            width="200px"
+          >
+          </yulang-table-item>
+          <yulang-table-item prop="explain" label="说明" width="200px">
+          </yulang-table-item>
+          <yulang-table-item prop="arguments" label="参数" width="200px">
+          </yulang-table-item>
         </yulang-table>
       </template>
     </yulang-anchor-point>
@@ -76,7 +87,13 @@
 </template>
 
 <script>
-import { codeStr, codeStr2,tableDataAttributes,tableDataSlots,tableDataSlotAttributes } from './data.js';
+import {
+  codeStr,
+  codeStr2,
+  tableDataAttributes,
+  tableDataSlots,
+  tableDataSlotAttributes,
+} from './data.js';
 
 export default {
   name: 'packages-demo-yulang-dialog',
@@ -97,7 +114,7 @@ export default {
       codeStr2,
       tableDataAttributes,
       tableDataSlots,
-      tableDataSlotAttributes
+      tableDataSlotAttributes,
     };
   },
   methods: {

@@ -33,11 +33,11 @@
         <yulang-table :data="tableDataAttributes">
           <yulang-table-item prop="attributeName" label="属性名" width="100px">
           </yulang-table-item>
-          <yulang-table-item prop="explain" label="说明" width="250px">
+          <yulang-table-item prop="explain" label="说明" width="200px">
           </yulang-table-item>
-          <yulang-table-item prop="type" label="类型" width="300px">
+          <yulang-table-item prop="type" label="类型" width="200px">
           </yulang-table-item>
-          <yulang-table-item prop="default" label="默认值" width="300px">
+          <yulang-table-item prop="default" label="默认值" width="200px">
           </yulang-table-item>
         </yulang-table>
       </template>

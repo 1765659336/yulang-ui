@@ -23,7 +23,20 @@ function install(option) {
 
   // 将实例对象挂载到bod上的id为notificationParentId身上
   document.querySelector('#notificationParentId').appendChild(instance.$el)
-} 
+
+  // 获取单个item的mrigin-bottom
+  const mriginBottom = document.defaultView.getComputedStyle(this.$el)['margin-bottom'].split('px')[0]
+
+  // 单个高度和数量
+  const heightItem = instance.$el.getBoundingClientRect().height + mriginBottom
+  const num = instance.$el.parentNode.children.length
+
+  if (heightItem * (num + 1) > window.innerHeight * 0.6) {
+    document.querySelector('#notificationParentId').style.height = window.innerHeight * 0.6 + 'px'
+  }
+
+
+}
 
 // 创建所有通知消息的父盒子(用于自盒子自动向下延展)
 function createNotificationParent() {

@@ -68,11 +68,14 @@
 
       <template #v>
         <yulang-table :data="tableDataAttributes">
-          <yulang-table-item prop="attributeName" label="属性名">
+          <yulang-table-item prop="attributeName" label="属性名" width="200px">
           </yulang-table-item>
-          <yulang-table-item prop="explain" label="说明"> </yulang-table-item>
-          <yulang-table-item prop="type" label="类型"> </yulang-table-item>
-          <yulang-table-item prop="default" label="默认值"> </yulang-table-item>
+          <yulang-table-item prop="explain" label="说明" width="200px">
+          </yulang-table-item>
+          <yulang-table-item prop="type" label="类型" width="200px">
+          </yulang-table-item>
+          <yulang-table-item prop="default" label="默认值" width="200px">
+          </yulang-table-item>
         </yulang-table>
       </template>
     </yulang-anchor-point>
@@ -98,7 +101,6 @@ export default {
         { slotName: 'c', slotTitle: '自动消失', level: 2 },
         { slotName: 'd', slotTitle: '默认标题无类型', level: 2 },
         { slotName: 'e', slotTitle: '设置标题', level: 2 },
-        { slotName: 'f', slotTitle: '使用h函数渲染', level: 2 },
         { slotName: 'u', slotTitle: '阅读文档', level: 1 },
         { slotName: 'v', slotTitle: '属性', level: 2 },
       ],

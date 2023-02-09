@@ -45,11 +45,11 @@
 
       <template #v>
         <yulang-table :data="tableDataAttributes">
-          <yulang-table-item prop="attributeName" label="属性名">
+          <yulang-table-item prop="attributeName" label="属性名" width="200px" >
           </yulang-table-item>
-          <yulang-table-item prop="explain" label="说明"> </yulang-table-item>
-          <yulang-table-item prop="type" label="类型"> </yulang-table-item>
-          <yulang-table-item prop="default" label="默认值"> </yulang-table-item>
+          <yulang-table-item prop="explain" label="说明" width="200px" > </yulang-table-item>
+          <yulang-table-item prop="type" label="类型" width="200px" > </yulang-table-item>
+          <yulang-table-item prop="default" label="默认值" width="200px" > </yulang-table-item>
         </yulang-table>
       </template>
 

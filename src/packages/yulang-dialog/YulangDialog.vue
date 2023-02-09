@@ -4,9 +4,10 @@
       class="dialog-mask-layer"
       v-if="visible && isShowMaskLayer"
       @click.self="touchMaskLayer"
+      :style="getIndex"
     ></div>
 
-    <div class="dialog-frame" v-if="visible">
+    <div class="dialog-frame" v-if="visible" :style="getIndex">
       <!-- dialog头部 -->
       <div class="dialog-frame-header">
         <div>
@@ -44,7 +45,7 @@ export default {
     // 弹窗是否可见
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 关闭对话框的之前的函数
     beforeClose: {
@@ -55,6 +56,14 @@ export default {
     isShowMaskLayer: {
       type: Boolean,
       default: true,
+    },
+  },
+  computed: {
+    // 在创建初设置通知框的index值
+    getIndex() {
+      return {
+        zIndex: this.$index.getIndex(),
+      };
     },
   },
   methods: {

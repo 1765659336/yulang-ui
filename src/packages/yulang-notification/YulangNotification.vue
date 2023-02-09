@@ -63,8 +63,15 @@ export default {
     },
   },
   methods: {
+    // 删除当前dom
     deleteNotificationComponent() {
-      document.querySelector('#notificationParentId')?.removeChild(this.$el);
+      const notificationParentId = document.querySelector(
+        '#notificationParentId'
+      );
+
+      this.isCloseParentHeight();
+
+      notificationParentId?.removeChild(this.$el);
       this.deleteParentNode();
     },
     // 是否删除父元素
@@ -72,11 +79,27 @@ export default {
       const notificationParentId = document.querySelector(
         '#notificationParentId'
       );
-      console.log(notificationParentId.children.length);
+
       // 最后一个,删除父元素
       if (notificationParentId.children.length <= 0) {
-        console.log(notificationParentId.parentNode);
         notificationParentId.parentNode.removeChild(notificationParentId);
+      }
+    },
+    // 判断是否关闭父容器高度
+    isCloseParentHeight() {
+      const notificationParentId = document.querySelector(
+        '#notificationParentId'
+      );
+
+      // 获取margin-bottom
+      const elAttribute = document.defaultView.getComputedStyle(this.$el);
+      const marginBottom = elAttribute['margin-bottom'].split('px')[0];
+      // 单个高度和数量,16为1em,为mrigin-bottom高度
+      const heightItem = this.$el.getBoundingClientRect().height + marginBottom;
+      const num = this.$el.parentNode.children.length;
+
+      if (heightItem * (num - 1) < window.innerHeight * 0.6) {
+        notificationParentId.style.height = null;
       }
     },
   },
@@ -88,6 +111,8 @@ export default {
         const time = setTimeout(
           () => {
             clearTimeout(time);
+            // 在关闭之前计算高度是否超出指定，从而确定是否关闭滚动
+            this.isCloseParentHeight();
             this.isShow = false;
             // 这个时间要稍微长一点，不然会认为还没删
             setTimeout(() => this.deleteParentNode(), 600);

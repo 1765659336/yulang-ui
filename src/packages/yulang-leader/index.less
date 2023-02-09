@@ -2,12 +2,13 @@
 @celldpace: 0.7em;
 
 .mask-layer {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100vw;
   background-color: rgba(178, 179, 180, 0.4);
+  z-index: var(--index--);
 }
 
 .leader-container-Item {
@@ -41,16 +42,16 @@
   display: flex;
   justify-content: flex-end;
 
-  .leader-container-Item-footer-progress{
+  .leader-container-Item-footer-progress {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 60%;
 
-    .leader-container-Item-footer-progress-one{
-      margin: 0em .5em;
-      width: .5em;
-      height: .5em;
+    .leader-container-Item-footer-progress-one {
+      margin: 0em 0.5em;
+      width: 0.5em;
+      height: 0.5em;
       border: 1px solid black;
       border-radius: 100%;
     }
@@ -61,6 +62,21 @@
     padding: 0.2em 0.4em;
     border: 1px solid black;
     border-radius: 4px;
-    cursor: pointer;  
+    cursor: pointer;
   }
+}
+
+.lock {
+  overflow: hidden;
+  touch-action: none;
+}
+
+.lock body {
+  overflow: hidden;
+  touch-action: none;
+  margin-right: 17px;
+}
+
+.lock.mobile body {
+  margin-right: 0;
 }
