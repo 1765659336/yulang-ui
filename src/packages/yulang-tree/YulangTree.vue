@@ -27,9 +27,12 @@
         v-show="dataItem[props.children] && dataItem.yulangIsOpen"
         v-model="dataItem[props.children]"
         :props="props"
-        @nodeClick="$listeners.nodeClick"
         :level="level + 1"
         :showCheckbox="showCheckbox"
+        :nodeKey="nodeKey ? nodeKey : ''"
+        :defaultOpenKeys="defaultOpenKeys ? defaultOpenKeys : []"
+        :defaultCheckKeys="defaultCheckKeys ? defaultCheckKeys : []"
+        @nodeClick="$listeners.nodeClick ? $listeners.nodeClick : () => {}"
       ></yulang-tree>
     </div>
   </div>
@@ -71,6 +74,18 @@ export default {
       type: Boolean,
       default: false,
     },
+    // 树数据唯一key
+    nodeKey: {
+      type: String,
+    },
+    // 默认展开节点数组
+    defaultOpenKeys: {
+      type: Array,
+    },
+    // 默认选中节点数组
+    defaultCheckKeys: {
+      type: Array,
+    },
   },
   data() {
     return {};
@@ -99,7 +114,7 @@ export default {
         });
       }
       //   节点被点击的回调
-      this.$listeners.nodeClick(dataItem);
+      this.$listeners.nodeClick && this.$listeners.nodeClick(dataItem);
     },
     // 节点勾选点击事件
     checkboxClick(dataItem) {
@@ -122,11 +137,11 @@ export default {
         return item;
       });
       // 勾选状态发生改变的回调
-      this.$listeners.checkChange(dataItem)
+      this.$listeners.checkChange && this.$listeners.checkChange(dataItem);
     },
   },
   mounted() {
-    // 初始化外部传入的数据
+    // 初始化外部传入的数据,除非组件重新渲染，不然只会执行一次
     this.dataComputed = this.dataComputed?.map((item) => {
       item.yulangKey = uuid();
       // 如果不是叶节点
@@ -136,6 +151,23 @@ export default {
       // 如果开启可选择
       if (this.showCheckbox) {
         item.yulangIsCheck = false;
+      }
+      // 如果传入nodeKey且传入defaultOpenKeys
+      console.log(this.nodeKey, this.defaultOpenKeys);
+      if (this.nodeKey && this.defaultOpenKeys) {
+        if (
+          this.defaultOpenKeys.find((item2) => item2 === item[this.nodeKey])
+        ) {
+          item.yulangIsOpen = true;
+        }
+      }
+      // 如果传入nodeKey且传入defaultCheckKeys
+      if (this.nodeKey && this.defaultCheckKeys) {
+        if (
+          this.defaultCheckKeys.find((item2) => item2 === item[this.nodeKey])
+        ) {
+          item.yulangIsCheck = true;
+        }
       }
       return item;
     });

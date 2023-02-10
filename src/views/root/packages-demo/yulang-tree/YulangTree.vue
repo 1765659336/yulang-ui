@@ -1,91 +1,57 @@
 <template>
   <div>
-    {{ data }}
-    <yulang-tree
-      v-model="data"
-      :props="defaultProps"
-      showCheckbox
-      @nodeClick="handleNodeClick"
-      @checkChange="handleCheckChange"
-    ></yulang-tree>
+    <yulang-anchor-point v-model="slotArr">
+      <template #b>
+        <yulang-describe-frame :codeStr="codeStrB">
+          <tree-b></tree-b>
+        </yulang-describe-frame>
+      </template>
+      <template #c>
+        <yulang-describe-frame :codeStr="codeStrC">
+          <tree-c></tree-c>
+        </yulang-describe-frame>
+      </template>
+      <template #d>
+        <span>可将 Tree 的某些节点设置为默认展开或默认选中</span>
+        <yulang-describe-frame :codeStr="codeStrD">
+          <tree-d></tree-d>
+          <template #tip>
+            <div>
+              分别通过defaultOpenKeys和defaultCheckKeys设置默认展开和默认选中的节点。
+              需要注意的是，此时必须设置nodeKey，其值为节点数据中的一个字段名，该字段在整棵树中是唯一的。
+            </div>
+          </template>
+        </yulang-describe-frame>
+      </template>
+    </yulang-anchor-point>
   </div>
 </template>
 
 <script>
+import TreeB from "./components/TreeB.vue";
+import TreeC from "./components/TreeC.vue";
+import TreeD from "./components/TreeD.vue";
+import { codeStrB, codeStrC, codeStrD } from "./data";
+
 export default {
   name: "packages-demo-yulang-tree",
+  components: {
+    TreeB,
+    TreeC,
+    TreeD,
+  },
   data() {
     return {
-      data: [
-        {
-          label: "一级 1",
-          children: [
-            {
-              label: "二级 1-1",
-              children: [
-                {
-                  label: "三级 1-1-1",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          label: "一级 2",
-          children: [
-            {
-              label: "二级 2-1",
-              children: [
-                {
-                  label: "三级 2-1-1",
-                },
-              ],
-            },
-            {
-              label: "二级 2-2",
-              children: [
-                {
-                  label: "三级 2-2-1",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          label: "一级 3",
-          children: [
-            {
-              label: "二级 3-1",
-              children: [
-                {
-                  label: "三级 3-1-1",
-                },
-              ],
-            },
-            {
-              label: "二级 3-2",
-              children: [
-                {
-                  label: "三级 3-2-1",
-                },
-              ],
-            },
-          ],
-        },
+      codeStrB,
+      codeStrC,
+      codeStrD,
+      slotArr: [
+        { slotName: "a", slotTitle: "Tree 树", level: 1 },
+        { slotName: "b", slotTitle: "基本用法", level: 2 },
+        { slotName: "c", slotTitle: "可选择", level: 2 },
+        { slotName: "d", slotTitle: "默认展开和默认选中", level: 2 },
       ],
-      defaultProps: {
-        children: "children",
-        label: "label",
-      },
     };
-  },
-  methods: {
-    handleNodeClick(data) {
-      console.log(data, "handleNodeClick");
-    },
-    handleCheckChange(data) {
-      console.log(data, "handleCheckChange");
-    },
   },
 };
 </script>
