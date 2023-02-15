@@ -123,12 +123,30 @@ export const unionData = [
     level: 2,
     title: "Tree 树",
     path: "/root/packages-demo/yulang-tree",
-    active:false,
+    active: false,
   },
-  { 
-    level:2,
+  {
+    level: 2,
     title: "Leader 引导",
     path: "/root/packages-demo/yulang-leader",
+    active: false,
+  },
+  {
+    level: 2,
+    title: "Tabs 标签页",
+    path: "/root/packages-demo/yulang-tabs",
+    active: false,
+  },
+  {
+    level: 2,
+    title: "Divider 分割线",
+    path: "/root/packages-demo/yulang-divider",
+    active: false,
+  },
+  {
+    level: 2,
+    title: "Input 输入框",
+    path: "/root/packages-demo/yulang-input",
     active: false,
   },
 ];

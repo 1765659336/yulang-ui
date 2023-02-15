@@ -25,6 +25,9 @@ import YulangMessage from "@/views/root/packages-demo/yulang-message/YulangMessa
 import YulangLoading from "@/views/root/packages-demo/yulang-loading/YulangLoading.vue";
 import YulangTree from "@/views/root/packages-demo/yulang-tree/YulangTree.vue";
 import YulangLeader from "@/views/root/packages-demo/yulang-leader/YulangLeader.vue";
+import YulangTabs from "@/views/root/packages-demo/yulang-tabs/YulangTabs.vue";
+import YulangDivider from "@/views/root/packages-demo/yulang-divider/YulangDivider.vue";
+import YulangInput from "@/views/root/packages-demo/yulang-input/YulangInput.vue";
 
 // 处理路由重复跳转控制台报错
 const originalPush = VueRouter.prototype.push;
@@ -279,7 +282,7 @@ const routes = [
               keepAlive: true,
               isAuth: true,
               title: "加载中Loading Loading",
-            }
+            },
           },
           {
             path: "yulang-leader",
@@ -299,6 +302,36 @@ const routes = [
               keepAlive: true,
               isAuth: true,
               title: "树Tree Tree",
+            },
+          },
+          {
+            path: "yulang-tabs",
+            name: "yulang-tabs",
+            component: YulangTabs,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "标签页Tabs Tabs",
+            },
+          },
+          {
+            path: "yulang-divider",
+            name: "yulang-divider",
+            component: YulangDivider,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "标签页Divider Divider",
+            },
+          },
+          {
+            path: "yulang-input",
+            name: "yulang-input",
+            component: YulangInput,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "输入框 Input",
             },
           },
         ],
