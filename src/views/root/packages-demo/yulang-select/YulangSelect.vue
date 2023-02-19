@@ -1,44 +1,67 @@
 <template>
-  <el-select v-model="value" placeholder="请选择">
-    <el-option
-      v-for="item in options"
-      :key="item.value"
-      :label="item.label"
-      :value="item.value"
-    >
-    </el-option>
-  </el-select>
+  <div>
+    下拉页面
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>111</div>
+    <div>这是监听的高度</div>
+    <div>可以将这个组件放到中间看展开效果</div>
+    <div>只能用一个yulang-select,我里面用的id去修改的dom</div>
+    <div>忘记改成ref了,有两个会存在多个id逻辑出问题</div>
+    <yulang-select v-model="selectValue">
+      <MyTest></MyTest>
+    </yulang-select>
+  </div>
 </template>
 
 <script>
+import MyTest from './MyTest.vue';
+
 export default {
-  name: "packages-demo-yulang-select",
+  name: 'packages-demo-yulang-select',
   data() {
     return {
-      options: [
-        {
-          value: "选项1",
-          label: "黄金糕",
-        },
-        {
-          value: "选项2",
-          label: "双皮奶",
-        },
-        {
-          value: "选项3",
-          label: "蚵仔煎",
-        },
-        {
-          value: "选项4",
-          label: "龙须面",
-        },
-        {
-          value: "选项5",
-          label: "北京烤鸭",
-        },
-      ],
-      value: "",
+      selectValue: 'model值',
     };
+  },
+  components: {
+    MyTest,
   },
 };
 </script>

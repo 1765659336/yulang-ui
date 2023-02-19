@@ -39,12 +39,12 @@
           >
             禁止点击
           </yulang-link>
-          <yulang-link
+          <!-- <yulang-link
             mainColor="rgba(67, 173, 127, .5)"
             disabled.sync="disabled"
             url="https://www.baidu.com"
             >禁止点击v-model</yulang-link
-          >
+          > -->
 
           <template #tip>
             <div>disabled设置是否可以跳转</div>
@@ -81,9 +81,12 @@
         <yulang-table :data="tableDataAttributes">
           <yulang-table-item prop="attributeName" label="属性名" width="200px">
           </yulang-table-item>
-          <yulang-table-item prop="explain" label="说明" width="200px"> </yulang-table-item>
-          <yulang-table-item prop="type" label="类型" width="200px"> </yulang-table-item>
-          <yulang-table-item prop="default" label="默认值" width="200px"> </yulang-table-item>
+          <yulang-table-item prop="explain" label="说明" width="200px">
+          </yulang-table-item>
+          <yulang-table-item prop="type" label="类型" width="200px">
+          </yulang-table-item>
+          <yulang-table-item prop="default" label="默认值" width="200px">
+          </yulang-table-item>
         </yulang-table>
       </template>
 
@@ -91,7 +94,8 @@
         <yulang-table :data="tableDataSlots">
           <yulang-table-item prop="slotName" label="插槽名" width="200px">
           </yulang-table-item>
-          <yulang-table-item prop="explain" label="说明" width="200px"> </yulang-table-item>
+          <yulang-table-item prop="explain" label="说明" width="200px">
+          </yulang-table-item>
         </yulang-table>
       </template>
 
@@ -99,8 +103,10 @@
         <yulang-table :data="tableDataEvents">
           <yulang-table-item prop="eventName" label="事件名" width="200px">
           </yulang-table-item>
-          <yulang-table-item prop="explain" label="说明" width="200px"> </yulang-table-item>
-          <yulang-table-item prop="callback" label="回调参数" width="200px"> </yulang-table-item>
+          <yulang-table-item prop="explain" label="说明" width="200px">
+          </yulang-table-item>
+          <yulang-table-item prop="callback" label="回调参数" width="200px">
+          </yulang-table-item>
         </yulang-table>
       </template>
     </yulang-anchor-point>

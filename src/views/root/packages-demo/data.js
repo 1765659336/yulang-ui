@@ -133,6 +133,12 @@ export const unionData = [
   },
   {
     level: 2,
+    title: "Select 下拉框",
+    path: "/root/packages-demo/yulang-select",
+    active: false,
+  },
+  {
+    level: 2,
     title: "Tabs 标签页",
     path: "/root/packages-demo/yulang-tabs",
     active: false,
