@@ -167,4 +167,10 @@ export const unionData = [
     path: "/root/packages-demo/yulang-popover",
     active: false,
   },
+  {
+    level: 2,
+    title: "TimePicker 时间选择器",
+    path: "/root/packages-demo/yulang-time-picker",
+    active: false,
+  },
 ];

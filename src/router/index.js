@@ -9,6 +9,7 @@ import YulangTabs from "@/views/root/packages-demo/yulang-tabs/YulangTabs.vue";
 import YulangDivider from "@/views/root/packages-demo/yulang-divider/YulangDivider.vue";
 import YulangInput from "@/views/root/packages-demo/yulang-input/YulangInput.vue";
 import YulangPopover from "@/views/root/packages-demo/yulang-popover/YulangPopover.vue";
+import YulangTimePicker from "@/views/root/packages-demo/yulang-time-picker/YulangTimePicker.vue";
 
 // 处理路由重复跳转控制台报错
 const originalPush = VueRouter.prototype.push;
@@ -398,6 +399,17 @@ const routes = [
             meta: {
               keepAlive: true,
               isAuth: true,
+              title: "弹出框 Popover"
+            }
+          },
+          {
+            path: "yulang-time-picker",
+            name: "yulang-time-picker",
+            component: YulangTimePicker,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "时间选择器 TimePicker",
               title: "弹出框 Popover",
             },
           },

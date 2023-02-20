@@ -56,3 +56,26 @@ export default {
 
 <style lang="less" scoped></style>
 `
+
+export const codeStrC = `
+<template>
+  <div>
+    <yulang-popover title="标题" :width="100" trigger="hover">
+      <template #reference>
+        <yulang-button>hover 激活</yulang-button>
+      </template>
+      <template #content>
+        <span
+          >我是一段内容，我是一段内容，我是一段内容，我是一段内容，我是一段内容</span
+        >
+      </template>
+    </yulang-popover>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style lang="less" scoped></style>
+`

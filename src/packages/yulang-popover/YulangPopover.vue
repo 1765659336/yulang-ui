@@ -1,7 +1,10 @@
 <template>
   <div
     class="packages-yulang-popover-container"
-    :style="{ '--yulang-popover-reference-width--': width + 'px' }"
+    :style="{
+      '--yulang-popover-reference-width--': width + 'px',
+      '--yulang-popover-position-height--': height + 'px',
+    }"
   >
     <div class="yulang-popover-reference" ref="yulangPopoverReferenceRef">
       <!-- 触发点 -->
@@ -46,6 +49,13 @@ export default {
       type: Number,
       default: () => {
         return 100;
+      },
+    },
+    // 弹出框的最大的高度，超出最大高度开启滚动条
+    height: {
+      type: Number,
+      default: () => {
+        return 500;
       },
     },
     // 弹出框的触发方式

@@ -13,6 +13,8 @@
         :disabled="disabled"
         :value="valueComputed"
         @input="valueComputedInput"
+        @blur="valueComputedBlur"
+        @click="valueComputedClick"
       />
       <div class="suffix-icon-container">
         <i
@@ -39,6 +41,8 @@
       :readonly="readonly"
       :value="valueComputed"
       @input="valueComputedInput"
+      @blur="valueComputedBlur"
+      @click="valueComputedClick"
     ></textarea>
   </div>
 </template>

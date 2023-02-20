@@ -28,5 +28,11 @@ export const initObj = {
     valueComputedInput(e) {
       this.valueComputed = e.target.value;
     },
+    valueComputedBlur(e) {
+      this.$listeners.blur && this.$listeners.blur(e);
+    },
+    valueComputedClick(e) {
+      this.$listeners.click = this.$listeners.click(e);
+    },
   },
 };

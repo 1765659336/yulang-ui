@@ -7,13 +7,12 @@
 
   .yulang-popover-position {
     min-height: 10px;
-    // top: 0;
-    // left: 50%;
-    // transform: translate(-50%, 10px);
-    width: var(--yulang-popover-reference-width--);
+    max-height: var(--yulang-popover-position-height--);
+    min-width: var(--yulang-popover-reference-width--);
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: white;
+    overflow-y: scroll;
 
     .yulang-popover-triangle {
       position: absolute;
