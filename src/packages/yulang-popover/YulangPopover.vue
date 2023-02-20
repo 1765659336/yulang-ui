@@ -2,8 +2,10 @@
   <div
     class="packages-yulang-popover-container"
     :style="{
-      '--yulang-popover-reference-width--': width + 'px',
-      '--yulang-popover-position-height--': height + 'px',
+      '--yulang-popover-reference-min-width--': minWidth + 'px',
+      '--yulang-popover-reference-max-width--': maxWidth + 'px',
+      '--yulang-popover-position-min-height--': minHeight + 'px',
+      '--yulang-popover-position-max-height--': maxHeight + 'px',
     }"
   >
     <div class="yulang-popover-reference" ref="yulangPopoverReferenceRef">
@@ -45,14 +47,27 @@ export default {
     // 弹出框的标题
     title: {},
     // 弹出款的最小宽度
-    width: {
+    minWidth: {
       type: Number,
       default: () => {
         return 100;
       },
     },
+    maxWidth: {
+      type: Number,
+      default: () => {
+        return 500;
+      },
+    },
+    // 弹出框的最小高度
+    minHeight:{
+      type: Number,
+      default: () => {
+        return 16;
+      },
+    },
     // 弹出框的最大的高度，超出最大高度开启滚动条
-    height: {
+    maxHeight: {
       type: Number,
       default: () => {
         return 500;

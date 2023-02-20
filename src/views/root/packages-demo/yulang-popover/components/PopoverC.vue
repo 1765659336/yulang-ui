@@ -1,5 +1,5 @@
 <template>
-  <yulang-popover title="标题" :width="100" trigger="hover">
+  <yulang-popover title="标题" :minWidth="100" trigger="hover">
     <template #reference>
       <yulang-button>hover 激活</yulang-button>
     </template>

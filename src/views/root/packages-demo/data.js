@@ -173,4 +173,10 @@ export const unionData = [
     path: "/root/packages-demo/yulang-time-picker",
     active: false,
   },
+  {
+    level: 2,
+    title: "Tooltip 文字提示",
+    path: "/root/packages-demo/yulang-tooltip",
+    active: false,
+  },
 ];

@@ -3,9 +3,10 @@ export const codeStrB = `
   <div>
     <yulang-popover
       title="标题"
-      :width="100"
+      :minWidth="100"
       trigger="hover"
       content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+      placement="right-end"
     >
       <template #reference>
         <yulang-button>hover 激活</yulang-button>
@@ -13,7 +14,7 @@ export const codeStrB = `
     </yulang-popover>
     <yulang-popover
       title="标题"
-      :width="100"
+      :minWidth="100"
       trigger="click"
       content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
     >
@@ -23,7 +24,7 @@ export const codeStrB = `
     </yulang-popover>
     <yulang-popover
       title="标题"
-      :width="100"
+      :minWidth="100"
       trigger="focus"
       content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
     >
@@ -34,7 +35,7 @@ export const codeStrB = `
     <yulang-popover
       ref="popover4"
       title="标题"
-      :width="100"
+      :minWidth="100"
       content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
     >
       <template #reference>
@@ -59,18 +60,16 @@ export default {
 
 export const codeStrC = `
 <template>
-  <div>
-    <yulang-popover title="标题" :width="100" trigger="hover">
-      <template #reference>
-        <yulang-button>hover 激活</yulang-button>
-      </template>
-      <template #content>
-        <span
-          >我是一段内容，我是一段内容，我是一段内容，我是一段内容，我是一段内容</span
-        >
-      </template>
-    </yulang-popover>
-  </div>
+  <yulang-popover title="标题" :minWidth="100" trigger="hover">
+    <template #reference>
+      <yulang-button>hover 激活</yulang-button>
+    </template>
+    <template #content>
+      <div :style="{ width: '200px' }">
+        我是一段内容，我是一段内容，我是一段内容，我是一段内容，我是一段内容
+      </div>
+    </template>
+  </yulang-popover>
 </template>
 
 <script>

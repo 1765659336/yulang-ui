@@ -1,6 +1,6 @@
 <template>
   <div>
-    <yulang-popover :width="200" :height="200" ref="popover">
+    <yulang-popover :minWidth="200" :maxHeight="200" ref="popover">
       <template #reference>
         <yulang-input
           v-model="valueComputed"

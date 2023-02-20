@@ -25,6 +25,7 @@ import YulangDivider from "@/packages/yulang-divider/YulangDivider.vue";
 import YulangSelect from "@/packages/yulang-select/YulangSelect.vue";
 import YulangPopover from "@/packages/yulang-popover/YulangPopover.vue";
 import YulangTimePicker from "@/packages/yulang-time-picker/YulangTimePicker.vue";
+import YulangTooltip from "@/packages/yulang-tooltip/YulangTooltip.vue";
 
 // 引入icon
 import "../assets/icon/iconfont.css";
@@ -77,7 +78,8 @@ export const Packages = [
   YulangDivider,
   YulangSelect,
   YulangPopover,
-  YulangTimePicker
+  YulangTimePicker,
+  YulangTooltip
 ];
 
 // 工具函数

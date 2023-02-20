@@ -2,7 +2,7 @@
   <div>
     <yulang-popover
       title="标题"
-      :width="100"
+      :minWidth="100"
       trigger="hover"
       content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
       placement="right-end"
@@ -13,7 +13,7 @@
     </yulang-popover>
     <yulang-popover
       title="标题"
-      :width="100"
+      :minWidth="100"
       trigger="click"
       content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
     >
@@ -23,7 +23,7 @@
     </yulang-popover>
     <yulang-popover
       title="标题"
-      :width="100"
+      :minWidth="100"
       trigger="focus"
       content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
     >
@@ -34,7 +34,7 @@
     <yulang-popover
       ref="popover4"
       title="标题"
-      :width="100"
+      :minWidth="100"
       content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
     >
       <template #reference>

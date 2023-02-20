@@ -410,7 +410,19 @@ const routes = [
               keepAlive: true,
               isAuth: true,
               title: "时间选择器 TimePicker",
-              title: "弹出框 Popover",
+            },
+          },
+          {
+            path: "yulang-tooltip",
+            name: "yulang-tooltip",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-tooltip/YulangTooltip.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "文字提示 Tooltip",
             },
           },
         ],
