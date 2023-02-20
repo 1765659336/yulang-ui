@@ -6,12 +6,16 @@
           <ul
             class="infinite-list"
             style="overflow: auto"
-            v-YulanginfiniteScroll="load"
+            v-YulangInfiniteScroll="load"
           >
             <li v-for="i in count" class="infinite-list-item" :key="i">
               {{ i }}
             </li>
           </ul>
+          <template #tip>
+            <div>v-YulangInfiniteScroll可以绑定promise异步请求</div>
+            <div>会在返回值收到后再发请求</div>
+          </template>
         </yulang-describe-frame>
       </template>
 
@@ -20,11 +24,25 @@
           <ul
             class="infinite-list"
             style="overflow: auto"
-            v-YulanginfiniteScroll="load"
+            v-YulangInfiniteScroll="load2"
             yulang-infinite-scroll-disabled="disabled"
-            aaa="111"
           >
             <li v-for="i in count2" class="infinite-list-item" :key="i">
+              {{ i }}
+            </li>
+          </ul>
+        </yulang-describe-frame>
+      </template>
+
+      <template #d>
+        <yulang-describe-frame :codeStr="codeStr3">
+          <ul
+            class="infinite-list"
+            style="overflow: auto"
+            v-YulangInfiniteScroll="load3"
+            yulang-infinite-scroll-minheight="50"
+          >
+            <li v-for="i in count3" class="infinite-list-item" :key="i">
               {{ i }}
             </li>
           </ul>
@@ -51,7 +69,7 @@
 </template>
 
 <script>
-import { codeStr, codeStr2, tableDataAttributes } from './data.js';
+import { codeStr, codeStr2, codeStr3, tableDataAttributes } from './data.js';
 
 export default {
   name: 'packages-yulang-scroll-infinite',
@@ -61,22 +79,33 @@ export default {
         { slotName: 'a', slotTitle: 'ScrollInfinite 无限滚动', level: 1 },
         { slotName: 'b', slotTitle: '基本用法', level: 2 },
         { slotName: 'c', slotTitle: '禁止请求用法', level: 2 },
+        { slotName: 'd', slotTitle: '距离触底多少触发用法', level: 2 },
         { slotName: 'u', slotTitle: '阅读文档', level: 1 },
         { slotName: 'v', slotTitle: '属性', level: 2 },
       ],
       count: 10,
       count2: 10,
+      count3: 10,
       codeStr,
       codeStr2,
+      codeStr3,
       tableDataAttributes,
     };
   },
   methods: {
     load() {
-      this.count += 2;
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          this.count += 2;
+          resolve();
+        }, 3000);
+      });
     },
     load2() {
       this.count2 += 2;
+    },
+    load3() {
+      return (this.count3 += 2);
     },
   },
 };

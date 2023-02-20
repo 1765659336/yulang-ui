@@ -93,7 +93,7 @@ export default {
         this.$refs.referenceRef,
         this.$refs.yulangPopoverContentRef,
         getPosition(
-          "top",
+          this.placement,
           this.$refs.referenceRef,
           this.$refs.yulangPopoverContentRef,
           20,

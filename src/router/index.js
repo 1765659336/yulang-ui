@@ -88,7 +88,10 @@ const routes = [
           {
             path: "yulang-switch",
             name: "yulang-switch",
-            component: () => import("@/views/root/packages-demo/yulang-switch/YulangSwitch.vue"),
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-switch/YulangSwitch.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -98,7 +101,10 @@ const routes = [
           {
             path: "yulang-slider",
             name: "yulang-slider",
-            component: () => import("@/views/root/packages-demo/yulang-slider/YulangSlider.vue"),
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-slider/YulangSlider.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -108,7 +114,10 @@ const routes = [
           {
             path: "yulang-signaure",
             name: "yulang-signaure",
-            component: () => import("@/views/root/packages-demo/yulang-signaure/YulangSignaure.vue"),
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-signaure/YulangSignaure.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -118,7 +127,10 @@ const routes = [
           {
             path: "yulang-upload",
             name: "yulang-upload",
-            component: () => import("@/views/root/packages-demo/yulang-upload/YulangUpload.vue"),
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-upload/YulangUpload.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -128,7 +140,10 @@ const routes = [
           {
             path: "yulang-canvas",
             name: "yulang-canvas",
-            component: () => import("@/views/root/packages-demo/yulang-canvas/YulangCanvas.vue"),
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-canvas/YulangCanvas.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -138,7 +153,10 @@ const routes = [
           {
             path: "yulang-anchor-point",
             name: "yulang-anchor-point",
-            component: () => import("@/views/root/packages-demo/yulang-anchor-point/YulangAnchorPoint.vue"),
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-anchor-point/YulangAnchorPoint.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -148,7 +166,8 @@ const routes = [
           {
             path: "yulang-icon",
             name: "yulang-icon",
-            component: () => import("@/views/root/packages-demo/yulang-icon/YulangIcon.vue"),
+            component: () =>
+              import("@/views/root/packages-demo/yulang-icon/YulangIcon.vue"),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -158,7 +177,10 @@ const routes = [
           {
             path: "yulang-describe-frame",
             name: "yulang-describe-frame",
-            component: () => import("@/views/root/packages-demo/yulang-describe-frame/YulangDescribeFrame.vue"),
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-describe-frame/YulangDescribeFrame.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -168,7 +190,8 @@ const routes = [
           {
             path: "yulang-link",
             name: "yulang-link",
-            component: () => import("@/views/root/packages-demo/yulang-link/YulangLink.vue"),
+            component: () =>
+              import("@/views/root/packages-demo/yulang-link/YulangLink.vue"),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -178,7 +201,10 @@ const routes = [
           {
             path: "yulang-dialog",
             name: "yulang-dialog",
-            component: () => import("@/views/root/packages-demo/yulang-dialog/YulangDialog.vue"),
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-dialog/YulangDialog.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -188,7 +214,10 @@ const routes = [
           {
             path: "yulang-back-top",
             name: "yulang-back-top",
-            component: () => import("@/views/root/packages-demo/yulang-back-top/YulangBackTop.vue"),
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-back-top/YulangBackTop.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -198,7 +227,10 @@ const routes = [
           {
             path: "yulang-checkbox",
             name: "yulang-checkbox",
-            component: () => import("@/views/root/packages-demo/yulang-checkbox/YulangCheckbox.vue"),
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-checkbox/YulangCheckbox.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -208,7 +240,10 @@ const routes = [
           {
             path: "yulang-switch-copy",
             name: "yulang-switch-copy",
-            component: () => import("@/views/root/packages-demo/yulang-switch-copy/YulangSwitchCopy.vue"),
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-switch-copy/YulangSwitchCopy.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -218,7 +253,8 @@ const routes = [
           {
             path: "yulang-form",
             name: "yulang-form",
-            component: () => import("@/views/root/packages-demo/yulang-form/YulangForm.vue"),
+            component: () =>
+              import("@/views/root/packages-demo/yulang-form/YulangForm.vue"),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -228,7 +264,8 @@ const routes = [
           {
             path: "yulang-table",
             name: "yulang-table",
-            component: () => import("@/views/root/packages-demo/yulang-table/YulangTable.vue"),
+            component: () =>
+              import("@/views/root/packages-demo/yulang-table/YulangTable.vue"),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -238,7 +275,10 @@ const routes = [
           {
             path: "yulang-notification",
             name: "yulang-notification",
-            component: () => import("@/views/root/packages-demo/yulang-notification/YulangNotification.vue"),
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-notification/YulangNotification.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -248,7 +288,10 @@ const routes = [
           {
             path: "yulang-message",
             name: "yulang-message",
-            component: () => import("@/views/root/packages-demo/yulang-message/YulangMessage.vue"),
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-message/YulangMessage.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -258,7 +301,10 @@ const routes = [
           {
             path: "yulang-loading",
             name: "yulang-loading",
-            component: () => import("@/views/root/packages-demo/yulang-loading/YulangLoading.vue"),
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-loading/YulangLoading.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -268,7 +314,10 @@ const routes = [
           {
             path: "yulang-leader",
             name: "yulang-leader",
-            component: () => import("@/views/root/packages-demo/yulang-leader/YulangLeader.vue"),
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-leader/YulangLeader.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -278,7 +327,8 @@ const routes = [
           {
             path: "yulang-tree",
             name: "yulang-tree",
-            component: () => import("@/views/root/packages-demo/yulang-tree/YulangTree.vue"),
+            component: () =>
+              import("@/views/root/packages-demo/yulang-tree/YulangTree.vue"),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -288,13 +338,16 @@ const routes = [
           {
             path: "yulang-select",
             name: "yulang-select",
-            component: () => import("@/views/root/packages-demo/yulang-select/YulangSelect.vue"),
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-select/YulangSelect.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
               title: "下拉框 Select",
-            }
-          }, 
+            },
+          },
           {
             path: "yulang-tabs",
             name: "yulang-tabs",
@@ -326,15 +379,28 @@ const routes = [
             },
           },
           {
+            path: "yulang-scroll-infinite",
+            name: "yulang-scroll-infinite",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-scroll-infinite/YulangScrollInfinite.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "无限滚动 ScrollInfinite",
+            },
+          },
+          {
             path: "yulang-popover",
             name: "yulang-popover",
             component: YulangPopover,
             meta: {
               keepAlive: true,
               isAuth: true,
-              title: "弹出框 Popover"
-            }
-          }
+              title: "弹出框 Popover",
+            },
+          },
         ],
       },
       {

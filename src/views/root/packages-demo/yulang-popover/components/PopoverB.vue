@@ -5,6 +5,7 @@
       :width="100"
       trigger="hover"
       content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+      placement="right-end"
     >
       <template #reference>
         <yulang-button>hover 激活</yulang-button>

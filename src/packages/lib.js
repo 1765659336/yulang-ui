@@ -338,6 +338,15 @@ export const changePosition = function (fatherDom, triggerDom, sonDom, position)
   const scrollLeft =
     document.documentElement.scrollLeft || document.body.scrollLeft;
   switch (position) {
+    case 'bottom-start':
+      {
+        fatherDom.style.position = 'relative';
+        sonDom.style.position = 'absolute';
+        sonDom.style.top = triggerDom.clientHeight + scrollTop + 'px';
+        sonDom.style.left = '0px';
+        sonDom.style.transform = 'translate(0px, 10px)';
+      }
+      break;
     case 'bottom':
       {
         fatherDom.style.position = 'relative';
@@ -347,12 +356,12 @@ export const changePosition = function (fatherDom, triggerDom, sonDom, position)
         sonDom.style.transform = 'translate(-50%, 10px)';
       }
       break;
-    case 'bottom-start':
+    case 'bottom-end':
       {
         fatherDom.style.position = 'relative';
         sonDom.style.position = 'absolute';
         sonDom.style.top = triggerDom.clientHeight + scrollTop + 'px';
-        sonDom.style.left = '0px';
+        sonDom.style.left = triggerDom.clientWidth - (sonDom.clientWidth) + 'px';
         sonDom.style.transform = 'translate(0px, 10px)';
       }
       break;
@@ -399,6 +408,42 @@ export const changePosition = function (fatherDom, triggerDom, sonDom, position)
         sonDom.style.bottom = (triggerDom.clientHeight + scrollTop) + 'px';
         sonDom.style.left = triggerDom.clientWidth / 2 + 'px';
         sonDom.style.transform = 'translate(-50%, -10px)';
+      }
+      break;
+    case 'top-end':
+      {
+        fatherDom.style.position = 'relative';
+        sonDom.style.position = 'absolute';
+        sonDom.style.bottom = (triggerDom.clientHeight + scrollTop) + 'px';
+        sonDom.style.left = triggerDom.clientWidth + 'px';
+        sonDom.style.transform = 'translate(-100%, -10px)';
+      }
+      break;
+    case 'right-start':
+      {
+        fatherDom.style.position = 'relative';
+        sonDom.style.position = 'absolute';
+        sonDom.style.bottom = (triggerDom.clientHeight + scrollTop) + 'px';
+        sonDom.style.left = triggerDom.clientWidth + 'px';
+        sonDom.style.transform = 'translate(10px, 100%)';
+      }
+      break;
+    case 'right':
+      {
+        fatherDom.style.position = 'relative';
+        sonDom.style.position = 'absolute';
+        sonDom.style.bottom = (triggerDom.clientHeight / 2 + scrollTop) + 'px';
+        sonDom.style.left = triggerDom.clientWidth + 'px';
+        sonDom.style.transform = 'translate(10px, 50%)';
+      }
+      break;
+    case 'right-end':
+      {
+        fatherDom.style.position = 'relative';
+        sonDom.style.position = 'absolute';
+        sonDom.style.bottom = scrollTop + 'px';
+        sonDom.style.left = triggerDom.clientWidth + 'px';
+        sonDom.style.transform = 'translate(10px, 0)';
       }
       break;
   }

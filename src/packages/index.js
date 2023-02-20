@@ -34,12 +34,14 @@ import "../assets/icon/reset.css";
 import YulangCopy from "@/instruction/copy";
 import YulangLoading from "@/instruction/loading";
 import YulangLongClick from "@/instruction/longClick";
+import YulangInfiniteScroll from "@/instruction/infiniteScroll";
 
 // 自定义指令对象
 export const Directives = {
   YulangCopy,
   YulangLoading,
-  YulangLongClick
+  YulangLongClick,
+  YulangInfiniteScroll
 };
 
 // 自定义函数
