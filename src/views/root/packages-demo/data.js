@@ -191,4 +191,10 @@ export const unionData = [
     path: "/root/packages-demo/yulang-drawer",
     active: false,
   },
+  {
+    level: 2,
+    title: "Collapse 折叠面板",
+    path: "/root/packages-demo/yulang-collapse",
+    active: false,
+  },
 ];

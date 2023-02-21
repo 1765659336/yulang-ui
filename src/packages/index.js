@@ -28,6 +28,9 @@ import YulangTimePicker from "@/packages/yulang-time-picker/YulangTimePicker.vue
 import YulangTooltip from "@/packages/yulang-tooltip/YulangTooltip.vue";
 import YulangConfirm from "@/packages/yulang-confirm/YulangConfirm.vue";
 import YulangDrawer from "@/packages/yulang-drawer/YulangDrawer.vue";
+import YulangCollapse from "@/packages/yulang-collapse/YulangCollapse.vue";
+import YulangCollapseItem from "@/packages/yulang-collapse-item/YulangCollapseItem.vue";
+
 
 // 引入icon
 import "../assets/icon/iconfont.css";
@@ -83,7 +86,9 @@ export const Packages = [
   YulangTimePicker,
   YulangTooltip,
   YulangConfirm,
-  YulangDrawer
+  YulangDrawer,
+  YulangCollapse,
+  YulangCollapseItem
 ];
 
 // 工具函数

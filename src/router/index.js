@@ -451,6 +451,19 @@ const routes = [
               title: "抽屉 YulangDrawer",
             },
           },
+          {
+            path: "yulang-collapse",
+            name: "yulang-collapse",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-collapse/YulangCollapse.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "折叠面板 YulangCollapse",
+            },
+          },
         ],
       },
       {
