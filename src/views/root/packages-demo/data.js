@@ -179,4 +179,16 @@ export const unionData = [
     path: "/root/packages-demo/yulang-tooltip",
     active: false,
   },
+  {
+    level: 2,
+    title: "Confirm 气泡确认框",
+    path: "/root/packages-demo/yulang-confirm",
+    active: false,
+  },
+  {
+    level: 2,
+    title: "Drawer 抽屉",
+    path: "/root/packages-demo/yulang-drawer",
+    active: false,
+  },
 ];

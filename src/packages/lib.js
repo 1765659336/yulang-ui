@@ -118,7 +118,7 @@ export const longClick = function (el, callback) {
     clearInterval(timer);
     callback(e, "up"); // 执行外部callback
   });
-}
+};
 
 // 判断弹出的dom应该的位置
 /* 
@@ -130,16 +130,35 @@ export const longClick = function (el, callback) {
 */
 
 // 当前位置放不下的回调
-const negateFn = function (defaultPosition, triggerDom, contentDom, offsetX, offsetY) {
+const negateFn = function (
+  defaultPosition,
+  triggerDom,
+  contentDom,
+  offsetX,
+  offsetY
+) {
   const index = positionArr.findIndex(defaultPosition) + 1;
-  return getPosition(positionArr[index] ?? positionArr[0], triggerDom, contentDom, offsetX, offsetY)
-}
+  return getPosition(
+    positionArr[index] ?? positionArr[0],
+    triggerDom,
+    contentDom,
+    offsetX,
+    offsetY
+  );
+};
 
 // --------------------------位置校验函数
 const judgmentBottom = function (triggerDom, contentDom, offsetX, offsetY) {
-  const { right: triggerDomRight, left: triggerDomLeft, bottom: triggerDomBottom } = triggerDom.getBoundingClientRect();
+  const {
+    right: triggerDomRight,
+    left: triggerDomLeft,
+    bottom: triggerDomBottom,
+  } = triggerDom.getBoundingClientRect();
   // 判断水平方向是否可以放下
-  if (2 * triggerDomRight + triggerDom.clientWidth < contentDom.clientWidth || 2 * triggerDomLeft + triggerDom.clientWidth < contentDom.clientWidth) {
+  if (
+    2 * triggerDomRight + triggerDom.clientWidth < contentDom.clientWidth ||
+    2 * triggerDomLeft + triggerDom.clientWidth < contentDom.clientWidth
+  ) {
     return false;
   }
   // 判断垂直方向是否可以放下
@@ -147,23 +166,30 @@ const judgmentBottom = function (triggerDom, contentDom, offsetX, offsetY) {
     return false;
   }
   return true;
-}
+};
 
-const judgmentBottomStart = function (triggerDom, contentDom, offsetX, offsetY) {
-  const { right: triggerDomRight, bottom: triggerDomBottom } = triggerDom.getBoundingClientRect();
+const judgmentBottomStart = function (
+  triggerDom,
+  contentDom,
+  offsetX,
+  offsetY
+) {
+  const { right: triggerDomRight, bottom: triggerDomBottom } =
+    triggerDom.getBoundingClientRect();
   // 判断水平方向是否可以放下
   if (triggerDom.clientWidth + triggerDomRight < contentDom.clientWidth) {
-    return false
+    return false;
   }
   // 判断垂直方向是否可以放下
   if (triggerDomBottom < contentDom.clientHeight + offsetY) {
     return false;
   }
   return true;
-}
+};
 
 const judgmentLeftEnd = function (triggerDom, contentDom, offsetX) {
-  const { top: triggerDomTop, left: triggerDomLeft } = triggerDom.getBoundingClientRect();
+  const { top: triggerDomTop, left: triggerDomLeft } =
+    triggerDom.getBoundingClientRect();
   // 判断水平方向是否可以放下
   if (triggerDomLeft < contentDom.clientWidth + offsetX) {
     return false;
@@ -173,21 +199,29 @@ const judgmentLeftEnd = function (triggerDom, contentDom, offsetX) {
     return false;
   }
   return true;
-}
+};
 const judgmentLeft = function (triggerDom, contentDom, offsetX) {
-  const { top: triggerDomTop, bottom: triggerDomBottom, left: triggerDomLeft } = triggerDom.getBoundingClientRect();
+  const {
+    top: triggerDomTop,
+    bottom: triggerDomBottom,
+    left: triggerDomLeft,
+  } = triggerDom.getBoundingClientRect();
   // 判断水平方向是否可以放下
   if (triggerDomLeft < contentDom.clientWidth + offsetX) {
     return false;
   }
   // 判断垂直方向是否可以放下
-  if (triggerDom.clientHeight + 2 * triggerDomBottom < contentDom.clientHeight || triggerDom.clientHeight + 2 * triggerDomTop < contentDom.clientHeight) {
+  if (
+    triggerDom.clientHeight + 2 * triggerDomBottom < contentDom.clientHeight ||
+    triggerDom.clientHeight + 2 * triggerDomTop < contentDom.clientHeight
+  ) {
     return false;
   }
   return true;
-}
+};
 const judgmentLeftStart = function (triggerDom, contentDom, offsetX) {
-  const { bottom: triggerDomBottom, left: triggerDomLeft } = triggerDom.getBoundingClientRect();
+  const { bottom: triggerDomBottom, left: triggerDomLeft } =
+    triggerDom.getBoundingClientRect();
   // 判断水平方向是否可以放下
   if (triggerDomLeft < contentDom.clientWidth + offsetX) {
     return false;
@@ -197,23 +231,31 @@ const judgmentLeftStart = function (triggerDom, contentDom, offsetX) {
     return false;
   }
   return true;
-}
+};
 const judgmentTopStart = function (triggerDom, contentDom, offsetX, offsetY) {
-  const { right: triggerDomRight, top: triggerDomTop } = triggerDom.getBoundingClientRect();
+  const { right: triggerDomRight, top: triggerDomTop } =
+    triggerDom.getBoundingClientRect();
   // 判断水平方向是否可以放下
   if (triggerDom.clientWidth + triggerDomRight < contentDom.clientWidth) {
-    return false
+    return false;
   }
   // 判断垂直方向是否可以放下
   if (triggerDomTop < contentDom.clientHeight + offsetY) {
     return false;
   }
   return true;
-}
+};
 const judgmentTop = function (triggerDom, contentDom, offsetX, offsetY) {
-  const { right: triggerDomRight, left: triggerDomLeft, top: triggerDomTop } = triggerDom.getBoundingClientRect();
+  const {
+    right: triggerDomRight,
+    left: triggerDomLeft,
+    top: triggerDomTop,
+  } = triggerDom.getBoundingClientRect();
   // 判断水平方向是否可以放下
-  if (2 * triggerDomRight + triggerDom.clientWidth < contentDom.clientWidth || 2 * triggerDomLeft + triggerDom.clientWidth < contentDom.clientWidth) {
+  if (
+    2 * triggerDomRight + triggerDom.clientWidth < contentDom.clientWidth ||
+    2 * triggerDomLeft + triggerDom.clientWidth < contentDom.clientWidth
+  ) {
     return false;
   }
   // 判断垂直方向是否可以放下
@@ -221,23 +263,25 @@ const judgmentTop = function (triggerDom, contentDom, offsetX, offsetY) {
     return false;
   }
   return true;
-}
+};
 
 const judgmentTopEnd = function (triggerDom, contentDom, offsetX, offsetY) {
-  const { right: triggerDomRight, top: triggerDomTop } = triggerDom.getBoundingClientRect();
+  const { right: triggerDomRight, top: triggerDomTop } =
+    triggerDom.getBoundingClientRect();
   // 判断水平方向是否可以放下
   if (triggerDom.clientWidth + triggerDomRight < contentDom.clientWidth) {
-    return false
+    return false;
   }
   // 判断垂直方向是否可以放下
   if (triggerDomTop < contentDom.clientHeight + offsetY) {
     return false;
   }
   return true;
-}
+};
 
 const judgmentRightStart = function (triggerDom, contentDom, offsetX) {
-  const { bottom: triggerDomBottom, right: triggerDomRight } = triggerDom.getBoundingClientRect();
+  const { bottom: triggerDomBottom, right: triggerDomRight } =
+    triggerDom.getBoundingClientRect();
   // 判断水平方向是否可以放下
   if (triggerDomRight < contentDom.clientWidth + offsetX) {
     return false;
@@ -247,23 +291,31 @@ const judgmentRightStart = function (triggerDom, contentDom, offsetX) {
     return false;
   }
   return true;
-}
+};
 
 const judgmentRight = function (triggerDom, contentDom, offsetX) {
-  const { top: triggerDomTop, bottom: triggerDomBottom, right: triggerDomRight } = triggerDom.getBoundingClientRect();
+  const {
+    top: triggerDomTop,
+    bottom: triggerDomBottom,
+    right: triggerDomRight,
+  } = triggerDom.getBoundingClientRect();
   // 判断水平方向是否可以放下
   if (triggerDomRight < contentDom.clientWidth + offsetX) {
     return false;
   }
   // 判断垂直方向是否可以放下
-  if (triggerDom.clientHeight + 2 * triggerDomBottom < contentDom.clientHeight || triggerDom.clientHeight + 2 * triggerDomTop < contentDom.clientHeight) {
+  if (
+    triggerDom.clientHeight + 2 * triggerDomBottom < contentDom.clientHeight ||
+    triggerDom.clientHeight + 2 * triggerDomTop < contentDom.clientHeight
+  ) {
     return false;
   }
   return true;
-}
+};
 
 const judgmentRightEnd = function (triggerDom, contentDom, offsetX) {
-  const { top: triggerDomTop, right: triggerDomRight } = triggerDom.getBoundingClientRect();
+  const { top: triggerDomTop, right: triggerDomRight } =
+    triggerDom.getBoundingClientRect();
   // 判断水平方向是否可以放下
   if (triggerDomRight < contentDom.clientWidth + offsetX) {
     return false;
@@ -273,27 +325,28 @@ const judgmentRightEnd = function (triggerDom, contentDom, offsetX) {
     return false;
   }
   return true;
-}
+};
 
 const judgmentBottomEnd = function (triggerDom, contentDom, offsetX, offsetY) {
-  const { right: triggerDomRight, bottom: triggerDomBottom } = triggerDom.getBoundingClientRect();
+  const { right: triggerDomRight, bottom: triggerDomBottom } =
+    triggerDom.getBoundingClientRect();
   // 判断水平方向是否可以放下
   if (triggerDom.clientWidth + triggerDomRight < contentDom.clientWidth) {
-    return false
+    return false;
   }
   // 判断垂直方向是否可以放下
   if (triggerDomBottom < contentDom.clientHeight + offsetY) {
     return false;
   }
   return true;
-}
+};
 
 // -----------------------------------------
 
 // 校验对象
 const judgmentObj = {
   bottom: judgmentBottom,
-  ['bottom-start']: judgmentBottomStart,
+  ["bottom-start"]: judgmentBottomStart,
   ["left-end"]: judgmentLeftEnd,
   left: judgmentLeft,
   ["left-start"]: judgmentLeftStart,
@@ -304,26 +357,40 @@ const judgmentObj = {
   right: judgmentRight,
   ["right-end"]: judgmentRightEnd,
   ["bottom-end"]: judgmentBottomEnd,
-}
+};
 
-export const getPosition = function (defaultPosition, triggerDom, contentDom, offsetX = 0, offsetY = 0, checkNumber = 1) {
+export const getPosition = function (
+  defaultPosition,
+  triggerDom,
+  contentDom,
+  offsetX = 0,
+  offsetY = 0,
+  checkNumber = 1
+) {
   // 如果校验了一个轮回
   if (checkNumber === positionArr.length + 1) {
     // 每个位置都放不下，因此就放在默认第一次传入的位置
-    return defaultPosition
+    return defaultPosition;
   }
   for (const key in judgmentObj) {
     if (Object.hasOwnProperty.call(judgmentObj, key)) {
       if (defaultPosition === key) {
         if (judgmentObj[key](triggerDom, contentDom, offsetX, offsetY)) {
-          return key
+          return key;
         } else {
-          return negateFn(defaultPosition, triggerDom, contentDom, offsetX, offsetY, ++checkNumber);
+          return negateFn(
+            defaultPosition,
+            triggerDom,
+            contentDom,
+            offsetX,
+            offsetY,
+            ++checkNumber
+          );
         }
       }
     }
   }
-}
+};
 
 // 改变dom的位置
 /* 
@@ -332,119 +399,142 @@ export const getPosition = function (defaultPosition, triggerDom, contentDom, of
   sonDom : 子dom
   position : 位置
 */
-export const changePosition = function (fatherDom, triggerDom, sonDom, position) {
+export const changePosition = function (
+  fatherDom,
+  triggerDom,
+  sonDom,
+  position
+) {
   const scrollTop =
     document.documentElement.scrollTop || document.body.scrollTop;
   const scrollLeft =
     document.documentElement.scrollLeft || document.body.scrollLeft;
   switch (position) {
-    case 'bottom-start':
+    case "bottom-start":
       {
-        fatherDom.style.position = 'relative';
-        sonDom.style.position = 'absolute';
-        sonDom.style.top = triggerDom.clientHeight + scrollTop + 'px';
-        sonDom.style.left = '0px';
-        sonDom.style.transform = 'translate(0px, 10px)';
+        fatherDom.style.position = "relative";
+        sonDom.style.position = "absolute";
+        sonDom.style.top = triggerDom.clientHeight + "px";
+        sonDom.style.left = "0px";
+        sonDom.style.transform = "translate(0px, 10px)";
       }
       break;
-    case 'bottom':
+    case "bottom":
       {
-        fatherDom.style.position = 'relative';
-        sonDom.style.position = 'absolute';
-        sonDom.style.top = triggerDom.clientHeight + scrollTop + 'px';
-        sonDom.style.left = triggerDom.clientWidth / 2 - scrollLeft + 'px';
-        sonDom.style.transform = 'translate(-50%, 10px)';
+        fatherDom.style.position = "relative";
+        sonDom.style.position = "absolute";
+        sonDom.style.top = triggerDom.clientHeight + "px";
+        sonDom.style.left = triggerDom.clientWidth / 2 - scrollLeft + "px";
+        sonDom.style.transform = "translate(-50%, 10px)";
       }
       break;
-    case 'bottom-end':
+    case "bottom-end":
       {
-        fatherDom.style.position = 'relative';
-        sonDom.style.position = 'absolute';
-        sonDom.style.top = triggerDom.clientHeight + scrollTop + 'px';
-        sonDom.style.left = triggerDom.clientWidth - (sonDom.clientWidth) + 'px';
-        sonDom.style.transform = 'translate(0px, 10px)';
+        fatherDom.style.position = "relative";
+        sonDom.style.position = "absolute";
+        sonDom.style.top = triggerDom.clientHeight + "px";
+        sonDom.style.left = triggerDom.clientWidth - sonDom.clientWidth + "px";
+        sonDom.style.transform = "translate(0px, 10px)";
       }
       break;
-    case 'left-end':
+    case "left-end":
       {
-        fatherDom.style.position = 'relative';
-        sonDom.style.position = 'absolute';
-        sonDom.style.bottom = '0px';
-        sonDom.style.left = -(sonDom.clientWidth) - scrollLeft + 'px';
-        sonDom.style.transform = 'translate(-10px, 0px)';
+        fatherDom.style.position = "relative";
+        sonDom.style.position = "absolute";
+        sonDom.style.bottom = "0px";
+        sonDom.style.left = -sonDom.clientWidth - scrollLeft + "px";
+        sonDom.style.transform = "translate(-10px, 0px)";
       }
       break;
-    case 'left':
+    case "left":
       {
-        fatherDom.style.position = 'relative';
-        sonDom.style.position = 'absolute';
-        sonDom.style.bottom = (triggerDom.clientHeight / 2 + scrollTop) + 'px';
-        sonDom.style.left = -(sonDom.clientWidth) - scrollLeft + 'px';
-        sonDom.style.transform = 'translate(-10px, 50%)';
+        fatherDom.style.position = "relative";
+        sonDom.style.position = "absolute";
+        sonDom.style.bottom = triggerDom.clientHeight / 2 + scrollTop + "px";
+        sonDom.style.left = -sonDom.clientWidth - scrollLeft + "px";
+        sonDom.style.transform = "translate(-10px, 50%)";
       }
       break;
-    case 'left-start':
+    case "left-start":
       {
-        fatherDom.style.position = 'relative';
-        sonDom.style.position = 'absolute';
-        sonDom.style.top = '0px';
-        sonDom.style.left = -(sonDom.clientWidth) - scrollLeft + 'px';
-        sonDom.style.transform = 'translate(-10px, 0px)';
+        fatherDom.style.position = "relative";
+        sonDom.style.position = "absolute";
+        sonDom.style.top = "0px";
+        sonDom.style.left = -sonDom.clientWidth - scrollLeft + "px";
+        sonDom.style.transform = "translate(-10px, 0px)";
       }
       break;
-    case 'top-start':
+    case "top-start":
       {
-        fatherDom.style.position = 'relative';
-        sonDom.style.position = 'absolute';
-        sonDom.style.bottom = (triggerDom.clientHeight + scrollTop) + 'px';
-        sonDom.style.left = '0px';
-        sonDom.style.transform = 'translate(0px, -10px)';
+        fatherDom.style.position = "relative";
+        sonDom.style.position = "absolute";
+        sonDom.style.bottom = triggerDom.clientHeight + "px";
+        sonDom.style.left = "0px";
+        sonDom.style.transform = "translate(0px, -10px)";
       }
       break;
-    case 'top':
+    case "top":
       {
-        fatherDom.style.position = 'relative';
-        sonDom.style.position = 'absolute';
-        sonDom.style.bottom = (triggerDom.clientHeight + scrollTop) + 'px';
-        sonDom.style.left = triggerDom.clientWidth / 2 + 'px';
-        sonDom.style.transform = 'translate(-50%, -10px)';
+        fatherDom.style.position = "relative";
+        sonDom.style.position = "absolute";
+        sonDom.style.bottom = triggerDom.clientHeight + "px";
+        sonDom.style.left = triggerDom.clientWidth / 2 + "px";
+        sonDom.style.transform = "translate(-50%, -10px)";
       }
       break;
-    case 'top-end':
+    case "top-end":
       {
-        fatherDom.style.position = 'relative';
-        sonDom.style.position = 'absolute';
-        sonDom.style.bottom = (triggerDom.clientHeight + scrollTop) + 'px';
-        sonDom.style.left = triggerDom.clientWidth + 'px';
-        sonDom.style.transform = 'translate(-100%, -10px)';
+        fatherDom.style.position = "relative";
+        sonDom.style.position = "absolute";
+        sonDom.style.bottom = triggerDom.clientHeight + "px";
+        sonDom.style.left = triggerDom.clientWidth + "px";
+        sonDom.style.transform = "translate(-100%, -10px)";
       }
       break;
-    case 'right-start':
+    case "right-start":
       {
-        fatherDom.style.position = 'relative';
-        sonDom.style.position = 'absolute';
-        sonDom.style.bottom = (triggerDom.clientHeight + scrollTop) + 'px';
-        sonDom.style.left = triggerDom.clientWidth + 'px';
-        sonDom.style.transform = 'translate(10px, 100%)';
+        fatherDom.style.position = "relative";
+        sonDom.style.position = "absolute";
+        sonDom.style.bottom = triggerDom.clientHeight + scrollTop + "px";
+        sonDom.style.left = triggerDom.clientWidth + "px";
+        sonDom.style.transform = "translate(10px, 100%)";
       }
       break;
-    case 'right':
+    case "right":
       {
-        fatherDom.style.position = 'relative';
-        sonDom.style.position = 'absolute';
-        sonDom.style.bottom = (triggerDom.clientHeight / 2 + scrollTop) + 'px';
-        sonDom.style.left = triggerDom.clientWidth + 'px';
-        sonDom.style.transform = 'translate(10px, 50%)';
+        fatherDom.style.position = "relative";
+        sonDom.style.position = "absolute";
+        sonDom.style.bottom = triggerDom.clientHeight / 2 + scrollTop + "px";
+        sonDom.style.left = triggerDom.clientWidth + "px";
+        sonDom.style.transform = "translate(10px, 50%)";
       }
       break;
-    case 'right-end':
+    case "right-end":
       {
-        fatherDom.style.position = 'relative';
-        sonDom.style.position = 'absolute';
-        sonDom.style.bottom = scrollTop + 'px';
-        sonDom.style.left = triggerDom.clientWidth + 'px';
-        sonDom.style.transform = 'translate(10px, 0)';
+        fatherDom.style.position = "relative";
+        sonDom.style.position = "absolute";
+        sonDom.style.bottom = scrollTop + "px";
+        sonDom.style.left = triggerDom.clientWidth + "px";
+        sonDom.style.transform = "translate(10px, 0)";
       }
       break;
   }
-}
+};
+
+// 为false校验
+/* 
+  args : 不包含
+*/
+export const isFalse = function (value, ...args) {
+  // 不校验不包含的值
+  for (const key in args) {
+    if (Object.hasOwnProperty.call(args, key)) {
+      const element = args[key];
+      if (value === element) {
+        return true;
+      }
+    }
+  }
+
+  return value ? true : false;
+};
