@@ -30,7 +30,7 @@ import YulangConfirm from "@/packages/yulang-confirm/YulangConfirm.vue";
 import YulangDrawer from "@/packages/yulang-drawer/YulangDrawer.vue";
 import YulangCollapse from "@/packages/yulang-collapse/YulangCollapse.vue";
 import YulangCollapseItem from "@/packages/yulang-collapse-item/YulangCollapseItem.vue";
-
+import YulangSkeleton from "@/packages/yulang-skeleton/YulangSkeleton.vue";
 
 // 引入icon
 import "../assets/icon/iconfont.css";
@@ -48,7 +48,7 @@ export const Directives = {
   YulangCopy,
   YulangLoading,
   YulangLongClick,
-  YulangInfiniteScroll
+  YulangInfiniteScroll,
 };
 
 // 自定义函数
@@ -88,7 +88,8 @@ export const Packages = [
   YulangConfirm,
   YulangDrawer,
   YulangCollapse,
-  YulangCollapseItem
+  YulangCollapseItem,
+  YulangSkeleton,
 ];
 
 // 工具函数
@@ -117,5 +118,5 @@ if (typeof window !== "undefined" && window.Vue) {
 export default {
   install,
   ...Packages,
-  Lib
+  Lib,
 };

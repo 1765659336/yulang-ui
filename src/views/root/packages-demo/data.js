@@ -197,4 +197,10 @@ export const unionData = [
     path: "/root/packages-demo/yulang-collapse",
     active: false,
   },
+  {
+    level: 2,
+    title: "Skeleton 骨架屏",
+    path: "/root/packages-demo/yulang-skeleton",
+    active: false,
+  },
 ];

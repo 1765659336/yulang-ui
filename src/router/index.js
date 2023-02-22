@@ -464,6 +464,19 @@ const routes = [
               title: "折叠面板 YulangCollapse",
             },
           },
+          {
+            path: "yulang-skeleton",
+            name: "yulang-skeleton",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-skeleton/YulangSkeleton.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "骨架屏 YulangSkeleton",
+            },
+          },
         ],
       },
       {
