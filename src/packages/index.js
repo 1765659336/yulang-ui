@@ -32,6 +32,8 @@ import YulangCollapse from "@/packages/yulang-collapse/YulangCollapse.vue";
 import YulangCollapseItem from "@/packages/yulang-collapse-item/YulangCollapseItem.vue";
 import YulangSkeleton from "@/packages/yulang-skeleton/YulangSkeleton.vue";
 import YulangRate from "@/packages/yulang-rate/YulangRate.vue";
+import YulangRadioGroup from "@/packages/yulang-radio-group/YulangRadioGroup.vue";
+import YulangRadio from "@/packages/yulang-radio/YulangRadio.vue";
 
 // 引入icon
 import "../assets/icon/iconfont.css";
@@ -91,7 +93,9 @@ export const Packages = [
   YulangCollapse,
   YulangCollapseItem,
   YulangSkeleton,
-  YulangRate
+  YulangRate,
+  YulangRadioGroup,
+  YulangRadio,
 ];
 
 // 工具函数

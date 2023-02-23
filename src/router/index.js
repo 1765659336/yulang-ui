@@ -488,6 +488,17 @@ const routes = [
               title: "评分 YulangRate",
             },
           },
+          {
+            path: "yulang-radio",
+            name: "yulang-radio",
+            component: () =>
+              import("@/views/root/packages-demo/yulang-radio/YulangRadio.vue"),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "单选框 YulangRadio",
+            },
+          },
         ],
       },
       {
