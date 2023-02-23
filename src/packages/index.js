@@ -31,6 +31,7 @@ import YulangDrawer from "@/packages/yulang-drawer/YulangDrawer.vue";
 import YulangCollapse from "@/packages/yulang-collapse/YulangCollapse.vue";
 import YulangCollapseItem from "@/packages/yulang-collapse-item/YulangCollapseItem.vue";
 import YulangSkeleton from "@/packages/yulang-skeleton/YulangSkeleton.vue";
+import YulangRate from "@/packages/yulang-rate/YulangRate.vue";
 
 // 引入icon
 import "../assets/icon/iconfont.css";
@@ -90,6 +91,7 @@ export const Packages = [
   YulangCollapse,
   YulangCollapseItem,
   YulangSkeleton,
+  YulangRate
 ];
 
 // 工具函数

@@ -203,4 +203,10 @@ export const unionData = [
     path: "/root/packages-demo/yulang-skeleton",
     active: false,
   },
+  {
+    level: 2,
+    title: "Rate 评分",
+    path: "/root/packages-demo/yulang-rate",
+    active: false,
+  },
 ];

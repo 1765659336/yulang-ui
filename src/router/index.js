@@ -477,6 +477,17 @@ const routes = [
               title: "骨架屏 YulangSkeleton",
             },
           },
+          {
+            path: "yulang-rate",
+            name: "yulang-rate",
+            component: () =>
+              import("@/views/root/packages-demo/yulang-rate/YulangRate.vue"),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "评分 YulangRate",
+            },
+          },
         ],
       },
       {

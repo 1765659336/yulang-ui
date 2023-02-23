@@ -13,6 +13,12 @@
         </template>
       </yulang-describe-frame>
     </template>
+    <template #c>
+      显示动画效果。
+      <yulang-describe-frame :codeStr="codeStrC">
+        <skeleton-c></skeleton-c>
+      </yulang-describe-frame>
+    </template>
   </yulang-anchor-point>
 </template>
 
@@ -20,18 +26,20 @@
 import YulangAnchorPoint from "@/packages/yulang-anchor-point/YulangAnchorPoint.vue";
 import YulangDescribeFrame from "@/packages/yulang-describe-frame/YulangDescribeFrame.vue";
 import SkeletonB from "./components/SkeletonB.vue";
-import { codeStrB } from "./data";
+import SkeletonC from "./components/SkeletonC.vue";
+import { codeStrB, codeStrC } from "./data";
 
 export default {
-  components: { YulangAnchorPoint, YulangDescribeFrame, SkeletonB },
+  components: { YulangAnchorPoint, YulangDescribeFrame, SkeletonB, SkeletonC },
   name: "packages-demo-yulang-skeleton",
   data() {
     return {
       codeStrB,
+      codeStrC,
       slotArr: [
         { slotName: "a", slotTitle: "Skeleton 骨架屏", level: 1 },
         { slotName: "b", slotTitle: "基础用法", level: 2 },
-        { slotName: "c", slotTitle: "c", level: 2 },
+        { slotName: "c", slotTitle: "动画效果", level: 2 },
       ],
     };
   },
