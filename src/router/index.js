@@ -499,6 +499,17 @@ const routes = [
               title: "单选框 YulangRadio",
             },
           },
+          {
+            path: "yulang-container",
+            name: "yulang-container",
+            component: () =>
+              import("@/views/root/packages-demo/yulang-container/YulangContainer.vue"),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "布局容器 YulangContainer",
+            },
+          },
         ],
       },
       {

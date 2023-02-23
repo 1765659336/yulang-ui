@@ -42,16 +42,16 @@
 </template>
 
 <script>
-
 export default {
-  name: 'yulang-anchor-point',
+  name: "yulang-anchor-point",
   model: {
-    prop: 'slotArr',
-    event: 'slotArr',
+    prop: "slotArr",
+    event: "slotArr",
   },
   props: {
     slotArr: {
       type: Array,
+      require: true,
     },
   },
   data() {
@@ -62,17 +62,17 @@ export default {
       containerHeight: null,
       level1Index: 0,
       level2Index: 0,
-      fontSizeLevel:{
-        1:{
-          fontsize:'2rem'
+      fontSizeLevel: {
+        1: {
+          fontsize: "2rem",
         },
-        2:{
-          fontsize:'1.5rem'
+        2: {
+          fontsize: "1.5rem",
         },
-        3:{
-          fontsize:'1rem'
-        }
-      }
+        3: {
+          fontsize: "1rem",
+        },
+      },
     };
   },
   computed: {
@@ -81,27 +81,27 @@ export default {
         return this.slotArr;
       },
       set(newValue) {
-        this.$emit('slotArr', newValue);
+        this.$emit("slotArr", newValue);
       },
     },
   },
   methods: {
     jumpAnchor(item) {
-      document.querySelector('#' + item.slotName).scrollIntoView();
+      document.querySelector("#" + item.slotName).scrollIntoView();
     },
     packagesMainFormAnchorPointClickItemTitle(index) {
       return {
-        'packages-main-form-anchor-point-click-item-level1':
+        "packages-main-form-anchor-point-click-item-level1":
           this.slotArrComputed[index].level === 1,
-        'packages-main-form-anchor-point-click-item-level2':
+        "packages-main-form-anchor-point-click-item-level2":
           this.slotArrComputed[index].level === 2,
       };
     },
-    titleFontSize(item){
+    titleFontSize(item) {
       //根据标题等级给字体大小
-      if(item.level === 1 ) return this.fontSizeLevel[item.level].fontsize
-      if(item.level === 2 ) return this.fontSizeLevel[item.level].fontsize
-    }
+      if (item.level === 1) return this.fontSizeLevel[item.level].fontsize;
+      if (item.level === 2) return this.fontSizeLevel[item.level].fontsize;
+    },
   },
   mounted() {
     this.$nextTick(function () {
@@ -122,5 +122,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import url('./index.less');
+@import url("./index.less");
 </style>
