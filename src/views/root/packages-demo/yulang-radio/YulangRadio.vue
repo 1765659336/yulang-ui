@@ -1,13 +1,24 @@
 <template>
   <yulang-anchor-point :slotArr="slotArr">
+    <template #a> 在一组备选项中进行单选 </template>
     <template #b>
+      单选框不应该有太多的可选项，
+      如果你有很多的可选项你应该使用选择框而不是单选框。
       <yulang-describe-frame :codeStr="codeStrB">
         <radio-b></radio-b>
+        <template #tip>
+          要使用 Radio 组件，只需要设置v-model绑定变量，
+          选中意味着变量的值为相应 Radio label属性的值
+        </template>
       </yulang-describe-frame>
     </template>
     <template #c>
+      disabled 属性可以用来控制单选框的禁用状态。
       <yulang-describe-frame :codeStr="codeStrC">
         <radio-c></radio-c>
+        <template #tip>
+          你只需要为单选框设置 disabled 属性就能控制其禁用状态。
+        </template>
       </yulang-describe-frame>
     </template>
   </yulang-anchor-point>
@@ -26,9 +37,9 @@ export default {
       codeStrB,
       codeStrC,
       slotArr: [
-        { slotName: "a", slotTitle: "a", level: 1 },
-        { slotName: "b", slotTitle: "b", level: 2 },
-        { slotName: "c", slotTitle: "c", level: 2 },
+        { slotName: "a", slotTitle: "Radio 单选框", level: 1 },
+        { slotName: "b", slotTitle: "基础用法", level: 2 },
+        { slotName: "c", slotTitle: "禁用状态", level: 2 },
       ],
     };
   },

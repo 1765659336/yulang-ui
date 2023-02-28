@@ -503,11 +503,26 @@ const routes = [
             path: "yulang-container",
             name: "yulang-container",
             component: () =>
-              import("@/views/root/packages-demo/yulang-container/YulangContainer.vue"),
+              import(
+                "@/views/root/packages-demo/yulang-container/YulangContainer.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
               title: "布局容器 YulangContainer",
+            },
+          },
+          {
+            path: "yulang-pagination",
+            name: "yulang-pagination",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-pagination/YulangPagination.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "分页 YulangPagination",
             },
           },
         ],

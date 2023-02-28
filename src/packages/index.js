@@ -39,6 +39,7 @@ import YulangHeader from "@/packages/yulang-header/YulangHeader.vue";
 import YulangAside from "@/packages/yulang-aside/YulangAside.vue";
 import YulangMain from "@/packages/yulang-main/YulangMain.vue";
 import YulangFooter from "@/packages/yulang-footer/YulangFooter.vue";
+import YulangPagination from "@/packages/yulang-pagination/YulangPagination.vue";
 
 
 // 引入icon
@@ -106,7 +107,8 @@ export const Packages = [
   YulangHeader,
   YulangAside,
   YulangMain,
-  YulangFooter
+  YulangFooter,
+  YulangPagination
 ];
 
 // 工具函数

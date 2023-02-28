@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "23995137",
+      "name": "快进",
+      "font_class": "kuaijin",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "23995141",
+      "name": "快退",
+      "font_class": "kuaitui",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
       "icon_id": "21800722",
       "name": "时间",
       "font_class": "shijian",
