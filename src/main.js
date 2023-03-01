@@ -6,6 +6,7 @@ import store from "./store";
 // 引入样式重置文件
 import "normalize.css";
 import "@/assets/style/public.less";
+import "@/assets/style/animate.less";
 
 // 全局注册自定义组件
 // import yulangUi from "yulang-ui";

@@ -1,7 +1,9 @@
 <template>
   <div class="yulang-packages-union">
     <div class="component-menu" id="component-menu">
-      <div class="menu-title-1 menu-title-level2-common">更新日志</div>
+      <div class="menu-title-1 menu-title-level2-common" :style="{
+          animation: 'myfirst 5s',
+        }">更新日志</div>
       <div class="menu-title-1 menu-title-level2-common">开发指南</div>
       <div
         v-for="(item, index) in unionData"
@@ -14,10 +16,16 @@
     </div>
     <keep-alive>
       <!-- 需要缓存的视图组件 -->
-      <router-view v-if="$route.meta.keepAlive" class="component-content"></router-view>
+      <router-view
+        v-if="$route.meta.keepAlive"
+        class="component-content"
+      ></router-view>
     </keep-alive>
     <!-- 不需要缓存的视图组件 -->
-    <router-view v-if="!$route.meta.keepAlive" class="component-content"></router-view>
+    <router-view
+      v-if="!$route.meta.keepAlive"
+      class="component-content"
+    ></router-view>
   </div>
 </template>
 
