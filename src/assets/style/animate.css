@@ -1,0 +1,18 @@
+.yulang-animate {
+    /* 设置动画初始执行时间为1s */
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+
+/* 忽上忽下 */
+
+.yulang-animate.up-and-down {
+    animation: up-and-down infinite 2s ease-in-out;
+}
+
+@keyframes up-and-down {
+    50% {
+        transform: translateY(30px);
+    }
+}

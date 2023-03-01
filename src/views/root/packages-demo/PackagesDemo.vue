@@ -1,9 +1,7 @@
 <template>
   <div class="yulang-packages-union">
     <div class="component-menu" id="component-menu">
-      <div class="menu-title-1 menu-title-level2-common" :style="{
-          animation: 'myfirst 5s',
-        }">更新日志</div>
+      <div class="menu-title-1 menu-title-level2-common">更新日志</div>
       <div class="menu-title-1 menu-title-level2-common">开发指南</div>
       <div
         v-for="(item, index) in unionData"
@@ -36,7 +34,6 @@ export default {
   data() {
     return {
       unionData,
-      componentIndex: 2,
     };
   },
   computed: {},
@@ -54,7 +51,7 @@ export default {
     unionDataClass(item) {
       return [
         "menu-title-" + item.level,
-        item.active ? "menu-title-actived" : "",
+        item.path === this.$route.path ? "menu-title-actived" : "",
         item.level === 2 ? "menu-title-level2-common" : "",
       ];
     },

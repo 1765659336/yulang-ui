@@ -3,6 +3,9 @@ import Vue from "vue";
 import "@/assets/icon/reset.css";
 // 引入icon
 import "@/assets/icon/iconfont.css";
+// 引入动画样式文件
+import "@/assets/style/animate.css";
+
 import { Packages, Directives, CreateNode } from "@/packages/index";
 
 // 引入自定义方法(通知)
