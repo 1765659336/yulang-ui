@@ -14,34 +14,19 @@
       </div>
       <div class="copyBtn" v-YulangCopy="value.copy">点我复制代码</div>
     </div>
-    <component :is="value.title"></component>
+    <component :is="value.value"></component>
   </div>
 </template>
 
 <script>
-import upAndDown from "./components/UpAndDown.vue";
-import d from "./components/d.vue";
+import { Components, AnimateClassArr } from "./index";
 export default {
   name: "root-resources-animate",
-  components: {
-    upAndDown,
-    d,
-  },
+  components: Components,
   data() {
     return {
-      value: {
-        title: "up-and-down",
-        value: "upAndDown",
-        copy: "yulang-animate up-and-down",
-      },
-      animateClassArr: [
-        {
-          title: "up-and-down",
-          value: "upAndDown",
-          copy: "yulang-animate up-and-down",
-        },
-        { title: "d", value: "d", copy: "yulang-animate up-and-down" },
-      ],
+      value: AnimateClassArr[0],
+      animateClassArr: AnimateClassArr,
     };
   },
 };

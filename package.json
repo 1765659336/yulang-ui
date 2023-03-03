@@ -1,6 +1,6 @@
 {
     "name": "yulang-ui",
-    "version": "0.1.17",
+    "version": "0.1.18",
     "private": false,
     "main": "yulang-ui-dist/yulang-ui.common.js",
     "files": [

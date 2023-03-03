@@ -1,18 +1,774 @@
 .yulang-animate {
-    /* 设置动画初始执行时间为1s */
+    /* 设置动画初始执行时间为2s */
     animation-duration: 1s;
     animation-fill-mode: both;
 }
 
 
-/* 忽上忽下 */
+/* 忽下忽上 */
 
-.yulang-animate.up-and-down {
-    animation: up-and-down infinite 2s ease-in-out;
+.yulang-animate.yulang-up-and-down {
+    animation: yulang-up-and-down infinite 2s ease-in-out;
 }
 
-@keyframes up-and-down {
+@keyframes yulang-up-and-down {
     50% {
         transform: translateY(30px);
     }
 }
+
+
+/* 
+    dance-------------------------------------------
+*/
+
+
+/* 草木随风摇摆 */
+
+.yulang-animate.yulang-dance-bottom {
+    animation-name: yulang-dance-bottom;
+    /* 设置元素转换的原点 */
+    transform-origin: bottom;
+}
+
+@keyframes yulang-dance-bottom {
+    16% {
+        transform: skew(-14deg)
+    }
+    33% {
+        transform: skew(12deg)
+    }
+    49% {
+        transform: skew(-8deg)
+    }
+    66% {
+        transform: skew(6deg)
+    }
+    83% {
+        transform: skew(-4deg)
+    }
+}
+
+
+/* 两头摇摆 */
+
+.yulang-animate.yulang-dance-middle {
+    animation-name: yulang-dance-middle;
+}
+
+@keyframes yulang-dance-middle {
+    16% {
+        transform: skew(-14deg)
+    }
+    33% {
+        transform: skew(12deg)
+    }
+    49% {
+        transform: skew(-8deg)
+    }
+    66% {
+        transform: skew(6deg)
+    }
+    83% {
+        transform: skew(-4deg)
+    }
+}
+
+
+/* 晒衣服 */
+
+.yulang-animate.yulang-dance-top {
+    animation-name: yulang-dance-top;
+    transform-origin: top;
+}
+
+@keyframes yulang-dance-top {
+    16% {
+        transform: skew(-14deg)
+    }
+    33% {
+        transform: skew(12deg)
+    }
+    49% {
+        transform: skew(-8deg)
+    }
+    66% {
+        transform: skew(6deg)
+    }
+    83% {
+        transform: skew(-4deg)
+    }
+}
+
+
+/* --------------------------------------------------- */
+
+
+/* Zoom Out------------------------------------------- */
+
+
+/* 原地消失 */
+
+.yulang-animate.yulang-zoom-out {
+    animation-name: yulang-zoom-out;
+}
+
+@keyframes yulang-zoom-out {
+    to {
+        transform: scale(10);
+        opacity: 0;
+    }
+}
+
+
+/* 左移消失 */
+
+.yulang-animate.yulang-zoom-out-left {
+    animation-name: yulang-zoom-out-left;
+}
+
+@keyframes yulang-zoom-out-left {
+    to {
+        transform: scale(10) translateX(-50%);
+        opacity: 0;
+    }
+}
+
+
+/* 右移消失 */
+
+.yulang-animate.yulang-zoom-out-right {
+    animation-name: yulang-zoom-out-right;
+}
+
+@keyframes yulang-zoom-out-right {
+    to {
+        transform: scale(10) translateX(50%);
+        opacity: 0;
+    }
+}
+
+
+/* 爬升消失 */
+
+.yulang-animate.yulang-zoom-out-top {
+    animation-name: yulang-zoom-out-top;
+}
+
+@keyframes yulang-zoom-out-top {
+    to {
+        transform: scale(10) translateY(-50%);
+        opacity: 0;
+    }
+}
+
+
+/* 掉落消失 */
+
+.yulang-animate.yulang-zoom-out-bottom {
+    animation-name: yulang-zoom-out-bottom;
+}
+
+@keyframes yulang-zoom-out-bottom {
+    to {
+        transform: scale(10) translateY(50%);
+        opacity: 0;
+    }
+}
+
+
+/* ---------------------------------------------------------------- */
+
+
+/* Zoom In---------------------------------------------------------------- */
+
+
+/* 原地缩小显现 */
+
+.yulang-animate.yulang-zoom-in {
+    animation-name: yulang-zoom-in;
+}
+
+@keyframes yulang-zoom-in {
+    from {
+        transform: scale(10);
+        opacity: 0;
+    }
+}
+
+
+/* 左方进入缩小显现 */
+
+.yulang-animate.yulang-zoom-in-left {
+    animation-name: yulang-zoom-in-left;
+}
+
+@keyframes yulang-zoom-in-left {
+    from {
+        transform: scale(10) translateX(-50%);
+        opacity: 0;
+    }
+}
+
+
+/* 右方进入缩小显现 */
+
+.yulang-animate.yulang-zoom-in-right {
+    animation-name: yulang-zoom-in-right;
+}
+
+@keyframes yulang-zoom-in-right {
+    from {
+        transform: scale(10) translateX(50%);
+        opacity: 0;
+    }
+}
+
+
+/* 掉落缩小显现 */
+
+.yulang-animate.yulang-zoom-in-top {
+    animation-name: yulang-zoom-in-top;
+}
+
+@keyframes yulang-zoom-in-top {
+    from {
+        transform: scale(10) translateY(-50%);
+        opacity: 0;
+    }
+}
+
+
+/* 漂浮缩小显现 */
+
+.yulang-animate.yulang-zoom-in-bottom {
+    animation-name: yulang-zoom-in-bottom;
+}
+
+@keyframes yulang-zoom-in-bottom {
+    from {
+        transform: scale(10) translateY(50%);
+        opacity: 0;
+    }
+}
+
+
+/* ------------------------------------------------------------ */
+
+
+/* perspective使元素具备前后距离，使用3d旋转时，搭配使用使效果更顺滑 */
+
+
+/* 向上翻转消失 */
+
+.yulang-animate.yulang-perspective-to-top {
+    animation-name: yulang-perspective-to-top;
+    transform-style: preserve-3d;
+}
+
+@keyframes yulang-perspective-to-top {
+    50% {
+        opacity: 1
+    }
+    to {
+        transform: perspective(500px) rotateX(90deg);
+        opacity: 0;
+    }
+}
+
+.yulang-animate.yulang-perspective-to-bottom {
+    animation-name: yulang-perspective-to-bottom;
+    transform-style: preserve-3d
+}
+
+@keyframes yulang-perspective-to-bottom {
+    50% {
+        opacity: 1
+    }
+    to {
+        transform: perspective(500px) rotateX(90deg);
+        opacity: 0;
+    }
+}
+
+
+/* ----------------------------------------------------------------------- */
+
+
+/* Rotate In----------------------------------------------------------------------- */
+
+
+/* 从左翻转显示 */
+
+.yulang-animate.yulang-rotate-in-left {
+    animation-name: yulang-rotate-in-left;
+}
+
+@keyframes yulang-rotate-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-100%) rotate(0deg)
+    }
+    to {
+        transform: translateX(0px) rotate(360deg)
+    }
+}
+
+
+/* 从右翻转显示 */
+
+.yulang-animate.yulang-rotate-in-right {
+    animation-name: yulang-rotate-in-right;
+}
+
+@keyframes yulang-rotate-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(100%) rotate(0deg)
+    }
+    to {
+        transform: translateX(0px) rotate(-360deg)
+    }
+}
+
+
+/* 旋转掉落显示 */
+
+.yulang-animate.yulang-rotate-in-top {
+    animation-name: yulang-rotate-in-top;
+}
+
+@keyframes yulang-rotate-in-top {
+    from {
+        opacity: 0;
+        transform: translateY(-400%) rotate(0deg)
+    }
+    to {
+        transform: translateX(0px) rotate(360deg)
+    }
+}
+
+
+/* 旋转漂浮显示 */
+
+.yulang-animate.yulang-rotate-in-bottom {
+    animation-name: yulang-rotate-in-bottom;
+}
+
+@keyframes yulang-rotate-in-bottom {
+    from {
+        opacity: 0;
+        transform: translateY(400%) rotate(0deg)
+    }
+    to {
+        transform: translateX(0px) rotate(360deg)
+    }
+}
+
+
+/* -------------------------------------------------------- */
+
+
+/* Rotate Out---------------------------------------------- */
+
+.yulang-animate.yulang-rotate-out-left {
+    animation-name: yulang-rotate-out-left;
+}
+
+
+/* 左侧滚动离开 */
+
+@keyframes yulang-rotate-out-left {
+    from {
+        transform: translateX(0px) rotate(360deg)
+    }
+    to {
+        transform: translateX(-800px) rotate(0deg);
+        opacity: 0
+    }
+}
+
+
+/* 右侧滚动离开 */
+
+.yulang-animate.yulang-rotate-out-right {
+    animation-name: yulang-rotate-out-right;
+}
+
+@keyframes yulang-rotate-out-right {
+    from {
+        transform: translateX(0px) rotate(-360deg)
+    }
+    to {
+        transform: translateX(800px) rotate(0deg);
+        opacity: 0
+    }
+}
+
+
+/* 漂浮滚动离开 */
+
+.yulang-animate.yulang-rotate-out-top {
+    animation-name: yulang-rotate-out-top;
+}
+
+@keyframes yulang-rotate-out-top {
+    from {
+        transform: translateX(0px) rotate(360deg)
+    }
+    to {
+        transform: translateY(-800px) rotate(0deg);
+        opacity: 0
+    }
+}
+
+
+/* 掉落滚动离开 */
+
+.yulang-animate.yulang-rotate-out-bottom {
+    animation-name: yulang-rotate-out-bottom;
+}
+
+@keyframes yulang-rotate-out-bottom {
+    from {
+        transform: translateX(0px) rotate(360deg)
+    }
+    to {
+        transform: translateY(800px) rotate(0deg);
+        opacity: 0
+    }
+}
+
+
+/* ------------------------------------------------- */
+
+
+/* Spin In------------------------------------------ */
+
+.yulang-animate.yulang-spin-in-right-bottom {
+    animation-name: yulang-spin-in-right-bottom;
+}
+
+
+/* 右下角旋转出现 */
+
+@keyframes yulang-spin-in-right-bottom {
+    from,
+    to {
+        transform-origin: left bottom;
+    }
+    from {
+        transform: rotate(90deg);
+        opacity: 0;
+    }
+}
+
+
+/* 左下角旋转出现 */
+
+.yulang-animate.yulang-spin-in-left-bottom {
+    animation-name: yulang-spin-in-left-bottom;
+}
+
+@keyframes yulang-spin-in-left-bottom {
+    from,
+    to {
+        transform-origin: right bottom;
+    }
+    from {
+        transform: rotate(-90deg);
+        opacity: 0;
+    }
+}
+
+
+/* 左上角旋转出现 */
+
+.yulang-animate.yulang-spin-in-left-top {
+    animation-name: yulang-spin-in-left-top;
+}
+
+@keyframes yulang-spin-in-left-top {
+    from,
+    to {
+        transform-origin: left bottom;
+    }
+    from {
+        transform: rotate(-90deg);
+        opacity: 0;
+    }
+}
+
+
+/* 右上角旋转出现 */
+
+.yulang-animate.yulang-spin-in-right-top {
+    animation-name: yulang-spin-in-right-top;
+}
+
+@keyframes yulang-spin-in-right-top {
+    from,
+    to {
+        transform-origin: right bottom;
+    }
+    from {
+        transform: rotate(90deg);
+        opacity: 0;
+    }
+}
+
+
+/* -------------------------------------------------- */
+
+
+/* Spin Out----------------------------------------- */
+
+
+/* 左下角旋转消失 */
+
+.yulang-animate.yulang-spin-out-left-bottom {
+    animation-name: yulang-spin-out-left-bottom;
+}
+
+@keyframes yulang-spin-out-left-bottom {
+    from,
+    to {
+        transform-origin: left bottom;
+    }
+    to {
+        transform: rotate(90deg);
+        opacity: 0;
+    }
+}
+
+
+/* 右下角旋转消失 */
+
+.yulang-animate.yulang-spin-out-right-bottom {
+    animation-name: yulang-spin-out-right-bottom;
+}
+
+@keyframes yulang-spin-out-right-bottom {
+    from,
+    to {
+        transform-origin: right bottom;
+    }
+    to {
+        transform: rotate(-90deg);
+        opacity: 0;
+    }
+}
+
+
+/* 左上角旋转消失 */
+
+.yulang-animate.yulang-spin-out-left-top {
+    animation-name: yulang-spin-out-left-top;
+}
+
+@keyframes yulang-spin-out-left-top {
+    from,
+    to {
+        transform-origin: left bottom;
+    }
+    to {
+        transform: rotate(-90deg);
+        opacity: 0;
+    }
+}
+
+
+/* 右上角旋转消失 */
+
+.yulang-animate.yulang-spin-out-right-top {
+    animation-name: yulang-spin-out-right-top;
+}
+
+@keyframes yulang-spin-out-right-top {
+    from,
+    to {
+        transform-origin: right bottom;
+    }
+    to {
+        transform: rotate(90deg);
+        opacity: 0;
+    }
+}
+
+
+/* ------------------------------------------------ */
+
+
+/* Blur In -----------------------------------------*/
+
+
+/* 清晰出现 */
+
+.yulang-animate.yulang-blur-in {
+    animation-name: yulang-blur-in;
+}
+
+@keyframes yulang-blur-in {
+    from {
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+
+/* 从左侧清晰出现 */
+
+.yulang-animate.yulang-blur-in-left {
+    animation-name: yulang-blur-in-left;
+}
+
+@keyframes yulang-blur-in-left {
+    from {
+        transform: translateX(-100%);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+
+/* 从右侧清晰出现 */
+
+.yulang-animate.yulang-blur-in-right {
+    animation-name: yulang-blur-in-right;
+}
+
+@keyframes yulang-blur-in-right {
+    from {
+        transform: translateX(100%);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+
+/* 掉落清晰出现 */
+
+.yulang-animate.yulang-blur-in-top {
+    animation-name: yulang-blur-in-top;
+}
+
+@keyframes yulang-blur-in-top {
+    from {
+        transform: translateY(-100%);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+
+/* 漂浮清晰出现 */
+
+.yulang-animate.yulang-blur-in-bottom {
+    animation-name: yulang-blur-in-bottom;
+}
+
+@keyframes yulang-blur-in-bottom {
+    from {
+        transform: translateY(100%);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+
+/* ------------------------------------------------- */
+
+
+/* Blur Out ---------------------------------------- */
+
+
+/* 失焦离开 */
+
+.yulang-animate.yulang-blur-out {
+    animation-name: yulang-blur-out;
+}
+
+@keyframes yulang-blur-out {
+    85%,
+    to {
+        filter: blur(20px)
+    }
+    to {
+        opacity: 0
+    }
+}
+
+
+/* 右侧失焦离开 */
+
+.yulang-animate.yulang-blur-out-right {
+    animation-name: yulang-blur-out-right;
+}
+
+@keyframes yulang-blur-out-right {
+    85%,
+    to {
+        filter: blur(20px);
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 0
+    }
+}
+
+
+/* 左侧失焦离开 */
+
+.yulang-animate.yulang-blur-out-left {
+    animation-name: yulang-blur-out-left;
+}
+
+@keyframes yulang-blur-out-left {
+    85%,
+    to {
+        filter: blur(20px);
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 0
+    }
+}
+
+
+/* 失焦掉落离开 */
+
+.yulang-animate.yulang-blur-out-top {
+    animation-name: yulang-blur-out-top;
+}
+
+@keyframes yulang-blur-out-top {
+    85%,
+    to {
+        filter: blur(20px);
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 0
+    }
+}
+
+
+/* 失焦漂浮离开 */
+
+.yulang-animate.yulang-blur-out-bottom {
+    animation-name: yulang-blur-out-bottom;
+}
+
+@keyframes yulang-blur-out-bottom {
+    85%,
+    to {
+        filter: blur(20px);
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 0
+    }
+}
+
+
+/* --------------------------------------------- */

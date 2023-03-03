@@ -1,13 +1,13 @@
 <template>
-  <div class="yulang-animate yulang-up-and-down">忽下忽上</div>
+  <div class="yulang-animate yulang-blur-in-top">掉落清晰出现</div>
 </template>
 
 <script>
 export default {
-  name: "yulang-up-and-down",
+  name: "yulang-blur-in-top",
   data() {
     return {
-      title: "忽下忽上",
+      title: "掉落清晰出现",
     };
   },
 };
@@ -15,8 +15,8 @@ export default {
 
 <style lang="less" scoped>
 div {
-  height: 200px;
   width: 200px;
+  height: 200px;
   background-color: pink;
 }
 </style>

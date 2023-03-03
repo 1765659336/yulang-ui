@@ -46,7 +46,7 @@ export default {
     },
     // 弹出框的标题
     title: {},
-    // 弹出款的最小宽度
+    // 弹出框的最小宽度
     minWidth: {
       type: Number,
       default: () => {

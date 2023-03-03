@@ -40,6 +40,7 @@ import YulangAside from "@/packages/yulang-aside/YulangAside.vue";
 import YulangMain from "@/packages/yulang-main/YulangMain.vue";
 import YulangFooter from "@/packages/yulang-footer/YulangFooter.vue";
 import YulangPagination from "@/packages/yulang-pagination/YulangPagination.vue";
+import YulangColorPicker from "@/packages/yulang-color-picker/YulangColorPicker.vue";
 
 
 // 引入icon
@@ -110,7 +111,8 @@ export const Packages = [
   YulangAside,
   YulangMain,
   YulangFooter,
-  YulangPagination
+  YulangPagination,
+  YulangColorPicker
 ];
 
 // 工具函数
@@ -138,6 +140,7 @@ if (typeof window !== "undefined" && window.Vue) {
 
 export default {
   install,
-  ...Packages,
+  Packages,
   Lib,
+  Directives
 };

@@ -1,13 +1,15 @@
 <template>
-  <div class="yulang-animate yulang-up-and-down">忽下忽上</div>
+  <div v-if="value" class="yulang-animate yulang-zoom-out-top">爬升消失</div>
 </template>
 
 <script>
+import { disappear } from "../mixin";
 export default {
-  name: "yulang-up-and-down",
+  name: "yulang-zoom-out-top",
+  mixins: [disappear],
   data() {
     return {
-      title: "忽下忽上",
+      title: "爬升消失",
     };
   },
 };

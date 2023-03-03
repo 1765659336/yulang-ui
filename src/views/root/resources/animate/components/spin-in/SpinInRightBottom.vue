@@ -1,13 +1,13 @@
 <template>
-  <div class="yulang-animate yulang-up-and-down">忽下忽上</div>
+  <div class="yulang-animate yulang-spin-in-right-bottom">右下角旋转出现</div>
 </template>
 
 <script>
 export default {
-  name: "yulang-up-and-down",
+  name: "yulang-spin-in-right-bottom",
   data() {
     return {
-      title: "忽下忽上",
+      title: "右下角旋转出现",
     };
   },
 };

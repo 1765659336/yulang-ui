@@ -34,7 +34,7 @@ export default {
         },
         {
           title: "主题",
-          path: "/root/home",
+          path: "/root/theme",
         },
         {
           title: "资源",

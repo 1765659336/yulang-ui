@@ -189,4 +189,9 @@ export const unionData = [
     title: "Pagination 分页",
     path: "/root/packages-demo/yulang-pagination",
   },
+  {
+    level: 2,
+    title: "ColorPicker 颜色选择器",
+    path: "/root/packages-demo/yulang-color-picker",
+  },
 ];

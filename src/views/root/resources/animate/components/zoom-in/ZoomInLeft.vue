@@ -1,13 +1,13 @@
 <template>
-  <div class="yulang-animate yulang-up-and-down">忽下忽上</div>
+  <div class="yulang-animate yulang-zoom-in-left">左方进入缩小显现</div>
 </template>
 
 <script>
 export default {
-  name: "yulang-up-and-down",
+  name: "yulang-zoom-in-left",
   data() {
     return {
-      title: "忽下忽上",
+      title: "左方进入缩小显现",
     };
   },
 };
