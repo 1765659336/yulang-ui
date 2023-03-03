@@ -4,7 +4,7 @@
       <div
         v-for="item in animateClassArr"
         :key="item.value"
-        @click="value = item"
+        @click="animateClassItem(item)"
         :class="[
           'animate-class-item',
           item.value === value.value ? 'isSelect' : '',
@@ -29,10 +29,20 @@ export default {
       animateClassArr: AnimateClassArr,
     };
   },
+  methods: {
+    animateClassItem(item) {
+      this.value = item;
+    },
+  },
 };
 </script>
 
 <style lang="less" scoped>
+.yulang-animate-div {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+}
 .root-resources-animate-container {
   .animate-class-arr-container {
     display: flex;

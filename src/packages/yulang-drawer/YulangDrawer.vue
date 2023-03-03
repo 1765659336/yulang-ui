@@ -1,28 +1,55 @@
 <template>
-  <div
-    class="packages-yulang-drawer-container"
-    v-if="visibleComputed"
-    :style="{ '--width--': width, '--height--': height }"
+  <transition
+    @before-leave="transitionBeforeLeave"
+    @enter="transitionEnter"
+    :duration="{ enter: 2000, leave: 2000 }"
   >
-    <!-- 遮罩层 -->
-    <div class="mask-layer" @click="maskLayerClick"></div>
-    <!-- 内容容器 -->
-    <div :class="`yulang-drawer-content-container-${direction}`">
-      <div class="content-title-container" v-if="withHeader">
-        <div class="content-title" v-if="isFalse(title, 0, false)">
-          <slot name="title">{{ title }}</slot>
+    <div
+      class="packages-yulang-drawer-container"
+      v-if="visibleComputed"
+      :style="{ '--width--': width, '--height--': height }"
+    >
+      <!-- 遮罩层 -->
+      <div class="mask-layer" @click="maskLayerClick"></div>
+      <!-- 内容容器 -->
+      <div
+        :class="`yulang-drawer-content-container-${direction}`"
+        ref="content"
+      >
+        <div class="content-title-container" v-if="withHeader">
+          <div class="content-title" v-if="isFalse(title, 0, false)">
+            <slot name="title">{{ title }}</slot>
+          </div>
+          <i class="iconfont icon-guanbi" @click="changeVisible"></i>
         </div>
-        <i class="iconfont icon-guanbi" @click="changeVisible"></i>
-      </div>
-      <div class="content-content">
-        <slot></slot>
+        <div class="content-content">
+          <slot></slot>
+        </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
 import { isFalse } from "@/packages/lib";
+const directionAnimateClass = {
+  left: {
+    enter: "yulang-blur-in-left",
+    lever: "yulang-blur-out-left",
+  },
+  top: {
+    enter: "yulang-blur-in-top",
+    lever: "yulang-blur-out-top",
+  },
+  bottom: {
+    enter: "yulang-blur-in-bottom",
+    lever: "yulang-blur-out-bottom",
+  },
+  right: {
+    enter: "yulang-blur-in-right",
+    lever: "yulang-blur-out-right",
+  },
+};
 export default {
   name: "yulang-drawer",
   props: {
@@ -83,8 +110,23 @@ export default {
         this.visibleComputed = !this.visibleComputed;
       }
     },
+    // 遮罩层点击事件
     maskLayerClick() {
       this.wrapperClosable && this.changeVisible();
+    },
+    // 组件离开之前的钩子
+    transitionBeforeLeave() {
+      this.$refs.content.classList.remove(
+        directionAnimateClass[this.direction].enter
+      );
+      this.$refs.content.classList.add(
+        directionAnimateClass[this.direction].lever
+      );
+    },
+    // 组件进入的钩子函数
+    transitionEnter() {
+      this.$refs.content.className +=
+        " yulang-animate " + directionAnimateClass[this.direction].enter;
     },
   },
 };
