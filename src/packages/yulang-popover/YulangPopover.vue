@@ -12,24 +12,30 @@
       <!-- 触发点 -->
       <div ref="referenceRef"><slot name="reference"></slot></div>
       <!-- 内容区 -->
-      <div
-        class="yulang-popover-position"
-        v-show="isShow"
-        ref="yulangPopoverContentRef"
+      <transition
+        @before-leave="transitionBeforeLeave"
+        @enter="transitionEnter"
+        :duration="{ enter: 500, leave: 500 }"
       >
-        <!-- 箭头 -->
-        <!-- <div class="yulang-popover-triangle"></div> -->
-        <!-- 标题 -->
-        <div class="yulang-popover-title" v-if="title">
-          <span>{{ title }}</span>
+        <div
+          class="yulang-popover-position"
+          v-if="isShow"
+          ref="yulangPopoverContentRef"
+        >
+          <!-- 箭头 -->
+          <!-- <div class="yulang-popover-triangle"></div> -->
+          <!-- 标题 -->
+          <div class="yulang-popover-title" v-if="title">
+            <span>{{ title }}</span>
+          </div>
+          <!-- 内容区 -->
+          <div class="yulang-popover-content">
+            <slot name="content">
+              <div>{{ content }}</div>
+            </slot>
+          </div>
         </div>
-        <!-- 内容区 -->
-        <div class="yulang-popover-content">
-          <slot name="content">
-            <div>{{ content }}</div>
-          </slot>
-        </div>
-      </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -60,7 +66,7 @@ export default {
       },
     },
     // 弹出框的最小高度
-    minHeight:{
+    minHeight: {
       type: Number,
       default: () => {
         return 16;
@@ -100,6 +106,15 @@ export default {
     };
   },
   methods: {
+    // 组件离开之前的钩子
+    transitionBeforeLeave(el) {
+      el.classList.remove("yulang-rotate-y-in");
+      el.classList.add("yulang-rotate-y-out");
+    },
+    // 组件进入的钩子函数
+    transitionEnter(el) {
+      el.className += " yulang-animate yulang-rotate-y-in";
+    },
     showChange(e, type) {
       if (type) {
         if (type === "down") {

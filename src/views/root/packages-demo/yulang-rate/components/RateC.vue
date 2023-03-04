@@ -30,9 +30,9 @@ export default {
 }
 
 .icon-selected {
-  color: pink;
+  color: skyblue;
 }
 .selected {
-  background-color: pink;
+  background-color: skyblue;
 }
 </style>

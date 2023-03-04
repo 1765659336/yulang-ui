@@ -1,6 +1,6 @@
 <template>
   <div
-    class="packages-yulang-radio-container yulang-radio-disabled"
+    :class="['packages-yulang-radio-container', 'yulang-radio-disabled']"
     :style="{ '--cursor--': disabled ? 'not-allowed' : 'pointer' }"
   >
     <input
@@ -11,7 +11,10 @@
       :checked="checked"
       @change="radioValueChange"
       :disabled="disabled"
-      class="yulang-radio-disabled"
+      :class="[
+        'yulang-radio-disabled',
+        checked ? 'yulang-animate yulang-pull-release' : '',
+      ]"
     />
     <label :for="label + name" class="yulang-radio-balel yulang-radio-disabled"
       ><slot></slot

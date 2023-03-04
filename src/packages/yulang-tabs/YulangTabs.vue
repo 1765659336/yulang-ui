@@ -15,7 +15,12 @@
           :key="item.name"
           @click="tabLabelClick($event, item)"
         >
-          {{ item.label }}
+          <div
+            :class="[
+              item.name === value ? 'yulang-animate yulang-pull-release' : '',
+            ]"
+            >{{ item.label }}</div
+          >
         </div>
       </div>
       <div class="packages-yulang-tab-label-line"></div>

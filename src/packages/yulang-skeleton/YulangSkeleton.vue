@@ -4,7 +4,6 @@
 
 <script>
 // style添加scope属性，然后引入的样式文件，css类会被加自定义属性名，因此手动生成的dom添加的class类名不会起效果，需要在这手动引入
-import "./index.css";
 export default {
   name: "yulang-skeleton",
   props: {
@@ -48,7 +47,7 @@ export default {
       domCopy.style.width = dom.offsetWidth + "px";
       //   骨架屏的颜色或动画效果
       this.animated
-        ? domCopy.classList.add("skeleton")
+        ? (domCopy.className += "yulang-animate yulang-skeleton")
         : (domCopy.style.backgroundColor = "#f2f2f2");
       domCopy.style.borderRadius = dom.offsetHeight / 2 + "px";
       //   给生成的子盒子设置定位

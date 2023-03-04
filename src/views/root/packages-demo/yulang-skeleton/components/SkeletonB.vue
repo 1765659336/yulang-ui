@@ -43,31 +43,38 @@ export default {
 
   .item {
     margin: 10px 0;
-    border: 1px solid red;
+    border: 2px solid white;
+    border-radius: 10px;
+    text-align: center;
   }
   .item1 {
     width: 500px;
     height: 25px;
+    line-height: 25px;
   }
 
   .item2 {
     width: 400px;
     height: 25px;
+    line-height: 25px;
   }
 
   .item3 {
     width: 300px;
     height: 25px;
+    line-height: 25px;
   }
 
   .item4 {
     width: 200px;
     height: 50px;
+    line-height: 50px;
   }
 
   .item5 {
     width: 600px;
     height: 50px;
+    line-height: 50px;
   }
 }
 </style>
