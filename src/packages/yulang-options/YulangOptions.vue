@@ -2,42 +2,27 @@
   <div>
     <div class="option-class">
       <div
-        v-for="item in options"
+        v-for="item in data"
         class="option-class-item"
+        style="z-index: 3000"
         :key="item.name"
         @click.stop="chooseValue = item.name"
       >
         {{ item.label }}
       </div>
     </div>
-  </div>  
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'MyTest',
+  name: 'yulang-options',
   inject: ['fatSelect'],
-  data() {
-    return {
-      options: [
-        {
-          name: 'KFC',
-          label: 'KFC',
-        },
-        {
-          name: '麦当劳',
-          label: '麦当劳',
-        },
-        {
-          name: '华莱士',
-          label: '华莱士',
-        },
-        {
-          name: '必胜客',
-          label: '必胜客',
-        },
-      ],
-    };
+  props: {
+    data: {
+      type: Array,
+      require: true,
+    },
   },
   computed: {
     chooseValue: {
@@ -45,15 +30,18 @@ export default {
         return this.fatSelect.value;
       },
       set(val) {
-        this.fatSelect.hh(val);
+        this.fatSelect.refreshInputValue(val);
       },
     },
   },
-  methods:{
-    aa(){
+  methods: {
+    aa() {
       console.log('object');
-    }
-  }
+    },
+  },
+  beforeDestroy() {
+    this.fatSelect.refreshInputValue(this.chooseValue);
+  },
 };
 </script>
 

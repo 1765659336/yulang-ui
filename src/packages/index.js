@@ -31,6 +31,7 @@ import YulangDrawer from "@/packages/yulang-drawer/YulangDrawer.vue";
 import YulangCollapse from "@/packages/yulang-collapse/YulangCollapse.vue";
 import YulangCollapseItem from "@/packages/yulang-collapse-item/YulangCollapseItem.vue";
 import YulangSkeleton from "@/packages/yulang-skeleton/YulangSkeleton.vue";
+import YulangOptions from "@/packages/yulang-options/YulangOptions.vue";
 import YulangRate from "@/packages/yulang-rate/YulangRate.vue";
 import YulangRadioGroup from "@/packages/yulang-radio-group/YulangRadioGroup.vue";
 import YulangRadio from "@/packages/yulang-radio/YulangRadio.vue";
@@ -40,6 +41,8 @@ import YulangAside from "@/packages/yulang-aside/YulangAside.vue";
 import YulangMain from "@/packages/yulang-main/YulangMain.vue";
 import YulangFooter from "@/packages/yulang-footer/YulangFooter.vue";
 import YulangPagination from "@/packages/yulang-pagination/YulangPagination.vue";
+import YulangTablePlus from "@/packages/yulang-table-plus/YulangTablePlus.vue";
+import YulangTablePlusColumn from "@/packages/yulang-table-plus-column/YulangTablePlusColumn.vue";
 import YulangColorPicker from "@/packages/yulang-color-picker/YulangColorPicker.vue";
 
 
@@ -103,6 +106,7 @@ export const Packages = [
   YulangCollapse,
   YulangCollapseItem,
   YulangSkeleton,
+  YulangOptions,
   YulangRate,
   YulangRadioGroup,
   YulangRadio,
@@ -112,7 +116,9 @@ export const Packages = [
   YulangMain,
   YulangFooter,
   YulangPagination,
-  YulangColorPicker
+  YulangTablePlus,
+  YulangTablePlusColumn,
+  YulangColorPicker,
 ];
 
 // 工具函数

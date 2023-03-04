@@ -21,7 +21,7 @@ export default {
         setTimeout(() => {
           this.count += 2;
           resolve();
-        }, 3000);
+        }, 700);
       });
     },
   },

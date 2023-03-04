@@ -2014,3 +2014,647 @@ Rotation
 }
 
 /* =================================================================== */
+
+/* Fade In ---------------------------------------- */
+
+/*  逐渐进入 */
+.yulang-animate.yulang-fade-in { 
+	animation-name: yulang-fade-in
+}
+
+@keyframes yulang-fade-in {
+	from { opacity: 0 }
+	to { opacity: 1 }
+}
+
+/* 从左逐渐进入 */
+.yulang-animate.yulang-fade-in-left { 
+	animation-name: yulang-fade-in-left 
+}
+
+@keyframes yulang-fade-in-left {
+	from {
+			opacity: 0;
+			transform: translateX(-100%);
+	}
+	to { opacity: 1 }
+}
+
+/* 从右逐渐进入 */
+.yulang-animate.yulang-fade-in-right { 
+	animation-name: yulang-fade-in-right 
+}
+
+@keyframes yulang-fade-in-right {
+	from {
+			opacity: 0;
+			transform: translateX(100%);
+	}
+	to { opacity: 1 }
+}
+
+/* 从上逐渐进入 */
+.yulang-animate.yulang-fade-in-top { 
+	animation-name: yulang-fade-in-top 
+}
+
+@keyframes yulang-fade-in-top {
+	from {
+			opacity: 0;
+			transform: translateY(-100%);
+	}
+	to { opacity: 1 }
+}
+
+/* 从下逐渐进入*/
+.yulang-animate.yulang-fade-in-bottom { 
+	animation-name: yulang-fade-in-bottom 
+}
+
+@keyframes yulang-fade-in-bottom {
+	from {
+			opacity: 0;
+			transform: translateY(100%);
+	}
+	to { opacity: 1 }
+}
+
+/* --------------------------------------------- */
+
+/* Fade Out ---------------------------------------- */
+
+/* 逐渐消失 */
+.yulang-animate.yulang-fade-out { 
+	animation-name: yulang-fade-out 
+}
+
+@keyframes yulang-fade-out  {
+	to { opacity: 0 }
+}
+
+/* 向左逐渐消失 */
+.yulang-animate.yulang-fade-out-left { 
+	animation-name: yulang-fade-out-left 
+}
+
+@keyframes yulang-fade-out-left {
+	from { opacity: 1 }
+	to {
+			opacity: 0;
+			transform: translateX(-100%);
+	}
+}
+/* 向右逐渐消失 */
+.yulang-animate.yulang-fade-out-right { 
+	animation-name: yulang-fade-out-right 
+}
+
+@keyframes yulang-fade-out-right {
+	from { opacity: 1 }
+	to {
+			opacity: 0;
+			transform: translateX(100%);
+	}
+}
+/* 向上逐渐消失 */
+.yulang-animate.yulang-fade-out-top { 
+	animation-name: yulang-fade-out-top 
+}
+
+@keyframes yulang-fade-out-top {
+	from { opacity: 1 }
+	to {
+			opacity: 0;
+			transform: translateY(-100%);
+	}
+}
+/* 向下逐渐消失 */
+.yulang-animate.yulang-fade-out-bottom { 
+	animation-name: yulang-fade-out-bottom 
+}
+
+@keyframes yulang-fade-out-bottom {
+	from { opacity: 1 }
+	to {
+			opacity: 0;
+			transform: translateY(100%);
+	}
+}
+
+/* --------------------------------------------- */
+
+/* Move From ---------------------------------------- */
+
+/* 从左移入 */
+.yulang-animate.yulang-move-from-left { 
+	animation-name: yulang-move-from-left 
+}
+
+@keyframes yulang-move-from-left {
+	from { transform: translateX(-800px) }
+}
+
+/* 从右移入 */
+.yulang-animate.yulang-move-from-right { 
+	animation-name: yulang-move-from-right 
+}
+
+@keyframes yulang-move-from-right {
+	from { transform: translateX(800px) }
+}
+
+/* 从上移入 */
+.yulang-animate.yulang-move-from-top { 
+	animation-name: yulang-move-from-top 
+}
+
+@keyframes yulang-move-from-top {
+	from { transform: translateY(-800px) }
+}
+
+/* 从下移入 */
+.yulang-animate.yulang-move-from-bottom { 
+	animation-name: yulang-move-from-bottom 
+}
+
+@keyframes yulang-move-from-bottom {
+	from { transform: translateY(800px) }
+}
+
+/* --------------------------------------------- */
+
+/* Move To ---------------------------------------- */
+
+/* 向左移出 */
+.yulang-animate.yulang-move-to-left { 
+	animation-name: yulang-move-to-left 
+}
+
+@keyframes yulang-move-to-left {
+	to { transform: translateX(-800px) }
+}
+
+/* 向右移出 */
+.yulang-animate.yulang-move-to-right { 
+	animation-name: yulang-move-to-right 
+}
+
+@keyframes yulang-move-to-right {
+	to { transform: translateX(800px) }
+}
+
+/* 向上移出 */
+.yulang-animate.yulang-move-to-top { 
+	animation-name: yulang-move-to-top 
+}
+
+@keyframes yulang-move-to-top {
+	to { transform: translateY(-800px) }
+}
+
+/* 向下移出 */
+.yulang-animate.yulang-move-to-bottom { 
+	animation-name: yulang-move-to-bottom 
+}
+
+@keyframes yulang-move-to-bottom {
+	to { transform: translateY(800px) }
+}
+
+
+/* --------------------------------------------- */
+
+/* Door ---------------------------------------- */
+
+/* 从左关门 */
+.yulang-animate.yulang-door-close-from-left { 
+	animation-name: yulang-door-close-from-left 
+}
+
+@keyframes yulang-door-close-from-left {
+	from {
+			transform: perspective(400px) rotateY(90deg);
+			transform-origin: left;
+			opacity: 0;
+	}
+	50%, to {
+			transform: perspective(400px) rotateY(0deg);
+			transform-origin: left;
+			opacity: 1;
+	}
+}
+
+/* 从右开门 */
+.yulang-animate.yulang-door-open-from-right { 
+	animation-name: yulang-door-open-from-right
+}
+
+@keyframes yulang-door-open-from-right {
+	from {
+			transform: perspective(400px) rotateY(0deg);
+			transform-origin: left;
+			opacity: 1;
+	}
+	50%, to {
+			transform: perspective(400px) rotateY(90deg);
+			transform-origin: left;
+			opacity: 0;
+	}
+}
+
+/* 从右关门 */
+.yulang-animate.yulang-door-close-from-right { 
+	animation-name: yulang-door-close-from-right
+}
+
+@keyframes yulang-door-close-from-right {
+	from {
+			transform: perspective(400px) rotateY(-90deg);
+			transform-origin: right;
+			opacity: 0;
+	}
+	50%, to {
+			transform: perspective(400px) rotateY(0deg);
+			transform-origin: right;
+			opacity: 1;
+	}
+}
+
+/* 从左开门 */
+.yulang-animate.yulang-door-open-from-left { 
+	animation-name: yulang-door-open-from-left
+}
+
+@keyframes yulang-door-open-from-left {
+	from {
+			transform: perspective(400px) rotateY(0deg);
+			transform-origin: right;
+			opacity: 1;
+	}
+	50%, to {
+			transform: perspective(400px) rotateY(-90deg);
+			transform-origin: right;
+			opacity: 0;
+	}
+}
+
+
+/*************************************************************/
+
+/**Heartbeat************************************************************/
+
+/* 心跳慢速*/
+.yulang-animate.yulang-heart-beat-slow { 
+	animation-name: yulang-heart-beat-slow; 
+	animation-iteration-count: infinite; 
+	animation-duration: .5s 
+}
+
+@keyframes yulang-heart-beat-slow {
+	35%, 65% { transform: scale(1.2) }
+}
+
+/* 心跳快速 */
+.yulang-animate.yulang-heart-beat-fast { 
+	animation-name: yulang-heart-beat-fast; 
+	animation-iteration-count: infinite 
+}
+
+@keyframes yulang-heart-beat-fast {
+	14%, 42% { transform: scale(1.3) }
+	28%, 70% { transform: scale(1) }
+}
+
+/***********************************/
+
+/*Hang On ***********************/
+
+/* 向左悬挂 */
+.yulang-animate.yulang-hang-on-left { 
+	animation-name: yulang-hang-on-left 
+}
+
+@keyframes yulang-hang-on-left {
+	from { transform-origin: left; }
+	40% {
+			transform: rotate(100deg);
+			transform-origin: left;
+	}
+	55% {
+			transform: rotate(80deg);
+			transform-origin: left;
+	}
+	70% {
+			transform: rotate(95deg);
+			transform-origin: left;
+	}
+	85% {
+			transform: rotate(85deg);
+			transform-origin: left;
+	}
+	100% {
+			transform: rotate(90deg);
+			transform-origin: left;
+	}
+}
+
+/* 向右悬挂 */
+.yulang-animate.yulang-hang-on-right { 
+	animation-name: yulang-hang-on-right 
+}
+
+@keyframes yulang-hang-on-right {
+	from { transform-origin: right; }
+	40% {
+			transform: rotate(-100deg);
+			transform-origin: right;
+	}
+	55% {
+			transform: rotate(-80deg);
+			transform-origin: right;
+	}
+	70% {
+			transform: rotate(-95deg);
+			transform-origin: right;
+	}
+	85% {
+			transform: rotate(-85deg);
+			transform-origin: right;
+	}
+	100% {
+			transform: rotate(-90deg);
+			transform-origin: right;
+	}
+}
+
+/**********************/
+
+
+/* Hang And Drop **************/
+
+/* 向左悬挂并掉落 */
+.yulang-animate.yulang-hang-and-drop-left { 
+	animation-name: yulang-hang-and-drop-left 
+}
+
+@keyframes yulang-hang-and-drop-left {
+	from { transform-origin: left }
+	50% {
+			transform: rotate(100deg);
+			transform-origin: left;
+	}
+	60% {
+			transform: rotate(90deg);
+			transform-origin: left;
+			opacity: 1;
+	}
+	to {
+			transform: translateY(300px) rotate(70deg);
+			transform-origin: left;
+			opacity: 0;
+	}
+}
+
+/* 向右悬挂并掉落 */
+
+.yulang-animate.yulang-hang-and-drop-right { 
+	animation-name: yulang-hang-and-drop-right 
+}
+
+@keyframes yulang-hang-and-drop-right {
+	from { transform-origin: right }
+	50% {
+			transform: rotate(-100deg);
+			transform-origin: right;
+	}
+	60% {
+			transform: rotate(-90deg);
+			transform-origin: right;
+			opacity: 1;
+	}
+	to {
+			transform: translateY(300px) rotate(-70deg);
+			transform-origin: right;
+			opacity: 0
+	}
+}
+
+/************************/
+
+/* Shake ***********************/
+
+/* 震动 */
+.yulang-animate.yulang-pulse-shake { 
+	animation-name: yulang-pulse-shake; 
+	animation-iteration-count: infinite 
+}
+
+@keyframes yulang-pulse-shake {
+	90% { transform: scale(1) }
+	92% { transform: scale(1.2) }
+	96% { transform: scale(1, 1) }
+	98% { transform: scale(1.1) }
+}
+
+/* 高速震动 */
+.yulang-animate.yulang-horizontal-shake { 
+	animation-name: yulang-horizontal-shake; 
+	animation-iteration-count: infinite 
+}
+
+@keyframes yulang-horizontal-shake {
+	3%, 12%, 21%, 30%, 39%, 48%, 57%, 65%, 74%, 83%, 92% { transform: translateX(5px) }
+	6%, 15%, 24%, 33%, 42%, 51%, 60%, 68%, 77%, 86%, 95% { transform: translateX(3px) }
+	9%, 18%, 27%, 36%, 45%, 54%, 63%, 71%, 80%, 89%, 98% { transform: translateX(-5px) }
+}
+
+/* 垂直高速震动 */
+.yulang-animate.yulang-vertical-shake { 
+	animation-name: yulang-vertical-shake; 
+	animation-iteration-count: infinite 
+}
+
+@keyframes yulang-vertical-shake {
+	3%, 12%, 21%, 30%, 39%, 48%, 57%, 65%, 74%, 83%, 92% { transform: translateY(5px) }
+	6%, 15%, 24%, 33%, 42%, 51%, 60%, 68%, 77%, 86%, 95% { transform: translateY(3px) }
+	9%, 18%, 27%, 36%, 45%, 54%, 63%, 71%, 80%, 89%, 98% { transform: translateY(-5px) }
+}
+
+/* 快速循环放大缩小 */
+.yulang-animate.yulang-mad-max { 
+	animation-name: yulang-mad-max; 
+	animation-iteration-count: infinite 
+}
+
+@keyframes yulang-mad-max {
+	3%, 12%, 21%, 30%, 39%, 48%, 57%, 65%, 74%, 83%, 92% { transform: translateY(5px) scale(1.1) }
+	6%, 15%, 24%, 33%, 42%, 51%, 60%, 68%, 77%, 86%, 95% { transform: translateY(3px) scale(.8) }
+	9%, 18%, 27%, 36%, 45%, 54%, 63%, 71%, 80%, 89%, 98% { transform: translateY(-5px) scale(1.1) }
+}
+
+
+/* 水平震动 */
+.yulang-animate.yulang-cool-horizontal-shake { 
+	animation-name: yulang-cool-horizontal-shake; 
+	animation-iteration-count: infinite 
+}
+
+@keyframes yulang-cool-horizontal-shake {
+	3%, 21%, 39%, 57%, 74%, 92% { transform: translateX(5px) }
+	6%, 24%, 42%, 60%, 77%, 95% { transform: translateX(3px) }
+	9%, 27%, 45%, 63%, 80%, 98% { transform: translateX(-5px) }
+}
+
+/* 垂直震动 */
+.yulang-animate.yulang-cool-vertical-shake { 
+	animation-name: yulang-cool-vertical-shake; 
+	animation-iteration-count: infinite 
+}
+
+@keyframes yulang-cool-vertical-shake {
+	3%, 21%, 39%, 57%, 74%, 92% { transform: translateY(5px) }
+	6%, 24%, 42%, 60%, 77%, 95% { transform: translateY(3px) }
+	9%, 27%, 45%, 63%, 80%, 98% { transform: translateY(-5px) }
+}
+
+/* 循环放大缩小 */
+.yulang-animate.yulang-quiet-mad { 
+	animation-name: yulang-quiet-mad; 
+	animation-iteration-count: infinite 
+}
+
+@keyframes yulang-quiet-mad {
+	3%, 21%, 39%, 57%, 74%, 92% { transform: translateY(5px) scale(1.1) }
+	6%, 24%, 42%, 60%, 77%, 95% { transform: translateY(3px) scale(.8) }
+	9%, 27%, 45%, 63%, 80%, 98% { transform: translateY(-5px) scale(1.1) }
+}
+
+/************************/
+
+/* Push Release From ***********************/
+
+/* 缩小再展开 */
+.yulang-animate.yulang-push-release-from { 
+	animation-name: yulang-push-release-from 
+}
+
+@keyframes yulang-push-release-from {
+	from {
+			transform: scale(3, 3);
+			opacity: 0;
+	}
+	30% { transform: scale(.5, .5) }
+}
+
+/* 左边到右边再回来 */
+.yulang-animate.yulang-push-release-from-left { 
+	animation-name: yulang-push-release-from-left 
+}
+
+@keyframes yulang-push-release-from-left {
+	from { transform: translateX(-100%) }
+	30% { transform: translateX(100px) }
+}
+
+/* 右边到左边再回来 */
+.yulang-animate.yulang-push-release-from-right { 
+	animation-name: yulang-push-release-from--right 
+}
+
+@keyframes yulang-push-release-from--right {
+	from { transform: translateX(100%) }
+	30% { transform: translateX(-100px) }
+}
+
+/* 上面到下面再回来 */
+.yulang-animate.yulang-push-release-from-top { 
+	animation-name: yulang-push-release-from-top 
+}
+
+@keyframes yulang-push-release-from-top {
+	from { transform: translateY(-100%) }
+	30% { transform: translateY(100px) }
+}
+
+
+/* 下面到上面再回来 */
+.yulang-animate.yulang-push-release-from-bottom { 
+	animation-name: yulang-push-release-from-bottom 
+}
+
+@keyframes yulang-push-release-from-bottom {
+	from { transform: translateY(100%) }
+	30% { transform: translateY(-100px) }
+}
+
+
+/************************/
+
+/* Push Release To ***********************/
+
+/* 缩小再放大消失 */
+.yulang-animate.yulang-push-release-to { 
+	animation-name: yulang-push-release-to 
+}
+
+@keyframes yulang-push-release-to {
+	30% { transform: scale(.5, .5) }
+	to {
+			transform: scale(5, 5);
+			opacity: 0;
+	}
+}
+
+/* 向左再向右消失 */
+.yulang-animate.yulang-push-release-to-left { 
+	animation-name: yulang-push-release-to-left 
+}
+
+@keyframes yulang-push-release-to-left {
+	30% { transform: translateX(100px) }
+	to {
+			transform: translateX(-100%);
+			opacity: 0;
+	}
+}
+
+/* 向右再向左消失 */
+.yulang-animate.yulang-push-release-to-right { 
+	animation-name: yulang-push-release-to-right 
+}
+
+@keyframes yulang-push-release-to-right {
+	30% { transform: translateX(-100px) }
+	to {
+			transform: translateX(100%);
+			opacity: 0;
+	}
+}
+
+/* 向上再向下消失 */
+.yulang-animate.yulang-push-release-to-top { 
+	animation-name: yulang-push-release-to-top 
+}
+
+@keyframes yulang-push-release-to-top {
+	30% { transform: translateY(100px) }
+	to {
+			transform: translateY(-100%);
+			opacity: 0;
+	}
+}
+
+/* 向下再向上消失 */
+.yulang-animate.yulang-push-release-to-bottom { 
+	animation-name: yulang-push-release-to-bottom 
+}
+
+@keyframes yulang-push-release-to-bottom {
+	30% { transform: translateY(-100px) }
+	to {
+			transform: translateY(100%);
+			opacity: 0;
+	}
+}
+
+/************************/

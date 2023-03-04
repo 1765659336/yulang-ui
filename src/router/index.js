@@ -528,12 +528,23 @@ const routes = [
             name: "yulang-pagination",
             component: () =>
               import(
-                "@/views/root/packages-demo/yulang-pagination/YulangPagination.vue"
-              ),
+                "@/views/root/packages-demo/yulang-pagination/YulangPagination.vue"),
             meta: {
               keepAlive: true,
               isAuth: true,
               title: "分页 YulangPagination",
+            }
+          },
+          {
+            path: "yulang-table-plus",
+            name: "yulang-table-plus",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-table-plus/YulangTablePlus.vue"),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "表格PLUS YulangTablePlus",
             },
           },
           {
