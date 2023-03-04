@@ -38,7 +38,7 @@ export default {
       slotArr: [
         { slotName: 'a', slotTitle: 'Signaure 签字板', level: 1 },
         { slotName: 'b', slotTitle: '基本用法', level: 2 },
-        { slotName: 'c', slotTitle: '还没实现的', level: 2 },
+        // { slotName: 'c', slotTitle: '还没实现的', level: 2 },
       ],
       codeStr,
     };

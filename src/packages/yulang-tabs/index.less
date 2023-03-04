@@ -1,0 +1,73 @@
+.packages-yulang-tab-container {
+    width: 100%;
+    
+    .packages-yulang-tab-label-container {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        .packages-yulang-tab-label-content-container {
+            display: flex;
+            position: relative;
+            top: 2px;
+
+            .packages-yulang-tab-label-item {
+                &:hover {
+                    cursor: pointer;
+                    color: #7abcff;
+                }
+            }
+
+            .packages-yulang-tab-label-item-default {
+                padding: 10px 0;
+                margin: 0 15px 0 0;
+            }
+
+            .packages-yulang-tab-label-item-card {
+                padding: 10px 15px 10px 15px;
+                border: 1px solid #ccc;
+                height: 100%;
+            }
+
+            .packages-yulang-tab-label-item-border-card {
+                padding: 10px 15px 10px 15px;
+            }
+
+            .is-select-default {
+                color: #7abcff;
+                border-bottom: 2px solid #409eff;
+            }
+
+            .is-select-card {
+                border-bottom: 2px solid white;
+                color: #7abcff;
+            }
+
+            .is-select-border-card {
+                border-bottom: 2px solid white;
+                color: #7abcff;
+                border-left: 1px solid #ccc;
+                border-right: 1px solid #ccc;
+            }
+
+            .is-select-border-card-other {
+                background-color: #ccc;
+            }
+        }
+
+        .packages-yulang-tab-label-line {
+            height: 2px;
+            width: 100%;
+            background-color: #ccc;
+        }
+    }
+
+    .packages-yualang-tab-content-container {
+        padding: 10px;
+    }
+}
+
+.border-card {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}

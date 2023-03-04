@@ -1,29 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Root from "@/views/root/Root.vue";
-import Home from "@/views/root/home/Home.vue";
 import PackagesDemo from "@/views/root/packages-demo/PackagesDemo.vue";
 import Guide from "@/views/root/guide/Guide.vue";
 import YulangButton from "@/views/root/packages-demo/yulang-button/YulangButton.vue";
-import YulangSwitch from "@/views/root/packages-demo/yulang-switch/YulangSwitch.vue";
-import YulangSlider from "@/views/root/packages-demo/yulang-slider/YulangSlider.vue";
-import YulangSignaure from "@/views/root/packages-demo/yulang-signaure/YulangSignaure.vue";
-import YulangUpload from "@/views/root/packages-demo/yulang-upload/YulangUpload.vue";
-import YulangCanvas from "@/views/root/packages-demo/yulang-canvas/YulangCanvas.vue";
-import YulangAnchorPoint from "@/views/root/packages-demo/yulang-anchor-point/YulangAnchorPoint.vue";
-import YulangIcon from "@/views/root/packages-demo/yulang-icon/YulangIcon.vue";
-import YulangDescribeFrame from "@/views/root/packages-demo/yulang-describe-frame/YulangDescribeFrame.vue";
-import YulangLink from "@/views/root/packages-demo/yulang-link/YulangLink.vue";
-import YulangDialog from "@/views/root/packages-demo/yulang-dialog/YulangDialog.vue";
-import YulangBackTop from "@/views/root/packages-demo/yulang-back-top/YulangBackTop.vue";
-import YulangCheckbox from "@/views/root/packages-demo/yulang-checkbox/YulangCheckbox.vue";
-import YulangSwitchCopy from "@/views/root/packages-demo/yulang-switch-copy/YulangSwitchCopy.vue";
-import YulangForm from "@/views/root/packages-demo/yulang-form/YulangForm.vue";
-import YulangTable from "@/views/root/packages-demo/yulang-table/YulangTable.vue";
-import YulangNotification from "@/views/root/packages-demo/yulang-notification/YulangNotification.vue";
-import YulangMessage from "@/views/root/packages-demo/yulang-message/YulangMessage.vue";
-import YulangLoading from "@/views/root/packages-demo/yulang-loading/YulangLoading.vue";
-import YulangLeader from "@/views/root/packages-demo/yulang-leader/YulangLeader.vue";
+import YulangTabs from "@/views/root/packages-demo/yulang-tabs/YulangTabs.vue";
+import YulangDivider from "@/views/root/packages-demo/yulang-divider/YulangDivider.vue";
+import YulangInput from "@/views/root/packages-demo/yulang-input/YulangInput.vue";
+import YulangPopover from "@/views/root/packages-demo/yulang-popover/YulangPopover.vue";
+import YulangTimePicker from "@/views/root/packages-demo/yulang-time-picker/YulangTimePicker.vue";
 
 // 处理路由重复跳转控制台报错
 const originalPush = VueRouter.prototype.push;
@@ -51,7 +36,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "",
-    redirect: "/root",
+    redirect: "/home",
   },
   {
     path: "/login",
@@ -65,30 +50,42 @@ const routes = [
   },
   {
     path: "/root",
-    // name: "root",
+    name: "root",
     component: Root,
     children: [
       {
         path: "",
-        redirect: "packages-demo",
+        redirect: "home",
       },
       {
-        path: "home",
+        path: "/home",
         name: "home",
-        component: Home,
+        component: () =>
+          import(/* webpackChunkName: "about" */ "@/views/root/home/Home.vue"),
+        meta: {
+          keepAlive: false,
+          isAuth: true,
+          title: "YulangUI",
+        },
+      },
+      {
+        path: "guide",
+        name: "guide",
+        component: Guide,
         meta: {
           keepAlive: true,
           isAuth: true,
+          title: "指南",
         },
       },
       {
         path: "packages-demo",
-        // name: "packages-demo",
+        name: "packages-demo",
         component: PackagesDemo,
         children: [
           {
             path: "",
-            redirect: "yulang-button",
+            redirect: "yulang-switch",
           },
           {
             path: "yulang-button",
@@ -103,7 +100,10 @@ const routes = [
           {
             path: "yulang-switch",
             name: "yulang-switch",
-            component: YulangSwitch,
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-switch/YulangSwitch.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -113,7 +113,10 @@ const routes = [
           {
             path: "yulang-slider",
             name: "yulang-slider",
-            component: YulangSlider,
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-slider/YulangSlider.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -123,7 +126,10 @@ const routes = [
           {
             path: "yulang-signaure",
             name: "yulang-signaure",
-            component: YulangSignaure,
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-signaure/YulangSignaure.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -133,7 +139,10 @@ const routes = [
           {
             path: "yulang-upload",
             name: "yulang-upload",
-            component: YulangUpload,
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-upload/YulangUpload.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -143,17 +152,23 @@ const routes = [
           {
             path: "yulang-canvas",
             name: "yulang-canvas",
-            component: YulangCanvas,
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-canvas/YulangCanvas.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
-              title: "画布 canvas",
+              title: "画布 Canvas",
             },
           },
           {
             path: "yulang-anchor-point",
             name: "yulang-anchor-point",
-            component: YulangAnchorPoint,
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-anchor-point/YulangAnchorPoint.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -163,7 +178,8 @@ const routes = [
           {
             path: "yulang-icon",
             name: "yulang-icon",
-            component: YulangIcon,
+            component: () =>
+              import("@/views/root/packages-demo/yulang-icon/YulangIcon.vue"),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -173,7 +189,10 @@ const routes = [
           {
             path: "yulang-describe-frame",
             name: "yulang-describe-frame",
-            component: YulangDescribeFrame,
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-describe-frame/YulangDescribeFrame.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -183,7 +202,8 @@ const routes = [
           {
             path: "yulang-link",
             name: "yulang-link",
-            component: YulangLink,
+            component: () =>
+              import("@/views/root/packages-demo/yulang-link/YulangLink.vue"),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -193,7 +213,10 @@ const routes = [
           {
             path: "yulang-dialog",
             name: "yulang-dialog",
-            component: YulangDialog,
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-dialog/YulangDialog.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -203,7 +226,10 @@ const routes = [
           {
             path: "yulang-back-top",
             name: "yulang-back-top",
-            component: YulangBackTop,
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-back-top/YulangBackTop.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -213,7 +239,10 @@ const routes = [
           {
             path: "yulang-checkbox",
             name: "yulang-checkbox",
-            component: YulangCheckbox,
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-checkbox/YulangCheckbox.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -223,7 +252,10 @@ const routes = [
           {
             path: "yulang-switch-copy",
             name: "yulang-switch-copy",
-            component: YulangSwitchCopy,
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-switch-copy/YulangSwitchCopy.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -233,7 +265,8 @@ const routes = [
           {
             path: "yulang-form",
             name: "yulang-form",
-            component: YulangForm,
+            component: () =>
+              import("@/views/root/packages-demo/yulang-form/YulangForm.vue"),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -243,7 +276,8 @@ const routes = [
           {
             path: "yulang-table",
             name: "yulang-table",
-            component: YulangTable,
+            component: () =>
+              import("@/views/root/packages-demo/yulang-table/YulangTable.vue"),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -253,7 +287,10 @@ const routes = [
           {
             path: "yulang-notification",
             name: "yulang-notification",
-            component: YulangNotification,
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-notification/YulangNotification.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -263,7 +300,10 @@ const routes = [
           {
             path: "yulang-message",
             name: "yulang-message",
-            component: YulangMessage,
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-message/YulangMessage.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -273,34 +313,314 @@ const routes = [
           {
             path: "yulang-loading",
             name: "yulang-loading",
-            component: YulangLoading,
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-loading/YulangLoading.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
               title: "加载中Loading Loading",
-            }
+            },
           },
           {
             path: "yulang-leader",
             name: "yulang-leader",
-            component: YulangLeader,
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-leader/YulangLeader.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
               title: "引导 Leader",
             },
           },
+          {
+            path: "yulang-tree",
+            name: "yulang-tree",
+            component: () =>
+              import("@/views/root/packages-demo/yulang-tree/YulangTree.vue"),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "树Tree Tree",
+            },
+          },
+          {
+            path: "yulang-select",
+            name: "yulang-select",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-select/YulangSelect.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "下拉框 Select",
+            },
+          },
+          {
+            path: "yulang-tabs",
+            name: "yulang-tabs",
+            component: YulangTabs,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "标签页Tabs Tabs",
+            },
+          },
+          {
+            path: "yulang-divider",
+            name: "yulang-divider",
+            component: YulangDivider,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "标签页Divider Divider",
+            },
+          },
+          {
+            path: "yulang-input",
+            name: "yulang-input",
+            component: YulangInput,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "输入框 Input",
+            },
+          },
+          {
+            path: "yulang-scroll-infinite",
+            name: "yulang-scroll-infinite",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-scroll-infinite/YulangScrollInfinite.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "无限滚动 ScrollInfinite",
+            },
+          },
+          {
+            path: "yulang-popover",
+            name: "yulang-popover",
+            component: YulangPopover,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "弹出框 Popover",
+            },
+          },
+          {
+            path: "yulang-time-picker",
+            name: "yulang-time-picker",
+            component: YulangTimePicker,
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "时间选择器 TimePicker",
+            },
+          },
+          {
+            path: "yulang-tooltip",
+            name: "yulang-tooltip",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-tooltip/YulangTooltip.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "文字提示 Tooltip",
+            },
+          },
+          {
+            path: "yulang-confirm",
+            name: "yulang-confirm",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-confirm/YulangConfirm.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "气泡确认框 Confirm",
+            },
+          },
+          {
+            path: "yulang-drawer",
+            name: "yulang-drawer",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-drawer/YulangDrawer.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "抽屉 YulangDrawer",
+            },
+          },
+          {
+            path: "yulang-collapse",
+            name: "yulang-collapse",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-collapse/YulangCollapse.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "折叠面板 YulangCollapse",
+            },
+          },
+          {
+            path: "yulang-skeleton",
+            name: "yulang-skeleton",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-skeleton/YulangSkeleton.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "骨架屏 YulangSkeleton",
+            },
+          },
+          {
+            path: "yulang-rate",
+            name: "yulang-rate",
+            component: () =>
+              import("@/views/root/packages-demo/yulang-rate/YulangRate.vue"),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "评分 YulangRate",
+            },
+          },
+          {
+            path: "yulang-radio",
+            name: "yulang-radio",
+            component: () =>
+              import("@/views/root/packages-demo/yulang-radio/YulangRadio.vue"),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "单选框 YulangRadio",
+            },
+          },
+          {
+            path: "yulang-container",
+            name: "yulang-container",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-container/YulangContainer.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "布局容器 YulangContainer",
+            },
+          },
+          {
+            path: "yulang-pagination",
+            name: "yulang-pagination",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-pagination/YulangPagination.vue"),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "分页 YulangPagination",
+            }
+          },
+          {
+            path: "yulang-table-plus",
+            name: "yulang-table-plus",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-table-plus/YulangTablePlus.vue"),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "表格PLUS YulangTablePlus",
+            },
+          },
+          {
+            path: "yulang-color-picker",
+            name: "yulang-color-picker",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-color-picker/YulangColorPicker.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "颜色选择器 YulangColorPicker",
+            },
+          },
         ],
       },
       {
-        path: "guide",
-        name: "guide",
-        component: Guide,
+        path: "theme",
+        name: "theme",
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "@/views/root/theme/Theme.vue"
+          ),
         meta: {
           keepAlive: true,
           isAuth: true,
-          title: "指南",
         },
+      },
+      {
+        path: "resources",
+        name: "resources",
+        component: () => import("@/views/root/resources/Resources.vue"),
+        meta: {
+          keepAlive: true,
+          isAuth: true,
+          title: "资源",
+        },
+        children: [
+          {
+            path: "",
+            redirect: "animate",
+          },
+          {
+            path: "animate",
+            name: "animate",
+            component: () =>
+              import("@/views/root/resources/animate/Animate.vue"),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "动画 yulang-animate",
+            },
+          },
+          {
+            path: "tools",
+            name: "tools",
+            component: () => import("@/views/root/resources/tools/Tools.vue"),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "工具 yulang-tools",
+            },
+          },
+          {
+            path: "instruction",
+            name: "instruction",
+            component: () =>
+              import("@/views/root/resources/instruction/Instruction.vue"),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "指令 yulang-instruction",
+            },
+          },
+        ],
       },
     ],
   },

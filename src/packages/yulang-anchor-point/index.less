@@ -30,7 +30,6 @@
     .packages-main-form-anchor-point-click {
         position: fixed;
         top: var(--offsetTop-container--);
-        width: calc(100% - @anchor-point-content-width - @anchor-point-absolute-right - 4px);
         right: @anchor-point-absolute-right;
         // 减去上下两个边框的大小
         max-height: calc(100% - @anchor-point-margin-top-bottom * 2 - 4px);
@@ -44,6 +43,10 @@
             display: flex;
             margin: .5em;
             justify-content: flex-start;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         .packages-main-form-anchor-point-click-item-level1{

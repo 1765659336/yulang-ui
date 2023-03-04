@@ -57,6 +57,10 @@ export default {
         { name: "icon-shezhi", value: '<i class="iconfont icon-shezhi"></i>' },
         { name: "icon-daochu", value: '<i class="iconfont icon-daochu"></i>' },
         { name: "icon-sousuo", value: '<i class="iconfont icon-sousuo"></i>' },
+        { name: "icon-yanjing", value: '<i class="iconfont icon-yanjing"></i>' },
+        { name: "icon-shijian", value: '<i class="iconfont icon-shijian"></i>' },
+        { name: "icon-kuaijin", value: '<i class="iconfont icon-kuaijin"></i>' },
+        { name: "icon-kuaitui", value: '<i class="iconfont icon-kuaitui"></i>' },
       ],
     };
   },

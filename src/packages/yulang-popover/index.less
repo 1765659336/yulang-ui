@@ -1,0 +1,29 @@
+.packages-yulang-popover-container {
+  display: inline-block;
+
+  .yulang-popover-reference {
+    display: inline-block;
+  }
+
+  .yulang-popover-position {
+    min-height: var(--yulang-popover-position-min-height--);
+    max-height: var(--yulang-popover-position-max-height--);
+    min-width: var(--yulang-popover-reference-min-width--);
+    max-width: var(--yulang-popover-reference-max-width--);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    overflow-y: scroll;
+
+    .yulang-popover-triangle {
+      position: absolute;
+      border-style: solid;
+      border-width: 10px 10px 10px 10px;
+      border-color: transparent transparent #ccc transparent;
+      width: 0px;
+      height: 0px;
+      transform: translate(-50%, -20px);
+      left: 50%;
+    }
+  }
+}

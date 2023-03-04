@@ -1,0 +1,35 @@
+.packages-yulang-divider-container-row {
+    background-color: #aaa;
+    height: 1px;
+    width: 100%;
+    margin: 24px 0;
+    position: relative;
+
+    .packages-yulang-divider-content {
+        left: var(--content-position--);
+        position: absolute;
+        transform: translateX(-50%) translateY(-50%);
+        background-color: white;
+        padding: 0 10px;
+    }
+}
+
+.packages-yulang-divider-container-column {
+    background-color: #aaa;
+    height: 1em;
+    line-height: 1em;
+    width: 1px;
+    margin: 0 24px;
+    position: relative;
+    display: inline-block;
+    // 设置文字基准线
+    vertical-align: middle;
+
+    .packages-yulang-divider-content {
+        top: var(--content-position--);
+        position: absolute;
+        transform: translateX(-50%) translateY(-50%);
+        background-color: white;
+        padding: 10px 0;
+    }
+}

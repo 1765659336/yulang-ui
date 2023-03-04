@@ -79,7 +79,6 @@ export default {
       // 再次滚动时，移除上一次的动画(bug)
       const scrollY =
         document.documentElement.scrollTop || document.body.scrollTop;
-      console.log(scrollY, this.hiddenValue);
       if (scrollY > this.hiddenValue) {
         this.isShow = true;
       } else {

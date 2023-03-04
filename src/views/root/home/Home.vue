@@ -4,8 +4,8 @@
 
 <script>
 export default {
-  name: 'root-home',
+  name: "yulang-home",
 };
 </script>
 
-<style></style>
+<style lang="less" scoped></style>

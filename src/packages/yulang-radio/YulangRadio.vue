@@ -1,0 +1,70 @@
+<template>
+  <div
+    class="packages-yulang-radio-container yulang-radio-disabled"
+    :style="{ '--cursor--': disabled ? 'not-allowed' : 'pointer' }"
+  >
+    <input
+      type="radio"
+      :id="label + name"
+      :value="label"
+      :name="name"
+      :checked="checked"
+      @change="radioValueChange"
+      :disabled="disabled"
+      class="yulang-radio-disabled"
+    />
+    <label :for="label + name" class="yulang-radio-balel yulang-radio-disabled"
+      ><slot></slot
+    ></label>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "yulang-radio",
+  props: {
+    label: {
+      require: true,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      yulangComponentName: "yulang-radio",
+      // radio-group的相同name值
+      name: "",
+      // 是否被选中
+      checked: false,
+    };
+  },
+  methods: {
+    // 值修改函数
+    valueChange() {
+      if (this.$parent.yulangComponentName === "yulang-radio-group") {
+        console.log(this.$parent, "this.$parent");
+        this.$parent.valueComputed = this.label;
+      }
+      // 将radio-group中的元素选中状态全改为false
+      this.$parent.$children.forEach((component) => {
+        if (component.yulangComponentName === "yulang-radio") {
+          component.checked = false;
+        }
+      });
+      // 再将当前的改为true
+      this.checked = true;
+    },
+    radioValueChange() {
+      this.valueChange();
+      this.$parent.$listeners.change &&
+        this.$parent.$listeners.change(this.label);
+    },
+  },
+};
+</script>
+
+<style lang="less" scoped>
+@import url("./index.less");
+</style>

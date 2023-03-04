@@ -17,20 +17,54 @@ import YulangFormItem from "@/packages/yulang-form-item/YulangFormItem.vue";
 import YulangInput from "@/packages/yulang-input/YulangInput.vue";
 import YulangTable from "@/packages/yulang-table/YulangTable.vue";
 import YulangTableItem from "@/packages/yulang-table-item/YulangTableItem.vue";
+import YulangTree from "@/packages/yulang-tree/YulangTree.vue";
 import YulangLeader from "@/packages/yulang-leader/YulangLeader.vue";
+import YulangTabs from "@/packages/yulang-tabs/YulangTabs.vue";
+import YulangTabPane from "@/packages/yulang-tab-pane/YulangTabPane.vue";
+import YulangDivider from "@/packages/yulang-divider/YulangDivider.vue";
+import YulangSelect from "@/packages/yulang-select/YulangSelect.vue";
+import YulangPopover from "@/packages/yulang-popover/YulangPopover.vue";
+import YulangTimePicker from "@/packages/yulang-time-picker/YulangTimePicker.vue";
+import YulangTooltip from "@/packages/yulang-tooltip/YulangTooltip.vue";
+import YulangConfirm from "@/packages/yulang-confirm/YulangConfirm.vue";
+import YulangDrawer from "@/packages/yulang-drawer/YulangDrawer.vue";
+import YulangCollapse from "@/packages/yulang-collapse/YulangCollapse.vue";
+import YulangCollapseItem from "@/packages/yulang-collapse-item/YulangCollapseItem.vue";
+import YulangSkeleton from "@/packages/yulang-skeleton/YulangSkeleton.vue";
+import YulangOptions from "@/packages/yulang-options/YulangOptions.vue";
+import YulangRate from "@/packages/yulang-rate/YulangRate.vue";
+import YulangRadioGroup from "@/packages/yulang-radio-group/YulangRadioGroup.vue";
+import YulangRadio from "@/packages/yulang-radio/YulangRadio.vue";
+import YulangContainer from "@/packages/yulang-container/YulangContainer.vue";
+import YulangHeader from "@/packages/yulang-header/YulangHeader.vue";
+import YulangAside from "@/packages/yulang-aside/YulangAside.vue";
+import YulangMain from "@/packages/yulang-main/YulangMain.vue";
+import YulangFooter from "@/packages/yulang-footer/YulangFooter.vue";
+import YulangPagination from "@/packages/yulang-pagination/YulangPagination.vue";
+import YulangTablePlus from "@/packages/yulang-table-plus/YulangTablePlus.vue";
+import YulangTablePlusColumn from "@/packages/yulang-table-plus-column/YulangTablePlusColumn.vue";
+import YulangColorPicker from "@/packages/yulang-color-picker/YulangColorPicker.vue";
+
 
 // 引入icon
 import "../assets/icon/iconfont.css";
 // 阿里图标初始化样式文件
 import "../assets/icon/reset.css";
+// 引入动画样式文件
+import "@/assets/style/animate.css";
 
 // 自定义指令
 import YulangCopy from "@/instruction/copy";
 import YulangLoading from "@/instruction/loading";
+import YulangLongClick from "@/instruction/longClick";
+import YulangInfiniteScroll from "@/instruction/infiniteScroll";
+
 // 自定义指令对象
 export const Directives = {
   YulangCopy,
   YulangLoading,
+  YulangLongClick,
+  YulangInfiniteScroll,
 };
 
 // 自定义函数
@@ -58,8 +92,37 @@ export const Packages = [
   YulangInput,
   YulangTable,
   YulangTableItem,
-  YulangLeader
+  YulangTree,
+  YulangLeader,
+  YulangTabs,
+  YulangTabPane,
+  YulangDivider,
+  YulangSelect,
+  YulangPopover,
+  YulangTimePicker,
+  YulangTooltip,
+  YulangConfirm,
+  YulangDrawer,
+  YulangCollapse,
+  YulangCollapseItem,
+  YulangSkeleton,
+  YulangOptions,
+  YulangRate,
+  YulangRadioGroup,
+  YulangRadio,
+  YulangContainer,
+  YulangHeader,
+  YulangAside,
+  YulangMain,
+  YulangFooter,
+  YulangPagination,
+  YulangTablePlus,
+  YulangTablePlusColumn,
+  YulangColorPicker,
 ];
+
+// 工具函数
+import * as Lib from "@/packages/lib";
 
 const install = function (Vue, option) {
   console.log(option);
@@ -83,23 +146,7 @@ if (typeof window !== "undefined" && window.Vue) {
 
 export default {
   install,
-  YulangButton,
-  YulangSlider,
-  YulangSignaure,
-  YulangSwitch,
-  YulangUpload,
-  YulangCanvas,
-  YulangAnchorPoint,
-  YulangDescribeFrame,
-  YulangLink,
-  YulangDialog,
-  YulangBackTop,
-  YulangCheckbox,
-  YulangSwitchCopy,
-  YulangForm,
-  YulangFormItem,
-  YulangInput,
-  YulangTable,
-  YulangTableItem,
-  YulangLeader
+  Packages,
+  Lib,
+  Directives
 };

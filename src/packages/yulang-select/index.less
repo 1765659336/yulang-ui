@@ -1,0 +1,47 @@
+@height: 2em;
+@inputWidth: 10em;
+
+.select-contaniner {
+}
+
+.input-class {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid black;
+  width: calc(@inputWidth + @height + 2px);
+
+  .input-class-initial {
+    width: @inputWidth;
+    // height: @height;
+    // line-height: @height;
+    background: none;
+    outline: none;
+    border: none;
+  }
+
+  img {
+    height: @height;
+  }
+}
+
+.pull-down-position {
+}
+
+/* 进入的第一帧和离开的最后一帧 */
+.hh-enter,
+.hh-leave-to {
+  transform: translateY(0%);
+  opacity: 0;
+}
+/* 进入的最后一帧和离开的第一帧 */
+.hh-enter-to,
+.hh-leave {
+  transform: translateY(0%);
+  opacity: 1;
+}
+/* 进入和离开的时间、节奏等效果 */
+.hh-enter-active,
+.hh-leave-active {
+  transition: 0.2s;
+}
