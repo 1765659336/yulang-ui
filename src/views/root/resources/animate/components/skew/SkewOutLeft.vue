@@ -1,18 +1,17 @@
 <template>
-  <div v-if="value" class="yulang-animate-div yulang-animate yulang-bounce-out-top">
-    抖动漂浮离开
+  <div v-if="value" class="yulang-animate-div yulang-animate yulang-skew-out-left">
+    左上角拉伸左侧离开
   </div>
 </template>
 
 <script>
 import { disappear } from "../mixin";
-
 export default {
-  name: "yulang-bounce-out-top",
+  name: "yulang-skew-out-left",
   mixins: [disappear],
   data() {
     return {
-      title: "抖动漂浮离开",
+      title: "左上角拉伸左侧离开",
     };
   },
 };

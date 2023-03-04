@@ -1,5 +1,7 @@
 <template>
-  <div class="yulang-animate yulang-spin-out-right-bottom">右下角旋转消失</div>
+  <div v-if="value" class="yulang-animate yulang-spin-out-right-bottom">
+    右下角旋转消失
+  </div>
 </template>
 
 <script>

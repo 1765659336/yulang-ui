@@ -1,5 +1,5 @@
 <template>
-  <div class="yulang-animate-div yulang-animate yulang-bounce-out-left">
+  <div v-if="value" class="yulang-animate-div yulang-animate yulang-bounce-out-left">
     抖动左侧离开
   </div>
 </template>

@@ -1,5 +1,8 @@
 <template>
-  <div class="yulang-animate-div yulang-animate yulang-bounce-out-bottom">
+  <div
+    v-if="value"
+    class="yulang-animate-div yulang-animate yulang-bounce-out-bottom"
+  >
     抖动掉落离开
   </div>
 </template>
