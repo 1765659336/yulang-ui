@@ -12,22 +12,29 @@
       >
         {{ item.title }}
       </div>
-      <div class="copyBtn" v-YulangCopy="value.copy">点我复制代码</div>
+
+      <div class="copyBtn" v-YulangCopy="copyData">点我复制代码</div>
     </div>
+    
     <component :is="value.value"></component>
   </div>
 </template>
 
 <script>
-import { Components, AnimateClassArr } from "./index";
+import { Components, AnimateClassArr } from './index';
 export default {
-  name: "root-resources-animate",
+  name: 'root-resources-animate',
   components: Components,
   data() {
     return {
       value: AnimateClassArr[0],
       animateClassArr: AnimateClassArr,
     };
+  },
+  computed:{
+    copyData(){
+      return `<div class="`+ this.value.copy + `">` + this.value.title + `</div>`
+    }
   },
   methods: {
     animateClassItem(item) {
