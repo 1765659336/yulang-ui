@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div class="packages-main-form-anchor-point-click">
+    <div class="packages-main-form-anchor-point-click yulang-animate yulang-fade-in-right">
       <div id="packages-main-form-anchor-point-click">
         <div
           v-for="(item, index) in slotArrComputed"

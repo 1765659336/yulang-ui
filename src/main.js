@@ -12,8 +12,8 @@ import "@/assets/style/public.less";
 // import "yulang-ui/yulang-ui-dist/yulang-ui.css";
 // Vue.use(yulangUi, { instruction: ["loading"] });
 
-// yulangUi下引入z-index
-// const Index = yulangUi.Lib.Index
+// yulangUi下引入z - index
+// const Index = yulangUi.Lib.Index;
 // Vue.prototype.$index = new Index(3000)
 
 // element引入

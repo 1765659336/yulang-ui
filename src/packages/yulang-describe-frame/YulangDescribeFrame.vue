@@ -40,7 +40,7 @@
       </div>
 
       <div class="copy">
-        <div class="copyBtn" v-YulangCopy="codeStr">复制</div>
+        <div class="copyBtn" v-YulangCopy:[copySuccess]="codeStr">复制</div>
       </div>
     </div>
   </div>
@@ -48,12 +48,12 @@
 
 <script>
 export default {
-  name: 'yulang-describe-frame',
+  name: "yulang-describe-frame",
   data() {
     return {
       isShow: false,
       contentHeight: 0,
-      value: '1234',
+      value: "1234",
     };
   },
   props: {
@@ -71,9 +71,9 @@ export default {
     isTipShow() {
       return this.$slots.tip;
     },
-    isheaderShow(){
-      return this.$slots.default
-    }
+    isheaderShow() {
+      return this.$slots.default;
+    },
   },
   methods: {
     changeDescribeFrameHeight() {
@@ -84,31 +84,37 @@ export default {
           this.contentHeight = this.$refs.describeFrameContent?.offsetHeight;
           this.$refs.describeFrameContent &&
             this.$refs.describeFrameContent.classList.add(
-              'describeFrameContentAnimation'
+              "describeFrameContentAnimation"
             );
           this.$refs.describeFrameContent &&
             this.$refs.describeFrameContent.classList.remove(
-              'describeFrameContentAnimationReverse'
+              "describeFrameContentAnimationReverse"
             );
         });
       } else {
         this.$refs.describeFrameContent &&
           this.$refs.describeFrameContent.classList.add(
-            'describeFrameContentAnimationReverse'
+            "describeFrameContentAnimationReverse"
           );
         this.$refs.describeFrameContent &&
           this.$refs.describeFrameContent.classList.remove(
-            'describeFrameContentAnimation'
+            "describeFrameContentAnimation"
           );
         setTimeout(() => {
           this.isShow = !this.isShow;
         }, 300);
       }
-      console.log(this, 'YulangDe');
+      console.log(this, "YulangDe");
+    },
+    copySuccess() {
+      // console.log("info", "复制成功值为:" + value);
+      this.$yulangNotification({
+        message: "复制成功",
+        type: "success",
+      });
     },
   },
-  mounted() {
-  },
+  mounted() {},
 };
 </script>
 

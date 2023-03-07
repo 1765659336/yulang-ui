@@ -6,6 +6,7 @@
       '--margin-top-botton--': this.marginTopBotton,
       '--margin-left-right--': this.marginLeftRight,
     }"
+    ref="container"
   >
     <slot></slot>
   </div>
@@ -13,12 +14,12 @@
 
 <script>
 const sizeRuler = {
-  medium: { marginTopBotton: '50px', marginLeftRight: '80px' },
-  small: { marginTopBotton: '40px', marginLeftRight: '60px' },
-  mini: { marginTopBotton: '30px', marginLeftRight: '40px' },
+  medium: { marginTopBotton: "50px", marginLeftRight: "80px" },
+  small: { marginTopBotton: "40px", marginLeftRight: "60px" },
+  mini: { marginTopBotton: "30px", marginLeftRight: "40px" },
 };
 export default {
-  name: 'yulang-button',
+  name: "yulang-button",
   props: {
     // 控制按钮是否禁用
     disabled: {
@@ -31,35 +32,40 @@ export default {
     type: {
       type: String,
       default: () => {
-        return 'default';
+        return "default";
       },
       validator: (value) => {
-        return ['default', 'success', 'error'].find((item) => item === value);
+        return ["default", "success", "error"].find((item) => item === value);
       },
     },
     // 设置按钮的大小
     size: {
       type: String,
       default: () => {
-        return 'medium';
+        return "medium";
       },
       validator: (value) => {
-        return ['medium', 'small', 'mini'].find((item) => item === value);
+        return ["medium", "small", "mini"].find((item) => item === value);
       },
     },
   },
   data() {
-    return {};
+    return {
+      // 控制点击动画
+      clickAnimate: false,
+    };
   },
   computed: {
     containerClass: {
       get() {
         return {
-          'packages-yulang-button-container': true,
-          'is-disable': this.disabled,
-          'not-disable': !this.disabled,
-          'is-success': this.type === 'success',
-          'is-error': this.type === 'error',
+          "packages-yulang-button-container": true,
+          "is-disable": this.disabled,
+          "not-disable": !this.disabled,
+          "is-success": this.type === "success",
+          "is-error": this.type === "error",
+          "yulang-animate": this.clickAnimate,
+          "yulang-push-release": this.clickAnimate,
         };
       },
     },
@@ -78,12 +84,27 @@ export default {
   },
   methods: {
     handleClick(e) {
-      !this.disabled && this.$listeners.click && this.$listeners.click(e);
+      if (!this.disabled) {
+        if (this.clickAnimate) {
+          this.clickAnimate = false;
+          this.timer = setInterval(() => {
+            this.clickAnimate = true;
+          }, 1);
+        } else {
+          this.clickAnimate = true;
+        }
+        if (this.$listeners.click) {
+          this.$listeners.click(e);
+        }
+      }
     },
+  },
+  beforeDestroy() {
+    clearInterval(this.timer);
   },
 };
 </script>
 
 <style scoped lang="less">
-@import url('./index.less');
+@import url("./index.less");
 </style>

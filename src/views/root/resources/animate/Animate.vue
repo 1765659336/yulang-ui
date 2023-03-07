@@ -13,7 +13,7 @@
         {{ item.title }}
       </div>
 
-      <div class="copyBtn" v-YulangCopy="copyData">点我复制代码</div>
+      <div class="copyBtn" v-YulangCopy:[copySuccess]="copyData">点我复制代码</div>
     </div>
     
     <component :is="value.value"></component>
@@ -39,6 +39,13 @@ export default {
   methods: {
     animateClassItem(item) {
       this.value = item;
+    },
+    copySuccess(value) {
+      // console.log("info", "复制成功值为:" + value);
+      this.$yulangNotification({
+        message: "复制成功" + value,
+        type: "success",
+      });
     },
   },
 };

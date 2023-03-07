@@ -1,7 +1,11 @@
 <template>
   <div class="yulang-head-container" id="yulang-head-container">
     <h3 class="yulang-head-title">
-      <img src="@/assets/images/langicon.png" alt="" />
+      <img
+        src="@/assets/images/langicon.png"
+        alt=""
+        @click="jump({ path: '/home' })"
+      />
     </h3>
     <div class="yulang-head-menu-items">
       <div
@@ -49,10 +53,11 @@ export default {
       this.$router.push(item.path);
     },
     menuItemClass(item) {
-      console.log(this.$route);
+      // console.log(this.$route);
       return {
         // 选中样式
-        ["yulang-head-menu-item-active"]: item.path === this.$route.matched[1].path,
+        ["yulang-head-menu-item-active"]:
+          item.path === this.$route.matched[1].path,
       };
     },
   },

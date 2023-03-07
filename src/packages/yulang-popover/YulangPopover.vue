@@ -8,9 +8,15 @@
       '--yulang-popover-position-max-height--': maxHeight + 'px',
     }"
   >
-    <div class="yulang-popover-reference" ref="yulangPopoverReferenceRef">
+    <div
+      class="yulang-popover-reference"
+      ref="yulangPopoverReferenceRef"
+      v-YulangClickOutside="closeShow"
+    >
       <!-- 触发点 -->
-      <div ref="referenceRef"><slot name="reference"></slot></div>
+      <div ref="referenceRef">
+        <slot name="reference"></slot>
+      </div>
       <!-- 内容区 -->
       <transition
         @before-leave="transitionBeforeLeave"
@@ -114,6 +120,10 @@ export default {
     // 组件进入的钩子函数
     transitionEnter(el) {
       el.className += " yulang-animate yulang-rotate-y-in";
+    },
+    // 关闭
+    closeShow() {
+      this.isShow = false;
     },
     showChange(e, type) {
       if (type) {
