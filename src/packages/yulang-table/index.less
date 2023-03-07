@@ -1,12 +1,22 @@
-.packages-yulang-table-header {
-    display: flex;
+.packages-yulang-table-container {
+    display: inline-block;
+
+    .hidden-columns {
+        display: none;
+    }
+
+    .el-table__cell {
+        border-bottom: 1px solid #ebeef5;
+        padding: 12px 0;
+    }
+
+    .el-table__cell__border {
+        border-right: 1px solid #ebeef5;
+    }
 }
 
-.packages-yulang-table-body {
-    display: flex;
-
-    .packages-yulang-table-body-item {
-        border-bottom: 1px solid #ccc;
-        padding: 10px 0;
-    }
+.packages-yulang-table-container__border {
+    border: 1px solid #ebeef5;
+    border-right: none;
+    border-bottom: none;
 }

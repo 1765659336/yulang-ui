@@ -58,6 +58,7 @@ import YulangLoading from "@/instruction/loading";
 import YulangLongClick from "@/instruction/longClick";
 import YulangInfiniteScroll from "@/instruction/infiniteScroll";
 import YulangClickOutside from "@/instruction/clickOutside";
+import YulangAddDom from "@/instruction/addDom";
 
 // 自定义指令对象
 export const Directives = {
@@ -66,6 +67,7 @@ export const Directives = {
   YulangLongClick,
   YulangInfiniteScroll,
   YulangClickOutside,
+  YulangAddDom,
 };
 
 // 自定义函数
@@ -73,7 +75,10 @@ import { Loading } from "@/createNode/loading";
 import { Notification } from "@/createNode/notification";
 
 // 自定义函数对象// 引入自定义方法(通知)
-export const CreateNode = [{ name: "$yulangLoading", value: Loading }, { name: '$yulangNotification', value: Notification }];
+export const CreateNode = [
+  { name: "$yulangLoading", value: Loading },
+  { name: "$yulangNotification", value: Notification },
+];
 
 // 自定义组件数组
 export const Packages = [
