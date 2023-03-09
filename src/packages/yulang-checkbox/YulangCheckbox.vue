@@ -1,5 +1,5 @@
 <template>
-  <div class="packages-checkbox-container" @click="$listeners.click">
+  <div class="packages-checkbox-container">
     <input
       ref="checkboxRef"
       type="checkbox"
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: "yulang-checkbox",
+  name: 'yulang-checkbox',
   props: {
     // 是否选中
     value: {
@@ -44,7 +44,7 @@ export default {
         return this.value;
       },
       set(value) {
-        this.$emit("input", value);
+        this.$emit('input', value);
       },
     },
   },

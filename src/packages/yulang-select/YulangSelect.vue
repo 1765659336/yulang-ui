@@ -1,45 +1,49 @@
 <template>
   <div class="select-contaniner" ref="yulangSelectReferenceRef">
-    <!-- imput区域内容 -->
-    <span
-      class="input-class"
-      id="input-property"
-      tabindex="0"
-      ref="referenceRef"
-      @blur="handleBlur"
-      @click.stop="changeShowPullDown"
-    >
-      <input
-        type="text"
-        class="input-class-initial"
-        :value="value"
-        :placeholder="placeholder"
-        disabled
-      />
-      <img v-show="isShowPullDown" src="@/assets/images/downarrow.svg" />
-      <img v-show="!isShowPullDown" src="@/assets/images/uparrow.svg" />
-    </span>
+    <yulang-popover :minWidth="200" :maxHeight="200" ref="popover">
+      <template #reference>
+        <!-- imput区域内容 -->
+        <span
+          class="input-class"
+          id="input-property"
+          tabindex="0"
+          ref="referenceRef"
+          @click.stop="changeShowPullDown"
+        >
+          <input
+            type="text"
+            class="input-class-initial"
+            :value="value"
+            :placeholder="placeholder"
+            disabled
+          />
+          <img v-show="isShowPullDown" src="@/assets/images/downarrow.svg" />
+          <img v-show="!isShowPullDown" src="@/assets/images/uparrow.svg" />
+        </span>
+      </template>
 
-    <!-- 展开区内容 -->
-    <!-- <transition name="hh" appear> -->
-    <div
-      tabindex="0"
-      v-show="isShowPullDown"
-      ref="yulangSelectContentRef"
-      @blur="handleBlur"
-    >
-      <slot></slot>
-    </div>
-    <!-- </transition> -->
+      <template #content>
+        <!-- 展开区内容 -->
+        <!-- <transition name="hh" appear> -->
+        <div tabindex="0" ref="yulangSelectContentRef">
+          <slot></slot>
+        </div>
+        <!-- </transition> -->
+      </template>
+    </yulang-popover>
   </div>
 </template>
 
 <script>
-import { getPosition, changePosition } from '@/packages/lib';
+// import { getPosition, changePosition } from '@/packages/lib';
+import YulangPopover from '@/packages/yulang-popover/YulangPopover.vue';
 import { positionArr } from '@/packages/constant';
 
 export default {
   name: 'yulang-select',
+  components: {
+    YulangPopover,
+  },
   props: {
     // input值
     value: {
@@ -60,7 +64,7 @@ export default {
   },
   data() {
     return {
-      isShowPullDown: false,
+      isShowPullDown: true,
       isRealShow: true,
     };
   },
@@ -71,34 +75,31 @@ export default {
   },
   methods: {
     refreshInputValue(val) {
+      this.isShowPullDown = true;
       this.$emit('input', val);
+      this.$refs.popover.closeShow();
     },
     handleBlur() {
-      setTimeout(() => {
-        this.isShowPullDown = false;
-      }, 150);
+      this.isShowPullDown = !this.isShowPullDown;
     },
     changeShowPullDown() {
+      this.$refs.popover.showChange();
       this.isShowPullDown = !this.isShowPullDown;
-      this.isShowPullDown & this.$nextTick(this.getPositionFn);
     },
-    getPositionFn() {
-      changePosition(
-        this.$refs.yulangSelectReferenceRef,
-        this.$refs.referenceRef,
-        this.$refs.yulangSelectContentRef,
-        getPosition(
-          this.placement,
-          this.$refs.referenceRef,
-          this.$refs.yulangSelectContentRef,
-          20,
-          20
-        )
-      );
-    },
-  },
-  mounted() {
-    this.$nextTick(this.getPositionFn);
+    // getPositionFn() {
+    //   changePosition(
+    //     this.$refs.yulangSelectReferenceRef,
+    //     this.$refs.referenceRef,
+    //     this.$refs.yulangSelectContentRef,
+    //     getPosition(
+    //       this.placement,
+    //       this.$refs.referenceRef,
+    //       this.$refs.yulangSelectContentRef,
+    //       20,
+    //       20
+    //     )
+    //   );
+    // },
   },
 };
 </script>
