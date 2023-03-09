@@ -15,6 +15,7 @@ export default {
   data() {
     return {
       title: "侧面翻页离开",
+      attribute: 'middle',
     };
   },
 };

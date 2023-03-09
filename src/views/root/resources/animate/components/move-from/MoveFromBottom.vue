@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '从下移入',
+      attribute: 'bottom show',
     };
   },
 };

@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: "从右侧清晰出现",
+      attribute: 'right show',
     };
   },
 };

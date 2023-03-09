@@ -6,10 +6,11 @@
 
 <script>
 export default {
-  name: "yulang-skew-left",
+  name: 'yulang-skew-left',
   data() {
     return {
-      title: "往左上角拉伸显现",
+      title: '往左上角拉伸显现',
+      attribute: 'left show',
     };
   },
 };

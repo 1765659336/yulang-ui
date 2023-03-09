@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "往右上角拉伸显现",
+      attribute: 'right show',
     };
   },
 };

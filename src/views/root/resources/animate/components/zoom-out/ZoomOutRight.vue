@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       title: "右移消失",
+      attribute: 'right leave',
     };
   },
 };

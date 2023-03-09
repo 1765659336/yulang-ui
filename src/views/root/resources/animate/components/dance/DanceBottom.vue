@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: "草木随风摇摆",
+      attribute: 'middle',
     };
   },
 };

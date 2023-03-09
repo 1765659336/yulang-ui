@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "往外旋转一周显现",
+      attribute: 'X-axis',
     };
   },
 };

@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '向右悬挂',
+      attribute: 'right show',
     };
   },
 };

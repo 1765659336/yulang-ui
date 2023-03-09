@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       title: "往后倒",
+      attribute: 'Y-axis',
     };
   },
 };

@@ -1,13 +1,14 @@
 <template>
-  <div class="yulang-animate cool-vertical-shake">垂直震动</div>
+  <div class="yulang-animate yulang-cool-vertical-shake">垂直震动</div>
 </template>
 
 <script>
 export default {
-  name: 'cool-vertical-shake',
+  name: 'yulang-cool-vertical-shake',
   data() {
     return {
       title: '垂直震动',
+      attribute: 'Y-axis',
     };
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <div class="yulang-animate yulang-rotate-in-top"></div>
+  <div class="yulang-animate yulang-rotate-in-top">旋转掉落显示</div>
 </template>
 
 <script>
@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: "旋转掉落显示",
+      attribute: 'top show',
     };
   },
 };

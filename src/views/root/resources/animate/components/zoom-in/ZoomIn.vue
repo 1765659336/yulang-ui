@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: "原地缩小显现",
+      attribute: 'middle',
     };
   },
 };

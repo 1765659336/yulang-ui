@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       title: "右侧滚动离开",
+      attribute: 'right leave',
     };
   },
 };

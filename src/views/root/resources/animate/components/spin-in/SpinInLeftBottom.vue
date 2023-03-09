@@ -4,10 +4,11 @@
 
 <script>
 export default {
-  name: "yulang-spin-in-left-bottom",
+  name: 'yulang-spin-in-left-bottom',
   data() {
     return {
-      title: "左下角旋转出现",
+      title: '左下角旋转出现',
+      attribute: 'left show',
     };
   },
 };

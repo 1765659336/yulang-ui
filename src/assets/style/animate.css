@@ -133,7 +133,7 @@
 
 @keyframes yulang-zoom-out {
     to {
-        transform: scale(10);
+        transform: scale(5);
         opacity: 0;
     }
 }
@@ -147,7 +147,7 @@
 
 @keyframes yulang-zoom-out-left {
     to {
-        transform: scale(10) translateX(-50%);
+        transform: scale(5) translateX(-50%);
         opacity: 0;
     }
 }
@@ -161,7 +161,7 @@
 
 @keyframes yulang-zoom-out-right {
     to {
-        transform: scale(10) translateX(50%);
+        transform: scale(5) translateX(50%);
         opacity: 0;
     }
 }
@@ -175,7 +175,7 @@
 
 @keyframes yulang-zoom-out-top {
     to {
-        transform: scale(10) translateY(-50%);
+        transform: scale(3) translateY(-50%);
         opacity: 0;
     }
 }
@@ -189,7 +189,7 @@
 
 @keyframes yulang-zoom-out-bottom {
     to {
-        transform: scale(10) translateY(50%);
+        transform: scale(5) translateY(50%);
         opacity: 0;
     }
 }
@@ -1191,17 +1191,17 @@
 
 
 /*************************************************************
-Flip X
+Flip Y
 **************************************************************/
 
 
 /* 往外翻显现 */
 
-.yulang-animate.yulang-flip-out {
-    animation-name: yulang-flip-out;
+.yulang-animate.yulang-flip-y {
+    animation-name: yulang-flip-y;
 }
 
-@keyframes yulang-flip-out {
+@keyframes yulang-flip-y {
     from {
         transform: perspective(600px) rotateX(-180deg);
         opacity: 0;
@@ -1211,14 +1211,14 @@ Flip X
     }
 }
 
-.yulang-animate.yulang-flip-x-zoom-in {
-    animation-name: yulang-flip-x-zoom-in;
+.yulang-animate.yulang-flip-y-zoom-in {
+    animation-name: yulang-flip-y-zoom-in;
 }
 
 
 /* 往外旋转一周显现 */
 
-@keyframes yulang-flip-x-zoom-in {
+@keyframes yulang-flip-y-zoom-in {
     from {
         transform: perspective(600px) rotateX(0deg) scale(1);
         animation-timing-function: ease-out;
@@ -1239,11 +1239,11 @@ Flip X
 
 /* 往内旋转一周显现 */
 
-.yulang-animate.yulang-flip-x-zoom-out {
-    animation-name: yulang-flip-x-zoom-out;
+.yulang-animate.yulang-flip-y-zoom-out {
+    animation-name: yulang-flip-y-zoom-out;
 }
 
-@keyframes yulang-flip-x-zoom-out {
+@keyframes yulang-flip-y-zoom-out {
     from {
         transform: perspective(600px) rotateX(0deg) scale(1);
         animation-timing-function: ease-out;
@@ -1263,17 +1263,17 @@ Flip X
 
 
 /*************************************************************
-Flip Y
+Flip X
 **************************************************************/
 
 
 /* 往右翻转显现 */
 
-.yulang-animate.yulang-flip-y {
-    animation-name: yulang-flip-y;
+.yulang-animate.yulang-flip-x {
+    animation-name: yulang-flip-x;
 }
 
-@keyframes yulang-flip-y {
+@keyframes yulang-flip-x {
     from {
         transform: perspective(600px) rotateY(180deg);
         opacity: 0;
@@ -1286,11 +1286,11 @@ Flip Y
 
 /* 往右翻转扩缩出现 */
 
-.yulang-animate.yulang-flip-y-zoom-in {
-    animation-name: yulang-flip-y-zoom-in;
+.yulang-animate.yulang-flip-x-zoom-in {
+    animation-name: yulang-flip-x-zoom-in;
 }
 
-@keyframes yulang-flip-y-zoom-in {
+@keyframes yulang-flip-x-zoom-in {
     from {
         transform: perspective(600px) rotateY(0deg) scale(1);
         animation-timing-function: ease-out;
@@ -1311,11 +1311,11 @@ Flip Y
 
 /* 往右翻转缩扩出现 */
 
-.yulang-animate.yulang-flip-y-zoom-out {
-    animation-name: yulang-flip-y-zoom-out;
+.yulang-animate.yulang-flip-x-zoom-out {
+    animation-name: yulang-flip-x-zoom-out;
 }
 
-@keyframes yulang-flip-y-zoom-out {
+@keyframes yulang-flip-x-zoom-out {
     from {
         transform: perspective(600px) rotateY(0deg) scale(1);
         animation-timing-function: ease-out;
@@ -1644,11 +1644,11 @@ Elevate
 
 /* 右侧钓鱼提起 */
 
-.yulang-animate.yulang-elevate-left {
-    animation-name: yulang-elevate-left;
+.yulang-animate.yulang-elevate-right {
+    animation-name: yulang-elevate-right;
 }
 
-@keyframes yulang-elevate-left {
+@keyframes yulang-elevate-right {
     from {
         transform: translateY(100%) rotate(-20deg);
         transform-origin: right;
@@ -1666,11 +1666,11 @@ Elevate
 
 /* 左侧钓鱼提起 */
 
-.yulang-animate.yulang-elevate-right {
-    animation-name: yulang-elevate-right
+.yulang-animate.yulang-elevate-left {
+    animation-name: yulang-elevate-left
 }
 
-@keyframes yulang-elevate-right {
+@keyframes yulang-elevate-left {
     from {
         transform: translateY(100%) rotate(20deg);
         transform-origin: left;
@@ -2120,7 +2120,7 @@ Rotation
     }
     to {
         opacity: 0;
-        transform: translateY(-100%);
+        transform: translateY(-300%);
     }
 }
 
@@ -2214,7 +2214,7 @@ Rotation
 
 @keyframes yulang-move-to-left {
     to {
-        transform: translateX(-800px)
+        transform: translateX(-2000px)
     }
 }
 
@@ -2227,7 +2227,7 @@ Rotation
 
 @keyframes yulang-move-to-right {
     to {
-        transform: translateX(800px)
+        transform: translateX(2000px)
     }
 }
 
@@ -2240,7 +2240,7 @@ Rotation
 
 @keyframes yulang-move-to-top {
     to {
-        transform: translateY(-800px)
+        transform: translateY(-2000px)
     }
 }
 
@@ -2253,7 +2253,7 @@ Rotation
 
 @keyframes yulang-move-to-bottom {
     to {
-        transform: translateY(800px)
+        transform: translateY(2000px)
     }
 }
 

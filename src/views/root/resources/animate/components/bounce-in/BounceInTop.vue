@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "抖动掉落显示",
+      attribute: 'top show',
     };
   },
 };

@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '向右悬挂并掉落',
+      attribute: 'right leave',
     };
   },
 };

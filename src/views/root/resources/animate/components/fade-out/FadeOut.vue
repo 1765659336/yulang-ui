@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '逐渐消失',
+      attribute: 'middle',
     };
   },
 };

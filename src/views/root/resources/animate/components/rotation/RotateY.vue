@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       title: "往侧面倒",
+      attribute: 'X-axis',
     };
   },
 };

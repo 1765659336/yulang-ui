@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "快小慢大",
+      attribute: 'middle',
     };
   },
 };

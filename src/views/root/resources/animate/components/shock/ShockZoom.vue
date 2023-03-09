@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "带停顿缩小显现",
+      attribute: 'middle',
     };
   },
 };
