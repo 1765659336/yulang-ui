@@ -6,10 +6,11 @@
 
 <script>
 export default {
-  name: "yulang-swing-in-left",
+  name: 'yulang-swing-in-left',
   data() {
     return {
-      title: "左侧缩小停顿显现",
+      title: '左侧缩小停顿显现',
+      attribute: 'left show',
     };
   },
 };

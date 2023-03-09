@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '垂直高速震动',
+      attribute: 'Y-axis',
     };
   },
 };

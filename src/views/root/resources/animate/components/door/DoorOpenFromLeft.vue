@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '从左开门',
+      attribute: 'left leave',
     };
   },
 };

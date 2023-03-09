@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '上面到下面再回来',
+      attribute: 'top show',
     };
   },
 };

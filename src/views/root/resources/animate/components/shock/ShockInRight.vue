@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "带停顿右侧进入",
+      attribute: 'right show',
     };
   },
 };

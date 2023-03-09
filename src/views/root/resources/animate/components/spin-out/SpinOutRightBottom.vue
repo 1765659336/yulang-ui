@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       title: "右下角旋转消失",
+      attribute: 'right leave',
     };
   },
 };

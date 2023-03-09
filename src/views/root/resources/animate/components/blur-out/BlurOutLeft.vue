@@ -5,14 +5,15 @@
 </template>
 
 <script>
-import { disappear } from "../mixin";
+import { disappear } from '../mixin';
 
 export default {
-  name: "yulang-blur-out-left",
+  name: 'yulang-blur-out-left',
   mixins: [disappear],
   data() {
     return {
-      title: "左侧失焦离开",
+      title: '左侧失焦离开',
+      attribute: 'left leave',
     };
   },
 };
@@ -20,8 +21,8 @@ export default {
 
 <style lang="less" scoped>
 div {
-  height: 200px;
-  width: 200px;
+  width: 100px;
+  height: 100px;
   background-color: pink;
 }
 </style>

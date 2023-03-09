@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "带停顿掉落出现",
+      attribute: 'top show',
     };
   },
 };

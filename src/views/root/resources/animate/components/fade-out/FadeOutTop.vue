@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '向上逐渐消失',
+      attribute: 'top leave',
     };
   },
 };

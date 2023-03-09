@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '缩小再展开',
+      attribute: 'middle',
     };
   },
 };

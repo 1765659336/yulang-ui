@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "骨架屏加载",
+      attribute: 'middle',
     };
   },
 };

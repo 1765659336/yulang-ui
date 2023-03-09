@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       title: "左上角拉伸左侧离开",
+      attribute: 'left leave',
     };
   },
 };

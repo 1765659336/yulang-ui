@@ -6,10 +6,11 @@
 
 <script>
 export default {
-  name: "yulang-shock-in-left",
+  name: 'yulang-shock-in-left',
   data() {
     return {
-      title: "带停顿从左侧显现",
+      title: '带停顿从左侧显现',
+      attribute: 'left show',
     };
   },
 };

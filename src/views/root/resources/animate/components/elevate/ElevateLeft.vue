@@ -1,6 +1,6 @@
 <template>
   <div class="yulang-animate-div yulang-animate yulang-elevate-left">
-    右侧钓鱼提起
+    左侧钓鱼提起
   </div>
 </template>
 
@@ -9,7 +9,8 @@ export default {
   name: "yulang-elevate-left",
   data() {
     return {
-      title: "右侧钓鱼提起",
+      title: "左侧钓鱼提起",
+      attribute: 'left show',
     };
   },
 };

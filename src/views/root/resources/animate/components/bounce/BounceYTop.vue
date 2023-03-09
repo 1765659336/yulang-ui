@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "向上拉伸抖动",
+      attribute: 'top show',
     };
   },
 };

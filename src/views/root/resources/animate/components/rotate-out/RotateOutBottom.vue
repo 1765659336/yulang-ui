@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       title: "掉落滚动离开",
+      attribute: 'bottom leave',
     };
   },
 };

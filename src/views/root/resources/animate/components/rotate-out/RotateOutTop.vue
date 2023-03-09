@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       title: "漂浮滚动离开",
+      attribute: 'top leave',
     };
   },
 };

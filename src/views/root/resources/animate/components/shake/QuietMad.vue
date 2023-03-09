@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '循环放大缩小',
+      attribute: 'middle',
     };
   },
 };

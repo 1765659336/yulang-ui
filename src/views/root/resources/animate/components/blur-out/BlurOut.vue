@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       title: "失焦离开",
+      attribute: 'middle',
     };
   },
 };

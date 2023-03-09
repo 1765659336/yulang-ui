@@ -6,10 +6,11 @@
 
 <script>
 export default {
-  name: "yulang-roll-from-left",
+  name: 'yulang-roll-from-left',
   data() {
     return {
-      title: "左侧翻页显现",
+      title: '左侧翻页显现',
+      attribute: 'left show',
     };
   },
 };

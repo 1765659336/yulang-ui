@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: "旋转漂浮显示",
+      attribute: 'bottom show',
     };
   },
 };

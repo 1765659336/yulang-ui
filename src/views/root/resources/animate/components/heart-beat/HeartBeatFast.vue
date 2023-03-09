@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '心跳快速',
+      attribute: 'middle',
     };
   },
 };
