@@ -560,6 +560,19 @@ const routes = [
               title: "颜色选择器 YulangColorPicker",
             },
           },
+          {
+            path: "yulang-timeline",
+            name: "yulang-timeline",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-timeline/YulangTimeline.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "时间线 YulangTimeline",
+            },
+          },
         ],
       },
       {

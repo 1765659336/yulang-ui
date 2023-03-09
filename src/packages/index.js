@@ -44,6 +44,8 @@ import YulangPagination from "@/packages/yulang-pagination/YulangPagination.vue"
 import YulangTablePlus from "@/packages/yulang-table-plus/YulangTablePlus.vue";
 import YulangTablePlusColumn from "@/packages/yulang-table-plus-column/YulangTablePlusColumn.vue";
 import YulangColorPicker from "@/packages/yulang-color-picker/YulangColorPicker.vue";
+import YulangTimeline from "@/packages/yulang-timeline/YulangTimeline.vue";
+import YulangTimelineItem from "@/packages/yulang-timeline-item/YulangTimelineItem.vue";
 
 // 引入icon
 import "../assets/icon/iconfont.css";
@@ -127,6 +129,8 @@ export const Packages = [
   YulangTablePlus,
   YulangTablePlusColumn,
   YulangColorPicker,
+  YulangTimeline,
+  YulangTimelineItem
 ];
 
 // 工具函数

@@ -47,7 +47,6 @@ export default {
     // 值修改函数
     valueChange() {
       if (this.$parent.yulangComponentName === "yulang-radio-group") {
-        console.log(this.$parent, "this.$parent");
         this.$parent.valueComputed = this.label;
       }
       // 将radio-group中的元素选中状态全改为false

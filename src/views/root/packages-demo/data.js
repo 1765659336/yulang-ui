@@ -199,4 +199,9 @@ export const unionData = [
     title: "ColorPicker 颜色选择器",
     path: "/root/packages-demo/yulang-color-picker",
   },
+  {
+    level: 2,
+    title: "Timeline 时间线",
+    path: "/root/packages-demo/yulang-timeline",
+  },
 ];
