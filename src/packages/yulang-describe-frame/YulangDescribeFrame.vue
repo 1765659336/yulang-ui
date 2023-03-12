@@ -35,8 +35,10 @@
       <div class="describe-frame-footer-center">
         <img src="@/assets/images/downarrow.svg" v-if="!isShow" />
         <img src="@/assets/images/uparrow.svg" v-else />
-        <div v-if="!isShow">显示代码</div>
-        <div v-else>隐藏代码</div>
+        <slot name="trigger" :isShow="isShow">
+          <div v-if="!isShow">显示代码</div>
+          <div v-else>隐藏代码</div>
+        </slot>
       </div>
 
       <div class="copy">
@@ -51,7 +53,7 @@ export default {
   name: "yulang-describe-frame",
   data() {
     return {
-      isShow: false,
+      isShow: this.defaultShow,
       contentHeight: 0,
       value: "1234",
     };
@@ -65,6 +67,10 @@ export default {
     // 描述框的宽度
     width: {
       type: String,
+    },
+    // 默认显示内容还是不显示
+    defaultShow: {
+      default: false,
     },
   },
   computed: {

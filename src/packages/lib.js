@@ -538,3 +538,13 @@ export const isFalse = function (value, ...args) {
 
   return value ? true : false;
 };
+
+
+// 判断是否为数字
+export const isRealNum = function (val) {
+  // isNaN()函数 把空串 空格 以及NUll 按照0来处理 所以先去除
+  if (val === "" || val == null) {
+    return false;
+  }
+  return !isNaN(val)
+} 

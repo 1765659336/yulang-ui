@@ -8,7 +8,7 @@ export default {
       let isFather = false;
       let parentNode = e.target.parentNode;
       while (parentNode && parentNode !== document.body) {
-        console.log(el, parentNode);
+        // console.log(el, parentNode);
         if (el === parentNode) {
           isFather = true;
         }

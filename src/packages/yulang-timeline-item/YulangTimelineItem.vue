@@ -43,9 +43,6 @@ export default {
       yulangComponentName: "yulang-timeline-item",
     };
   },
-  mounted() {
-    console.log(this);
-  },
 };
 </script>
 

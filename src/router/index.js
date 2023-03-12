@@ -88,6 +88,58 @@ const routes = [
             redirect: "yulang-switch",
           },
           {
+            path: "time",
+            name: "time",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/time/Time.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "时间线 Time",
+            },
+          },
+          {
+            path: "install",
+            name: "install",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/install/Install.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "安装 Install",
+            },
+          },
+          {
+            path: "version",
+            name: "version",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/version/Version.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "版本号 Version",
+            },
+          },
+          {
+            path: "start",
+            name: "start",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/start/Start.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "快速开始 Start",
+            },
+          },
+          {
             path: "yulang-button",
             name: "yulang-button",
             component: YulangButton,
@@ -571,6 +623,45 @@ const routes = [
               keepAlive: true,
               isAuth: true,
               title: "时间线 YulangTimeline",
+            },
+          },
+          {
+            path: "yulang-dropdown",
+            name: "yulang-dropdown",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-dropdown/YulangDropdown.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "下拉菜单 YulangDropdown",
+            },
+          },
+          {
+            path: "yulang-breadcrumb",
+            name: "yulang-breadcrumb",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-breadcrumb/YulangBreadcrumb.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "面包屑 YulangBreadcrumb",
+            },
+          },
+          {
+            path: "yulang-input-number",
+            name: "yulang-input-number",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-input-number/YulangInputNumber.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "数字输入框 YulangInputNumber",
             },
           },
         ],

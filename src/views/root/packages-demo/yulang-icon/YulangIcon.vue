@@ -73,6 +73,14 @@ export default {
           name: "icon-kuaitui",
           value: '<i class="iconfont icon-kuaitui"></i>',
         },
+        {
+          name: "icon-jian",
+          value: '<i class="iconfont icon-jian"></i>',
+        },
+        {
+          name: "icon-jia",
+          value: '<i class="iconfont icon-jia"></i>',
+        },
       ],
     };
   },
