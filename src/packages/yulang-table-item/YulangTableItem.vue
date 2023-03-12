@@ -14,7 +14,10 @@ export default {
     label: {
       type: String,
     },
-    width: {},
+    width: {
+      type: String,
+    },
+    fixed:{}
   },
   data() {
     return {
