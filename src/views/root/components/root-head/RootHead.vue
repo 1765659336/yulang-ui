@@ -18,15 +18,27 @@
         {{ item.title }}
       </div>
     </div>
-    <div>中文</div>
+    <yulang-switch
+      v-model="theme"
+      inactiveText="喻亮"
+      activeText="暗黑"
+      inactiveColor="black"
+      activeColor="green"
+      >切换主题</yulang-switch
+    >
   </div>
 </template>
 
 <script>
+import YulangSwitch from "@/packages/yulang-switch/YulangSwitch.vue";
 export default {
   name: "yulang-head",
+  components: {
+    YulangSwitch,
+  },
   data() {
     return {
+      theme: false,
       btnArr: [
         {
           title: "指南",
@@ -46,6 +58,15 @@ export default {
         },
       ],
     };
+  },
+  watch: {
+    theme(val) {
+      const root = document.querySelector(":root");
+      root.style.setProperty(
+        "--yulang-head-container--",
+        val ? "black" : "green"
+      );
+    },
   },
   methods: {
     // 跳转到组件页面

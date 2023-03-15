@@ -1,4 +1,4 @@
-import { positionArr } from "@/packages/constant";
+// import { positionArr } from "@/packages/constant";
 
 // 生成唯一标识
 export function uuid() {
@@ -128,24 +128,6 @@ export const longClick = function (el, callback) {
   offsetX : 水平偏移量
   offsetY : 垂直偏移量
 */
-
-// 当前位置放不下的回调
-const negateFn = function (
-  defaultPosition,
-  triggerDom,
-  contentDom,
-  offsetX,
-  offsetY
-) {
-  const index = positionArr.findIndex(defaultPosition) + 1;
-  return getPosition(
-    positionArr[index] ?? positionArr[0],
-    triggerDom,
-    contentDom,
-    offsetX,
-    offsetY
-  );
-};
 
 // --------------------------位置校验函数
 const judgmentBottom = function (triggerDom, contentDom, offsetX, offsetY) {
@@ -344,7 +326,7 @@ const judgmentBottomEnd = function (triggerDom, contentDom, offsetX, offsetY) {
 // -----------------------------------------
 
 // 校验对象
-const judgmentObj = {
+export const judgmentObj = {
   bottom: judgmentBottom,
   ["bottom-start"]: judgmentBottomStart,
   ["left-end"]: judgmentLeftEnd,
@@ -359,6 +341,24 @@ const judgmentObj = {
   ["bottom-end"]: judgmentBottomEnd,
 };
 
+// 当前位置放不下的回调
+// const negateFn = function (
+//   triggerDom,
+//   contentDom,
+//   offsetX,
+//   offsetY,
+//   index
+// ) {
+//   return getPosition(
+//     positionArr[index] ?? positionArr[0],
+//     triggerDom,
+//     contentDom,
+//     offsetX,
+//     offsetY,
+//     index
+//   );
+// };
+
 export const getPosition = function (
   defaultPosition,
   triggerDom,
@@ -367,7 +367,15 @@ export const getPosition = function (
   offsetY = 0,
   checkNumber = 1
 ) {
-  // 如果校验了一个轮回
+  // 位置判断写的有问题
+  console.log(triggerDom,
+    contentDom,
+    offsetX,
+    offsetY,
+    checkNumber
+  )
+  return defaultPosition;
+  /* // 如果校验了一个轮回
   if (checkNumber === positionArr.length + 1) {
     // 每个位置都放不下，因此就放在默认第一次传入的位置
     return defaultPosition;
@@ -379,7 +387,6 @@ export const getPosition = function (
           return key;
         } else {
           return negateFn(
-            defaultPosition,
             triggerDom,
             contentDom,
             offsetX,
@@ -389,7 +396,7 @@ export const getPosition = function (
         }
       }
     }
-  }
+  } */
 };
 
 // 改变dom的位置

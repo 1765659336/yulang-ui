@@ -1,5 +1,5 @@
 export const npmCodeStr = `
-npm i element-ui -S
+npm i yulang-ui -S
 `
 
 export const textStr = `
@@ -29,7 +29,7 @@ export const codeStr = `
     </div>
 </body>
 
-<!-- import Vue before Element -->
+<!-- import Vue before YulangUi -->
 <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
 <!-- import JavaScript -->
 <script src="http://101.132.70.183:10010/yulang-ui-dist/yulang-ui.umd.min.js"></script>
@@ -45,4 +45,11 @@ export const codeStr = `
 </script>
 
 </html>
+`
+
+export const codeStrC = `
+如果你不想安装yulang-cli，你可以执行npx yulang-cli create 文件夹名字 ， 
+然后选择对应的vue2-yulang-ui模板即可。
+当然你也可以先执行 npm i yulang-cli -g 全局安装脚手架，
+再执行npx yulang-cli create 文件夹名字 ， 然后选择对应的vue2-yulang-ui模板即可。
 `

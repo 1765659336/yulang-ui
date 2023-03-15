@@ -1,26 +1,16 @@
 <template>
-  <div>
-    <!-- :class="[buttonVal ? 'circleSuccess' : 'circleFail']" -->
-    <!-- <div class="test">{{ value }}</div> -->
-    <div class="button">
-      <span v-if="inactiveText" :style="TextClass(false)">{{
-        inactiveText
-      }}</span>
-      <div :class="ButtonClass" :style="bgClassLogic" @click="changeVal">
-        <div
-          class="circle"
-          :class="circleClass"
-          ref="circleClassActive"
-        ></div>
-      </div>
-      <span v-if="activeText" :style="TextClass(true)">{{ activeText }}</span>
+  <div class="packages-yulang-button-container">
+    <div v-if="inactiveText" :style="TextClass">{{ inactiveText }}</div>
+    <div :class="ButtonClass" :style="bgClassLogic" @click="changeVal">
+      <div class="circle" :class="circleClass"></div>
     </div>
+    <div v-if="activeText" :style="TextClass">{{ activeText }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'yulang-switch',
+  name: "yulang-switch",
   props: {
     value: {
       type: Boolean,
@@ -28,27 +18,17 @@ export default {
     },
     inactiveColor: {
       type: String,
-      default: '#ff4949',
-      validator: (val) => {
-        const colorPattern = /^[#][1-f]{6}$/;
-        return colorPattern.test(val);
-      },
+      default: "#ff4949",
     },
     activeColor: {
       type: String,
-      default: '#13ce66',
-      validator: (val) => {
-        const colorPattern = /^[#][1-f]{6}$/;
-        return colorPattern.test(val);
-      },
+      default: "#13ce66",
     },
     inactiveText: {
       type: String,
-      default: undefined,
     },
     activeText: {
       type: String,
-      default: undefined,
     },
     disabled: {
       type: Boolean,
@@ -57,11 +37,12 @@ export default {
   },
   model: {
     // 需要双向绑定的 props 变量名称，也就是父组件通过 v-model 与子组件双向绑定的变量
-    prop: 'value',
+    prop: "value",
     // 定义由 $emit 传递变量的名称
-    event: 'newValue',
+    event: "newValue",
   },
   computed: {
+    // 按钮的class样式
     ButtonClass() {
       return {
         ButtonClassCommon: true,
@@ -69,54 +50,44 @@ export default {
         ButtonClassDisabled: this.disabled,
       };
     },
+    // 背景颜色style样式
     bgClassLogic() {
-      let backgroundColor;
-      // 是成功的情况下
-      if (this.value) {
-        backgroundColor = this.activeColor;
-      } else {
-        backgroundColor = this.inactiveColor;
-      }
-      return { backgroundColor };
+      return this.value
+        ? { backgroundColor: this.activeColor }
+        : { backgroundColor: this.inactiveColor };
     },
-    buttonVal() {
-      return this.value;
+    valueComputed: {
+      get() {
+        return this.value;
+      },
+      set(newValue) {
+        this.$emit("newValue", newValue);
+        this.$emit("change", newValue);
+      },
     },
+    // 提示文字颜色
+    TextClass() {
+      return this.valueComputed
+        ? { color: this.activeColor }
+        : { color: this.inactiveColor };
+    },
+    // 内部圆点
     circleClass() {
-      // index为0是判断是否为第一次初始化样式
       return {
-        circleInitialSuccess: this.index === 0 && this.buttonVal,
-        circleInitialFail: this.index === 0 &&  !this.buttonVal,
-        circleSuccess:this.index !== 0 && this.buttonVal,
-        circleFail: this.index !== 0 &&  !this.buttonVal,
+        circleSuccess: this.valueComputed,
+        circleFail: !this.valueComputed,
       };
     },
   },
-  data() {
-    return {
-      // 子组件不能修改 props 下的变量，所以定义一个临时变量
-      sonValue: this.value,
-      index: 0,
-    };
-  },
   methods: {
+    // 修改选中状态
     changeVal() {
-      this.sonValue = !this.sonValue;
-      if (!this.disabled) {
-        this.$emit('newValue', this.sonValue);
-        this.$emit('change', this.sonValue);
-
-        this.index++
-      }
-    },
-    TextClass(bool) {
-      // 判断当前汉字和按钮是否同边
-      return this.buttonVal === bool ? { color: 'skyblue' } : {};
+      !this.disabled && (this.valueComputed = !this.valueComputed);
     },
   },
 };
 </script>
 
 <style lang="less" scoped>
-@import url('./index.less');
+@import url("./index.less");
 </style>

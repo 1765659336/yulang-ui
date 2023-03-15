@@ -10,6 +10,7 @@ import YulangLink from "@/packages/yulang-link/YulangLink.vue";
 import YulangDescribeFrame from "@/packages/yulang-describe-frame/YulangDescribeFrame.vue";
 import YulangDialog from "@/packages/yulang-dialog/YulangDialog.vue";
 import YulangBackTop from "@/packages/yulang-back-top/YulangBackTop.vue";
+import YulangCheckboxGroup from "@/packages/yulang-checkbox-group/YulangCheckboxGroup.vue";
 import YulangCheckbox from "@/packages/yulang-checkbox/YulangCheckbox.vue";
 import YulangSwitchCopy from "@/packages/yulang-switch-copy/YulangSwitchCopy.vue";
 import YulangForm from "@/packages/yulang-form/YulangForm.vue";
@@ -23,6 +24,7 @@ import YulangTabs from "@/packages/yulang-tabs/YulangTabs.vue";
 import YulangTabPane from "@/packages/yulang-tab-pane/YulangTabPane.vue";
 import YulangDivider from "@/packages/yulang-divider/YulangDivider.vue";
 import YulangSelect from "@/packages/yulang-select/YulangSelect.vue";
+import YulangOption from "@/packages/yulang-option/YulangOption.vue";
 import YulangPopover from "@/packages/yulang-popover/YulangPopover.vue";
 import YulangTimePicker from "@/packages/yulang-time-picker/YulangTimePicker.vue";
 import YulangTooltip from "@/packages/yulang-tooltip/YulangTooltip.vue";
@@ -31,7 +33,6 @@ import YulangDrawer from "@/packages/yulang-drawer/YulangDrawer.vue";
 import YulangCollapse from "@/packages/yulang-collapse/YulangCollapse.vue";
 import YulangCollapseItem from "@/packages/yulang-collapse-item/YulangCollapseItem.vue";
 import YulangSkeleton from "@/packages/yulang-skeleton/YulangSkeleton.vue";
-import YulangOptions from "@/packages/yulang-options/YulangOptions.vue";
 import YulangRate from "@/packages/yulang-rate/YulangRate.vue";
 import YulangRadioGroup from "@/packages/yulang-radio-group/YulangRadioGroup.vue";
 import YulangRadio from "@/packages/yulang-radio/YulangRadio.vue";
@@ -58,7 +59,7 @@ import "../assets/icon/iconfont.css";
 // 阿里图标初始化样式文件
 import "../assets/icon/reset.css";
 // 引入动画样式文件
-import "@/assets/style/animate.css";
+import "../assets/style/animate.css";
 
 // 自定义指令
 import YulangCopy from "@/instruction/copy";
@@ -104,6 +105,7 @@ export const Packages = [
   YulangDialog,
   YulangBackTop,
   YulangCheckbox,
+  YulangCheckboxGroup,
   YulangSwitchCopy,
   YulangForm,
   YulangFormItem,
@@ -124,7 +126,6 @@ export const Packages = [
   YulangCollapse,
   YulangCollapseItem,
   YulangSkeleton,
-  YulangOptions,
   YulangRate,
   YulangRadioGroup,
   YulangRadio,
@@ -144,7 +145,8 @@ export const Packages = [
   YulangDropdownItem,
   YulangBreadcrumb,
   YulangBreadcrumbItem,
-  YulangInputNumber
+  YulangInputNumber,
+  YulangOption
 ];
 
 // 工具函数
