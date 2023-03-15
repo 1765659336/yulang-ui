@@ -3,29 +3,64 @@
 .packages-yulang-table-container {
   display: inline-block;
   width: var(--width--);
+  // overflow-y: scroll;
 
   .hidden-columns {
     display: none;
   }
 
-  .el-table__cell {
-    border-bottom: 1px solid @borderColor;
-    padding: 12px 0;
-    background-color: white;
+  .yulang-table__data__tbody {
+    tr:nth-of-type(2n) {
+      background-color: #fafafa;
+    }
+    tr:nth-of-type(2n + 1) {
+      background-color: #ffffff;
+    }
+    tr:hover {
+      background-color: #f5f7fa;
+      cursor: pointer;
+    }
   }
 
-  .el-table__cell__border {
+  .yulang-table__title__tbody {
+    color: black;
+    background-color: #f5f7fa;
+  }
+
+  .yulang-table__cell {
+    border-bottom: 1px solid @borderColor;
+    padding: 12px 0;
+  }
+
+  .yulang-table__cell__title {
+    border-top: 1px solid @borderColor;
+  }
+
+  .yulang-table__cell__border {
     border-right: 1px solid @borderColor;
   }
 
-  .el-table__body-wrapper {
-    overflow: scroll;
-    width: 100%;
+  .yulang-table__cell__first {
+    border-left: 1px solid @borderColor;
   }
 
-  .el-table__header-wrapper {
-    overflow: hidden;
+  .yulang-table__body-wrapper {
+    overflow: scroll;
     width: 100%;
+    height: var(--data-height--);
+  }
+
+  .yulang-table__header-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+    overflow: scroll;
+    &::-webkit-scrollbar {
+      height: 0px;
+    }
+  }
+
+  .yulang-table__header-border {
+    border-left: 1px solid @borderColor;
   }
 
   .table-cell-width {
@@ -35,7 +70,6 @@
 }
 
 .packages-yulang-table-container__border {
-  border: 1px solid @borderColor;
   border-right: none;
   border-bottom: none;
 }

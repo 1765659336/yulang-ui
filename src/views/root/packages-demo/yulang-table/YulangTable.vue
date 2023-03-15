@@ -5,14 +5,8 @@
 
       <template #b>
         <yulang-describe-frame :codeStr="codeStrB">
-          <yulang-table :data="tableData" width="814px">
+          <yulang-table :data="tableData" width="820px">
             <yulang-table-item prop="date" label="日期" width="100px">
-            </yulang-table-item>
-            <yulang-table-item prop="name" label="姓名" width="300px">
-            </yulang-table-item>
-            <yulang-table-item prop="name" label="姓名" width="300px">
-            </yulang-table-item>
-            <yulang-table-item prop="name" label="姓名" width="300px">
             </yulang-table-item>
             <yulang-table-item prop="name" label="姓名" width="300px">
             </yulang-table-item>
@@ -35,29 +29,105 @@
       </template>
       <template #c>
         <yulang-describe-frame :codeStr="codeStrC">
-          <yulang-table :data="tableData" :isShowBorder="true">
-            <yulang-table-item prop="date" label="日期" width="100px">
-            </yulang-table-item>
+          <yulang-table :data="tableData" :isShowBorder="true" width="800px">
+            <yulang-table-item prop="date" label="日期"> </yulang-table-item>
             <yulang-table-item prop="name" label="姓名"> </yulang-table-item>
-            <yulang-table-item prop="address" label="地址" width="300px">
-            </yulang-table-item>
+            <yulang-table-item prop="address" label="地址"> </yulang-table-item>
           </yulang-table>
         </yulang-describe-frame>
       </template>
       <template #d>
         <yulang-describe-frame :codeStr="codeStrD">
-          <yulang-table :data="tableData" :isShowBorder="true">
+          <yulang-table :data="tableData" :isShowBorder="true" width="1000px">
             <yulang-table-item prop="date" label="日期" width="100px">
             </yulang-table-item>
             <yulang-table-item prop="name" label="姓名" width="150px">
             </yulang-table-item>
-            <yulang-table-item prop="address" label="地址" width="300px">
+            <yulang-table-item prop="address" label="地址" width="200px">
             </yulang-table-item>
-            <yulang-table-item prop="operation" label="操作" width="300px">
+            <yulang-table-item prop="operation" label="操作" width="200px">
               <template #scope="scope">
                 <yulang-button @click="handleClick(scope)">编辑</yulang-button>
                 <yulang-button @click="handleClick(scope)">查看</yulang-button>
               </template>
+            </yulang-table-item>
+          </yulang-table>
+        </yulang-describe-frame>
+      </template>
+      <template #e>
+        <yulang-describe-frame :codeStr="codeStrB">
+          <yulang-table :data="tableData" width="814px" height="200px">
+            <yulang-table-item prop="date" label="日期" width="100px">
+            </yulang-table-item>
+            <yulang-table-item
+              v-for="index in 5"
+              :key="index"
+              prop="name"
+              label="姓名"
+              width="150px"
+            >
+            </yulang-table-item>
+            <yulang-table-item prop="sex" label="性别" width="100px">
+            </yulang-table-item>
+            <yulang-table-item prop="address" label="地址" width="300px">
+            </yulang-table-item>
+          </yulang-table>
+        </yulang-describe-frame>
+      </template>
+      <template #f>
+        <yulang-describe-frame :codeStr="codeStrB">
+          <yulang-table :data="tableData" width="814px">
+            <yulang-table-item prop="date" label="日期" width="100px">
+            </yulang-table-item>
+            <yulang-table-item
+              v-for="index in 5"
+              :key="index"
+              prop="name"
+              label="姓名"
+              width="130px"
+            >
+            </yulang-table-item>
+            <yulang-table-item
+              fixed="right"
+              prop="sex"
+              label="性别"
+              width="100px"
+            >
+            </yulang-table-item>
+            <yulang-table-item
+              fixed="right"
+              prop="address"
+              label="地址"
+              width="300px"
+            >
+            </yulang-table-item>
+          </yulang-table>
+        </yulang-describe-frame>
+      </template>
+      <template #g>
+        <yulang-describe-frame :codeStr="codeStrB">
+          <yulang-table
+            :data="[...tableData, ...tableData, ...tableData]"
+            width="814px"
+            height="200px"
+          >
+            <yulang-table-item prop="date" label="日期" width="100px">
+            </yulang-table-item>
+            <yulang-table-item prop="name" label="姓名" width="300px">
+            </yulang-table-item>
+            <yulang-table-item
+              fixed="right"
+              prop="sex"
+              label="性别"
+              width="100px"
+            >
+            </yulang-table-item>
+            <yulang-table-item
+              fixed="right"
+              prop="address"
+              label="地址"
+              width="300px"
+            >
             </yulang-table-item>
           </yulang-table>
         </yulang-describe-frame>
@@ -123,6 +193,9 @@ export default {
         { slotName: 'b', slotTitle: '基本用法', level: 2 },
         { slotName: 'c', slotTitle: '带边框', level: 2 },
         { slotName: 'd', slotTitle: '列插槽', level: 2 },
+        { slotName: 'e', slotTitle: '子属性超过设置width为滚动', level: 2 },
+        { slotName: 'f', slotTitle: '右端固定', level: 2 },
+        { slotName: 'g', slotTitle: '表头固定', level: 2 },
         { slotName: 'u', slotTitle: '阅读文档', level: 1 },
         { slotName: 'v', slotTitle: 'Table 属性', level: 2 },
         { slotName: 'w', slotTitle: 'Table 插槽', level: 2 },

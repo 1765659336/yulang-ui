@@ -67,6 +67,7 @@ import YulangLongClick from "@/instruction/longClick";
 import YulangInfiniteScroll from "@/instruction/infiniteScroll";
 import YulangClickOutside from "@/instruction/clickOutside";
 import YulangAddDom from "@/instruction/addDom";
+import YulangDrag from "@/instruction/drag.js";
 
 // 自定义指令对象
 export const Directives = {
@@ -76,6 +77,7 @@ export const Directives = {
   YulangInfiniteScroll,
   YulangClickOutside,
   YulangAddDom,
+  YulangDrag
 };
 
 // 自定义函数
