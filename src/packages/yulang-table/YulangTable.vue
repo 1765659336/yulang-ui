@@ -139,6 +139,7 @@ export default {
       fieldSort: [],
       // 向左固定时，各item距离right的px
       fixedPosition: [],
+      fixedStratIndex: 0,
       // 是否开启内容区滚动监听
       isListenScroll: false,
       // 初始内容table的x轴值
@@ -174,25 +175,28 @@ export default {
     },
     // 计算table是否超出100%
     computedTable() {
-      // 这个table宽度是每一个width属性的总和，没设width为minwidth
-      const allWidth = this.fieldSort.reduce((pre, item) => {
-        if (item.width) {
-          return pre + parseFloat(item.width.split('px')[0]);
-        } else {
-          return pre + parseFloat(this.minWidth.split('px')[0]);
-        }
-      }, 0);
       const tableWidth = this.$refs?.tableContainer?.clientWidth;
-      return allWidth > tableWidth ? allWidth + 'px' : '100%';
+      const minAllWidth = this.minTableWidth();
+      return minAllWidth > tableWidth ? minAllWidth + 'px' : '100%';
     },
     // 设置fixed的位置信息
     computedFixedPosition() {
       return function (index) {
         if (this.fieldSort[index].fixed === 'right') {
-          // console.log(this.fieldSort[index].fixed);
+          const tableWidth = this.$refs?.tableContainer?.clientWidth;
           return {
             position: 'sticky',
             right: this.fixedPosition[index] + 'px',
+            boxShadow:
+              this.fixedStratIndex === index &&
+              this.minTableWidth() > tableWidth
+                ? '-5px 10px 20px #b0b0b0'
+                : '',
+            // color:
+            //   this.fixedStratIndex === index &&
+            //   this.minTableWidth() > tableWidth
+            //     ? 'red'
+            //     : '',
             backgroundColor: 'inherit',
           };
         }
@@ -211,8 +215,10 @@ export default {
     setFixedWidth() {
       // 距离右边的距离
       let rightDistance = 0;
+      let fixedStratIndex = this.fieldSort.length;
       for (let i = this.fieldSort.length - 1; i >= 0; i--) {
         if (this.fieldSort[i].fixed === 'right') {
+          fixedStratIndex = i;
           this.fixedPosition.unshift(rightDistance);
           rightDistance =
             rightDistance + this.fieldSort[i].width
@@ -222,6 +228,8 @@ export default {
           this.fixedPosition.unshift(rightDistance);
         }
       }
+      // 表示从第几个开始固定
+      this.fixedStratIndex = fixedStratIndex;
     },
     // 设置data内容区的滚动监听
     setScrollListen() {
@@ -242,6 +250,18 @@ export default {
           this.$refs?.titleTableRef?.clientHeight +
           'px';
       }
+    },
+    // 最小table宽度
+    minTableWidth() {
+      // 这个table宽度是每一个width属性的总和，没设width为minwidth
+      const allWidth = this.fieldSort.reduce((pre, item) => {
+        if (item.width) {
+          return pre + parseFloat(item.width.split('px')[0]);
+        } else {
+          return pre + parseFloat(this.minWidth.split('px')[0]);
+        }
+      }, 0);
+      return allWidth;
     },
   },
   watch: {
