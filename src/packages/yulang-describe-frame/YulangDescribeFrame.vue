@@ -67,6 +67,7 @@ export default {
     // 描述框的宽度
     width: {
       type: String,
+      default: "auto",
     },
     // 默认显示内容还是不显示
     defaultShow: {

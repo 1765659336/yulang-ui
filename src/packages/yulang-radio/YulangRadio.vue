@@ -26,6 +26,10 @@
 export default {
   name: "yulang-radio",
   props: {
+    value: {
+      type: Boolean,
+      default: false,
+    },
     label: {
       require: true,
     },
@@ -43,6 +47,16 @@ export default {
       checked: false,
     };
   },
+  computed: {
+    valueComputed: {
+      get() {
+        return this.value;
+      },
+      set(newValue) {
+        this.$emit("input", newValue);
+      },
+    },
+  },
   methods: {
     // 值修改函数
     valueChange() {
@@ -53,6 +67,7 @@ export default {
       this.$parent.$children.forEach((component) => {
         if (component.yulangComponentName === "yulang-radio") {
           component.checked = false;
+          component.valueComputed = false;
         }
       });
       // 再将当前的改为true
@@ -60,6 +75,7 @@ export default {
     },
     radioValueChange() {
       this.valueChange();
+      this.valueComputed = !this.valueComputed;
       this.$parent.$listeners.change &&
         this.$parent.$listeners.change(this.label);
     },

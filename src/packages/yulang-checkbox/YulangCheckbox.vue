@@ -38,10 +38,6 @@ export default {
         return false;
       },
     },
-    // 值改变发生的回调
-    valueChange: {
-      type: Function,
-    },
   },
   data() {
     return {
@@ -64,6 +60,7 @@ export default {
           this.checked = newValue;
         } else {
           this.$emit("input", newValue);
+          this.$listeners.change && this.$listeners.change(newValue);
         }
       },
     },
@@ -74,7 +71,6 @@ export default {
       if (this.$parent.yulangComponentName === "yulang-checkbox-group") {
         this.$parent.valueComputed = [...this.$parent.valueComputed, value];
       }
-      this.valueChange && this.valueChange(this.inputValue);
     },
   },
 };

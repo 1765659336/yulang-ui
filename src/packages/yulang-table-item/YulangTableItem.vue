@@ -17,7 +17,13 @@ export default {
     width: {
       type: String,
     },
-    fixed:{}
+    fixed: {},
+    type: {
+      type: String,
+      // validator(value) {
+      //   ["radio", "checkbox"].find((item) => item === value);
+      // },
+    },
   },
   data() {
     return {

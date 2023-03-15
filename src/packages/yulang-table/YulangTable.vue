@@ -4,7 +4,7 @@
       'packages-yulang-table-container': true,
       'packages-yulang-table-container__border': isShowBorder,
     }"
-    :style="{ '--width--': width, '--height--': height }"
+    :style="{ '--width--': width }"
     ref="tableContainer"
   >
     <div class="hidden-columns">
@@ -17,7 +17,7 @@
       ref="titleTableRef"
     >
       <table :width="computedTable" border="0" cellpadding="0" cellspacing="0">
-        <tbody>
+        <thead>
           <tr class="yulang-table__title__tbody">
             <td
               v-for="(item, index) in fieldSort"
@@ -31,10 +31,16 @@
                 item.width ? 'table-cell-width' : '',
               ]"
             >
-              {{ item.label }}
+              <div v-if="item.type === 'radio'"></div>
+              <yulang-checkbox
+                v-else-if="item.type === 'checkbox'"
+                @change="headCheckChange"
+                v-model="headCheckbox"
+              ></yulang-checkbox>
+              <div v-else>{{ item.label }}</div>
             </td>
           </tr>
-        </tbody>
+        </thead>
       </table>
     </div>
     <!-- 主体 -->
@@ -46,7 +52,7 @@
       <table :width="computedTable" border="0" cellpadding="0" cellspacing="0">
         <tbody class="yulang-table__data__tbody">
           <tr
-            v-for="(item, index1) in data.length"
+            v-for="(item, index1) in tableData.length"
             :key="index1"
             class="yulang-table__data__tr"
           >
@@ -65,41 +71,78 @@
                 item2.width ? 'table-cell-width' : '',
               ]"
             >
-              <!-- @click="tbodyTdClick(data[item - 1])" -->
+              <!-- @click="tbodyTdClick(tableData[item - 1])" -->
               <!-- <div v-if="item2.el" v-YulangAddDom="item2.el"></div> -->
-              <RenderDom
-                v-if="item2.vNode"
-                :vNode="item2.vNode"
-                :el="item2.el"
-                :rowData="data[index1]"
-              ></RenderDom>
+              <yulang-radio
+                v-if="item2.type === 'radio'"
+                :label="item2.index2"
+                v-model="tableData[index1]._yulangIsRadio"
+              ></yulang-radio>
+              <yulang-checkbox
+                v-else-if="item2.type === 'checkbox'"
+                v-model="tableData[index1]._yulangIsCheckbox"
+              ></yulang-checkbox>
               <div v-else>
-                {{ data[index1] ? data[index1][item2.prop] : '' }}
+                <RenderDom
+                  v-if="item2.vNode"
+                  :vNode="item2.vNode"
+                  :el="item2.el"
+                  :rowData="tableData[index1]"
+                ></RenderDom>
+                <div v-else>
+                  {{ tableData[index1] ? tableData[index1][item2.prop] : "" }}
+                </div>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
+    <!-- 底部 -->
+    <div>
+      <table :width="computedTable" border="0" cellpadding="0" cellspacing="0">
+        <tfoot class="yulang-table__data__tfoot">
+          <tr
+            v-for="(item, index1) in footerMethod(data, fieldSort)"
+            :key="index1"
+          >
+            <td
+              v-for="(item2, index2) in fieldSort"
+              :key="index2"
+              :width="bisectRemainWidth"
+              :style="[
+                getWidthInfo(item2.width),
+                computedFixedPosition(index2),
+              ]"
+              :class="[
+                'yulang-table__cell',
+                index2 === 0 && isShowBorder ? 'yulang-table__cell__first' : '',
+                isShowBorder ? 'yulang-table__cell__border' : '',
+                item2.width ? 'table-cell-width' : '',
+              ]"
+            >
+              {{ item[index2] }}
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
   </div>
 </template>
 
 <script>
+import YulangRadio from "@/packages/yulang-radio/YulangRadio.vue";
+import YulangCheckbox from "@/packages/yulang-checkbox/YulangCheckbox.vue";
+
 export default {
-  name: 'yulang-table',
+  name: "yulang-table",
   components: {
+    YulangRadio,
+    YulangCheckbox,
     RenderDom: {
-      props: ['el', 'vNode', 'rowData'],
-      // render(createElement) {
+      props: ["el", "vNode", "rowData"],
       render() {
-        // console.log(this.rowData);
-        // this.vNode.child.scope = this.rowData;
-        // console.log(this.vNode,this.$children[0]);
-        // this.$children[0].scope = this.rowData;
-        // console.log(this.el);
-        // console.log(createElement);
         return this.vNode;
-        // return createElement("h1", "插槽");
       },
     },
   },
@@ -111,20 +154,20 @@ export default {
     width: {
       type: String,
       default() {
-        return '100%';
+        return "100%";
       },
     },
     // table高度,当高度小于数据显示高度，会自动开启滚动
     height: {
       type: String,
       default() {
-        return 'auto';
+        return "auto";
       },
     },
     // 没有传递宽度时，默认item宽度
     minWidth: {
       default() {
-        return '100px';
+        return "100px";
       },
     },
     // 是否显示边框
@@ -133,21 +176,39 @@ export default {
         return false;
       },
     },
+    // 是否显示底部汇总
+    isShowFooter: {
+      type: Boolean,
+      default() {
+        return false;
+      },
+    },
+    // 底部汇总数据
+    footerMethod: {
+      type: Function,
+      default() {
+        return [];
+      },
+    },
+    // 开启底部汇总时，首列宽度
+    footerTitleWidth: {
+      default: "50px",
+    },
   },
   data() {
     return {
+      // 表格内部基于外部传入的data处理过后得到新的数据
+      tableData: [],
       fieldSort: [],
       // 向左固定时，各item距离right的px
       fixedPosition: [],
       fixedStratIndex: 0,
       // 是否开启内容区滚动监听
       isListenScroll: false,
-      // 初始内容table的x轴值
-      dataTableInitX: 0,
-      dataTableActiveX: 0,
       // 标题的宽度，因为内容区会有滚动，要基于内容区宽度决定
-      tableTileWidth: 0,
       dataHeight: 0,
+      // 头部多选框绑定的值
+      headCheckbox: false,
     };
   },
   computed: {
@@ -157,8 +218,8 @@ export default {
       let noSetWidth = 0;
       // 每个设置width项的总和
       const sum = this.fieldSort.reduce((pre, item) => {
-        if (item.width) {
-          return pre + parseFloat(item.width.split('px')[0]);
+        if (item.wicomputedTabledth) {
+          return pre + parseFloat(item.width.split("px")[0]);
         }
         noSetWidth++;
         return pre;
@@ -168,36 +229,31 @@ export default {
       const borderWidth = this.isShowBorder ? this.fieldSort.length : 0;
       const computedWidth = (tableWidth - sum - borderWidth) / noSetWidth;
       // 判断平均分的宽度是否小于最小宽度，如果小于最小宽度则用最小宽度
-      return computedWidth > this.minWidth.split('px')[0]
-        ? computedWidth - 10 + 'px'
+      return computedWidth > this.minWidth.split("px")[0]
+        ? computedWidth - 10 + "px"
         : this.minWidth;
-      // return computedWidth + 'px';
     },
     // 计算table是否超出100%
     computedTable() {
+      // 这个table宽度是每一个width属性的总和，没设width为minwidth
+      const allWidth = this.fieldSort.reduce((pre, item) => {
+        if (item.width) {
+          return pre + parseFloat(item.width.split("px")[0]);
+        } else {
+          return pre + parseFloat(this.minWidth.split("px")[0]);
+        }
+      }, 0);
       const tableWidth = this.$refs?.tableContainer?.clientWidth;
-      const minAllWidth = this.minTableWidth();
-      return minAllWidth > tableWidth ? minAllWidth + 'px' : '100%';
+      return allWidth > tableWidth ? allWidth + "px" : "auto";
     },
     // 设置fixed的位置信息
     computedFixedPosition() {
       return function (index) {
-        if (this.fieldSort[index].fixed === 'right') {
-          const tableWidth = this.$refs?.tableContainer?.clientWidth;
+        if (this.fieldSort[index].fixed === "right") {
           return {
-            position: 'sticky',
-            right: this.fixedPosition[index] + 'px',
-            boxShadow:
-              this.fixedStratIndex === index &&
-              this.minTableWidth() > tableWidth
-                ? '-5px 10px 20px #b0b0b0'
-                : '',
-            // color:
-            //   this.fixedStratIndex === index &&
-            //   this.minTableWidth() > tableWidth
-            //     ? 'red'
-            //     : '',
-            backgroundColor: 'inherit',
+            position: "sticky",
+            right: this.fixedPosition[index] + "px",
+            backgroundColor: "inherit",
           };
         }
       };
@@ -207,8 +263,8 @@ export default {
     // 设置定义了width属性的宽度
     getWidthInfo(width) {
       return {
-        '--cell-width--': width,
-        '--cell-min-width--': this.minWidth,
+        "--cell-width--": width,
+        "--cell-min-width--": this.minWidth,
       };
     },
     // 计算fixed的累加宽度
@@ -217,12 +273,11 @@ export default {
       let rightDistance = 0;
       let fixedStratIndex = this.fieldSort.length;
       for (let i = this.fieldSort.length - 1; i >= 0; i--) {
-        if (this.fieldSort[i].fixed === 'right') {
-          fixedStratIndex = i;
+        if (this.fieldSort[i].fixed === "right") {
           this.fixedPosition.unshift(rightDistance);
           rightDistance =
             rightDistance + this.fieldSort[i].width
-              ? parseFloat(this.fieldSort[i].width.split('px')[0])
+              ? parseFloat(this.fieldSort[i].width.split("px")[0])
               : this.minWidth;
         } else {
           this.fixedPosition.unshift(rightDistance);
@@ -233,73 +288,106 @@ export default {
     },
     // 设置data内容区的滚动监听
     setScrollListen() {
-      this.$refs.dataTableRef.addEventListener('scroll', () => {
+      this.$refs.dataTableRef.addEventListener("scroll", () => {
         this.$refs.titleTableRef.scrollLeft =
           this.$refs.dataTableRef.scrollLeft;
-        this.dataTableActiveX =
-          this.$refs.dataTableRef.getBoundingClientRect().x;
       });
     },
     //设置data区的高度
     setDataHeight() {
-      if (this.height === 'auto') {
-        this.dataHeight = 'auto';
+      if (this.height === "auto") {
+        this.dataHeight = "auto";
       } else {
         this.dataHeight =
-          parseFloat(this.height.split('px')[0]) -
+          parseFloat(this.height.split("px")[0]) -
           this.$refs?.titleTableRef?.clientHeight +
-          'px';
+          "px";
       }
     },
-    // 最小table宽度
-    minTableWidth() {
-      // 这个table宽度是每一个width属性的总和，没设width为minwidth
-      const allWidth = this.fieldSort.reduce((pre, item) => {
-        if (item.width) {
-          return pre + parseFloat(item.width.split('px')[0]);
-        } else {
-          return pre + parseFloat(this.minWidth.split('px')[0]);
-        }
-      }, 0);
-      return allWidth;
+    // 初始化table内部数据
+    initTableData() {
+      this.tableData = this.data.map((item) => {
+        item._yulangIsRadio = false;
+        item._yulangIsCheckbox = false;
+        return item;
+      });
     },
-  },
-  watch: {
-    'this.$refs.dataTableRef': {
-      handler(val) {
-        console.log(val);
-      },
-      deep: true,
+    // 初始化渲染dom
+    initDom() {
+      this.$children.forEach((item) => {
+        if (item.yulangComponentName === "yulang-table-item") {
+          if (item.$vnode.child.$el.childNodes.length > 0) {
+            if (item.type === "radio" || item.type === "checkbox") {
+              this.fieldSort.unshift({
+                prop: item.prop,
+                width: item.width,
+                label: item.label,
+                fixed: item.fixed,
+                vNode: item.$vnode,
+                type: item.type,
+              });
+            } else {
+              this.fieldSort.push({
+                prop: item.prop,
+                width: item.width,
+                label: item.label,
+                fixed: item.fixed,
+                vNode: item.$vnode,
+              });
+            }
+          } else {
+            if (item.type === "radio" || item.type === "checkbox") {
+              this.fieldSort.unshift({
+                prop: item.prop,
+                width: item.width,
+                label: item.label,
+                fixed: item.fixed,
+                type: item.type,
+              });
+            } else {
+              this.fieldSort.push({
+                prop: item.prop,
+                width: item.width,
+                label: item.label,
+                fixed: item.fixed,
+              });
+            }
+          }
+        }
+      });
+      if (this.isShowFooter) {
+        this.fieldSort.unshift({
+          type: "footer",
+          fixed: "left",
+        });
+      }
+    },
+    // 获取单选的数据
+    getRadioData() {
+      return this.tableData.find((item) => item._yulangIsRadio);
+    },
+    // 获取多选的数据
+    getCheckboxData() {
+      return this.tableData.filter((item) => item._yulangIsCheckbox);
+    },
+    // 头部多选事件
+    headCheckChange(value) {
+      this.tableData = this.tableData.map((item) => {
+        item._yulangIsCheckbox = value;
+        return item;
+      });
     },
   },
   mounted() {
-    this.$children.forEach((item) => {
-      if (item.yulangComponentName === 'yulang-table-item') {
-        if (item.$vnode.child.$el.childNodes.length > 0) {
-          this.fieldSort.push({
-            prop: item.prop,
-            width: item.width,
-            label: item.label,
-            fixed: item.fixed,
-            vNode: item.$vnode,
-          });
-        } else {
-          this.fieldSort.push({
-            prop: item.prop,
-            width: item.width,
-            label: item.label,
-            fixed: item.fixed,
-          });
-        }
-      }
-    });
+    this.initDom();
     this.setFixedWidth();
     this.setScrollListen();
     this.setDataHeight();
+    this.initTableData();
   },
 };
 </script>
 
 <style lang="less" scoped>
-@import url('./index.less');
+@import url("./index.less");
 </style>
