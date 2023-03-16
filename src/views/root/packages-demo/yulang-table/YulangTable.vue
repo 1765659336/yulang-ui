@@ -171,11 +171,17 @@
             :data="[...tableData, ...tableData, ...tableData]"
             isShowFooter
             :footerMethod="footerMethod"
-            footerTitleWidth="50px"
+            footerTitleWidth="100px"
             width="814px"
             height="200px"
           >
             <yulang-table-item prop="date" label="日期" width="100px">
+            </yulang-table-item>
+            <yulang-table-item prop="name" label="姓名" width="300px">
+            </yulang-table-item>
+            <yulang-table-item prop="name" label="姓名" width="300px">
+            </yulang-table-item>
+            <yulang-table-item prop="name" label="姓名" width="300px">
             </yulang-table-item>
             <yulang-table-item prop="name" label="姓名" width="300px">
             </yulang-table-item>
