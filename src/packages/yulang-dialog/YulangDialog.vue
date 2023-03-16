@@ -14,7 +14,7 @@
           <!-- 头部标题插槽 -->
           <slot name="title">提示</slot>
         </div>
-        <div @click="cancelDialog">X</div>
+        <i class="iconfont icon-guanbi close-icon" @click="cancelDialog"></i>
       </div>
 
       <div class="dialog-frame-body">
@@ -25,7 +25,9 @@
       <div class="dialog-frame-footer">
         <!-- 脚部按钮插槽 -->
         <slot name="footer" :changeDialog="changeDialog">
-          <yulang-button @click="cancelDialog">取消</yulang-button>
+          <yulang-button @click="cancelDialog" style="margin-right: 1em"
+            >取消</yulang-button
+          >
           <yulang-button @click="confirmCommit">确定</yulang-button>
         </slot>
       </div>
