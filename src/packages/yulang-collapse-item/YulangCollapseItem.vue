@@ -10,9 +10,15 @@
       <i class="iconfont icon-chevron-down" v-if="isOpen"></i>
       <i class="iconfont icon-chevron-right" v-else></i>
     </div>
-    <div class="yulang-collapse-item-content" v-if="isOpen">
-      <slot></slot>
-    </div>
+    <transition
+      @before-leave="transitionBeforeLeave"
+      @enter="transitionEnter"
+      :duration="{ enter: 500, leave: 500 }"
+    >
+      <div class="yulang-collapse-item-content" v-if="isOpen">
+        <slot></slot>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -32,6 +38,7 @@ export default {
     };
   },
   methods: {
+    // 标题区域点击事件
     titleContainerClick() {
       if (
         this.$parent.yulangComponentName === "yulang-collapse" &&
@@ -67,6 +74,15 @@ export default {
       this.$parent.valueComputed = valueChanged;
       this.$parent.$listeners.change &&
         this.$parent.$listeners.change(valueChanged);
+    },
+    // 组件进入的钩子
+    transitionEnter(el) {
+      el.className += " yulang-animate yulang-blur-in";
+    },
+    // 组件离开之前的钩子
+    transitionBeforeLeave(el) {
+      el.classList.remove("yulang-blur-in");
+      el.classList.add("yulang-blur-out");
     },
   },
 };

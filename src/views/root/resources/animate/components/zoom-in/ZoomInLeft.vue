@@ -4,10 +4,11 @@
 
 <script>
 export default {
-  name: "yulang-zoom-in-left",
+  name: 'yulang-zoom-in-left',
   data() {
     return {
-      title: "左方进入缩小显现",
+      title: '左方进入缩小显现',
+      attribute: 'left show',
     };
   },
 };

@@ -1,12 +1,21 @@
 <template>
-  <div class="packages-yulang-tab-pane-container" v-show="isShow">
-    <slot></slot>
+  <div class="packages-yulang-tab-pane-container">
+    <div v-if="isKeepAlive">
+      <div v-show="isShow">
+        <slot></slot>
+      </div>
+    </div>
+    <div v-else>
+      <div v-if="isShow">
+        <slot></slot>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "yulang-tab-pane",
+  name: 'yulang-tab-pane',
   props: {
     label: {
       type: String,
@@ -18,8 +27,10 @@ export default {
   },
   data() {
     return {
-      yulangComponentName: "yulang-tab-pane",
+      yulangComponentName: 'yulang-tab-pane',
       isShow: false,
+      // 是否缓存子tabs
+      isKeepAlive: true,
     };
   },
 };

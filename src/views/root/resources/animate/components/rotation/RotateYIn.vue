@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "侧面翻页显现",
+      attribute: 'middle',
     };
   },
 };

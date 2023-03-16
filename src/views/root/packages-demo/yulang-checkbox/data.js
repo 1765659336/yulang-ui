@@ -11,13 +11,32 @@ export const codeStr = `
 export default {
   data() {
     return {
-      isCheckout: false,
+      isCheckout: true,
     };
   },
   methods: {
     btn() {
       this.isCheckout = !this.isCheckout;
     },
+  },
+}
+</script>
+`
+
+export const codeStrC = `
+<yulang-checkbox
+  v-model="isCheckout2"
+  label="复选框2"
+  :disabled="true"
+/>
+{{ isCheckout2 }}
+
+<script>
+export default {
+  data() {
+    return {
+      isCheckout2: false,
+    };
   },
 }
 </script>

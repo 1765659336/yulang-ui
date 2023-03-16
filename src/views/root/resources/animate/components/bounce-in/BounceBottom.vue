@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "抖动漂浮显示",
+      attribute: 'bottom show',
     };
   },
 };

@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "漂浮缩小停顿进入",
+      attribute: 'bottom show',
     };
   },
 };

@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       title: "原地放大消失",
+      attribute: 'middle',
     };
   },
 };

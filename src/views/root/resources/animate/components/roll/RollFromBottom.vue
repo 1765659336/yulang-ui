@@ -5,14 +5,15 @@
 </template>
 
 <script>
-    export default {
-        name: "yulang-roll-from-bottom",
-        data() {
-            return {
-                title: "漂浮翻页显现",
-            };
-        },
+export default {
+  name: 'yulang-roll-from-bottom',
+  data() {
+    return {
+      title: '漂浮翻页显现',
+      attribute: 'bottom show',
     };
+  },
+};
 </script>
 
 <style lang="less" scoped></style>

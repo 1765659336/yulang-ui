@@ -1,6 +1,9 @@
 <template>
   <div class="package-yulang-input-container">
-    <div v-if="type !== 'textarea'">
+    <div class="package-yulang-input-prepend" v-if="$slots.prepend">
+      <slot name="prepend"></slot>
+    </div>
+    <div v-if="type !== 'textarea'" class="prefix-input-suffix-conatainer">
       <div class="prefix-icon-container">
         <slot name="prefix">
           <i v-if="prefixIcon" :class="['iconfont', prefixIcon]"></i>
@@ -44,6 +47,9 @@
       @blur="valueComputedBlur"
       @click="valueComputedClick"
     ></textarea>
+    <div class="package-yulang-input-append" v-if="$slots.append">
+      <slot name="append"></slot>
+    </div>
   </div>
 </template>
 

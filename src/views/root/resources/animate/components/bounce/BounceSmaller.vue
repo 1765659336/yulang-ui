@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "缩小抖动",
+      attribute: 'middle',
     };
   },
 };

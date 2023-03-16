@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: "右方进入缩小显现",
+      attribute: 'right show',
     };
   },
 };

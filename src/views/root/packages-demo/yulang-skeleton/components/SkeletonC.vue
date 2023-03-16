@@ -9,13 +9,7 @@
       <yulang-skeleton
         v-if="isShowSkeleton"
         fatherDomSelect="#skeletonBContainer2"
-        :skeletonArr="[
-          '.item11',
-          '.item22',
-          '.item33',
-          '.item44',
-          '.item55',
-        ]"
+        :skeletonArr="['.item11', '.item22', '.item33', '.item44', '.item55']"
         animated
       ></yulang-skeleton>
     </div>
@@ -39,36 +33,43 @@ export default {
 .skeleton-b-container {
   width: 700px;
   height: 300px;
-  background-color: skyblue;
+  background-color: var(--yulang-theme-color--);
   flex-wrap: wrap;
 
   .item {
     margin: 10px 0;
-    border: 1px solid red;
+    border: 2px solid white;
+    border-radius: 10px;
+    text-align: center;
   }
   .item11 {
     width: 500px;
     height: 25px;
+    line-height: 25px;
   }
 
   .item22 {
     width: 400px;
     height: 25px;
+    line-height: 25px;
   }
 
   .item33 {
     width: 300px;
     height: 25px;
+    line-height: 25px;
   }
 
   .item44 {
     width: 200px;
     height: 50px;
+    line-height: 50px;
   }
 
   .item55 {
     width: 600px;
     height: 50px;
+    line-height: 50px;
   }
 }
 </style>

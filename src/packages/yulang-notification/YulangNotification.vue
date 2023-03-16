@@ -14,7 +14,7 @@
           {{ notificationText }}
         </div>
         <!-- 外部传进来的参数消息 -->
-        {{ message || '这是提示文案这是提示文案这是提示文案这是提示文案' }}
+        {{ message }}
       </div>
 
       <!-- 尾部的删除区 -->
@@ -58,7 +58,7 @@ export default {
     // 在创建初设置通知框的index值
     getIndex() {
       return {
-        '--index--': this.$index.getIndex(),
+        '--index--': this.$yulangIndex.getIndex(),
       };
     },
   },

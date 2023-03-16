@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "右侧缩小停顿显现",
+      attribute: 'right show',
     };
   },
 };

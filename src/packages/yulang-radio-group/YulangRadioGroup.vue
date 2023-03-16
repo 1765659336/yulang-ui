@@ -32,6 +32,9 @@ export default {
     this.$children.forEach((component) => {
       if (component.yulangComponentName === "yulang-radio") {
         component.name = uuidKey;
+        if (component.label === this.value) {
+          component.checked = true;
+        }
       }
     });
   },

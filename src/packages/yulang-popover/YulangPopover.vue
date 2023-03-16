@@ -8,28 +8,40 @@
       '--yulang-popover-position-max-height--': maxHeight + 'px',
     }"
   >
-    <div class="yulang-popover-reference" ref="yulangPopoverReferenceRef">
+    <div
+      class="yulang-popover-reference"
+      ref="yulangPopoverReferenceRef"
+      v-YulangClickOutside="closeShow"
+    >
       <!-- 触发点 -->
-      <div ref="referenceRef"><slot name="reference"></slot></div>
-      <!-- 内容区 -->
-      <div
-        class="yulang-popover-position"
-        v-show="isShow"
-        ref="yulangPopoverContentRef"
-      >
-        <!-- 箭头 -->
-        <!-- <div class="yulang-popover-triangle"></div> -->
-        <!-- 标题 -->
-        <div class="yulang-popover-title" v-if="title">
-          <span>{{ title }}</span>
-        </div>
-        <!-- 内容区 -->
-        <div class="yulang-popover-content">
-          <slot name="content">
-            <div>{{ content }}</div>
-          </slot>
-        </div>
+      <div ref="referenceRef">
+        <slot name="reference"></slot>
       </div>
+      <!-- 内容区 -->
+      <transition
+        @before-leave="transitionBeforeLeave"
+        @enter="transitionEnter"
+        :duration="{ enter: 500, leave: 500 }"
+      >
+        <div
+          class="yulang-popover-position"
+          v-if="isShow"
+          ref="yulangPopoverContentRef"
+        >
+          <!-- 箭头 -->
+          <!-- <div class="yulang-popover-triangle"></div> -->
+          <!-- 标题 -->
+          <div class="yulang-popover-title" v-if="title">
+            <span>{{ title }}</span>
+          </div>
+          <!-- 内容区 -->
+          <div class="yulang-popover-content">
+            <slot name="content">
+              <div>{{ content }}</div>
+            </slot>
+          </div>
+        </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -60,7 +72,7 @@ export default {
       },
     },
     // 弹出框的最小高度
-    minHeight:{
+    minHeight: {
       type: Number,
       default: () => {
         return 16;
@@ -97,9 +109,25 @@ export default {
   data() {
     return {
       isShow: false,
+      isFirst: true,
+      time: null,
+      time2: null,
     };
   },
   methods: {
+    // 组件离开之前的钩子
+    transitionBeforeLeave(el) {
+      el.classList.remove("yulang-rotate-y-in");
+      el.classList.add("yulang-rotate-y-out");
+    },
+    // 组件进入的钩子函数
+    transitionEnter(el) {
+      el.className += " yulang-animate yulang-rotate-y-in";
+    },
+    // 关闭
+    closeShow() {
+      this.isShow = false;
+    },
     showChange(e, type) {
       if (type) {
         if (type === "down") {
@@ -108,9 +136,27 @@ export default {
           this.isShow = false;
         }
       } else {
-        this.isShow = !this.isShow;
+        if (this.trigger === "hover" && this.isShow) {
+          // 如果是内容框到触发点，此时是带定时器的
+          if (this.time2) {
+            clearTimeout(this.time2);
+            this.time2 = null;
+          } else {
+            this.time = setTimeout(() => (this.isShow = false), 100);
+          }
+        } else {
+          this.isShow = !this.isShow;
+        }
       }
-      this.isShow && this.$nextTick(this.getPositionFn);
+      if (this.isShow) {
+        this.$nextTick(() => {
+          this.getPositionFn();
+          if (this.trigger === "hover" && this.isFirst) {
+            this.isFirst = false;
+            this.addEventListener();
+          }
+        });
+      }
     },
     getPositionFn() {
       changePosition(
@@ -126,6 +172,19 @@ export default {
         )
       );
     },
+    // 给hover内容区也添加监听
+    addEventListener() {
+      this.$refs.yulangPopoverContentRef.addEventListener("mouseenter", () => {
+        clearTimeout(this.time);
+        this.time = null;
+      });
+      this.$refs.yulangPopoverContentRef.addEventListener("mouseleave", () => {
+        this.time2 = setTimeout(() => {
+          this.isShow = false;
+          this.isFirst = true;
+        }, 100);
+      });
+    },
   },
   mounted() {
     if (this.$refs.yulangPopoverReferenceRef) {
@@ -135,12 +194,16 @@ export default {
         );
       }
       if (this.trigger === "hover") {
-        this.$refs.referenceRef.addEventListener("mouseenter", (e) =>
-          this.showChange(e)
-        );
-        this.$refs.referenceRef.addEventListener("mouseleave", (e) =>
-          this.showChange(e)
-        );
+        this.$refs.referenceRef.addEventListener("mouseenter", (e) => {
+          // 如果是从外面进入hover的，需要将重新刷新
+          if (this.time2 == null) {
+            this.isFirst = true;
+          }
+          this.showChange(e);
+        });
+        this.$refs.referenceRef.addEventListener("mouseleave", (e) => {
+          this.showChange(e);
+        });
       }
       if (this.trigger === "focus") {
         longClick(this.$refs.referenceRef, this.showChange.bind(this));

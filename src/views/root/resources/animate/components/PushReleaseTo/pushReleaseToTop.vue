@@ -7,7 +7,8 @@ export default {
   name: 'yulang-push-release-to-top',
   data() {
     return {
-      title: '向上再向下消失',
+      title: '向下再向上消失',
+      attribute: 'top leave',
     };
   },
 };

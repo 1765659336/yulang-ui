@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       title: "向下翻转消失",
+      attribute: 'bottom leave',
     };
   },
 };

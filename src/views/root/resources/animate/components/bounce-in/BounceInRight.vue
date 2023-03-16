@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "抖动右侧进入显示",
+      attribute: 'right show',
     };
   },
 };

@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       title: "向上翻转消失",
+      attribute: 'top leave',
     };
   },
 };

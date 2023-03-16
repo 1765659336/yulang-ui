@@ -113,22 +113,22 @@ export default {
   },
   methods: {
     showNotice(type) {
-      this.$notification({ message: '小帅哥快来玩呀！！', type });
+      this.$yulangNotification({ message: '小帅哥快来玩呀！！', type });
     },
     showNoticeTimeout(type) {
-      this.$notification({
+      this.$yulangNotification({
         message: '小美女开始了！！',
         type,
         timeout: 3000,
       });
     },
     showNoticeDefault() {
-      this.$notification({
+      this.$yulangNotification({
         message: '开来玩摇摇车',
       });
     },
     showNoticeSetTitle(type) {
-      this.$notification({
+      this.$yulangNotification({
         title: '我是标题',
         type,
       });
@@ -136,7 +136,7 @@ export default {
     // showNoticeSetH() {
     //   const h = this.$createElement;
 
-    //   this.$notification({
+    //   this.$yulangNotification({
     //     title: h('div', null, { default: h('div', null, 'can can need') }),
     //     title: h('div', null, { default: h('div', null, 'can can need') }),
     //     title: h('div', null,[

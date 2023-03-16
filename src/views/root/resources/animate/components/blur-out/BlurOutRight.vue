@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       title: "右侧失焦离开",
+      attribute: 'right leave',
     };
   },
 };

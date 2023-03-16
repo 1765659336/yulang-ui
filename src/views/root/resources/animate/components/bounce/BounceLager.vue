@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "放大抖动",
+      attribute: 'middle',
     };
   },
 };

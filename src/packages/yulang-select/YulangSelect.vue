@@ -1,108 +1,66 @@
 <template>
-  <div class="select-contaniner" ref="yulangSelectReferenceRef">
-    <!-- imput区域内容 -->
-    <span
-      class="input-class"
-      id="input-property"
-      tabindex="0"
-      ref="referenceRef"
-      @blur="handleBlur"
-      @click.stop="changeShowPullDown"
+  <div class="packages-yulang-select-container">
+    <yulang-popover
+      trigger="click"
+      :minWidth="100"
+      ref="popoverRef"
     >
-      <input
-        type="text"
-        class="input-class-initial"
-        :value="value"
-        :placeholder="placeholder"
-        disabled
-      />
-      <img v-show="isShowPullDown" src="@/assets/images/downarrow.svg" />
-      <img v-show="!isShowPullDown" src="@/assets/images/uparrow.svg" />
-    </span>
-
-    <!-- 展开区内容 -->
-    <!-- <transition name="hh" appear> -->
-    <div
-      tabindex="0"
-      v-show="isShowPullDown"
-      ref="yulangSelectContentRef"
-      @blur="handleBlur"
-    >
-      <slot></slot>
-    </div>
-    <!-- </transition> -->
+      <template #reference>
+        <yulang-input
+          :value="label"
+          suffixIcon="icon-chevron-down"
+          :placeholder="placeholder ?? '请输入'"
+        >
+        </yulang-input>
+      </template>
+      <template #content>
+        <slot></slot>
+      </template>
+    </yulang-popover>
   </div>
 </template>
 
 <script>
-import { getPosition, changePosition } from '@/packages/lib';
-import { positionArr } from '@/packages/constant';
+import YulangPopover from "@/packages/yulang-popover/YulangPopover.vue";
+import YulangInput from "@/packages/yulang-input/YulangInput.vue";
 
 export default {
-  name: 'yulang-select',
-  props: {
-    // input值
-    value: {
-      type: String,
-    },
-    // 弹出框默认弹出的位置
-    placement: {
-      type: String,
-      default: 'bottom-start',
-      validator(value) {
-        return positionArr.find((item) => item === value);
-      },
-    },
-    placeholder: {
-      type: String,
-      default: '请选择',
-    },
+  name: "yulang-select",
+  components: {
+    YulangPopover,
+    YulangInput,
   },
-  data() {
-    return {
-      isShowPullDown: false,
-      isRealShow: true,
-    };
+  props: {
+    value: {},
+    placeholder: {},
   },
   provide() {
     return {
-      fatSelect: this,
+      YulangSelect: this,
+      closePopover: this.closePopover,
     };
   },
-  methods: {
-    refreshInputValue(val) {
-      this.$emit('input', val);
-    },
-    handleBlur() {
-      setTimeout(() => {
-        this.isShowPullDown = false;
-      }, 150);
-    },
-    changeShowPullDown() {
-      this.isShowPullDown = !this.isShowPullDown;
-      this.isShowPullDown & this.$nextTick(this.getPositionFn);
-    },
-    getPositionFn() {
-      changePosition(
-        this.$refs.yulangSelectReferenceRef,
-        this.$refs.referenceRef,
-        this.$refs.yulangSelectContentRef,
-        getPosition(
-          this.placement,
-          this.$refs.referenceRef,
-          this.$refs.yulangSelectContentRef,
-          20,
-          20
-        )
-      );
+  data() {
+    return {
+      label: null,
+    };
+  },
+  computed: {
+    valueComputed: {
+      get() {
+        return this.value;
+      },
+      set(newValue) {
+        this.$emit("input", newValue);
+      },
     },
   },
-  mounted() {
-    this.$nextTick(this.getPositionFn);
+  methods: {
+    closePopover() {
+      this.$refs.popoverRef.closeShow();
+    },
   },
 };
 </script>
 
-<style lang="less" scoped>
-@import url('./index.less');
-</style>
+<style lang="less" scoped></style>

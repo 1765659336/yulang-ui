@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "往右翻转出现",
+      attribute: 'Y-axis',
     };
   },
 };

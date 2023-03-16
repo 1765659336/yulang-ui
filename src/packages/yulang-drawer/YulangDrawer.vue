@@ -2,7 +2,7 @@
   <transition
     @before-leave="transitionBeforeLeave"
     @enter="transitionEnter"
-    :duration="{ enter: 2000, leave: 2000 }"
+    :duration="{ enter: 500, leave: 500 }"
   >
     <div
       class="packages-yulang-drawer-container"

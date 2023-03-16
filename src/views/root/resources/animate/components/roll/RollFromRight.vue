@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "右侧翻页显现",
+      attribute: 'right show',
     };
   },
 };

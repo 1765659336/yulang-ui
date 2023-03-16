@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '从右逐渐进入',
+      attribute: 'right show',
     };
   },
 };

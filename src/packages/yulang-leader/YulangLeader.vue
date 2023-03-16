@@ -75,7 +75,7 @@ export default {
     // 设置z-index
     getIndex() {
       return {
-        '--index--': this.$index.getIndex(),
+        '--index--': this.$yulangIndex.getIndex(),
       };
     },
   },

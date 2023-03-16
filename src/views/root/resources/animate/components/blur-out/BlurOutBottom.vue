@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       title: "失焦漂浮离开",
+      attribute: 'bottom leave',
     };
   },
 };

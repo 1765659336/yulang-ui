@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       title: "失焦掉落离开",
+      attribute: 'top leave',
     };
   },
 };

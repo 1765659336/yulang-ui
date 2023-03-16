@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       title: "抖动右侧离开",
+      attribute: 'right leave',
     };
   },
 };
