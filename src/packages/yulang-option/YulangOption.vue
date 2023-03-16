@@ -28,7 +28,7 @@ export default {
   padding: 10px;
   cursor: pointer;
   &:hover {
-    color: skyblue;
+    color: var(--yulang-theme-color--);
   }
 }
 </style>

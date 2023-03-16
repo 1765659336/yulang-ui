@@ -33,7 +33,7 @@
           属性传入约定的验证规则，并将 Form-Item 的 prop
           属性设置为需校验的字段名即可。校验规则参见
           <yulang-link
-            mainColor="skyblue"
+            mainColor="var(--yulang-theme-color--)"
             url="https://github.com/yiminghe/async-validator"
             target="_blank"
             >async-validator</yulang-link
@@ -48,7 +48,7 @@
         <template #tip>
           自定义校验 callback 必须被调用。 更多高级用法可参考
           <yulang-link
-            mainColor="skyblue"
+            mainColor="var(--yulang-theme-color--)"
             url="https://github.com/yiminghe/async-validator"
             target="_blank"
             >async-validator</yulang-link

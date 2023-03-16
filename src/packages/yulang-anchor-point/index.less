@@ -30,9 +30,9 @@
     top: var(--offsetTop-container--);
     right: @anchor-point-absolute-right;
     // 减去上下两个边框的大小
-    max-height: calc(100% - @anchor-point-margin-top-bottom * 2 - 4px);
+    max-height: calc(100% - @anchor-point-margin-top-bottom * 2 - 2px);
     margin: @anchor-point-margin-top-bottom 0;
-    border: 2px solid #ccc;
+    border: var(--yulang-border-thickness--) solid var(--yulang-border-color--);
     border-radius: 5px;
     background-color: white;
 
@@ -43,7 +43,7 @@
       width: 20px;
       border-radius: 20px 0 0 20px;
       line-height: 40px;
-      background-color: #ccc;
+      background-color: var(--yulang-theme-color--);
 
       i {
         position: absolute;
@@ -61,6 +61,10 @@
       &:hover {
         cursor: pointer;
       }
+
+      .packages-main-form-anchor-point-click-item-text {
+        color: var(--yulang-font-color--);
+      }
     }
 
     .packages-main-form-anchor-point-click-item-level1 {
@@ -76,15 +80,16 @@
 }
 
 .yulang-animate.yulang-fade-out-right {
-    animation-name: yulang-fade-out-right
+  animation-name: yulang-fade-out-right
 }
 
 @keyframes yulang-fade-out-right {
-    from {
-        opacity: 1
-    }
-    to {
-        opacity: 0.5;
-        transform: translateX(105%);
-    }
+  from {
+    opacity: 1
+  }
+
+  to {
+    opacity: 0.5;
+    transform: translateX(105%);
+  }
 }

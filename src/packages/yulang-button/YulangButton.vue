@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import Vue from "vue";
 const sizeRuler = {
   medium: { marginTopBotton: "50px", marginLeftRight: "80px" },
   small: { marginTopBotton: "40px", marginLeftRight: "60px" },
@@ -42,7 +43,7 @@ export default {
     size: {
       type: String,
       default: () => {
-        return "medium";
+        return Vue.prototype.yulangComponentSize;
       },
       validator: (value) => {
         return ["medium", "small", "mini"].find((item) => item === value);

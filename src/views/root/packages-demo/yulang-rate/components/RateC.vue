@@ -30,9 +30,9 @@ export default {
 }
 
 .icon-selected {
-  color: skyblue;
+  color: var(--yulang-theme-color--);
 }
 .selected {
-  background-color: skyblue;
+  background-color: var(--yulang-theme-color--);
 }
 </style>

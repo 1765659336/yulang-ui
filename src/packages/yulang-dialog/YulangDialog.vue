@@ -62,7 +62,7 @@ export default {
     // 在创建初设置通知框的index值
     getIndex() {
       return {
-        zIndex: this.$index.getIndex(),
+        zIndex: this.$yulangIndex.getIndex(),
       };
     },
   },

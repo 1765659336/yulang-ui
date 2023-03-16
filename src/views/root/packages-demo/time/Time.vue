@@ -116,6 +116,14 @@ export default {
           content: "新增下拉菜单、面包屑、计数器组件",
           time: "2023-03-12",
         },
+        {
+          content: "新增主题切换功能",
+          time: "2023-03-15",
+        },
+        {
+          content: "新增设置弹出zIndex以及组件尺寸size默认值功能",
+          time: "2023-03-16",
+        },
       ],
     };
   },
@@ -139,8 +147,8 @@ export default {
   .timeline-content-container {
     margin: 0.5rem;
     padding: 0.5rem;
-    color: skyblue;
-    border: 1px solid skyblue;
+    color: var(--yulang-theme-color--);
+    border: 1px solid var(--yulang-theme-color--);
     border-radius: 1rem;
   }
 }

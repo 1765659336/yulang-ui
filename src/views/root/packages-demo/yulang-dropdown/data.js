@@ -23,7 +23,7 @@ export default {};
 <style lang="less" scoped>
 .yulang-dropdown-link {
   cursor: pointer;
-  color: skyblue;
+  color: var(--yulang-theme-color--);
 }
 </style>
 `
@@ -69,7 +69,7 @@ export default {};
 <style lang="less" scoped>
 .yulang-dropdown-link {
   cursor: pointer;
-  color: skyblue;
+  color: var(--yulang-theme-color--);
 }
 </style>
 `
@@ -112,7 +112,7 @@ export default {
 <style lang="less" scoped>
 .yulang-dropdown-link {
   cursor: pointer;
-  color: skyblue;
+  color: var(--yulang-theme-color--);
 }
 </style>
 `

@@ -18,11 +18,18 @@ export default {
     },
     inactiveColor: {
       type: String,
-      default: "#ff4949",
+      default: () => {
+        const root = document.querySelector(":root");
+        return `${getComputedStyle(root).getPropertyValue(
+          "--yulang-font-color--"
+        )}`;
+      },
     },
     activeColor: {
       type: String,
-      default: "#13ce66",
+      default: () => {
+        return "black";
+      },
     },
     inactiveText: {
       type: String,

@@ -38,7 +38,7 @@ export default {
 .skeleton-b-container {
   width: 700px;
   height: 300px;
-  background-color: skyblue;
+  background-color: var(--yulang-theme-color--);
   flex-wrap: wrap;
 
   .item {

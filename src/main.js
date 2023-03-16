@@ -7,13 +7,15 @@ import store from "./store";
 import "normalize.css";
 
 // 全局注册自定义组件
-// import yulangUi from "yulang-ui";
+// import yulangUI, { changeDefault } from "yulang-ui";
 // import "yulang-ui/yulang-ui-dist/yulang-ui.css";
-// Vue.use(yulangUi, { instruction: ["loading"] });
-
-// yulangUi下引入z - index
-// const Index = yulangUi.Lib.Index;
-// Vue.prototype.$index = new Index(3000)
+// Vue.use(yulangUI);
+// console.log(yulangUI, "yulangUI", changeDefault, "changeDefault");
+// changeDefault(Vue, {
+//   themeCssVariable: {
+//     "--yulang-theme-color--": "#00DF74",
+//   },
+// });
 
 // element引入
 import ElementUI from "element-ui";

@@ -113,7 +113,7 @@ export default {
         text-align: center;
         padding: 15px;
         border-top: 1px solid #99a9bf;
-        color: skyblue;
+        color: var(--yulang-theme-color--);
         height: 20px;
         cursor: pointer;
         border-radius: 0 0 5px 5px;

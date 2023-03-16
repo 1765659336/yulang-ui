@@ -58,7 +58,7 @@ export const codeStrC = `
     >
       <template #icon> 节点 </template>
       <template #time="{ time }">
-        <span style="color: skyblue">{{ "我是时间--" + time }}</span>
+        <span style="color: var(--yulang-theme-color--)">{{ "我是时间--" + time }}</span>
       </template>
       <template #content="{ content }">
         {{ "我是内容--" + content }}

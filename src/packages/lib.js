@@ -1,4 +1,5 @@
 // import { positionArr } from "@/packages/constant";
+import Vue from "vue";
 
 // 生成唯一标识
 export function uuid() {
@@ -368,12 +369,7 @@ export const getPosition = function (
   checkNumber = 1
 ) {
   // 位置判断写的有问题
-  console.log(triggerDom,
-    contentDom,
-    offsetX,
-    offsetY,
-    checkNumber
-  )
+  console.log(triggerDom, contentDom, offsetX, offsetY, checkNumber);
   return defaultPosition;
   /* // 如果校验了一个轮回
   if (checkNumber === positionArr.length + 1) {
@@ -526,6 +522,10 @@ export const changePosition = function (
       }
       break;
   }
+
+  // 全局z-index处理
+  Vue.prototype.$yulangIndex.getIndex &&
+    (sonDom.style.zIndex = Vue.prototype.$yulangIndex.getIndex());
 };
 
 // 为false校验
@@ -546,12 +546,11 @@ export const isFalse = function (value, ...args) {
   return value ? true : false;
 };
 
-
 // 判断是否为数字
 export const isRealNum = function (val) {
   // isNaN()函数 把空串 空格 以及NUll 按照0来处理 所以先去除
   if (val === "" || val == null) {
     return false;
   }
-  return !isNaN(val)
-} 
+  return !isNaN(val);
+};
