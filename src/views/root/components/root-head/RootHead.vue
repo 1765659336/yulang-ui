@@ -12,6 +12,7 @@
         @click="jump(item)"
         class="yulang-head-menu-item"
         :class="menuItemClass(item)"
+        :id="item.id"
         v-for="item in btnArr"
         :key="item.title"
       >
@@ -19,8 +20,9 @@
       </div>
     </div>
     <yulang-switch
+      id="switchTheme"
       v-model="theme"
-      inactiveText="喻亮"
+      inactiveText="绿亮"
       activeText="暗黑"
       inactiveColor="black"
       activeColor="green"
@@ -41,18 +43,22 @@ export default {
       theme: false,
       btnArr: [
         {
+          id:"guide",
           title: "指南",
           path: "/root/guide",
         },
         {
+          id:"packages-demo",
           title: "组件",
           path: "/root/packages-demo",
         },
         {
+          id:"theme",
           title: "主题",
           path: "/root/theme",
         },
         {
+          id:"resources",
           title: "资源",
           path: "/root/resources",
         },

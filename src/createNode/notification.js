@@ -25,14 +25,17 @@ export const Notification = function (option) {
   document.querySelector('#notificationParentId').appendChild(instance.$el)
 
   // 获取单个item的mrigin-bottom
-  const mriginBottom = document.defaultView.getComputedStyle(this.$el)['margin-bottom'].split('px')[0]
+  const mriginBottom = document.defaultView.getComputedStyle(instance.$el)['margin-bottom'].split('px')[0]
 
   // 单个高度和数量
-  const heightItem = instance.$el.getBoundingClientRect().height + mriginBottom
+  const heightItem = parseFloat(instance.$el.getBoundingClientRect().height) + parseFloat(mriginBottom)
   const num = instance.$el.parentNode.children.length
 
+  // console.log('object');
   if (heightItem * (num + 1) > window.innerHeight * 0.6) {
-    document.querySelector('#notificationParentId').style.height = window.innerHeight * 0.6 + 'px'
+    console.log('2222');
+    document.querySelector('#notificationParentId').style.maxHeight = window.innerHeight * 0.6 + 'px'
+    document.querySelector('#notificationParentId').style.overflowY = 'scroll'
   }
 
 

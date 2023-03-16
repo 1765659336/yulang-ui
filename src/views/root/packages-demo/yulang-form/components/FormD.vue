@@ -141,6 +141,6 @@ export default {
 <style lang="less" scoped>
 .btn {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 </style>

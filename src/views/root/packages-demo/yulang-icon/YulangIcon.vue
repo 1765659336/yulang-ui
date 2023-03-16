@@ -81,6 +81,10 @@ export default {
           name: "icon-jia",
           value: '<i class="iconfont icon-jia"></i>',
         },
+        {
+          name: "icon-shuaxin",
+          value: '<i class="iconfont icon-shuaxin"></i>',
+        },
       ],
     };
   },
