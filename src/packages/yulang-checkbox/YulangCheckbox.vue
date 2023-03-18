@@ -85,30 +85,30 @@ export default {
   }
 
   //选中后labe内的内容
-  input[type="checkbox"] + label::before {
-    content: " ";
-    display: inline-block;
-    vertical-align: middle;
-    width: 13px;
-    height: 13px;
-    border: 1px solid #999999;
-    margin-right: 0.2rem;
-    box-sizing: border-box;
-    margin-top: -0.1rem;
-  }
+  // input[type="checkbox"] + label::before {
+  //   content: " ";
+  //   display: inline-block;
+  //   vertical-align: middle;
+  //   width: 13px;
+  //   height: 13px;
+  //   border: 1px solid #999999;
+  //   margin-right: 0.2rem;
+  //   box-sizing: border-box;
+  //   margin-top: -0.1rem;
+  // }
 
-  input[type="checkbox"]:checked + label::before {
-    background-color: var(--yulang-theme-color--);
-    background-clip: content-box;
-    border: 1px solid var(--yulang-theme-color--);
-    padding: 0.1rem;
-    box-sizing: border-box;
-  }
+  // input[type="checkbox"]:checked + label::before {
+  //   background-color: var(--yulang-theme-color--);
+  //   background-clip: content-box;
+  //   border: 1px solid var(--yulang-theme-color--);
+  //   padding: 0.1rem;
+  //   box-sizing: border-box;
+  // }
 
-  input[type="checkbox"] {
-    position: absolute;
-    // 定义哪一部分是可见的
-    clip: rect(0, 0, 0, 0);
-  }
+  // input[type="checkbox"] {
+  //   position: absolute;
+  //   // 定义哪一部分是可见的
+  //   clip: rect(0, 0, 0, 0);
+  // }
 }
 </style>

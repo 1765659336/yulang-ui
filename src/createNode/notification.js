@@ -1,10 +1,7 @@
 import Vue from 'vue';
 import YulangNotification from '@/packages/yulang-notification/YulangNotification.vue';
 
-const notificationObject = Vue.extend(YulangNotification)
-
-// 引入所有通知消息的父盒子的样式
-import '@/packages/yulang-notification/index.less';
+const notificationObject = Vue.extend(YulangNotification);
 
 // const notification = {
 export const Notification = function (option) {

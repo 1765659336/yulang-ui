@@ -15,12 +15,12 @@
         :id="item.slotName"
       >
         <!-- 根据标签等级给标题大小 -->
-        <h2
+        <div
           class="packages-main-form-anchor-point-content-item-title"
           :style="{ '--title-font-size--': titleFontSize(item) }"
         >
           {{ item.slotTitle }}
-        </h2>
+        </div>
 
         <slot :name="[item.slotName]"> </slot>
       </div>

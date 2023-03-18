@@ -53,6 +53,10 @@ import YulangDropdownItem from "@/packages/yulang-dropdown-item/YulangDropdownIt
 import YulangBreadcrumb from "@/packages/yulang-breadcrumb/YulangBreadcrumb.vue";
 import YulangBreadcrumbItem from "@/packages/yulang-breadcrumb-item/YulangBreadcrumbItem.vue";
 import YulangInputNumber from "@/packages/yulang-input-number/YulangInputNumber.vue";
+import YulangAlert from "@/packages/yulang-alert/YulangAlert.vue";
+import YulangRow from "@/packages/yulang-row/YulangRow.vue";
+import YulangCol from "@/packages/yulang-col/YulangCol.vue";
+import YulangDatePicker from "@/packages/yulang-date-picker/YulangDatePicker.vue";
 
 // 引入icon
 import "../assets/icon/iconfont.css";
@@ -64,6 +68,8 @@ import "../assets/style/animate.css";
 import "@/assets/style/variable.less";
 // 引入全局class样式类
 import "@/assets/style/public.less";
+// 引入消息通知框的样式
+import "@/packages/yulang-notification/index.less";
 
 // 自定义指令
 import YulangCopy from "@/instruction/copy";
@@ -88,11 +94,13 @@ export const Directives = {
 // 自定义函数
 import { Loading } from "@/createNode/loading";
 import { Notification } from "@/createNode/notification";
+import { Message } from "@/createNode/message";
 
 // 自定义函数对象// 引入自定义方法(通知)
 export const CreateNode = [
   { name: "$yulangLoading", value: Loading },
   { name: "$yulangNotification", value: Notification },
+  { name: "$yulangMessage", value: Message },
 ];
 
 // 自定义组件数组
@@ -151,6 +159,10 @@ export const Packages = [
   YulangBreadcrumbItem,
   YulangInputNumber,
   YulangOption,
+  YulangAlert,
+  YulangRow,
+  YulangCol,
+  YulangDatePicker
 ];
 
 // 工具函数
@@ -211,4 +223,5 @@ export default {
   Lib,
   Directives,
   changeDefault,
+  YulangMessage: Message,
 };
