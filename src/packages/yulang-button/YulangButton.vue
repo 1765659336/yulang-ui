@@ -15,12 +15,12 @@
 <script>
 import Vue from "vue";
 const sizeRuler = {
-  medium: { marginTopBotton: "50px", marginLeftRight: "80px" },
-  small: { marginTopBotton: "40px", marginLeftRight: "60px" },
-  mini: { marginTopBotton: "30px", marginLeftRight: "40px" },
+  medium: { marginTopBotton: '50px', marginLeftRight: '80px' },
+  small: { marginTopBotton: '40px', marginLeftRight: '60px' },
+  mini: { marginTopBotton: '30px', marginLeftRight: '40px' },
 };
 export default {
-  name: "yulang-button",
+  name: 'yulang-button',
   props: {
     // 控制按钮是否禁用
     disabled: {
@@ -33,10 +33,10 @@ export default {
     type: {
       type: String,
       default: () => {
-        return "default";
+        return 'default';
       },
       validator: (value) => {
-        return ["default", "success", "error"].find((item) => item === value);
+        return ['default', 'success', 'error'].find((item) => item === value);
       },
     },
     // 设置按钮的大小
@@ -46,7 +46,7 @@ export default {
         return Vue.prototype.yulangComponentSize;
       },
       validator: (value) => {
-        return ["medium", "small", "mini"].find((item) => item === value);
+        return ['medium', 'small', 'mini'].find((item) => item === value);
       },
     },
   },
@@ -60,13 +60,13 @@ export default {
     containerClass: {
       get() {
         return {
-          "packages-yulang-button-container": true,
-          "is-disable": this.disabled,
-          "not-disable": !this.disabled,
-          "is-success": this.type === "success",
-          "is-error": this.type === "error",
-          "yulang-animate": this.clickAnimate,
-          "yulang-push-release": this.clickAnimate,
+          'packages-yulang-button-container': true,
+          'is-disable': this.disabled,
+          'not-disable': !this.disabled,
+          'is-success': this.type === 'success',
+          'is-error': this.type === 'error',
+          'yulang-animate': this.clickAnimate,
+          'yulang-push-release': this.clickAnimate,
         };
       },
     },
@@ -88,6 +88,8 @@ export default {
       if (!this.disabled) {
         if (this.clickAnimate) {
           this.clickAnimate = false;
+          // v-if+nexttick重新渲染
+          // 或者使用animation-fill-mode: none/both切换;
           this.timer = setInterval(() => {
             this.clickAnimate = true;
           }, 1);
@@ -107,5 +109,5 @@ export default {
 </script>
 
 <style scoped lang="less">
-@import url("./index.less");
+@import url('./index.less');
 </style>

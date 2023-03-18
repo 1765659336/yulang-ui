@@ -44,19 +44,17 @@
 
 <script>
 import {
-  codeStrB,
   codeStrB1,
   codeStrB2,
   codeStrB3,
   codeStrC,
   codeStrD,
   codeStrE,
-} from "./data";
+} from './data';
 export default {
-  name: "root-theme",
+  name: 'root-theme',
   data() {
     return {
-      codeStrB,
       codeStrB1,
       codeStrB2,
       codeStrB3,
@@ -64,15 +62,15 @@ export default {
       codeStrD,
       codeStrE,
       slotArr: [
-        { slotName: "a", slotTitle: "资源", level: 1 },
-        { slotName: "b", slotTitle: "主题切换", level: 2 },
-        { slotName: "b1", slotTitle: "参数配置的形式", level: 3 },
-        { slotName: "b2", slotTitle: "js手动修改", level: 3 },
-        { slotName: "b3", slotTitle: "css变量优先级替换", level: 3 },
-        { slotName: "b4", slotTitle: "完整的css变量默认值", level: 3 },
-        { slotName: "c", slotTitle: "组件尺寸", level: 2 },
-        { slotName: "d", slotTitle: "弹出框优先级", level: 2 },
-        { slotName: "e", slotTitle: "动画时长", level: 2 },
+        { slotName: 'a', slotTitle: '资源', level: 1 },
+        { slotName: 'b', slotTitle: '主题切换', level: 2 },
+        { slotName: 'b1', slotTitle: '参数配置的形式', level: 3 },
+        { slotName: 'b2', slotTitle: 'js手动修改', level: 3 },
+        { slotName: 'b3', slotTitle: 'css变量优先级替换', level: 3 },
+        { slotName: 'b4', slotTitle: '完整的css变量默认值', level: 3 },
+        { slotName: 'c', slotTitle: '组件尺寸', level: 2 },
+        { slotName: 'd', slotTitle: '弹出框优先级', level: 2 },
+        { slotName: 'e', slotTitle: '动画时长', level: 2 },
       ],
     };
   },

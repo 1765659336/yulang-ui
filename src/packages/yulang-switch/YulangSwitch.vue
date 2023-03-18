@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "yulang-switch",
+  name: 'yulang-switch',
   props: {
     value: {
       type: Boolean,
@@ -19,16 +19,19 @@ export default {
     inactiveColor: {
       type: String,
       default: () => {
-        const root = document.querySelector(":root");
+        const root = document.querySelector(':root');
         return `${getComputedStyle(root).getPropertyValue(
-          "--yulang-font-color--"
+          '--yulang-font-color--'
         )}`;
       },
     },
     activeColor: {
       type: String,
       default: () => {
-        return "black";
+        const root = document.querySelector(':root');
+        return `${getComputedStyle(root).getPropertyValue(
+          '--yulang-theme-color--'
+        )}`;
       },
     },
     inactiveText: {
@@ -44,9 +47,9 @@ export default {
   },
   model: {
     // 需要双向绑定的 props 变量名称，也就是父组件通过 v-model 与子组件双向绑定的变量
-    prop: "value",
+    prop: 'value',
     // 定义由 $emit 传递变量的名称
-    event: "newValue",
+    event: 'newValue',
   },
   computed: {
     // 按钮的class样式
@@ -68,8 +71,8 @@ export default {
         return this.value;
       },
       set(newValue) {
-        this.$emit("newValue", newValue);
-        this.$emit("change", newValue);
+        this.$emit('newValue', newValue);
+        this.$emit('change', newValue);
       },
     },
     // 提示文字颜色
@@ -96,5 +99,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import url("./index.less");
+@import url('./index.less');
 </style>
