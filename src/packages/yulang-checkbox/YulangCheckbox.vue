@@ -1,15 +1,20 @@
 <template>
-  <div class="packages-checkbox-container" @click="$listeners.click">
+  <div
+    class="packages-checkbox-container yulang-checkbox-disabled"
+    :style="{ '--cursor--': disabled ? 'not-allowed' : 'pointer' }"
+  >
     <input
-      ref="checkboxRef"
       type="checkbox"
-      name="scales"
-      v-model="inputValue"
+      :value="label"
+      :checked="inputValue"
       :disabled="disabled"
-      :id="label"
+      :id="label + name"
       @change="inputValueChange"
+      class="yulang-checkbox-disabled"
     />
-    <label :for="label">{{ label }}</label>
+    <label :for="label + name" class="yulang-checkbox-disabled">{{
+      label
+    }}</label>
   </div>
 </template>
 
@@ -33,25 +38,39 @@ export default {
         return false;
       },
     },
-    // 值改变发生的回调
-    valueChange: {
-      type: Function,
-    },
+  },
+  data() {
+    return {
+      yulangComponentName: "yulang-checkbox",
+      name: "",
+      checked: false,
+    };
   },
   computed: {
     inputValue: {
       get() {
-        return this.value;
+        if (this.$parent.yulangComponentName === "yulang-checkbox-group") {
+          return this.checked;
+        } else {
+          return this.value;
+        }
       },
-      set(value) {
-        this.$emit("input", value);
+      set(newValue) {
+        if (this.$parent.yulangComponentName === "yulang-checkbox-group") {
+          this.checked = newValue;
+        } else {
+          this.$emit("input", newValue);
+          this.$listeners.change && this.$listeners.change(newValue);
+        }
       },
     },
   },
   methods: {
     inputValueChange(value) {
       this.inputValue = value.target.checked;
-      this.valueChange && this.valueChange(this.inputValue);
+      if (this.$parent.yulangComponentName === "yulang-checkbox-group") {
+        this.$parent.valueComputed = [...this.$parent.valueComputed, value];
+      }
     },
   },
 };
@@ -60,5 +79,36 @@ export default {
 <style lang="less" scoped>
 .packages-checkbox-container {
   display: inline-block;
+
+  .yulang-checkbox-disabled {
+    cursor: var(--cursor--);
+  }
+
+  //选中后labe内的内容
+  // input[type="checkbox"] + label::before {
+  //   content: " ";
+  //   display: inline-block;
+  //   vertical-align: middle;
+  //   width: 13px;
+  //   height: 13px;
+  //   border: 1px solid #999999;
+  //   margin-right: 0.2rem;
+  //   box-sizing: border-box;
+  //   margin-top: -0.1rem;
+  // }
+
+  // input[type="checkbox"]:checked + label::before {
+  //   background-color: var(--yulang-theme-color--);
+  //   background-clip: content-box;
+  //   border: 1px solid var(--yulang-theme-color--);
+  //   padding: 0.1rem;
+  //   box-sizing: border-box;
+  // }
+
+  // input[type="checkbox"] {
+  //   position: absolute;
+  //   // 定义哪一部分是可见的
+  //   clip: rect(0, 0, 0, 0);
+  // }
 }
 </style>

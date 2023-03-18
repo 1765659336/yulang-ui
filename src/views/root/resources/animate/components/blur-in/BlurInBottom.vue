@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: "漂浮清晰出现",
+      attribute: 'bottom show',
     };
   },
 };

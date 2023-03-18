@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '右边到左边再回来',
+      attribute: 'right show',
     };
   },
 };

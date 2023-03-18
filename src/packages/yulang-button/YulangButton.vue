@@ -6,12 +6,14 @@
       '--margin-top-botton--': this.marginTopBotton,
       '--margin-left-right--': this.marginLeftRight,
     }"
+    ref="container"
   >
     <slot></slot>
   </div>
 </template>
 
 <script>
+import Vue from "vue";
 const sizeRuler = {
   medium: { marginTopBotton: '50px', marginLeftRight: '80px' },
   small: { marginTopBotton: '40px', marginLeftRight: '60px' },
@@ -41,7 +43,7 @@ export default {
     size: {
       type: String,
       default: () => {
-        return 'medium';
+        return Vue.prototype.yulangComponentSize;
       },
       validator: (value) => {
         return ['medium', 'small', 'mini'].find((item) => item === value);
@@ -49,7 +51,10 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      // 控制点击动画
+      clickAnimate: false,
+    };
   },
   computed: {
     containerClass: {
@@ -60,6 +65,8 @@ export default {
           'not-disable': !this.disabled,
           'is-success': this.type === 'success',
           'is-error': this.type === 'error',
+          'yulang-animate': this.clickAnimate,
+          'yulang-push-release': this.clickAnimate,
         };
       },
     },
@@ -78,8 +85,25 @@ export default {
   },
   methods: {
     handleClick(e) {
-      !this.disabled && this.$listeners.click && this.$listeners.click(e);
+      if (!this.disabled) {
+        if (this.clickAnimate) {
+          this.clickAnimate = false;
+          // v-if+nexttick重新渲染
+          // 或者使用animation-fill-mode: none/both切换;
+          this.timer = setInterval(() => {
+            this.clickAnimate = true;
+          }, 1);
+        } else {
+          this.clickAnimate = true;
+        }
+        if (this.$listeners.click) {
+          this.$listeners.click(e);
+        }
+      }
     },
+  },
+  beforeDestroy() {
+    clearInterval(this.timer);
   },
 };
 </script>

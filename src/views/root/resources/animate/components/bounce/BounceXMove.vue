@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "水平拉伸抖动",
+      attribute: 'X-axis',
     };
   },
 };

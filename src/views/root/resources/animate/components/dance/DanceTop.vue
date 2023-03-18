@@ -8,6 +8,7 @@
     data() {
     return {
       title: "晒衣服",
+      attribute: 'middle',
     };
   },
   };

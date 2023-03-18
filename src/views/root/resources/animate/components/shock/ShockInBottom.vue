@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "带停顿漂浮出现",
+      attribute: 'bottom show',
     };
   },
 };

@@ -1,37 +1,37 @@
-.yulang-head-container{
+.yulang-head-container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border-bottom: 1px solid #aaa;
+  border-bottom: var(--yulang-border-thickness--) solid var(--yulang-border-color--);
   line-height: 5em;
   height: 5em;
 }
 
-.yulang-head-title{
+.yulang-head-title {
   margin-right: auto;
-  // min-width: 5em;
+  cursor: pointer;
 
-  img{
+  img {
     width: 10em;
   }
 }
 
-.yulang-head-menu-items{
+.yulang-head-menu-items {
   display: flex;
   margin-right: 8em;
   height: 100%;
- 
 
-   .yulang-head-menu-item{
+
+  .yulang-head-menu-item {
     margin: 0em 2em;
-    color: #9fcdfd;
+    color: var(--yulang-font-color--);
     cursor: pointer;
     text-align: center;
   }
 
-  .yulang-head-menu-item-active{
-    color: #1786fd;
+  .yulang-head-menu-item-active {
+    color: var(--yulang-theme-color--);
     height: calc(100% - 2px);
-    border-bottom: 2px solid #1786fd;
+    border-bottom: 2px solid var(--yulang-theme-color--);
   }
 }

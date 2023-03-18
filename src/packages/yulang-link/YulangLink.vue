@@ -13,27 +13,27 @@
 
 <script>
 export default {
-  name: "yulang-link",
+  name: 'yulang-link',
   props: {
     // 文字颜色、a标签背景色
     mainColor: {
       type: String,
       default: () => {
-        return "#54138c";
+        return '#54138c';
       },
     },
     // 跳转地址
     url: {
       type: String,
       default: () => {
-        return "";
+        return '';
       },
     },
     // a标签target对应的属性
     target: {
       type: String,
       default: () => {
-        return "_self";
+        return '_self';
       },
     },
     // 是否不可点击
@@ -57,19 +57,19 @@ export default {
         return this.disabled;
       },
       set(value) {
-        this.emits("update:disabled", value);
+        this.emits('update:disabled', value);
       },
     },
     renderClass() {
       return {
-        "custom-link-container": true,
-        "custom-link-open-underline": this.openUnderline,
+        'custom-link-container': true,
+        'custom-link-open-underline': this.openUnderline,
       };
     },
     renderStyle() {
       return {
-        "--main-color--": this.mainColor,
-        "--cursor--": this.disabledComputed ? "not-allowed" : "pointer",
+        '--main-color--': this.mainColor,
+        '--cursor--': this.disabledComputed ? 'not-allowed' : 'pointer',
       };
     },
   },
@@ -78,9 +78,9 @@ export default {
       if (this.disabledComputed) {
         e.preventDefault();
       } else {
-        if (this.url === "") {
+        if (this.url === '') {
           e.preventDefault();
-          this.emits("clickCallback", e);
+          this.$emit('clickCallback', e);
         }
       }
     },
@@ -89,5 +89,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import url("./index.less");
+@import url('./index.less');
 </style>

@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "掉落缩小停顿显现",
+      attribute: 'top show',
     };
   },
 };

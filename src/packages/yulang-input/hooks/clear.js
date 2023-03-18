@@ -17,6 +17,7 @@ export const clearObj = {
     // 清除icon点击事件
     clearValue() {
       this.valueComputed = null;
+      this.$listeners.clear && this.$listeners.clear();
     },
   },
 };

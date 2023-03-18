@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "爬升消失",
+      attribute: 'top leave',
     };
   },
 };

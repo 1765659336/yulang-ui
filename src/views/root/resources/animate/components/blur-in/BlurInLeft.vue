@@ -4,10 +4,11 @@
 
 <script>
 export default {
-  name: "yulang-blur-in-left",
+  name: 'yulang-blur-in-left',
   data() {
     return {
-      title: "从左侧清晰出现",
+      title: '从左侧清晰出现',
+      attribute: 'left show',
     };
   },
 };
@@ -15,8 +16,8 @@ export default {
 
 <style lang="less" scoped>
 div {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   background-color: pink;
 }
 </style>

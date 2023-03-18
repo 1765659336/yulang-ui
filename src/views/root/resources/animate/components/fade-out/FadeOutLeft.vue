@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '向左逐渐消失',
+      attribute: 'left leave',
     };
   },
 };

@@ -16,6 +16,7 @@ export default {
   data() {
     return {
       title: "抖动掉落离开",
+      attribute: 'bottom leave',
     };
   },
 };

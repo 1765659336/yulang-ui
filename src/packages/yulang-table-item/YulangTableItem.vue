@@ -1,9 +1,6 @@
 <template>
-  <div
-    :style="{ '--container-width--': width ? width : $parent.minWidth }"
-    class="packages-yulang-table-item-container"
-  >
-    {{ label }}
+  <div class="packages-yulang-table-item-container" :prop="prop">
+    <slot name="scope" :scope="{ row: $parent.rowData }"></slot>
   </div>
 </template>
 
@@ -17,11 +14,23 @@ export default {
     label: {
       type: String,
     },
-    width: {},
+    width: {
+      type: String,
+    },
+    fixed: {},
+    type: {
+      type: String,
+      // validator(value) {
+      //   ["radio", "checkbox"].find((item) => item === value);
+      // },
+    },
+  },
+  data() {
+    return {
+      yulangComponentName: "yulang-table-item",
+    };
   },
 };
 </script>
 
-<style lang="less" scoped>
-@import url("./index.less");
-</style>
+<style lang="less" scoped></style>

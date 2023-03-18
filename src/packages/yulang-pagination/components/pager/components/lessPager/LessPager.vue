@@ -7,6 +7,9 @@
         'yulang-pagination-pager-item',
         'yulang-pagination-count',
         currentPageComputed === item ? 'is-checked' : 'is-not-disabled',
+        currentPageComputed === item
+          ? 'yulang-animate yulang-pull-release'
+          : '',
       ]"
       @click="$listeners.changeCurrentPage(item)"
     >

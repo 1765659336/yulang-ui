@@ -5,6 +5,9 @@
         'yulang-pagination-pager-item',
         'yulang-pagination-count',
         currentPageComputed === 1 ? 'is-checked' : 'is-not-disabled',
+        currentPageComputed === 1
+          ? 'yulang-animate yulang-pull-release'
+          : '',
       ]"
       @click="$listeners.changeCurrentPage(1)"
     >
@@ -29,6 +32,9 @@
           'yulang-pagination-pager-item',
           'yulang-pagination-count',
           currentPageComputed === item ? 'is-checked' : 'is-not-disabled',
+          currentPageComputed === item
+            ? 'yulang-animate yulang-pull-release'
+            : '',
         ]"
         @click="$listeners.changeCurrentPage(item)"
       >
@@ -54,6 +60,9 @@
         currentPageComputed === pageArr.length
           ? 'is-checked'
           : 'is-not-disabled',
+        currentPageComputed === pageArr.length
+          ? 'yulang-animate yulang-pull-release'
+          : '',
       ]"
       @click="$listeners.changeCurrentPage(pageArr.length)"
     >

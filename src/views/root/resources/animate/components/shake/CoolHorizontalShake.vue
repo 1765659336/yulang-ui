@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '水平震动',
+      attribute: 'X-axis',
     };
   },
 };

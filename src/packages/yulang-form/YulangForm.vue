@@ -13,6 +13,16 @@ export default {
       default: () => ({}),
     },
     rules: Object,
+    labelPosition: {
+      type: String,
+      default: "left",
+      validator(value) {
+        return ["top", "left", "right"].find((item) => item === value);
+      },
+    },
+    labelWidth: {
+      type: String,
+    },
   },
   provide() {
     return {
@@ -22,9 +32,12 @@ export default {
   methods: {
     validate(fn) {
       const validateArr = [];
-      this.$children.forEach((item) => {
-        if (item.validate) {
-          const result = item.validate();
+      this.$children.forEach((component) => {
+        if (
+          component.yulangComponentName === "yulang-form-item" &&
+          component.validate
+        ) {
+          const result = component.validate();
           if (result) {
             return validateArr.push(result);
           }
@@ -51,7 +64,17 @@ export default {
     },
   },
   mounted() {
-    // console.log(this, "yulang-form");
+    // 给formItem添加必填icon
+    this.$children.forEach((component) => {
+      if (component.yulangComponentName === "yulang-form-item") {
+        if (this.rules && component.prop) {
+          let rule = this.rules[component.prop];
+          if (rule && rule.find((item) => item.required)) {
+            component.isRequire = true;
+          }
+        }
+      }
+    });
   },
 };
 </script>

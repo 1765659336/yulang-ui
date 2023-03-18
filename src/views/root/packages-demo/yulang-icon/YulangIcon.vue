@@ -57,16 +57,64 @@ export default {
         { name: "icon-shezhi", value: '<i class="iconfont icon-shezhi"></i>' },
         { name: "icon-daochu", value: '<i class="iconfont icon-daochu"></i>' },
         { name: "icon-sousuo", value: '<i class="iconfont icon-sousuo"></i>' },
-        { name: "icon-yanjing", value: '<i class="iconfont icon-yanjing"></i>' },
-        { name: "icon-shijian", value: '<i class="iconfont icon-shijian"></i>' },
-        { name: "icon-kuaijin", value: '<i class="iconfont icon-kuaijin"></i>' },
-        { name: "icon-kuaitui", value: '<i class="iconfont icon-kuaitui"></i>' },
+        {
+          name: "icon-yanjing",
+          value: '<i class="iconfont icon-yanjing"></i>',
+        },
+        {
+          name: "icon-shijian",
+          value: '<i class="iconfont icon-shijian"></i>',
+        },
+        {
+          name: "icon-kuaijin",
+          value: '<i class="iconfont icon-kuaijin"></i>',
+        },
+        {
+          name: "icon-kuaitui",
+          value: '<i class="iconfont icon-kuaitui"></i>',
+        },
+        {
+          name: "icon-jian",
+          value: '<i class="iconfont icon-jian"></i>',
+        },
+        {
+          name: "icon-jia",
+          value: '<i class="iconfont icon-jia"></i>',
+        },
+        {
+          name: "icon-shuaxin",
+          value: '<i class="iconfont icon-shuaxin"></i>',
+        },
+        {
+          name: "icon-jinggao",
+          value: '<i class="iconfont icon-jinggao"></i>',
+        },
+        {
+          name: "icon-guanbi1",
+          value: '<i class="iconfont icon-guanbi1"></i>',
+        },
+        {
+          name: "icon-zhengque",
+          value: '<i class="iconfont icon-zhengque"></i>',
+        },
+        {
+          name: "icon-tishi1",
+          value: '<i class="iconfont icon-tishi1"></i>',
+        },
+        {
+          name: "icon-riqi1",
+          value: '<i class="iconfont icon-riqi1"></i>',
+        },
       ],
     };
   },
   methods: {
     copySuccess(value) {
-      console.log("info", "复制成功值为:" + value);
+      // console.log("info", "复制成功值为:" + value);
+      this.$yulangNotification({
+        message: "复制成功" + value,
+        type: "success",
+      });
     },
   },
 };

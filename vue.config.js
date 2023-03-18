@@ -18,6 +18,7 @@ module.exports = defineConfig({
       patterns: [
         // 注意路径，不能使用配置中的别名路径（例如：alias 配置下的路径别名）
         path.resolve(__dirname, "./src/assets/style/variable.less"),
+        path.resolve(__dirname, "./src/assets/style/public.less"),
       ],
     },
   },

@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: "从右翻转显示",
+      attribute: 'right show',
     };
   },
 };

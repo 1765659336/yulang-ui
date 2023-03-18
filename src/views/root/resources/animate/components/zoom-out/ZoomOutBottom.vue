@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "掉落消失",
+      attribute: 'bottom leave',
     };
   },
 };

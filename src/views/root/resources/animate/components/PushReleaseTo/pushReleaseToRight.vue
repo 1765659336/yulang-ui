@@ -7,7 +7,8 @@ export default {
   name: 'yulang-push-release-to-right',
   data() {
     return {
-      title: '向右再向左消失',
+      title: '向左再向右消失',
+      attribute: 'right leave',
     };
   },
 };

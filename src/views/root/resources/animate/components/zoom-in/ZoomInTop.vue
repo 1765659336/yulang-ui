@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: "掉落缩小显现",
+      attribute: 'top show',
     };
   },
 };

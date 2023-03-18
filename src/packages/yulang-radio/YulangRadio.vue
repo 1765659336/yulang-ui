@@ -1,6 +1,6 @@
 <template>
   <div
-    class="packages-yulang-radio-container yulang-radio-disabled"
+    :class="['packages-yulang-radio-container', 'yulang-radio-cursor']"
     :style="{ '--cursor--': disabled ? 'not-allowed' : 'pointer' }"
   >
     <input
@@ -11,9 +11,12 @@
       :checked="checked"
       @change="radioValueChange"
       :disabled="disabled"
-      class="yulang-radio-disabled"
+      :class="[
+        'yulang-radio-cursor',
+        checked ? 'yulang-animate yulang-pull-release' : '',
+      ]"
     />
-    <label :for="label + name" class="yulang-radio-balel yulang-radio-disabled"
+    <label :for="label + name" class="yulang-radio-balel yulang-radio-cursor"
       ><slot></slot
     ></label>
   </div>
@@ -23,6 +26,10 @@
 export default {
   name: "yulang-radio",
   props: {
+    value: {
+      type: Boolean,
+      default: false,
+    },
     label: {
       require: true,
     },
@@ -40,17 +47,27 @@ export default {
       checked: false,
     };
   },
+  computed: {
+    valueComputed: {
+      get() {
+        return this.value;
+      },
+      set(newValue) {
+        this.$emit("input", newValue);
+      },
+    },
+  },
   methods: {
     // 值修改函数
     valueChange() {
       if (this.$parent.yulangComponentName === "yulang-radio-group") {
-        console.log(this.$parent, "this.$parent");
         this.$parent.valueComputed = this.label;
       }
       // 将radio-group中的元素选中状态全改为false
       this.$parent.$children.forEach((component) => {
         if (component.yulangComponentName === "yulang-radio") {
           component.checked = false;
+          component.valueComputed = false;
         }
       });
       // 再将当前的改为true
@@ -58,6 +75,7 @@ export default {
     },
     radioValueChange() {
       this.valueChange();
+      this.valueComputed = !this.valueComputed;
       this.$parent.$listeners.change &&
         this.$parent.$listeners.change(this.label);
     },

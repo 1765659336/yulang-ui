@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: "两头摇摆",
+      attribute: 'middle',
     };
   },
 };

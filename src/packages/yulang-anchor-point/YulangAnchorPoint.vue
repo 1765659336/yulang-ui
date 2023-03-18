@@ -15,18 +15,28 @@
         :id="item.slotName"
       >
         <!-- 根据标签等级给标题大小 -->
-        <h2
+        <div
           class="packages-main-form-anchor-point-content-item-title"
           :style="{ '--title-font-size--': titleFontSize(item) }"
         >
           {{ item.slotTitle }}
-        </h2>
+        </div>
 
         <slot :name="[item.slotName]"> </slot>
       </div>
     </div>
 
-    <div class="packages-main-form-anchor-point-click">
+    <div
+      class="packages-main-form-anchor-point-click yulang-animate"
+      :class="computedShowfade"
+    >
+      <div class="packages-main-form-anchor-point-click-arrow">
+        <i
+          class="iconfont icon-chevron-left"
+          :class="isShowFade ? 'icon-chevron-left' : 'icon-chevron-right'"
+          @click="isShowFade = !isShowFade"
+        ></i>
+      </div>
       <div id="packages-main-form-anchor-point-click">
         <div
           v-for="(item, index) in slotArrComputed"
@@ -34,7 +44,7 @@
           class="packages-main-form-anchor-point-click-item"
           :class="packagesMainFormAnchorPointClickItemTitle(index)"
         >
-          <span @click="jumpAnchor(item)">{{ item.slotTitle }}</span>
+          <span class="packages-main-form-anchor-point-click-item-text" @click="jumpAnchor(item)">{{ item.slotTitle }}</span>
         </div>
       </div>
     </div>
@@ -43,10 +53,10 @@
 
 <script>
 export default {
-  name: "yulang-anchor-point",
+  name: 'yulang-anchor-point',
   model: {
-    prop: "slotArr",
-    event: "slotArr",
+    prop: 'slotArr',
+    event: 'slotArr',
   },
   props: {
     slotArr: {
@@ -64,15 +74,16 @@ export default {
       level2Index: 0,
       fontSizeLevel: {
         1: {
-          fontsize: "2rem",
+          fontsize: '2rem',
         },
         2: {
-          fontsize: "1.5rem",
+          fontsize: '1.5rem',
         },
         3: {
-          fontsize: "1rem",
+          fontsize: '1rem',
         },
       },
+      isShowFade: true,
     };
   },
   computed: {
@@ -81,19 +92,24 @@ export default {
         return this.slotArr;
       },
       set(newValue) {
-        this.$emit("slotArr", newValue);
+        this.$emit('slotArr', newValue);
       },
+    },
+    computedShowfade() {
+      return [
+        this.isShowFade ? 'yulang-fade-in-right' : 'yulang-fade-out-right',
+      ];
     },
   },
   methods: {
     jumpAnchor(item) {
-      document.querySelector("#" + item.slotName).scrollIntoView();
+      document.querySelector('#' + item.slotName).scrollIntoView();
     },
     packagesMainFormAnchorPointClickItemTitle(index) {
       return {
-        "packages-main-form-anchor-point-click-item-level1":
+        'packages-main-form-anchor-point-click-item-level1':
           this.slotArrComputed[index].level === 1,
-        "packages-main-form-anchor-point-click-item-level2":
+        'packages-main-form-anchor-point-click-item-level2':
           this.slotArrComputed[index].level === 2,
       };
     },
@@ -122,5 +138,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import url("./index.less");
+@import url('./index.less');
 </style>

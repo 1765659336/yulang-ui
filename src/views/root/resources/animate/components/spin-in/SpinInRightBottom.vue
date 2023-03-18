@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: "右下角旋转出现",
+      attribute: 'right show',
     };
   },
 };

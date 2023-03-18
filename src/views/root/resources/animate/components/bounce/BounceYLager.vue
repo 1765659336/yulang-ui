@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: "垂直拉伸抖动",
+      attribute: 'Y-axis',
     };
   },
 };

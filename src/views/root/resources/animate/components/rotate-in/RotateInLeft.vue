@@ -4,10 +4,11 @@
 
 <script>
 export default {
-  name: "yulang-rotate-in-left",
+  name: 'yulang-rotate-in-left',
   data() {
     return {
-      title: "从左翻转显示",
+      title: '从左翻转显示',
+      attribute: 'left show',
     };
   },
 };

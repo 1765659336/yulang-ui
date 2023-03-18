@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '逐渐进入',
+      attribute: 'middle',
     };
   },
 };

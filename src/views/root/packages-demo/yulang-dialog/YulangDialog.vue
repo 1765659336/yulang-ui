@@ -10,6 +10,7 @@
             :visible.sync="dialogVisible"
             :before-close="handleClose"
           >
+            <!-- <template #title>我是标题</template> -->
           </yulang-dialog>
           <template #tip>
             <div>handleClose可以在关闭窗口前做一些操作</div>
@@ -27,7 +28,11 @@
             :before-close="handleClose"
           >
             <template #footer="{ changeDialog }">
-              <yulang-button @click="changeDialog(false)">取消消</yulang-button>
+              <yulang-button
+                @click="changeDialog(false)"
+                style="margin-right: 1em"
+                >取消消</yulang-button
+              >
               <yulang-button @click="changeDialog(false)">确定定</yulang-button>
             </template>
           </yulang-dialog>

@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       title: '从上逐渐进入',
+      attribute: 'top show',
     };
   },
 };

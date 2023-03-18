@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "掉落翻页显现",
+      attribute: 'top show',
     };
   },
 };

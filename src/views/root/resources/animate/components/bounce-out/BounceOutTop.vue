@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       title: "抖动漂浮离开",
+      attribute: 'top leave',
     };
   },
 };

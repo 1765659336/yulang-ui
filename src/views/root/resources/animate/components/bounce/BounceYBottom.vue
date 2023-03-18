@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       title: "向下拉伸抖动",
+      attribute: 'bottom show',
     };
   },
 };

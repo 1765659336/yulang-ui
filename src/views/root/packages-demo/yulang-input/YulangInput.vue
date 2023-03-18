@@ -42,6 +42,15 @@
         <template #tip> 文本域高度可通过 rows 属性控制 </template>
       </yulang-describe-frame>
     </template>
+    <template #h>
+      可前置或后置元素，一般为标签或按钮
+      <yulang-describe-frame :codeStr="codeStrH">
+        <input-h></input-h>
+        <template #tip
+          >可通过 slot 来指定在 input 中前置或者后置内容。</template
+        >
+      </yulang-describe-frame>
+    </template>
   </yulang-anchor-point>
 </template>
 
@@ -52,6 +61,7 @@ import InputD from "./components/InputD.vue";
 import InputE from "./components/InputE.vue";
 import InputF from "./components/InputF.vue";
 import InputG from "./components/InputG.vue";
+import InputH from "./components/InputH.vue";
 
 import {
   codeStrB,
@@ -60,6 +70,7 @@ import {
   codeStrE,
   codeStrF,
   codeStrG,
+  codeStrH,
 } from "./data.js";
 export default {
   name: "package-demos-yulang-input",
@@ -70,6 +81,7 @@ export default {
     InputE,
     InputF,
     InputG,
+    InputH,
   },
   data() {
     return {
@@ -79,6 +91,7 @@ export default {
       codeStrE,
       codeStrF,
       codeStrG,
+      codeStrH,
       slotArr: [
         { slotName: "a", slotTitle: "Input 输入框", level: 1 },
         { slotName: "b", slotTitle: "基本用法", level: 2 },
@@ -87,6 +100,7 @@ export default {
         { slotName: "e", slotTitle: "密码框", level: 2 },
         { slotName: "f", slotTitle: "带 icon 的输入框", level: 2 },
         { slotName: "g", slotTitle: "文本域", level: 2 },
+        { slotName: "h", slotTitle: "复合型输入框", level: 2 },
       ],
     };
   },
