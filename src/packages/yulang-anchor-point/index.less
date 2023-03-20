@@ -9,11 +9,14 @@
 
 .packages-main-form-anchor-point-container {
   width: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
+  position: relative;
   height: var(--height-container--);
 
   .packages-main-form-anchor-point-content {
-    width: 100%;
+    // 内容区略小于100%
+    width: 98%;
+    position: absolute;
 
     .packages-main-form-anchor-point-content-item-title {
       width: 100%;
@@ -82,12 +85,12 @@
 }
 
 .yulang-animate.yulang-fade-out-right {
-  animation-name: yulang-fade-out-right
+  animation-name: yulang-fade-out-right;
 }
 
 @keyframes yulang-fade-out-right {
   from {
-    opacity: 1
+    opacity: 1;
   }
 
   to {

@@ -44,7 +44,11 @@
           class="packages-main-form-anchor-point-click-item"
           :class="packagesMainFormAnchorPointClickItemTitle(index)"
         >
-          <span class="packages-main-form-anchor-point-click-item-text" @click="jumpAnchor(item)">{{ item.slotTitle }}</span>
+          <span
+            class="packages-main-form-anchor-point-click-item-text"
+            @click="jumpAnchor(item)"
+            >{{ item.slotTitle }}</span
+          >
         </div>
       </div>
     </div>

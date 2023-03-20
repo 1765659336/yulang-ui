@@ -2,7 +2,8 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border-bottom: var(--yulang-border-thickness--) solid var(--yulang-border-color--);
+  border-bottom: var(--yulang-border-thickness--) solid
+    var(--yulang-border-color--);
   line-height: 5em;
   height: 5em;
 }
@@ -21,7 +22,6 @@
   margin-right: 8em;
   height: 100%;
 
-
   .yulang-head-menu-item {
     margin: 0em 2em;
     color: var(--yulang-font-color--);
@@ -34,4 +34,12 @@
     height: calc(100% - 2px);
     border-bottom: 2px solid var(--yulang-theme-color--);
   }
+}
+
+::v-deep(.text-left) {
+  color: #2FFF00;
+}
+
+::v-deep(.text-right) {
+  color: #69DFEB;
 }

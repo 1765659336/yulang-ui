@@ -8,24 +8,47 @@
   align-items: center;
   width: 3.5em;
   height: 1.5em;
-  // background-color: #13ce66;
   border-radius: 4em;
 
   .circle {
     width: 1.3em;
     height: 1.3em;
-    margin: 0em .1em;
+    margin: 0em 0.1em;
     background-color: white;
     border-radius: 2em;
   }
 }
 
+.button-bg-active {
+  background-color: var(--yulang-font-color--);
+}
+
+.button-bg-inactive {
+  background-color: var(--yulang-background-color--);
+}
+
+.text-inactive {
+  color: black;
+}
+
+.text-active {
+  color: var(--yulang-font-color--);
+}
+
+.text-left {
+  margin-right: 0.5em;
+}
+
+.text-right {
+  margin-left: 0.5em;
+}
+
 .circleFail {
-  animation: moveLeft .2s forwards linear;
+  animation: moveLeft 0.2s forwards linear;
 }
 
 .circleSuccess {
-  animation: moveRight .2s forwards linear;
+  animation: moveRight 0.2s forwards linear;
 }
 
 @keyframes moveRight {

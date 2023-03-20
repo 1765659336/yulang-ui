@@ -24,16 +24,17 @@
       v-model="theme"
       inactiveText="绿"
       activeText="蓝"
-      activeColor="#87d0ec"
+      inactiveColor="#2FFF00"
+      activeColor="#69DFEB"
       >切换主题</yulang-switch
     >
   </div>
 </template>
 
 <script>
-import YulangSwitch from "@/packages/yulang-switch/YulangSwitch.vue";
+import YulangSwitch from '@/packages/yulang-switch/YulangSwitch.vue';
 export default {
-  name: "yulang-head",
+  name: 'yulang-head',
   components: {
     YulangSwitch,
   },
@@ -42,43 +43,51 @@ export default {
       theme: false,
       btnArr: [
         {
-          id:"guide",
-          title: "指南",
-          path: "/root/guide",
+          id: 'guide',
+          title: '指南',
+          path: '/root/guide',
         },
         {
-          id:"packages-demo",
-          title: "组件",
-          path: "/root/packages-demo",
+          id: 'packages-demo',
+          title: '组件',
+          path: '/root/packages-demo',
         },
         {
-          id:"theme",
-          title: "主题",
-          path: "/root/theme",
+          id: 'theme',
+          title: '主题',
+          path: '/root/theme',
         },
         {
-          id:"resources",
-          title: "资源",
-          path: "/root/resources",
+          id: 'resources',
+          title: '资源',
+          path: '/root/resources',
         },
       ],
     };
   },
   watch: {
-    theme(val) {
-      const root = document.querySelector(":root");
-      root.style.setProperty(
-        "--yulang-theme-color--",
-        val ? "#87d0ec" : "#00DF74"
-      );
-      root.style.setProperty(
-        "--yulang-font-color--",
-        val ? "#69DFEB" : "#00DF74"
-      );
-      root.style.setProperty(
-        "--yulang-border-color--",
-        val ? "#69DFEB" : "#00DF74"
-      );
+    theme: {
+      handler(val) {
+        // 右边是绿色系的
+        const root = document.querySelector(':root');
+        root.style.setProperty(
+          '--yulang-theme-color--',
+          val ? '#69DFEB' : '#00DF74'
+        );
+        root.style.setProperty(
+          '--yulang-font-color--',
+          val ? '#69DFEB' : '#2FFF00'
+        );
+        root.style.setProperty(
+          '--yulang-border-color--',
+          val ? '#87D0EC' : '#00DF74'
+        );
+        root.style.setProperty(
+          '--yulang-background-color--',
+          val ? '#0094A3' : '#00BB9C'
+        );
+      },
+      immediate: true,
     },
   },
   methods: {
@@ -90,7 +99,7 @@ export default {
       // console.log(this.$route);
       return {
         // 选中样式
-        ["yulang-head-menu-item-active"]:
+        ['yulang-head-menu-item-active']:
           item.path === this.$route.matched[1].path,
       };
     },
@@ -99,5 +108,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import url("./index.less");
+@import url('./index.less');
 </style>

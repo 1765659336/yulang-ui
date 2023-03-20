@@ -16,73 +16,73 @@
 
 <script>
 export default {
-  name: "packages-demo-yulang-icon",
+  name: 'packages-demo-yulang-icon',
   data() {
     return {
       iconArr: [
         {
-          name: "icon-chevron-down",
+          name: 'icon-chevron-down',
           value: '<i class="iconfont icon-chevron-down"></i>',
         },
         {
-          name: "icon-chevron-left",
+          name: 'icon-chevron-left',
           value: '<i class="iconfont icon-chevron-left"></i>',
         },
         {
-          name: "icon-chevron-right",
+          name: 'icon-chevron-right',
           value: '<i class="iconfont icon-chevron-right"></i>',
         },
         {
-          name: "icon-chevron-up",
+          name: 'icon-chevron-up',
           value: '<i class="iconfont icon-chevron-up"></i>',
         },
         {
-          name: "icon-gengduo",
+          name: 'icon-gengduo',
           value: '<i class="iconfont icon-gengduo"></i>',
         },
-        { name: "icon-guanbi", value: '<i class="iconfont icon-guanbi"></i>' },
+        { name: 'icon-guanbi', value: '<i class="iconfont icon-guanbi"></i>' },
         {
-          name: "icon-quanping",
+          name: 'icon-quanping',
           value: '<i class="iconfont icon-quanping"></i>',
         },
         {
-          name: "icon-quanpingtuichu",
+          name: 'icon-quanpingtuichu',
           value: '<i class="iconfont icon-quanpingtuichu"></i>',
         },
         {
-          name: "icon-jiuping",
+          name: 'icon-jiuping',
           value: '<i class="iconfont icon-jiuping"></i>',
         },
-        { name: "icon-xiaoxi", value: '<i class="iconfont icon-xiaoxi"></i>' },
-        { name: "icon-shezhi", value: '<i class="iconfont icon-shezhi"></i>' },
-        { name: "icon-daochu", value: '<i class="iconfont icon-daochu"></i>' },
-        { name: "icon-sousuo", value: '<i class="iconfont icon-sousuo"></i>' },
+        { name: 'icon-xiaoxi', value: '<i class="iconfont icon-xiaoxi"></i>' },
+        { name: 'icon-shezhi', value: '<i class="iconfont icon-shezhi"></i>' },
+        { name: 'icon-daochu', value: '<i class="iconfont icon-daochu"></i>' },
+        { name: 'icon-sousuo', value: '<i class="iconfont icon-sousuo"></i>' },
         {
-          name: "icon-yanjing",
+          name: 'icon-yanjing',
           value: '<i class="iconfont icon-yanjing"></i>',
         },
         {
-          name: "icon-shijian",
+          name: 'icon-shijian',
           value: '<i class="iconfont icon-shijian"></i>',
         },
         {
-          name: "icon-kuaijin",
+          name: 'icon-kuaijin',
           value: '<i class="iconfont icon-kuaijin"></i>',
         },
         {
-          name: "icon-kuaitui",
+          name: 'icon-kuaitui',
           value: '<i class="iconfont icon-kuaitui"></i>',
         },
         {
-          name: "icon-jian",
+          name: 'icon-jian',
           value: '<i class="iconfont icon-jian"></i>',
         },
         {
-          name: "icon-jia",
+          name: 'icon-jia',
           value: '<i class="iconfont icon-jia"></i>',
         },
         {
-          name: "icon-shuaxin",
+          name: 'icon-shuaxin',
           value: '<i class="iconfont icon-shuaxin"></i>',
         },
         {
@@ -112,8 +112,9 @@ export default {
     copySuccess(value) {
       // console.log("info", "复制成功值为:" + value);
       this.$yulangNotification({
-        message: "复制成功" + value,
-        type: "success",
+        message: '复制成功' + value,
+        type: 'success',
+        timeout: 3000,
       });
     },
   },
@@ -121,5 +122,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import url("./index.less");
+@import url('./index.less');
 </style>

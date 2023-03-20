@@ -1,10 +1,26 @@
 <template>
   <div class="packages-yulang-button-container">
-    <div v-if="inactiveText" :style="TextClass">{{ inactiveText }}</div>
-    <div :class="ButtonClass" :style="bgClassLogic" @click="changeVal">
+    <div
+      v-if="inactiveText"
+      class="text-inactive text-left"
+      :class="value ? '' : 'text-active'"
+    >
+      {{ inactiveText }}
+    </div>
+    <div
+      :class="[ButtonClass, computedBgColor]"
+      :style="bgClassLogic"
+      @click="changeVal"
+    >
       <div class="circle" :class="circleClass"></div>
     </div>
-    <div v-if="activeText" :style="TextClass">{{ activeText }}</div>
+    <div
+      v-if="activeText"
+      class="text-inactive text-right"
+      :class="value ? 'text-active' : ''"
+    >
+      {{ activeText }}
+    </div>
   </div>
 </template>
 
@@ -18,21 +34,18 @@ export default {
     },
     inactiveColor: {
       type: String,
-      default: () => {
-        const root = document.querySelector(':root');
-        return `${getComputedStyle(root).getPropertyValue(
-          '--yulang-font-color--'
-        )}`;
-      },
+      // default: () => {
+      //   const root = document.querySelector(':root');
+      //   return `${getComputedStyle(root).getPropertyValue(
+      //     '--yulang-font-color--'
+      //   )}`;
+      // },
     },
     activeColor: {
       type: String,
-      default: () => {
-        const root = document.querySelector(':root');
-        return `${getComputedStyle(root).getPropertyValue(
-          '--yulang-theme-color--'
-        )}`;
-      },
+      // default: () => {
+      //   return 'black';
+      // },
     },
     inactiveText: {
       type: String,
@@ -62,9 +75,13 @@ export default {
     },
     // 背景颜色style样式
     bgClassLogic() {
-      return this.value
-        ? { backgroundColor: this.activeColor }
-        : { backgroundColor: this.inactiveColor };
+      if (this.inactiveColor && this.value) {
+        return { backgroundColor: this.activeColor };
+      }
+      if (this.activeColor && !this.value) {
+        return { backgroundColor: this.inactiveColor };
+      }
+      return {};
     },
     valueComputed: {
       get() {
@@ -76,16 +93,40 @@ export default {
       },
     },
     // 提示文字颜色
-    TextClass() {
-      return this.valueComputed
-        ? { color: this.activeColor }
-        : { color: this.inactiveColor };
+    inactiveTextClass() {
+      return (bool) => {
+        let showColor = bool === 1 ? this.valueComputed : !this.valueComputed;
+        if (this.inactiveColor && showColor) {
+          return { color: this.activeColor };
+        }
+        if (this.activeColor && !showColor) {
+          return { color: this.inactiveColor };
+        }
+      };
+    },
+    activeTextClass() {
+      return (bool) => {
+        let showColor = bool === 1 ? this.valueComputed : !this.valueComputed;
+        if (this.inactiveColor && showColor) {
+          return { color: this.activeColor };
+        }
+        if (this.activeColor && !showColor) {
+          return { color: this.inactiveColor };
+        }
+      };
     },
     // 内部圆点
     circleClass() {
       return {
         circleSuccess: this.valueComputed,
         circleFail: !this.valueComputed,
+      };
+    },
+    // 背景的动态样式，没传入inactiveColor和activeColor时执行此样式
+    computedBgColor() {
+      return {
+        'button-bg-active': this.value,
+        'button-bg-inactive': !this.value,
       };
     },
   },
