@@ -5,7 +5,6 @@
     @click="clickFun"
     :href="url"
     :target="target"
-    :disabled="disabledComputed"
   >
     <slot></slot>
   </a>

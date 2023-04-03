@@ -9,7 +9,6 @@
       class="describe-frame-container"
       :codeStr="item.codeStr"
       :key="item.version"
-      :defaultShow="item.defaultShow"
     >
       <div class="describe-frame-default-container">
         <span>{{ item.version }}</span>
@@ -36,13 +35,11 @@ export default {
           codeStr: "组件开发中",
           version: "0.0.0",
           time: "2023-01-31",
-          defaultShow: true,
         },
         {
           codeStr: "组件库发布版本，可以使用,其中包括xxx,xxx...组件",
           version: "1.0.0",
           time: "2023-03-16",
-          defaultShow: true,
         },
       ],
     };

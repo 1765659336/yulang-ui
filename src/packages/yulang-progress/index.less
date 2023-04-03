@@ -1,0 +1,83 @@
+.packages-yulang-progress-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    .yulang-progress-inner {
+        height: var(--stroke-height--);
+        line-height: var(--stroke-height--);
+        flex: 1;
+        background-color: #ccc;
+        border-radius: var(--stroke-height--);
+
+        .yulang-progress-percentage {
+            width: var(--percentage-width--);
+            height: 100%;
+            background-color: var(--yulang-theme-color--);
+            border-radius: 10px;
+            transition: all .5s linear;
+
+            &.percentage-success {
+                background-color: #67c23a;
+            }
+
+            &.percentage-warning {
+                background-color: #e6a23c;
+            }
+
+            &.percentage-exception {
+                background-color: #f56c6c;
+            }
+
+            &.progress-custom-color {
+                background-color: var(--custom-color--);
+            }
+        }
+    }
+
+    .yulang-progress-text {
+    }
+
+    .progress-text-inside {
+        position: absolute;
+        right: 0;
+    }
+}
+
+.packages-yulang-progress-circle-container {
+    display: inline-block;
+    position: relative;
+    width: calc(100px - 8px * 2);
+    height: calc(100px - 8px * 2);
+    margin: 8px;
+
+    .yulang-progress-content {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: var(--yulang-theme-color--);
+        background-color: #ccc;
+    }
+
+
+
+    .yulang-progress-mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        background-color: var(--yulang-theme-color--);
+        -webkit-clip-path: circle(calc(var(--percentage-width--) / 2));
+        clip-path: circle(calc(var(--percentage-width--) / 2));
+        transition: all .5s linear;
+    }
+
+    .yulang-progress-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

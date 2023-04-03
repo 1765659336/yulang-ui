@@ -13,17 +13,33 @@
       </template>
       <template #content>
         <div class="yulang-time-picker-selected-content">
-          <div
-            v-for="(item, index) in pickerOptionsComputed"
-            :key="index"
-            :class="[
-              'yulang-time-picker-selected-content-item',
-              item.isCheck ? 'yulang-item-picker-isChecked' : '',
-            ]"
-            @click="contentItemClick(item)"
-          >
-            {{ item.value }}
+          <div v-if="!pickerOptions.selectableRange">
+            <div
+              v-for="(item, index) in pickerOptionsComputed"
+              :key="index"
+              :class="[
+                'yulang-time-picker-selected-content-item',
+                item.isCheck ? 'yulang-item-picker-isChecked' : '',
+              ]"
+              @click="contentItemClick(item)"
+            >
+              {{ item.value }}
+            </div>
           </div>
+          <!-- <div
+            v-if="pickerOptions.selectableRange"
+            class="selectable-range-container"
+          >
+            <div class="content-hour-container">
+              <div v-for="(item, index) in 24" :key="index">{{ index }}</div>
+            </div>
+            <div class="content-minutes-container">
+              <div v-for="(item, index) in 60" :key="index">{{ index }}</div>
+            </div>
+            <div class="content-second-container">
+              <div v-for="(item, index) in 60" :key="index">{{ index }}</div>
+            </div>
+          </div> -->
         </div>
       </template>
     </yulang-popover>

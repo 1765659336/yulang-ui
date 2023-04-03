@@ -1,12 +1,14 @@
 <template>
   <div
     class="packages-yulang-loading-container"
-    :style="{
-      '--container-height--': height,
-      '--container-width--': width,
-    }"
   >
-    yulang-loading...
+    <div class="loading">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
 </template>
 

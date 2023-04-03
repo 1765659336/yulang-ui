@@ -111,10 +111,8 @@ export default {
           this.isShow = !this.isShow;
         }, 300);
       }
-      console.log(this, "YulangDe");
     },
     copySuccess() {
-      // console.log("info", "复制成功值为:" + value);
       this.$yulangNotification({
         message: "复制成功",
         type: "success",

@@ -672,7 +672,9 @@ const routes = [
             path: "yulang-layout",
             name: "yulang-layout",
             component: () =>
-              import("@/views/root/packages-demo/yulang-layout/YulangLayout.vue"),
+              import(
+                "@/views/root/packages-demo/yulang-layout/YulangLayout.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
@@ -683,11 +685,39 @@ const routes = [
             path: "yulang-date-picker",
             name: "yulang-date-picker",
             component: () =>
-              import("@/views/root/packages-demo/yulang-date-picker/YulangDatePicker.vue"),
+              import(
+                "@/views/root/packages-demo/yulang-date-picker/YulangDatePicker.vue"
+              ),
             meta: {
               keepAlive: true,
               isAuth: true,
               title: "日期选择器 YulangDatePicker",
+            },
+          },
+          {
+            path: "yulang-cascader",
+            name: "yulang-cascader",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-cascader/YulangCascader.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "级联选择器 YulangCascader",
+            },
+          },
+          {
+            path: "yulang-progress",
+            name: "yulang-progress",
+            component: () =>
+              import(
+                "@/views/root/packages-demo/yulang-progress/YulangProgress.vue"
+              ),
+            meta: {
+              keepAlive: true,
+              isAuth: true,
+              title: "进度条 YulangProgress",
             },
           },
         ],

@@ -89,7 +89,7 @@ export default {
     trigger: {
       type: String,
       default: () => {
-        return "manual";
+        return "click";
       },
       validator(value) {
         return ["click", "hover", "focus", "manual"].find(
@@ -105,6 +105,17 @@ export default {
         return positionArr.find((item) => item === value);
       },
     },
+    closeBeforeFn: {
+      type: Function,
+    },
+    closeAfterFn: {
+      type: Function,
+    },
+    closeBeforeValidator: {},
+    openAfterFn: {
+      type: Function,
+    },
+    openBeforeValidator: {},
   },
   data() {
     return {
@@ -126,14 +137,59 @@ export default {
     },
     // 关闭
     closeShow() {
-      this.isShow = false;
+      const fn = () => {
+        this.closeBeforeFn && this.closeBeforeFn();
+        this.isShow = false;
+        this.closeAfterFn && this.closeAfterFn();
+      };
+      if (this.closeBeforeValidator) {
+        if (this.closeBeforeValidator instanceof Promise) {
+          this.closeBeforeValidator
+            .then(() => {
+              fn();
+            })
+            .catch();
+        }
+        if (
+          typeof this.closeBeforeValidator === "function" &&
+          this.closeBeforeValidator()
+        ) {
+          fn();
+        }
+      } else {
+        fn();
+      }
+    },
+    // 打开
+    openShow() {
+      const fn = () => {
+        this.isShow = true;
+        this.openAfterFn && this.openAfterFn();
+      };
+      if (this.openBeforeValidator) {
+        if (this.openBeforeValidator instanceof Promise) {
+          this.openBeforeValidator
+            .then(() => {
+              fn();
+            })
+            .catch();
+        }
+        if (
+          typeof this.openBeforeValidator === "function" &&
+          this.openBeforeValidator()
+        ) {
+          fn();
+        }
+      } else {
+        fn();
+      }
     },
     showChange(e, type) {
       if (type) {
         if (type === "down") {
-          this.isShow = true;
+          this.openShow();
         } else {
-          this.isShow = false;
+          this.closeShow();
         }
       } else {
         if (this.trigger === "hover" && this.isShow) {
@@ -148,14 +204,20 @@ export default {
           this.isShow = !this.isShow;
         }
       }
-      if (this.isShow) {
-        this.$nextTick(() => {
-          this.getPositionFn();
-          if (this.trigger === "hover" && this.isFirst) {
-            this.isFirst = false;
-            this.addEventListener();
-          }
-        });
+      // 显示之前添加钩子
+      if (this.$listeners.isShowBefore && !this.$listeners.isShowBefore()) {
+        // 表示打开之前的钩子函数返回false，不让打开
+        this.closeShow();
+      } else {
+        if (this.isShow) {
+          this.$nextTick(() => {
+            this.getPositionFn();
+            if (this.trigger === "hover" && this.isFirst) {
+              this.isFirst = false;
+              this.addEventListener();
+            }
+          });
+        }
       }
     },
     getPositionFn() {
@@ -180,7 +242,7 @@ export default {
       });
       this.$refs.yulangPopoverContentRef.addEventListener("mouseleave", () => {
         this.time2 = setTimeout(() => {
-          this.isShow = false;
+          this.closeShow();
           this.isFirst = true;
         }, 100);
       });

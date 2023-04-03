@@ -22,10 +22,10 @@ export default {
     RenderDom: {
       props: ["to", "vNode", "index", "separator", "separatorClass"],
       render(createElement) {
-        if (this.index) {
+        if (this.separator) {
           if (this.separatorClass) {
             const icon = createElement("i", {
-              class: "iconfont icon-chevron-right",
+              class: `iconfont ${this.separatorClass}`,
             });
             return createElement("span", [icon, this.vNode]);
           } else {

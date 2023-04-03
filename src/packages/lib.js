@@ -554,3 +554,19 @@ export const isRealNum = function (val) {
   }
   return !isNaN(val);
 };
+
+// 比较两个数组是否相同
+export const equar = (a, b) => {
+  // 判断数组的长度
+  if (a.length !== b.length) {
+    return false;
+  } else {
+    // 循环遍历数组的值进行比较
+    for (let i = 0; i < a.length; i++) {
+      if (a[i] !== b[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+};

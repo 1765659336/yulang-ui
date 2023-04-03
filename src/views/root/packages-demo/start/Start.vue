@@ -5,12 +5,12 @@
       Element，或是根据需要仅引入部分组件。我们先介绍如何引入完整的 Element。
     </template>
     <template #c>
-      <yulang-describe-frame :codeStr="codeStrC" :defaultShow="true">
+      <yulang-describe-frame :codeStr="codeStrC">
         在 main.js 中写入以下内容：需要注意的是，样式文件需要单独引入。
       </yulang-describe-frame>
     </template>
     <!-- <template #d>
-      <yulang-describe-frame codeStr="" :defaultShow="true">
+      <yulang-describe-frame codeStr="">
         工程化还未接触，不会
       </yulang-describe-frame>
     </template> -->

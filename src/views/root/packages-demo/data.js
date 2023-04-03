@@ -36,8 +36,8 @@ export const unionData = [
   },
   {
     level: 3,
-    title: 'Basic',
-    path: ''
+    title: "Basic",
+    path: "",
   },
   {
     level: 2,
@@ -76,8 +76,8 @@ export const unionData = [
   },
   {
     level: 3,
-    title: 'Form',
-    path: ''
+    title: "Form",
+    path: "",
   },
   {
     level: 2,
@@ -145,9 +145,14 @@ export const unionData = [
     path: "/root/packages-demo/yulang-date-picker",
   },
   {
+    level: 2,
+    title: "Cascader 级联选择器",
+    path: "/root/packages-demo/yulang-cascader",
+  },
+  {
     level: 3,
     title: "Data",
-    path: ''
+    path: "",
   },
   {
     level: 2,
@@ -180,9 +185,14 @@ export const unionData = [
     path: "/root/packages-demo/yulang-collapse",
   },
   {
+    level: 2,
+    title: "Progress 进度条",
+    path: "/root/packages-demo/yulang-progress",
+  },
+  {
     level: 3,
-    title: 'Notice',
-    path: ''
+    title: "Notice",
+    path: "",
   },
   {
     level: 2,
@@ -211,8 +221,8 @@ export const unionData = [
   },
   {
     level: 3,
-    title: 'Navigation',
-    path: ''
+    title: "Navigation",
+    path: "",
   },
   {
     level: 2,
@@ -231,8 +241,8 @@ export const unionData = [
   },
   {
     level: 3,
-    title: 'Others',
-    path: ""
+    title: "Others",
+    path: "",
   },
   {
     level: 2,
@@ -254,11 +264,11 @@ export const unionData = [
     title: "BackTop 回到顶部",
     path: "/root/packages-demo/yulang-back-top",
   },
-  {
-    level: 2,
-    title: "SwitchCopy 开关Copy",
-    path: "/root/packages-demo/yulang-switch-copy",
-  },
+  // {
+  //   level: 2,
+  //   title: "SwitchCopy 开关Copy",
+  //   path: "/root/packages-demo/yulang-switch-copy",
+  // },
   {
     level: 2,
     title: "Leader 引导",
@@ -284,11 +294,11 @@ export const unionData = [
     title: "Drawer 抽屉",
     path: "/root/packages-demo/yulang-drawer",
   },
-  {
-    level: 2,
-    title: "YulangTablePlus 表格PLUS",
-    path: "/root/packages-demo/yulang-table-plus",
-  },
+  // {
+  //   level: 2,
+  //   title: "YulangTablePlus 表格PLUS",
+  //   path: "/root/packages-demo/yulang-table-plus",
+  // },
   {
     level: 2,
     title: "Timeline 时间线",

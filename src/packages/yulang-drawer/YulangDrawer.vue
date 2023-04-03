@@ -8,6 +8,7 @@
       class="packages-yulang-drawer-container"
       v-if="visibleComputed"
       :style="{ '--width--': width, '--height--': height }"
+      ref="drawerRef"
     >
       <!-- 遮罩层 -->
       <div class="mask-layer" @click="maskLayerClick"></div>
@@ -127,6 +128,9 @@ export default {
     transitionEnter() {
       this.$refs.content.className +=
         " yulang-animate " + directionAnimateClass[this.direction].enter;
+      this.$nextTick(() => {
+        this.$refs.drawerRef.style.zIndex = this.$yulangIndex.getIndex();
+      });
     },
   },
 };

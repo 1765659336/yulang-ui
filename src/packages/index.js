@@ -57,6 +57,8 @@ import YulangAlert from "@/packages/yulang-alert/YulangAlert.vue";
 import YulangRow from "@/packages/yulang-row/YulangRow.vue";
 import YulangCol from "@/packages/yulang-col/YulangCol.vue";
 import YulangDatePicker from "@/packages/yulang-date-picker/YulangDatePicker.vue";
+import YulangCascader from "@/packages/yulang-cascader/YulangCascader.vue";
+import YulangProgress from "@/packages/yulang-progress/YulangProgress.vue";
 
 // 引入icon
 import "../assets/icon/iconfont.css";
@@ -162,7 +164,9 @@ export const Packages = [
   YulangAlert,
   YulangRow,
   YulangCol,
-  YulangDatePicker
+  YulangDatePicker,
+  YulangCascader,
+  YulangProgress,
 ];
 
 // 工具函数
@@ -191,7 +195,7 @@ if (typeof window !== "undefined" && window.Vue) {
 } else {
   // 后面支持按需加载时，用户可能不会调用changeDefault来更改组件全局默认值,手动赋默认值
   window.Vue && (window.Vue.prototype.$yulangIndex = new Index(3000));
-  window.Vue && (window.Vue.prototype.yulangComponentSize = 'medium')
+  window.Vue && (window.prototype.yulangComponentSize = "medium");
 }
 
 export const changeDefault = function (Vue, option) {

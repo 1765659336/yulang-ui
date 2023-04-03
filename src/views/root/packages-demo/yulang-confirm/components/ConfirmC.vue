@@ -8,7 +8,7 @@
     @cancel="cancel"
     @confirm="confirm"
   >
-    <el-button slot="reference">删除</el-button>
+    <yulang-button slot="reference">删除</yulang-button>
   </yulang-confirm>
 </template>
 

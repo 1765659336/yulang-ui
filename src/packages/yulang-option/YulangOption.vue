@@ -1,6 +1,17 @@
 <template>
-  <div class="packages-yulang-option-container" @click="optionClick">
-    {{ label }}
+  <div
+    :class="[
+      'packages-yulang-option-container',
+      disabled ? 'option-disabled' : '',
+      YulangSelect.label && YulangSelect.label.indexOf(label) != -1
+        ? 'option-selected'
+        : '',
+    ]"
+    @click="optionClick"
+  >
+    <slot>
+      {{ label }}
+    </slot>
   </div>
 </template>
 
@@ -8,16 +19,44 @@
 export default {
   name: "yulang-option",
   props: {
-    // key: {},
-    label: {},
+    label: {
+      default: "",
+    },
     value: {},
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
-  inject: ["YulangSelect", "closePopover"],
+  inject: ["YulangSelect", "closePopover", "multiple"],
+  data() {
+    return {
+      yulangComponentName: "yulang-option",
+    };
+  },
   methods: {
     optionClick() {
-      this.YulangSelect.valueComputed = this.value;
-      this.YulangSelect.label = this.label;
-      this.closePopover();
+      if (this.disabled) {
+        return;
+      }
+      if (this.multiple) {
+        if (!this.YulangSelect.valueComputed) {
+          this.YulangSelect.valueComputed = [];
+        }
+        if (
+          !this.YulangSelect.valueComputed.find((item) => item === this.value)
+        ) {
+          this.YulangSelect.valueComputed = [
+            ...this.YulangSelect.valueComputed,
+            this.value,
+          ];
+          this.YulangSelect.label = this.YulangSelect.label + this.label + ";";
+        }
+      } else {
+        this.YulangSelect.label = this.label;
+        this.YulangSelect.valueComputed = this.value;
+        this.closePopover();
+      }
     },
   },
 };
@@ -30,5 +69,17 @@ export default {
   &:hover {
     color: var(--yulang-theme-color--);
   }
+}
+
+.option-disabled {
+  cursor: not-allowed;
+  color: #ccc;
+  &:hover {
+    color: #ccc;
+  }
+}
+
+.option-selected {
+  color: var(--yulang-theme-color--);
 }
 </style>

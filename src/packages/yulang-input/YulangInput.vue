@@ -18,6 +18,7 @@
         @input="valueComputedInput"
         @blur="valueComputedBlur"
         @click="valueComputedClick"
+        :readonly="readonly"
       />
       <div class="suffix-icon-container">
         <i

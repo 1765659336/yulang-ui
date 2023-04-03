@@ -33,7 +33,7 @@ export const styleObj = {
     // input动态class类名
     inputClassComputed() {
       return {
-        " package-yulang-input": true,
+        "package-yulang-input": true,
         "input-disabled": this.disabled,
       };
     },

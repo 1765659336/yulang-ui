@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-yulangLoading="loadingValue" class="app-container">
     <keep-alive>
       <!-- 需要缓存的视图组件 -->
       <router-view v-if="$route.meta.keepAlive"></router-view>
@@ -9,6 +9,24 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      loadingValue: true,
+    };
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.loadingValue = false;
+    });
+  },
+};
+</script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.app-container {
+  width: 100%;
+  height: 100%;
+}
+</style>
