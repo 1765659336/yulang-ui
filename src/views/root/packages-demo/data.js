@@ -294,11 +294,6 @@ export const unionData = [
     title: "Drawer 抽屉",
     path: "/root/packages-demo/yulang-drawer",
   },
-  // {
-  //   level: 2,
-  //   title: "YulangTablePlus 表格PLUS",
-  //   path: "/root/packages-demo/yulang-table-plus",
-  // },
   {
     level: 2,
     title: "Timeline 时间线",
