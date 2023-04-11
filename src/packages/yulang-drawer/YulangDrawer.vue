@@ -100,6 +100,15 @@ export default {
       },
     },
   },
+  // watch: {
+  //   visibleComputed(val) {
+  //     if (val) {
+  //       document.body.appendChild(this.$el);
+  //     } else {
+  //       document.body.removeChild(this.$el);
+  //     }
+  //   },
+  // },
   methods: {
     isFalse,
     changeVisible() {

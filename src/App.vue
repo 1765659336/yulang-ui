@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       loadingValue: true,
+      treeSelectValue: null,
     };
   },
   mounted() {
@@ -28,5 +29,6 @@ export default {
 .app-container {
   width: 100%;
   height: 100%;
+  overflow: auto;
 }
 </style>

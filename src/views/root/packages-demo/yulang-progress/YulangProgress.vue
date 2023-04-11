@@ -29,8 +29,7 @@
     </template>
     <template #e>
       Progress 组件可通过 type
-      属性来指定使用环形进度条，在环形进度条中，还可以通过 width
-      属性来设置其大小。
+      属性来指定使用环形进度条。
       <yulang-describe-frame :codeStr="codeStrE">
         <progress-e></progress-e>
       </yulang-describe-frame>

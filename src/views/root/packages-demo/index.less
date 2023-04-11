@@ -1,22 +1,30 @@
 .yulang-packages-union {
   display: flex;
 
-  .component-menu {
-    position: sticky;
-    top: 0;
+  .union-menu {
     display: flex;
     flex-direction: column;
+
+    // scrollbar-width: none;
+    /* Firefox */
+    // -ms-overflow-style: none;
+    // /* IE 10+ */
+    // &::-webkit-scrollbar {
+    //   display: none;
+    //   /* Chrome Safari */
+    // }
+  }
+
+  .component-menu {
     width: 15em;
     min-width: 15em;
-    height: calc(100vh - 5em - 4em - 1px);
-    overflow-y: scroll;
-    padding-top: 4em;
+    top: 0;
+    height: calc(100vh - 5rem);
+    overflow-y: auto;
+  }
 
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE 10+ */
-      &::-webkit-scrollbar {
-        display: none; /* Chrome Safari */
-      }
+  .component-menu-mobile {
+    display: none;
   }
 
   .component-content {
@@ -25,15 +33,13 @@
     padding-left: 1em;
 
     &::-webkit-scrollbar-thumb {
-      background-color: var(
-        --yulang-border-color--
-      ); /* color of the scroll thumb */
+      background-color: var(--yulang-border-color--);
+      /* color of the scroll thumb */
     }
 
     ::-webkit-scrollbar-thumb {
-      background-color: var(
-        --yulang-border-color--
-      ); /* color of the scroll thumb */
+      background-color: var(--yulang-border-color--);
+      /* color of the scroll thumb */
     }
   }
 
@@ -63,5 +69,24 @@
 
   .menu-title-actived {
     color: var(--yulang-font-color--);
+  }
+}
+
+
+@media screen and (max-width:768px) {
+  .yulang-packages-union>.component-menu {
+    display: none;
+  }
+
+  .yulang-packages-union>.component-menu-mobile {
+    display: block;
+
+    :deep(.yulang-drawer-content-container-left) {
+      overflow-y: auto;
+    }
+  }
+
+  .yulang-packages-union>.component-content {
+    width: 100%;
   }
 }

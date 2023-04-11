@@ -2,7 +2,7 @@
   <yulang-anchor-point :slotArr="slotArr">
     <template #b>
       你可以引入整个
-      Element，或是根据需要仅引入部分组件。我们先介绍如何引入完整的 Element。
+      YulangUI，或是根据需要仅引入部分组件。我们先介绍如何引入完整的 YulangUI。
     </template>
     <template #c>
       <yulang-describe-frame :codeStr="codeStrC">

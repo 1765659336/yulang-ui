@@ -10,7 +10,7 @@
       </yulang-describe-frame>
     </template>
     <template #c>
-      <yulang-describe-frame :codeStr="codeStrB">
+      <yulang-describe-frame :codeStr="codeStrC">
         <popover-c></popover-c>
       </yulang-describe-frame>
     </template>

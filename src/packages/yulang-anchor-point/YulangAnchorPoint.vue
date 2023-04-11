@@ -57,10 +57,10 @@
 
 <script>
 export default {
-  name: 'yulang-anchor-point',
+  name: "yulang-anchor-point",
   model: {
-    prop: 'slotArr',
-    event: 'slotArr',
+    prop: "slotArr",
+    event: "slotArr",
   },
   props: {
     slotArr: {
@@ -78,13 +78,13 @@ export default {
       level2Index: 0,
       fontSizeLevel: {
         1: {
-          fontsize: '2rem',
+          fontsize: "2rem",
         },
         2: {
-          fontsize: '1.5rem',
+          fontsize: "1.5rem",
         },
         3: {
-          fontsize: '1rem',
+          fontsize: "1rem",
         },
       },
       isShowFade: true,
@@ -96,24 +96,24 @@ export default {
         return this.slotArr;
       },
       set(newValue) {
-        this.$emit('slotArr', newValue);
+        this.$emit("slotArr", newValue);
       },
     },
     computedShowfade() {
       return [
-        this.isShowFade ? 'yulang-fade-in-right' : 'yulang-fade-out-right',
+        this.isShowFade ? "yulang-fade-in-right" : "yulang-fade-out-right",
       ];
     },
   },
   methods: {
     jumpAnchor(item) {
-      document.querySelector('#' + item.slotName).scrollIntoView();
+      document.querySelector("#" + item.slotName).scrollIntoView();
     },
     packagesMainFormAnchorPointClickItemTitle(index) {
       return {
-        'packages-main-form-anchor-point-click-item-level1':
+        "packages-main-form-anchor-point-click-item-level1":
           this.slotArrComputed[index].level === 1,
-        'packages-main-form-anchor-point-click-item-level2':
+        "packages-main-form-anchor-point-click-item-level2":
           this.slotArrComputed[index].level === 2,
       };
     },
@@ -124,23 +124,29 @@ export default {
     },
   },
   mounted() {
-    this.$nextTick(function () {
-      this.containerOffsetTop = this.$refs.container.offsetTop;
-      // 如果内容区域超过屏幕区域，拿屏幕高减去上方高度
-      if (
-        this.$refs.container.parentNode.offsetHeight >
-        document.body.clientHeight - this.containerOffsetTop
-      ) {
-        this.containerHeight =
-          document.body.clientHeight - this.containerOffsetTop;
-      } else {
-        this.containerHeight = this.$refs.container.parentNode.offsetHeight;
-      }
-    });
+    // this.$nextTick(function () {
+    //   this.containerOffsetTop = this.$refs.container.offsetTop;
+    //   console.log(
+    //     document.body.clientHeight,
+    //     this.containerOffsetTop,
+    //     "妈的高度"
+    //   );
+    //   // 如果内容区域超过屏幕区域，拿屏幕高减去上方高度
+    //   if (
+    //     this.$refs.container.parentNode.offsetHeight >
+    //     document.body.clientHeight - this.containerOffsetTop
+    //   ) {
+    //     this.containerHeight =
+    //       document.body.clientHeight - this.containerOffsetTop;
+    //   } else {
+    //     this.containerHeight =
+    //       this.$refs.container.parentNode.offsetHeight ?? "100%";
+    //   }
+    // });
   },
 };
 </script>
 
 <style lang="less" scoped>
-@import url('./index.less');
+@import url("./index.less");
 </style>

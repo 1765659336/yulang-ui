@@ -1,6 +1,6 @@
 <template>
   <div class="packages-yulang-dropdown-container">
-    <yulang-popover :trigger="trigger" ref="popoverRef">
+    <yulang-popover :trigger="trigger" ref="popoverRef" :placement="placement">
       <template #reference>
         <slot></slot>
       </template>
@@ -13,6 +13,7 @@
 
 <script>
 import YulangPopover from "@/packages/yulang-popover/YulangPopover.vue";
+import { positionArr } from "@/packages/constant";
 
 export default {
   name: "yulang-dropdown",
@@ -33,6 +34,14 @@ export default {
         return ["click", "hover", "focus", "manual"].find(
           (item) => item === value
         );
+      },
+    },
+    // 弹出框默认弹出的位置
+    placement: {
+      type: String,
+      default: "bottom",
+      validator(value) {
+        return positionArr.find((item) => item === value);
       },
     },
   },

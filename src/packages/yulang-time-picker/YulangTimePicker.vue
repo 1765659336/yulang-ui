@@ -8,7 +8,6 @@
           prefixIcon="icon-shijian"
           :clearable="clearable"
           :disabled="disabled"
-          @click="inputClick"
         ></yulang-input>
       </template>
       <template #content>
@@ -174,9 +173,6 @@ export default {
         return item;
       });
       this.closeModal();
-    },
-    inputClick() {
-      this.$refs.popover.showChange();
     },
   },
 };

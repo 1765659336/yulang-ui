@@ -12,3 +12,30 @@
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+
+// popover弹出框动态添加在body中，所以样式需要全局引入
+.yulang-popover-position {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  overflow-y: auto;
+  display: inline-block;
+
+  .yulang-popover-content {
+    width: var(--yulang-popover-reference-width--);
+    min-height: var(--yulang-popover-position-min-height--);
+    max-height: var(--yulang-popover-position-max-height--);
+  }
+
+  .yulang-popover-triangle {
+    position: absolute;
+    border-style: solid;
+    border-width: 10px 10px 10px 10px;
+    border-color: transparent transparent #ccc transparent;
+    width: 0px;
+    height: 0px;
+    transform: translate(-50%, -20px);
+    left: 50%;
+  }
+}

@@ -4,7 +4,7 @@
       trigger="click"
       :minWidth="250"
       ref="popoverRef"
-      @isShowBefore="isShowBefore"
+      :openBeforeValidator="isShowBefore"
     >
       <template #reference>
         <yulang-input

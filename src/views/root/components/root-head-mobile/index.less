@@ -1,0 +1,32 @@
+.yulang-head-mobile-container {
+    height: 3rem;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    background-color: white;
+    box-shadow: 0px -1px 5px #ccc;
+
+    .yulang-head-menu-mobile-items {
+        display: flex;
+        justify-content: space-between;
+
+        .yulang-head-menu-mobile-item {
+            flex: 1;
+            border-right: 1px solid #ccc;
+            text-align: center;
+            line-height: 3rem;
+            font-size: .8rem;
+            font-weight: 600;
+            cursor: pointer;
+
+            &:hover {
+                color: var(--yulang-theme-color--);
+            }
+        }
+
+        .theme-icon-color {
+            color: var(--yulang-theme-color--);
+        }
+    }
+}

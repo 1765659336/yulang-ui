@@ -2,11 +2,11 @@
   <div>
     <yulang-anchor-point v-model="slotArr">
       <template #a></template>
-      
+
       <template #b>
         <yulang-describe-frame :codeStr="codeStr">
           <div class="button-row">
-            <yulang-button>默认按钮</yulang-button>
+            <yulang-button @click="btn">默认按钮</yulang-button>
             <yulang-button type="success">成功按钮</yulang-button>
             <yulang-button type="error">失败按钮</yulang-button>
           </div>
@@ -46,24 +46,29 @@
 </template>
 
 <script>
-import { codeStr,tableDataAttributes } from './data.js';
+import { codeStr, tableDataAttributes } from "./data.js";
 export default {
-  name: 'packages-demo-yulang-button',
+  name: "packages-demo-yulang-button",
   data() {
     return {
       codeStr,
       slotArr: [
-        { slotName: 'a', slotTitle: 'Button 按钮', level: 1 },
-        { slotName: 'b', slotTitle: '基本用法', level: 2 },
-        { slotName: 'u', slotTitle: '阅读文档', level: 1 },
-        { slotName: 'v', slotTitle: '属性', level: 2 },
+        { slotName: "a", slotTitle: "Button 按钮", level: 1 },
+        { slotName: "b", slotTitle: "基本用法", level: 2 },
+        { slotName: "u", slotTitle: "阅读文档", level: 1 },
+        { slotName: "v", slotTitle: "属性", level: 2 },
       ],
-      tableDataAttributes
+      tableDataAttributes,
     };
   },
   methods: {
     btn() {
-      console.log('object');
+      this.$yulangMessage({
+        message: "点击事件",
+        type: "success",
+        close,
+        delay: 1500,
+      });
     },
   },
 };

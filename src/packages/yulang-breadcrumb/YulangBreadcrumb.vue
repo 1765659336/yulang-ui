@@ -27,9 +27,15 @@ export default {
             const icon = createElement("i", {
               class: `iconfont ${this.separatorClass}`,
             });
-            return createElement("span", [icon, this.vNode]);
+            return createElement("span", [
+              this.index === 0 ? "" : icon,
+              this.vNode,
+            ]);
           } else {
-            return createElement("span", [this.separator, this.vNode]);
+            return createElement("span", [
+              this.index === 0 ? "" : this.separator,
+              this.vNode,
+            ]);
           }
         } else {
           return createElement("span", [this.vNode]);

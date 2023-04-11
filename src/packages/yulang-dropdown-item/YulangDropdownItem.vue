@@ -43,6 +43,7 @@ export default {
   padding: 1rem;
   text-align: center;
   background-color: white;
+  white-space: nowrap;
 }
 
 .is-disabled {

@@ -2,7 +2,7 @@
   <div class="home-container">
     <h1>网站快速成型工具</h1>
     <h3>YulangUI,在公司实习的学习练手项目,基于vue2的组件库</h3>
-    <img src="@/assets/images/home.png" alt="" />
+    <img src="@/assets/images/home.png" alt="" class="home-img"/>
     <div class="card-container">
       <div
         v-for="(item, index) in cardArr"
@@ -61,68 +61,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.home-container {
-  display: flex;
-  flex-direction: column;
-
-  & > h3,
-  h1 {
-    width: 100%;
-    text-align: center;
-  }
-
-  .card-container {
-    display: flex;
-    justify-content: space-between;
-    .card-container-item {
-      border: 1px solid #eaeefb;
-      border-radius: 5px;
-      width: 250px;
-      font-size: 14px;
-      background-color: white;
-
-      .others {
-        height: 300px;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        .image {
-          margin: 50px;
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
-          border: 1px solid #99a9bf;
-        }
-        .title {
-          position: absolute;
-          bottom: 80px;
-          text-align: center;
-          font-size: 18px;
-        }
-        .content {
-          position: absolute;
-          bottom: 0;
-          padding: 20px;
-          color: #99a9bf;
-        }
-      }
-
-      .details {
-        text-align: center;
-        padding: 15px;
-        border-top: 1px solid #99a9bf;
-        color: var(--yulang-theme-color--);
-        height: 20px;
-        cursor: pointer;
-        border-radius: 0 0 5px 5px;
-
-        &:hover {
-          background-color: rgb(64, 158, 255);
-        }
-      }
-    }
-  }
-}
+@import url("./index.less");
 </style>

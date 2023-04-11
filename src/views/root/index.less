@@ -1,9 +1,12 @@
 .container {
-  min-width: 20em;
-  width: 70em;
-  height: 100vh;
+  min-width: 51rem;
+  max-width: 70rem;
+  min-height: 100vh;
   margin: auto;
-  overflow:hidden;
+
+  .root-head-mobile-div {
+    display: none;
+  }
 
   .back-top-radiu {
     height: 50px;
@@ -22,5 +25,24 @@
       border-right: 10px solid white;
       border-bottom: 20px solid var(--yulang-theme-color--);
     }
+  }
+}
+
+@media screen and (max-width:768px) {
+  .container {
+    width: 100%;
+  }
+
+  .root-content-view {
+    height: calc(100vh - 3em);
+    overflow-y: auto;
+  }
+
+  .container>.root-head-mobile-div {
+    display: block;
+  }
+
+  .container>.root-head-div {
+    display: none;
   }
 }

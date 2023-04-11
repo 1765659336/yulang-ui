@@ -44,10 +44,10 @@
 </template>
 
 <script>
-import { article, codeStr, tableDataAttributes } from './data.js';
+import { article, codeStr, tableDataAttributes } from "./data.js";
 
 export default {
-  name: 'packages-yulang-back-top',
+  name: "packages-yulang-back-top",
   data() {
     return {
       article,
@@ -60,7 +60,6 @@ export default {
 
 <style lang="less" scoped>
 .container {
-  height: 1000px;
-  // color: red;
+  height: 1000px !important;
 }
 </style>

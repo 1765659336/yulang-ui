@@ -35,18 +35,24 @@
       </yulang-describe-frame>
     </template>
     <template #f>
-      包含标题和内容，解释更详细的警告。
+      表示某种状态时提升可读性。
       <yulang-describe-frame :codeStr="codeStrF">
         <alert-f></alert-f>
+      </yulang-describe-frame>
+    </template>
+    <template #g>
+      包含标题和内容，解释更详细的警告。
+      <yulang-describe-frame :codeStr="codeStrG">
+        <alert-g></alert-g>
         <template #tip>
           除了必填的title属性外，你可以设置description属性来帮助你更好地介绍，我们称之为辅助性文字。
           辅助性文字只能存放单行文本，会自动换行显示。
         </template>
       </yulang-describe-frame>
     </template>
-    <template #g>
-      <yulang-describe-frame :codeStr="codeStrG">
-        <alert-g></alert-g>
+    <template #h>
+      <yulang-describe-frame :codeStr="codeStrH">
+        <alert-h></alert-h>
         <template #tip>
           最后，这是一个同时具有 icon 和辅助性文字的样例。
         </template>
@@ -62,6 +68,7 @@ import AlertD from "./components/AlertD.vue";
 import AlertE from "./components/AlertE.vue";
 import AlertF from "./components/AlertF.vue";
 import AlertG from "./components/AlertG.vue";
+import AlertH from "./components/AlertH.vue";
 
 import {
   codeStrB,
@@ -70,6 +77,7 @@ import {
   codeStrE,
   codeStrF,
   codeStrG,
+  codeStrH,
 } from "./data";
 
 export default {
@@ -80,6 +88,7 @@ export default {
     AlertE,
     AlertF,
     AlertG,
+    AlertH,
   },
   data() {
     return {
@@ -89,14 +98,16 @@ export default {
       codeStrE,
       codeStrF,
       codeStrG,
+      codeStrH,
       slotArr: [
         { slotName: "a", slotTitle: "Alert 警告", level: 1 },
         { slotName: "b", slotTitle: "基本用法", level: 2 },
         { slotName: "c", slotTitle: "主题", level: 2 },
         { slotName: "d", slotTitle: "自定义关闭按钮", level: 2 },
         { slotName: "e", slotTitle: "带有 icon", level: 2 },
-        { slotName: "f", slotTitle: "带有辅助性文字介绍", level: 2 },
-        { slotName: "g", slotTitle: "带有 icon 和辅助性文字介绍", level: 2 },
+        { slotName: "f", slotTitle: "不可关闭", level: 2 },
+        { slotName: "g", slotTitle: "带有辅助性文字介绍", level: 2 },
+        { slotName: "h", slotTitle: "带有 icon 和辅助性文字介绍", level: 2 },
       ],
     };
   },

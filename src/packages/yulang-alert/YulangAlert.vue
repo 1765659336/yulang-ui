@@ -13,7 +13,7 @@
         <div class="yulang-alert-content-content-container">
           <div class="packages-yulang-alert-title-container">
             <div>{{ title }}</div>
-            <div class="close-container" @click="close">
+            <div class="close-container" @click="close" v-if="closable">
               <div v-if="closeText">{{ closeText }}</div>
               <i v-else class="iconfont icon-guanbi"></i>
             </div>
@@ -53,7 +53,7 @@ export default {
     // 是否可关闭
     closable: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     // 是否展示icon
     showIcon: {

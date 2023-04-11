@@ -59,19 +59,23 @@ import YulangCol from "@/packages/yulang-col/YulangCol.vue";
 import YulangDatePicker from "@/packages/yulang-date-picker/YulangDatePicker.vue";
 import YulangCascader from "@/packages/yulang-cascader/YulangCascader.vue";
 import YulangProgress from "@/packages/yulang-progress/YulangProgress.vue";
+import YulangBadge from "@/packages/yulang-badge/YulangBadge.vue";
+import YulangAvatar from "@/packages/yulang-avatar/YulangAvatar.vue";
 
 // 引入icon
-import "../assets/icon/iconfont.css";
+import "@/assets/icon/iconfont.css";
 // 阿里图标初始化样式文件
-import "../assets/icon/reset.css";
+import "@/assets/icon/reset.css";
 // 引入动画样式文件
-import "../assets/style/animate.css";
+import "@/assets/style/animate.css";
 // 引入全局css变量
 import "@/assets/style/variable.less";
 // 引入全局class样式类
 import "@/assets/style/public.less";
 // 引入消息通知框的样式
 import "@/packages/yulang-notification/index.less";
+// 引入elementUI样式
+// import "element-ui/lib/theme-chalk/index.css";
 
 // 自定义指令
 import YulangCopy from "@/instruction/copy";
@@ -167,12 +171,25 @@ export const Packages = [
   YulangDatePicker,
   YulangCascader,
   YulangProgress,
+  YulangBadge,
+  YulangAvatar,
 ];
+
+// 注册按需加载
+Packages.forEach(
+  (component) =>
+    (component.install = (Vue) => {
+      Vue.component(component.name, component);
+      Vue.prototype.$yulangIndex = new Index(3000);
+      Vue.prototype.yulangComponentSize = "medium";
+    })
+);
 
 // 工具函数
 import * as Lib from "@/packages/lib";
 import Index from "@/tools/getIndex";
 
+// 把所有的组件注册成全局组件
 const install = function (Vue, option) {
   console.log(option, "全局引入option");
 
@@ -187,16 +204,10 @@ const install = function (Vue, option) {
   CreateNode.forEach((createNodeObj) => {
     Vue.prototype[createNodeObj.name] = createNodeObj.value;
   });
-};
 
-// 判断是否直接引入的YulangUI组件库，如果是，那么就把所有的组件注册成全局组件
-if (typeof window !== "undefined" && window.Vue) {
-  install(window.Vue);
-} else {
-  // 后面支持按需加载时，用户可能不会调用changeDefault来更改组件全局默认值,手动赋默认值
-  window.Vue && (window.Vue.prototype.$yulangIndex = new Index(3000));
-  window.Vue && (window.prototype.yulangComponentSize = "medium");
-}
+  Vue.prototype.$yulangIndex = new Index(3000);
+  Vue.prototype.yulangComponentSize = "medium";
+};
 
 export const changeDefault = function (Vue, option) {
   // 通过外部传入参数来设置所有组件默认尺寸

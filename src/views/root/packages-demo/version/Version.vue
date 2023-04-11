@@ -1,24 +1,28 @@
 <template>
-  <div class="packages-demo-version-container">
-    <div>
-      <yulang-button @click="changeVersionArr(true)">正序</yulang-button>
-      <yulang-button @click="changeVersionArr(false)">倒序</yulang-button>
-    </div>
-    <yulang-describe-frame
-      v-for="item in versionArr"
-      class="describe-frame-container"
-      :codeStr="item.codeStr"
-      :key="item.version"
-    >
-      <div class="describe-frame-default-container">
-        <span>{{ item.version }}</span>
-        <span>{{ item.time }}</span>
+  <yulang-anchor-point :slotArr="slotArr">
+    <template #a>
+      <div class="packages-demo-version-container">
+        <div>
+          <yulang-button @click="changeVersionArr(true)">正序</yulang-button>
+          <yulang-button @click="changeVersionArr(false)">倒序</yulang-button>
+        </div>
+        <yulang-describe-frame
+          v-for="item in versionArr"
+          class="describe-frame-container"
+          :codeStr="item.codeStr"
+          :key="item.version"
+        >
+          <div class="describe-frame-default-container">
+            <span>{{ item.version }}</span>
+            <span>{{ item.time }}</span>
+          </div>
+          <template #trigger="{ isShow }">
+            {{ isShow ? "收起" : "查看版本更新内容" }}</template
+          >
+        </yulang-describe-frame>
       </div>
-      <template #trigger="{ isShow }">
-        {{ isShow ? "收起" : "查看版本更新内容" }}</template
-      >
-    </yulang-describe-frame>
-  </div>
+    </template>
+  </yulang-anchor-point>
 </template>
 
 <script>
@@ -30,6 +34,7 @@ export default {
   },
   data() {
     return {
+      slotArr: [{ slotName: "a", slotTitle: "版本号", level: 1 }],
       versionArr: [
         {
           codeStr: "组件开发中",

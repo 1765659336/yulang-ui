@@ -3,7 +3,7 @@
     <div class="canvasBroad">
       <canvas
         id="myCanvas"
-        width="1300px"
+        width="500px"
         height="580px"
         class="canvas"
         @mousedown="drawLineMousedown($event)"
@@ -15,7 +15,7 @@
 
       <canvas
         id="myCanvas2"
-        width="1300px"
+        width="580px"
         height="580px"
         class="canvas2"
         @mousedown="drawLineMousedown($event)"

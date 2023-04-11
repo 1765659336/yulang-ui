@@ -190,6 +190,16 @@ export const unionData = [
     path: "/root/packages-demo/yulang-progress",
   },
   {
+    level: 2,
+    title: "Badge 标记",
+    path: "/root/packages-demo/yulang-badge",
+  },
+  {
+    level: 2,
+    title: "Avatar 头像",
+    path: "/root/packages-demo/yulang-avatar",
+  },
+  {
     level: 3,
     title: "Notice",
     path: "",
@@ -249,11 +259,11 @@ export const unionData = [
     title: "Signaure 签名板",
     path: "/root/packages-demo/yulang-signaure",
   },
-  {
-    level: 2,
-    title: "canvas 画布",
-    path: "/root/packages-demo/yulang-canvas",
-  },
+  // {
+  //   level: 2,
+  //   title: "canvas 画布",
+  //   path: "/root/packages-demo/yulang-canvas",
+  // },
   {
     level: 2,
     title: "Dialog 对话框",

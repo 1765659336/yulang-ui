@@ -1,28 +1,32 @@
 <template>
-  <div class="packages-demo-time-container">
-    <yulang-radio-group v-model="reverse" class="radio-group-container">
-      <yulang-radio :label="true">倒序</yulang-radio>
-      <yulang-radio :label="false">正序</yulang-radio>
-    </yulang-radio-group>
-    <yulang-timeline :reverse="reverse">
-      <yulang-timeline-item
-        v-for="(item, index) in activities"
-        :key="index"
-        :time="item.time"
-        :content="item.content"
-      >
-        <template #icon>
-          <i class="iconfont icon-shijian"></i>
-        </template>
-        <template #time="{ time }">
-          <div class="timeline-time-container">{{ time }}</div>
-        </template>
-        <template #content="{ content }">
-          <div class="timeline-content-container">{{ content }}</div>
-        </template>
-      </yulang-timeline-item>
-    </yulang-timeline>
-  </div>
+  <yulang-anchor-point :slotArr="slotArr">
+    <template #a>
+      <div class="packages-demo-time-container">
+        <yulang-radio-group v-model="reverse" class="radio-group-container">
+          <yulang-radio :label="true">倒序</yulang-radio>
+          <yulang-radio :label="false">正序</yulang-radio>
+        </yulang-radio-group>
+        <yulang-timeline :reverse="reverse">
+          <yulang-timeline-item
+            v-for="(item, index) in activities"
+            :key="index"
+            :time="item.time"
+            :content="item.content"
+          >
+            <template #icon>
+              <i class="iconfont icon-shijian"></i>
+            </template>
+            <template #time="{ time }">
+              <div class="timeline-time-container">{{ time }}</div>
+            </template>
+            <template #content="{ content }">
+              <div class="timeline-content-container">{{ content }}</div>
+            </template>
+          </yulang-timeline-item>
+        </yulang-timeline>
+      </div>
+    </template>
+  </yulang-anchor-point>
 </template>
 
 <script>
@@ -31,6 +35,7 @@ export default {
   data() {
     return {
       reverse: true,
+      slotArr: [{ slotName: "a", slotTitle: "时间线", level: 1 }],
       activities: [
         {
           content: "搭建仓库架子，新增开关组件",
@@ -131,6 +136,22 @@ export default {
         {
           content: "新增日期选择器组件",
           time: "2023-03-18",
+        },
+        {
+          content: "新增级联选择器组件",
+          time: "2023-04-01",
+        },
+        {
+          content: "新增进度条组件",
+          time: "2023-04-02",
+        },
+        {
+          content: "新增标记组件",
+          time: "2023-04-03",
+        },
+        {
+          content: "新增头像组件",
+          time: "2023-04-04",
         },
       ],
     };

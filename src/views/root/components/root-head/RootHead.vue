@@ -21,70 +21,100 @@
     </div>
     <yulang-switch
       id="switchTheme"
-      v-model="theme"
+      v-model="themeComputed"
       inactiveText="绿"
       activeText="蓝"
       inactiveColor="#2FFF00"
       activeColor="#69DFEB"
       >切换主题</yulang-switch
     >
+    <!-- 这是引导组件 -->
+    <yulang-leader
+      :leader-list="leaderList"
+      v-if="isShowLeader"
+    ></yulang-leader>
   </div>
 </template>
 
 <script>
-import YulangSwitch from '@/packages/yulang-switch/YulangSwitch.vue';
+import YulangSwitch from "@/packages/yulang-switch/YulangSwitch.vue";
+import { btnArr } from "./data";
 export default {
-  name: 'yulang-head',
+  name: "yulang-head",
   components: {
     YulangSwitch,
   },
+  props: {
+    theme: {},
+  },
   data() {
     return {
-      theme: false,
-      btnArr: [
+      btnArr,
+      isShowLeader: false,
+      leaderList: [
         {
-          id: 'guide',
-          title: '指南',
-          path: '/root/guide',
+          // 指定id
+          target: "#guide",
+          text: "配置和使用yulangUI的一些相关事宜",
+          placement: "bottom",
         },
         {
-          id: 'packages-demo',
-          title: '组件',
-          path: '/root/packages-demo',
+          // 指定id
+          target: "#packages-demo",
+          text: "这里包含组件的使用说明演示和属性",
+          placement: "bottom",
         },
         {
-          id: 'theme',
-          title: '主题',
-          path: '/root/theme',
+          // 指定id
+          target: "#theme",
+          text: "设置组件库的全局风格配置",
+          placement: "bottom",
         },
         {
-          id: 'resources',
-          title: '资源',
-          path: '/root/resources',
+          // 指定id
+          target: "#resources",
+          text: "包含开箱即用的全局动画,自定义指令和工具函数",
+          placement: "bottom",
+        },
+        {
+          // 指定id
+          target: "#switchTheme",
+          text: "主题的选择,支持自定义主题",
+          placement: "bottom",
         },
       ],
     };
+  },
+  computed: {
+    themeComputed: {
+      get() {
+        return this.theme;
+      },
+      set(newVal) {
+        this.$emit("update:theme", newVal);
+      },
+    },
   },
   watch: {
     theme: {
       handler(val) {
         // 右边是绿色系的
-        const root = document.querySelector(':root');
+        const root = document.querySelector(":root");
         root.style.setProperty(
-          '--yulang-theme-color--',
-          val ? '#69DFEB' : '#00DF74'
+          "--yulang-theme-color--",
+          val ? "#69DFEB" : "#00DF74"
         );
         root.style.setProperty(
-          '--yulang-font-color--',
-          val ? '#69DFEB' : '#2FFF00'
+          "--yulang-font-color--",
+          val ? "#69DFEB" : "#2FFF00"
         );
         root.style.setProperty(
-          '--yulang-border-color--',
-          val ? '#87D0EC' : '#00DF74'
+          "--yulang-border-color--",
+          val ? "#87D0EC" : "#00DF74"
         );
         root.style.setProperty(
-          '--yulang-background-color--',
-          val ? '#0094A3' : '#00BB9C'
+          "--yulang-background-color--",
+          val ? "#0094A3" : "#00BB9C"
         );
       },
       immediate: true,
@@ -99,14 +129,23 @@ export default {
       // console.log(this.$route);
       return {
         // 选中样式
-        ['yulang-head-menu-item-active']:
+        ["yulang-head-menu-item-active"]:
           item.path === this.$route.matched[1].path,
       };
     },
+  },
+  mounted() {
+    // console.log(localStorage.isFirstVisit);
+    if (!localStorage.isFirstVisit) {
+      this.isShowLeader = true;
+      localStorage.isFirstVisit = true;
+    } else {
+      this.isShowLeader = false;
+    }
   },
 };
 </script>
 
 <style lang="less" scoped>
-@import url('./index.less');
+@import url("./index.less");
 </style>

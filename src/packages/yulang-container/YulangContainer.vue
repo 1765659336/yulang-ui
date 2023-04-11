@@ -1,7 +1,7 @@
 <template>
   <div
     class="packages-yulang-container-container"
-    :style="{ '--flex-direction--': flexDirection }"
+    :style="{ '--flex-wrap--': flexWarp }"
   >
     <slot></slot>
   </div>
@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       // 默认不换行也就是水平排列
-      flexDirection: "nowrap",
+      flexWarp: "nowrap",
     };
   },
   mounted() {
@@ -24,7 +24,7 @@ export default {
           (item) => item === component.yulangComponentName
         )
       ) {
-        this.flexDirection = "wrap";
+        this.flexWarp = "wrap";
       }
     });
   },
