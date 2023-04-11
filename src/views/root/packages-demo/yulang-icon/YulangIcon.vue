@@ -118,6 +118,22 @@ export default {
           name: "icon-zhuti_tiaosepan_o",
           value: '<i class="iconfont icon-zhuti_tiaosepan_o"></i>',
         },
+        {
+          name: "icon-chenggong",
+          value: '<i class="iconfont icon-chenggong"></i>',
+        },
+        {
+          name: "icon-shibai",
+          value: '<i class="iconfont icon-shibai"></i>',
+        },
+        {
+          name: "icon-tishi",
+          value: '<i class="iconfont icon-tishi"></i>',
+        },
+        {
+          name: "icon-tixing",
+          value: '<i class="iconfont icon-tixing"></i>',
+        },
       ],
     };
   },

@@ -3,9 +3,21 @@
     <div class="notification-container" v-if="isShow" :style="getIndex">
       <!-- 前面的图标范围 -->
       <div class="notification-container-icon" v-if="type">
-        <img v-if="type == 'success'" src="@/assets/images/success.svg" />
+        <i
+          v-if="type == 'success'"
+          class="iconfont icon-chenggong notification-iconfont notification-icon-chenggong"
+        ></i>
+        <i
+          v-else-if="type == 'fail'"
+          class="iconfont icon-shibai notification-iconfont notification-icon-shibai"
+        ></i>
+        <i
+          v-else
+          class="iconfont icon-tishi notification-iconfont notification-icon-tishi"
+        ></i>
+        <!-- <img v-if="type == 'success'" src="@/assets/images/success.svg" />
         <img v-else-if="type == 'fail'" src="@/assets/images/fail.svg" />
-        <img v-else src="@/assets/images/warn.svg" />
+        <img v-else src="@/assets/images/warn.svg" /> -->
       </div>
 
       <!-- 中间的内容区 -->
@@ -19,10 +31,14 @@
 
       <!-- 尾部的删除区 -->
       <div class="notification-container-tail">
-        <img
+        <!-- <img
           src="@/assets/images/delete.svg"
           @click="deleteNotificationComponent"
-        />
+        /> -->
+        <i
+          class="iconfont icon-guanbi notification-iconfont-guanbi"
+          @click="deleteNotificationComponent"
+        ></i>
       </div>
     </div>
   </transition>
@@ -40,7 +56,7 @@ export default {
    */
   data() {
     return {
-      isShow: true,
+      isShow: true
     };
   },
   computed: {
@@ -58,9 +74,9 @@ export default {
     // 在创建初设置通知框的index值
     getIndex() {
       return {
-        '--index--': this.$yulangIndex.getIndex(),
+        '--index--': this.$yulangIndex.getIndex()
       };
-    },
+    }
   },
   methods: {
     // 删除当前dom
@@ -101,7 +117,7 @@ export default {
       if (heightItem * (num - 1) < window.innerHeight * 0.6) {
         notificationParentId.style.height = null;
       }
-    },
+    }
   },
   mounted() {
     // 如果未设置参数则持久显示
@@ -121,7 +137,7 @@ export default {
         );
       });
     }
-  },
+  }
 };
 </script>
 

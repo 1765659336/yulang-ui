@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3878120 */
-  src: url('iconfont.woff2?t=1680855228029') format('woff2'),
-       url('iconfont.woff?t=1680855228029') format('woff'),
-       url('iconfont.ttf?t=1680855228029') format('truetype');
+  src: url('iconfont.woff2?t=1681181505709') format('woff2'),
+       url('iconfont.woff?t=1681181505709') format('woff'),
+       url('iconfont.ttf?t=1681181505709') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,22 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-chenggong:before {
+  content: "\e601";
+}
+
+.icon-shibai:before {
+  content: "\e604";
+}
+
+.icon-tishi:before {
+  content: "\e605";
+}
+
+.icon-tixing:before {
+  content: "\e606";
 }
 
 .icon-zhuti_tiaosepan_o:before {
