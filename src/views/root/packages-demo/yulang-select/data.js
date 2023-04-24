@@ -1,7 +1,7 @@
 export const codeStrB = `
 <template>
   <div>
-    <yulang-select v-model="value" placeholder="请选择">
+    <yulang-select v-model="value">
       <yulang-option
         v-for="item in options"
         :key="item.value"

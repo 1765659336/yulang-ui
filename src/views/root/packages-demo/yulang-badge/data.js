@@ -76,10 +76,10 @@ export default {};
 export const codeStrE = `
 <template>
   <div>
-    <el-badge is-dot class="item">数据查询</el-badge>
-    <el-badge is-dot class="item">
-      <el-button><i class="iconfont icon-daochu"></i></el-button>
-    </el-badge>
+    <yulang-badge is-dot class="item">数据查询</yulang-badge>
+    <yulang-badge is-dot class="item">
+      <yulang-button><i class="iconfont icon-daochu"></i></yulang-button>
+    </yulang-badge>
   </div>
 </template>
 
@@ -92,4 +92,5 @@ export default {};
   margin-left: 10px;
 }
 </style>
+
 `;

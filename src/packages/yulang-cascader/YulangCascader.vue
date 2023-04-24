@@ -9,7 +9,7 @@
         <yulang-input
           v-model="labelValue"
           readonly
-          placeholder="请选择"
+          :placeholder="placeholder"
           :clearable="clearable"
           @clear="inputClear"
         ></yulang-input>
@@ -49,6 +49,11 @@ export default {
     showAllLevels: {
       type: Boolean,
       default: true,
+    },
+    placeholder: {
+      default() {
+        return this.$locale.gv(["cascader", "placeholder"]);
+      },
     },
   },
   data() {

@@ -3,8 +3,8 @@ export const styleObj = {
   props: {
     // 提示文本
     placeholder: {
-      default: function () {
-        return this.$locale.gv("placeholder");
+      default() {
+        return this.$locale.gv(["input", "placeholder"]);
       },
     },
     // 是否禁用

@@ -1,3 +1,28 @@
 {
-    "placeholder": "Please Input"
+    "input": {
+        "placeholder": "Please Input"
+    },
+    "select": {
+        "placeholder": "Please Select"
+    },
+    "timePicker": {
+        "placeholder": "Please Select Time"
+    },
+    "datePicker": {
+        "placeholder": "Please Select Date"
+    },
+    "cascader": {
+        "placeholder": "Please Select Cascader"
+    },
+    "pagination": {
+        "promptText": "total"
+    },
+    "dialog": {
+        "cancelText": "cancel",
+        "sureText": "sure"
+    },
+    "confirm": {
+        "cancelButtonText": "cancel",
+        "confirmButtonText": "confirm"
+    }
 }

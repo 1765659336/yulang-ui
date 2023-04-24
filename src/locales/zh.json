@@ -1,3 +1,28 @@
 {
-    "placeholder": "请输入"
+    "input": {
+        "placeholder": "请输入"
+    },
+    "select": {
+        "placeholder": "请选择"
+    },
+    "timePicker": {
+        "placeholder": "请选择时间"
+    },
+    "datePicker": {
+        "placeholder": "请选择日期"
+    },
+    "cascader": {
+        "placeholder": "请选择数据"
+    },
+    "pagination": {
+        "promptText": "共"
+    },
+    "dialog": {
+        "cancelText": "返回",
+        "sureText": "确定"
+    },
+    "confirm": {
+        "cancelButtonText": "返回",
+        "confirmButtonText": "确定"
+    }
 }

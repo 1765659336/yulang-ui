@@ -4,7 +4,7 @@
       <template #reference>
         <yulang-input
           v-model="valueComputed"
-          placeholder="请选择日期"
+          :placeholder="placeholder"
           prefixIcon="icon-riqi1"
           clearable
         ></yulang-input>
@@ -86,6 +86,11 @@ export default {
     // 日期分隔符
     dateSeparator: {
       default: "-",
+    },
+    placeholder: {
+      default() {
+        return this.$locale.gv(["datePicker", "placeholder"]);
+      },
     },
   },
   data() {

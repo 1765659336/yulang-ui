@@ -10,7 +10,7 @@
         <yulang-input
           v-model="label"
           suffixIcon="icon-chevron-down"
-          :placeholder="placeholder ?? '请输入'"
+          :placeholder="placeholder"
           :disabled="disabled"
           :clearable="clearable"
           @blur="inputBlur"
@@ -36,7 +36,11 @@ export default {
   },
   props: {
     value: {},
-    placeholder: {},
+    placeholder: {
+      default(){
+        return this.$locale.gv(["select", "placeholder"]);
+      },
+    },
     disabled: {
       type: Boolean,
       default: false,

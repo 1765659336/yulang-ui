@@ -15,10 +15,10 @@
               class="yulang-confirm-cancel"
               @click="($event) => cancelClick($event)"
             >
-              {{ cancelButtonText ?? "取消" }}
+              {{ cancelButtonText }}
             </div>
             <div class="yulang-confirm-ok" @click="($event) => okClick($event)">
-              {{ confirmButtonText ?? "确定" }}
+              {{ confirmButtonText }}
             </div>
           </div>
         </div>
@@ -32,8 +32,16 @@ export default {
   name: "yulang-confirm",
   props: {
     title: {},
-    cancelButtonText: {},
-    confirmButtonText: {},
+    cancelButtonText: {
+      default() {
+        return this.$locale.gv(["confirm", "cancelButtonText"]);
+      },
+    },
+    confirmButtonText: {
+      default() {
+        return this.$locale.gv(["confirm", "confirmButtonText"]);
+      },
+    },
     icon: {},
     iconColor: {},
   },

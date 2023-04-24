@@ -7,7 +7,6 @@ export const codeStrB = `
       step: '00:15',
       end: '18:30',
     }"
-    placeholder="选择时间"
   ></yulang-time-picker>
 </template>
 

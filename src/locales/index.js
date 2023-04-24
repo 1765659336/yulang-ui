@@ -22,7 +22,7 @@ class Locale {
     if (typeof name === "string") {
       return this.message[name];
     } else {
-      return name.reduce((acc, cur) => this.messages[cur], this.messages);
+      return name.reduce((acc, cur) => acc[cur], this.message);
     }
   }
 

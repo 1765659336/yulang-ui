@@ -25,10 +25,10 @@
       <div class="dialog-frame-footer">
         <!-- 脚部按钮插槽 -->
         <slot name="footer" :changeDialog="changeDialog">
-          <yulang-button @click="cancelDialog" style="margin-right: 1em"
-            >取消</yulang-button
-          >
-          <yulang-button @click="confirmCommit">确定</yulang-button>
+          <yulang-button @click="cancelDialog" style="margin-right: 1em">{{
+            cancelText
+          }}</yulang-button>
+          <yulang-button @click="confirmCommit">{{ sureText }}</yulang-button>
         </slot>
       </div>
     </div>
@@ -36,10 +36,10 @@
 </template>
 
 <script>
-import YulangButton from '../yulang-button/YulangButton.vue';
+import YulangButton from "../yulang-button/YulangButton.vue";
 export default {
   components: { YulangButton },
-  name: 'yulang-dialog',
+  name: "yulang-dialog",
   data() {
     return {};
   },
@@ -59,6 +59,16 @@ export default {
       type: Boolean,
       default: true,
     },
+    cancelText: {
+      default() {
+        return this.$locale.gv(["dialog", "cancelText"]);
+      },
+    },
+    sureText: {
+      default() {
+        return this.$locale.gv(["dialog", "sureText"]);
+      },
+    },
   },
   computed: {
     // 在创建初设置通知框的index值
@@ -71,15 +81,15 @@ export default {
   methods: {
     // 修改对话框的值
     changeDialog(value) {
-      this.$emit('update:visible', value);
+      this.$emit("update:visible", value);
     },
     // 打开对话框
     openDialog() {
-      this.$emit('update:visible', !this.visible);
+      this.$emit("update:visible", !this.visible);
     },
     // 关闭对话框
     cancelDialog() {
-      this.$emit('update:visible', !this.visible);
+      this.$emit("update:visible", !this.visible);
     },
     // 按到遮蔽层逻辑
     touchMaskLayer() {
@@ -90,7 +100,7 @@ export default {
     },
     // 确定提交
     confirmCommit() {
-      this.$emit('update:visible', !this.visible);
+      this.$emit("update:visible", !this.visible);
     },
   },
 };

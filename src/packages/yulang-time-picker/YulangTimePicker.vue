@@ -108,8 +108,8 @@ export default {
     },
     // 提示语句
     placeholder: {
-      default: () => {
-        return "请选择时间";
+      default() {
+        return this.$locale.gv(["timePicker", "placeholder"]);
       },
     },
     // 是否禁用

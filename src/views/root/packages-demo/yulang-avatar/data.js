@@ -116,7 +116,7 @@ export const codeStrE = `
   <div class="demo-fit">
     <div class="block" v-for="fit in fits" :key="fit">
       <span class="title">{{ fit }}</span>
-      <el-avatar shape="square" :size="100" :fit="fit" :src="url"></el-avatar>
+      <yulang-avatar shape="square" :size="100" :fit="fit" :src="url"></yulang-avatar>
     </div>
   </div>
 </template>
@@ -149,4 +149,5 @@ export default {
   }
 }
 </style>
+
 `
