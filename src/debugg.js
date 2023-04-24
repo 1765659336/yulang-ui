@@ -2,11 +2,10 @@ import Vue from "vue";
 // 引入elementUI样式
 import "element-ui/lib/theme-chalk/index.css";
 
-import {
-  Packages,
-  Directives,
-  CreateNode,
-} from "@/packages/index";
+// 引入多语言
+import "./locale";
+
+import { Packages, Directives, CreateNode } from "@/packages/index";
 
 // 引入全局index
 import Index from "@/tools/getIndex";

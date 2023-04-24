@@ -86,6 +86,9 @@ import YulangClickOutside from "@/instruction/clickOutside";
 import YulangAddDom from "@/instruction/addDom";
 import YulangDrag from "@/instruction/drag.js";
 
+// 引入多语言
+import "@/locale";
+
 // 自定义指令对象
 export const Directives = {
   YulangCopy,
@@ -186,7 +189,7 @@ Packages.forEach(
 );
 
 // 工具函数
-import * as Lib from "@/packages/lib";
+import * as PackagesLib from "@/packages/lib";
 import Index from "@/tools/getIndex";
 
 // 把所有的组件注册成全局组件
@@ -235,8 +238,12 @@ export const changeDefault = function (Vue, option) {
 export default {
   install,
   Packages,
-  Lib,
+  Lib: PackagesLib,
   Directives,
   changeDefault,
   YulangMessage: Message,
 };
+
+export const YulangMessage = Message;
+
+export const Lib = PackagesLib;

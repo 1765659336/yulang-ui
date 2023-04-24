@@ -1,22 +1,22 @@
-export const btnArr = [
+export const btnArr = (Vue) => [
   {
     id: "guide",
     title: "指南",
-    path: "/root/guide",
+    path: `/${Vue.$locale.locale}/root/guide`,
   },
   {
     id: "packages-demo",
     title: "组件",
-    path: "/root/packages-demo",
+    path: `/${Vue.$locale.locale}/root/packages-demo`,
   },
   {
     id: "theme",
     title: "主题",
-    path: "/root/theme",
+    path: `/${Vue.$locale.locale}/root/theme`,
   },
   {
     id: "resources",
     title: "资源",
-    path: "/root/resources",
+    path: `/${Vue.$locale.locale}/root/resources`,
   },
 ];

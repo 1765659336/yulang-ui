@@ -3,7 +3,9 @@ export const styleObj = {
   props: {
     // 提示文本
     placeholder: {
-      default: "请输入",
+      default: function () {
+        return this.$locale.gv("placeholder");
+      },
     },
     // 是否禁用
     disabled: {

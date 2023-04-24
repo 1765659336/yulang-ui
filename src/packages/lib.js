@@ -462,126 +462,126 @@ export const changePosition = function (
   sonDom,
   position
 ) {
-  const {
-    top: triggerTop,
-    bottom: triggerBottom,
-    right: triggerRight,
-    left: triggerLeft,
-    width: triggerWidth,
-    height: triggerHeight,
-  } = triggerDom.getBoundingClientRect();
-  console.log(triggerDom.getBoundingClientRect(), triggerDom);
-  console.log(triggerBottom, "triggerBottom");
-  switch (position) {
-    case "bottom-start":
-      {
-        // fatherDom.style.position = "relative";
-        sonDom.style.position = "absolute";
-        sonDom.style.top = triggerBottom + "px";
-        sonDom.style.left = triggerLeft + "px";
-        sonDom.style.transform = "translate(0px, 10px)";
-      }
-      break;
-    case "bottom":
-      {
-        // fatherDom.style.position = "relative";
-        sonDom.style.position = "absolute";
-        sonDom.style.top = triggerBottom + "px";
-        sonDom.style.left = triggerLeft + triggerWidth / 2 + "px";
-        sonDom.style.transform = "translate(-50%, 10px)";
-      }
-      break;
-    case "bottom-end":
-      {
-        // fatherDom.style.position = "relative";
-        sonDom.style.position = "absolute";
-        sonDom.style.top = triggerBottom + "px";
-        sonDom.style.left = triggerRight - sonDom.clientWidth + "px";
-        sonDom.style.transform = "translate(0px, 10px)";
-      }
-      break;
-    case "left-end":
-      {
-        // fatherDom.style.position = "relative";
-        sonDom.style.position = "absolute";
-        sonDom.style.top = triggerBottom - sonDom.clientHeight + "px";
-        sonDom.style.left = triggerLeft - sonDom.clientWidth + "px";
-        sonDom.style.transform = "translate(-10px, 0px)";
-      }
-      break;
-    case "left":
-      {
-        // fatherDom.style.position = "relative";
-        sonDom.style.position = "absolute";
-        sonDom.style.top = triggerBottom - triggerHeight / 2 + "px";
-        sonDom.style.left = triggerLeft - sonDom.clientWidth + "px";
-        sonDom.style.transform = "translate(-10px, -50%)";
-      }
-      break;
-    case "left-start":
-      {
-        // fatherDom.style.position = "relative";
-        sonDom.style.position = "absolute";
-        sonDom.style.top = triggerBottom - sonDom.clientHeight + "px";
-        sonDom.style.left = triggerLeft - sonDom.clientWidth + "px";
-        sonDom.style.transform = "translate(-10px, 0px)";
-      }
-      break;
-    case "top-start":
-      {
-        // fatherDom.style.position = "relative";
-        sonDom.style.position = "absolute";
-        sonDom.style.top = triggerTop - sonDom.clientHeight + "px";
-        sonDom.style.left = triggerLeft + "px";
-        sonDom.style.transform = "translate(0px, -10px)";
-      }
-      break;
-    case "top":
-      {
-        // fatherDom.style.position = "relative";
-        sonDom.style.position = "absolute";
-        sonDom.style.top = triggerTop - sonDom.clientHeight + "px";
-        sonDom.style.left = triggerLeft + sonDom.clientWidth / 2 + "px";
-        sonDom.style.transform = "translate(-50%, -10px)";
-      }
-      break;
-    case "top-end":
-      {
-        // fatherDom.style.position = "relative";
-        sonDom.style.position = "absolute";
-        sonDom.style.top = triggerTop - sonDom.clientHeight + "px";
-        sonDom.style.left = triggerLeft + sonDom.clientWidth + "px";
-        sonDom.style.transform = "translate(-100%, -10px)";
-      }
-      break;
-    case "right-start":
-      {
-        // fatherDom.style.position = "relative";
-        sonDom.style.position = "absolute";
-        sonDom.style.top = triggerTop + "px";
-        sonDom.style.left = triggerRight + "px";
-        sonDom.style.transform = "translate(10px, 0)";
-      }
-      break;
-    case "right":
-      {
-        // fatherDom.style.position = "relative";
-        sonDom.style.position = "absolute";
-        sonDom.style.top = triggerTop + triggerHeight / 2 + "px";
-        sonDom.style.left = triggerRight + "px";
-        sonDom.style.transform = "translate(10px, -50%)";
-      }
-      break;
-    case "right-end":
-      {
-        // fatherDom.style.position = "relative";
-        sonDom.style.position = "absolute";
-        sonDom.style.top = triggerTop + triggerHeight + "px";
-        sonDom.style.left = triggerRight + "px";
-        sonDom.style.transform = "translate(10px, -100%)";
-      }
-      break;
-  }
+  setTimeout(() => {
+    const {
+      top: triggerTop,
+      bottom: triggerBottom,
+      right: triggerRight,
+      left: triggerLeft,
+      width: triggerWidth,
+      height: triggerHeight,
+    } = triggerDom.getBoundingClientRect();
+    switch (position) {
+      case "bottom-start":
+        {
+          // fatherDom.style.position = "relative";
+          sonDom.style.position = "absolute";
+          sonDom.style.top = triggerBottom + "px";
+          sonDom.style.left = triggerLeft + "px";
+          sonDom.style.transform = "translate(0px, 10px)";
+        }
+        break;
+      case "bottom":
+        {
+          // fatherDom.style.position = "relative";
+          sonDom.style.position = "absolute";
+          sonDom.style.top = triggerBottom + "px";
+          sonDom.style.left = triggerLeft + triggerWidth / 2 + "px";
+          sonDom.style.transform = "translate(-50%, 10px)";
+        }
+        break;
+      case "bottom-end":
+        {
+          // fatherDom.style.position = "relative";
+          sonDom.style.position = "absolute";
+          sonDom.style.top = triggerBottom + "px";
+          sonDom.style.left = triggerRight - sonDom.clientWidth + "px";
+          sonDom.style.transform = "translate(0px, 10px)";
+        }
+        break;
+      case "left-end":
+        {
+          // fatherDom.style.position = "relative";
+          sonDom.style.position = "absolute";
+          sonDom.style.top = triggerBottom - sonDom.clientHeight + "px";
+          sonDom.style.left = triggerLeft - sonDom.clientWidth + "px";
+          sonDom.style.transform = "translate(-10px, 0px)";
+        }
+        break;
+      case "left":
+        {
+          // fatherDom.style.position = "relative";
+          sonDom.style.position = "absolute";
+          sonDom.style.top = triggerBottom - triggerHeight / 2 + "px";
+          sonDom.style.left = triggerLeft - sonDom.clientWidth + "px";
+          sonDom.style.transform = "translate(-10px, -50%)";
+        }
+        break;
+      case "left-start":
+        {
+          // fatherDom.style.position = "relative";
+          sonDom.style.position = "absolute";
+          sonDom.style.top = triggerBottom - sonDom.clientHeight + "px";
+          sonDom.style.left = triggerLeft - sonDom.clientWidth + "px";
+          sonDom.style.transform = "translate(-10px, 0px)";
+        }
+        break;
+      case "top-start":
+        {
+          // fatherDom.style.position = "relative";
+          sonDom.style.position = "absolute";
+          sonDom.style.top = triggerTop - sonDom.clientHeight + "px";
+          sonDom.style.left = triggerLeft + "px";
+          sonDom.style.transform = "translate(0px, -10px)";
+        }
+        break;
+      case "top":
+        {
+          // fatherDom.style.position = "relative";
+          sonDom.style.position = "absolute";
+          sonDom.style.top = triggerTop - sonDom.clientHeight + "px";
+          sonDom.style.left = triggerLeft + sonDom.clientWidth / 2 + "px";
+          sonDom.style.transform = "translate(-50%, -10px)";
+        }
+        break;
+      case "top-end":
+        {
+          // fatherDom.style.position = "relative";
+          sonDom.style.position = "absolute";
+          sonDom.style.top = triggerTop - sonDom.clientHeight + "px";
+          sonDom.style.left = triggerLeft + sonDom.clientWidth + "px";
+          sonDom.style.transform = "translate(-100%, -10px)";
+        }
+        break;
+      case "right-start":
+        {
+          // fatherDom.style.position = "relative";
+          sonDom.style.position = "absolute";
+          sonDom.style.top = triggerTop + "px";
+          sonDom.style.left = triggerRight + "px";
+          sonDom.style.transform = "translate(10px, 0)";
+        }
+        break;
+      case "right":
+        {
+          // fatherDom.style.position = "relative";
+          sonDom.style.position = "absolute";
+          sonDom.style.top = triggerTop + triggerHeight / 2 + "px";
+          sonDom.style.left = triggerRight + "px";
+          sonDom.style.transform = "translate(10px, -50%)";
+        }
+        break;
+      case "right-end":
+        {
+          // fatherDom.style.position = "relative";
+          sonDom.style.position = "absolute";
+          sonDom.style.top = triggerTop + triggerHeight + "px";
+          sonDom.style.left = triggerRight + "px";
+          sonDom.style.transform = "translate(10px, -100%)";
+        }
+        break;
+    }
+  }, 1);
 
   // 全局z-index处理
   Vue.prototype.$yulangIndex.getIndex &&

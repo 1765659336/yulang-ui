@@ -14,8 +14,14 @@
       </div>
     </div>
     <div class="component-menu-mobile union-menu">
-      <yulang-button @click="drawer = true"><i class="iconfont icon-jiuping"></i></yulang-button>
-      <yulang-drawer :visible.sync="drawer" :withHeader="false" direction="left">
+      <yulang-button @click="drawer = true"
+        ><i class="iconfont icon-jiuping"></i
+      ></yulang-button>
+      <yulang-drawer
+        :visible.sync="drawer"
+        :withHeader="false"
+        direction="left"
+      >
         <yulang-link url="https://gitee.com/langlangyilangl/yulang-ui"
           >gitee仓库地址</yulang-link
         >
@@ -52,7 +58,7 @@ export default {
   name: "yulang-packages-union",
   data() {
     return {
-      unionData,
+      unionData: unionData(this),
       drawer: false,
     };
   },

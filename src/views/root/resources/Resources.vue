@@ -28,9 +28,18 @@ export default {
   data() {
     return {
       routerLinkArr: [
-        { path: "/root/resources/animate", title: "动画" },
-        { path: "/root/resources/tools", title: "工具函数" },
-        { path: "/root/resources/instruction", title: "指令" },
+        {
+          path: `/${this.$locale.locale}/root/resources/animate`,
+          title: "动画",
+        },
+        {
+          path: `/${this.$locale.locale}/root/resources/tools`,
+          title: "工具函数",
+        },
+        {
+          path: `/${this.$locale.locale}/root/resources/instruction`,
+          title: "指令",
+        },
       ],
     };
   },

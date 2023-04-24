@@ -1,5 +1,5 @@
 <template>
-  <yulang-input v-model="value" placeholder="请输入"></yulang-input>
+  <yulang-input v-model="value"></yulang-input>
 </template>
 
 <script>

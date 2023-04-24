@@ -4,7 +4,7 @@
       <img
         src="@/assets/images/langicon.png"
         alt=""
-        @click="jump({ path: '/home' })"
+        @click="jump({ path: '/' + $locale.locale + '/root/home' })"
       />
     </h3>
     <div class="yulang-head-menu-items">
@@ -28,6 +28,17 @@
       activeColor="#69DFEB"
       >切换主题</yulang-switch
     >
+    <yulang-dropdown @command="commandHandle">
+      <span class="yulang-dropdown-link">
+        语言：{{ locale }}<i class="iconfont icon-chevron-down"></i>
+      </span>
+      <template #dropdown>
+        <yulang-dropdown-menu>
+          <yulang-dropdown-item command="zh">中文</yulang-dropdown-item>
+          <yulang-dropdown-item command="en">英文</yulang-dropdown-item>
+        </yulang-dropdown-menu>
+      </template>
+    </yulang-dropdown>
     <!-- 这是引导组件 -->
     <yulang-leader
       :leader-list="leaderList"
@@ -49,7 +60,7 @@ export default {
   },
   data() {
     return {
-      btnArr,
+      btnArr: btnArr(this),
       isShowLeader: false,
       leaderList: [
         {
@@ -94,6 +105,9 @@ export default {
         this.$emit("update:theme", newVal);
       },
     },
+    locale() {
+      return this.$locale.locale === "zh" ? "中文" : "英文";
+    },
   },
   watch: {
     theme: {
@@ -132,6 +146,9 @@ export default {
         ["yulang-head-menu-item-active"]:
           item.path === this.$route.matched[1].path,
       };
+    },
+    commandHandle(command) {
+      this.$router.push(this.$route.fullPath.replace(/zh|en/gi, command));
     },
   },
   mounted() {

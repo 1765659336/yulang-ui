@@ -2,7 +2,7 @@
   <div class="home-container">
     <h1>网站快速成型工具</h1>
     <h3>YulangUI,在公司实习的学习练手项目,基于vue2的组件库</h3>
-    <img src="@/assets/images/home.png" alt="" class="home-img"/>
+    <img src="@/assets/images/home.png" alt="" class="home-img" />
     <div class="card-container">
       <div
         v-for="(item, index) in cardArr"
@@ -31,28 +31,28 @@ export default {
           content:
             "了解设计指南，帮助产品设计人员搭建逻辑清晰、结构合理且高效易用的产品",
           animate: "yulang-animate yulang-rotate-in-left",
-          path: "/root/guide",
+          path: `/${this.$locale.locale}/root/guide`,
         },
         {
           title: "组件",
           content:
             "使用组件 Demo 快速体验交互细节；使用前端框架封装的代码帮助工程师快速开发",
           animate: "yulang-animate yulang-rotate-in-top",
-          path: "/root/packages-demo",
+          path: `/${this.$locale.locale}/root/packages-demo`,
         },
         {
           title: "主题",
           content:
             "使用组件 Demo 快速体验交互细节；使用前端框架封装的代码帮助工程师快速开发",
           animate: "yulang-animate yulang-rotate-in-bottom",
-          path: "/root/theme",
+          path: `/${this.$locale.locale}/root/theme`,
         },
         {
           title: "资源",
           content:
             "下载相关资源，用其快速搭建页面原型或高保真视觉稿，提升产品设计效率",
           animate: "yulang-animate yulang-rotate-in-right",
-          path: "/root/resources",
+          path: `/${this.$locale.locale}/root/resources`,
         },
       ],
     };

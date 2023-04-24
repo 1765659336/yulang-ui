@@ -22,7 +22,7 @@ import { btnArr } from "../root-head/data";
 export default {
   data() {
     return {
-      btnArr,
+      btnArr: btnArr(this),
     };
   },
   props: {
