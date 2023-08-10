@@ -1,10 +1,6 @@
 <template>
   <div class="packages-yulang-cascader-container">
-    <yulang-popover
-      ref="popoverRef"
-      :minWidth="16"
-      :closeBeforeValidator="closeBeforeValidator"
-    >
+    <yulang-popover ref="popoverRef" :minWidth="16">
       <template #reference>
         <yulang-input
           v-model="labelValue"
@@ -60,7 +56,6 @@ export default {
     return {
       labelValue: null,
       valueCopy: null,
-      closeBeforeValidator: () => false,
     };
   },
   computed: {
@@ -78,14 +73,11 @@ export default {
       this.valueCopy = value.map((item) => item.value);
       // 是否选中的最后的叶节点
       if (closePopover) {
-        this.closeBeforeValidator = () => true;
         this.labelValue = this.showAllLevels
           ? value.reduce((acc, cur) => (acc ? acc + "/" : acc) + cur.label, "")
           : value[value.length - 1].label;
         this.valueComputed = value.map((item) => item.value);
         this.$refs.popoverRef.closeShow();
-      } else {
-        this.closeBeforeValidator = () => false;
       }
     },
     inputClear() {

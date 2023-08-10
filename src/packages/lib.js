@@ -581,7 +581,7 @@ export const changePosition = function (
         }
         break;
     }
-  }, 1);
+  });
 
   // 全局z-index处理
   Vue.prototype.$yulangIndex.getIndex &&

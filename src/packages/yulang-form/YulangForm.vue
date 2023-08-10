@@ -51,6 +51,17 @@ export default {
           fn(false, err);
         });
     },
+    validateField(record) {
+      this.$children.forEach((component) => {
+        if (
+          component.yulangComponentName === "yulang-form-item" &&
+          component.validate &&
+          component.prop === record
+        ) {
+          component.validate();
+        }
+      });
+    },
     resetFields(option) {
       // 统一重置
       if (!option) {

@@ -2,23 +2,18 @@
   <div
     :class="containerClass"
     @click="handleClick"
-    :style="{
-      '--margin-top-botton--': this.marginTopBotton,
-      '--margin-left-right--': this.marginLeftRight,
-    }"
     ref="container"
+    v-yulangLoading="loading"
   >
+    <i :class="['iconfont', icon]" v-if="icon"></i>
     <slot></slot>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
-const sizeRuler = {
-  medium: { marginTopBotton: "50px", marginLeftRight: "80px" },
-  small: { marginTopBotton: "40px", marginLeftRight: "60px" },
-  mini: { marginTopBotton: "30px", marginLeftRight: "40px" },
-};
+import { sizeArr } from "@/packages/constant";
+
 export default {
   name: "yulang-button",
   props: {
@@ -36,7 +31,14 @@ export default {
         return "default";
       },
       validator: (value) => {
-        return ["default", "success", "error"].find((item) => item === value);
+        return [
+          "default",
+          "success",
+          "danger",
+          "primary",
+          "info",
+          "warning",
+        ].find((item) => item === value);
       },
     },
     // 设置按钮的大小
@@ -46,11 +48,32 @@ export default {
         return Vue.prototype.yulangComponentSize;
       },
       validator: (value) => {
-        return ["medium", "small", "mini"].find((item) => item === value);
+        return sizeArr.find((item) => item === value);
       },
     },
     // 是否开启点击动画
     isOpenClickAnimate: {
+      type: Boolean,
+      default: true,
+    },
+    // 是否是圆角按钮
+    round: {
+      type: Boolean,
+      default: false,
+    },
+    // 是否浅色按钮
+    plain: {
+      type: Boolean,
+      default: false,
+    },
+    icon: {
+      type: String,
+    },
+    circle: {
+      type: Boolean,
+      default: false,
+    },
+    loading: {
       type: Boolean,
       default: false,
     },
@@ -67,24 +90,14 @@ export default {
         return {
           "packages-yulang-button-container": true,
           "is-disable": this.disabled,
-          "not-disable": !this.disabled,
-          "is-success": this.type === "success",
-          "is-error": this.type === "error",
+          ["is-" + this.type]: true,
           "yulang-animate": this.clickAnimate,
           "yulang-push-release": this.clickAnimate,
+          ["size-" + this.size]: true,
+          "is-plain": this.plain,
+          "is-round": this.round,
+          "is-circle": this.circle,
         };
-      },
-    },
-    // 按钮的上下间距
-    marginTopBotton: {
-      get() {
-        return sizeRuler[this.size].marginTopBotton;
-      },
-    },
-    // 按钮的左右间距
-    marginLeftRight: {
-      get() {
-        return sizeRuler[this.size].marginLeftRight;
       },
     },
   },
@@ -95,9 +108,9 @@ export default {
           this.clickAnimate = false;
           // v-if+nexttick重新渲染
           // 或者使用animation-fill-mode: none/both切换;
-          this.timer = setInterval(() => {
+          this.$nextTick(() => {
             this.clickAnimate = true;
-          }, 1);
+          });
         } else {
           this.isOpenClickAnimate && (this.clickAnimate = true);
         }
@@ -106,9 +119,6 @@ export default {
         }
       }
     },
-  },
-  beforeDestroy() {
-    clearInterval(this.timer);
   },
 };
 </script>

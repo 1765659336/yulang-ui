@@ -1,7 +1,7 @@
 <template>
   <div class="home-container">
     <h1>网站快速成型工具</h1>
-    <h3>YulangUI,在公司实习的学习练手项目,基于vue2的组件库</h3>
+    <!-- <h3>YulangUI,在公司实习的学习练手项目,基于vue2的组件库</h3> -->
     <img src="@/assets/images/home.png" alt="" class="home-img" />
     <div class="card-container">
       <div

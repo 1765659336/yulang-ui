@@ -62,4 +62,23 @@ export default {};
 .margin-bottom {
   margin-bottom: 20px;
 }
+
+:deep(.yulang-header-container) {
+  box-shadow: 0px -1px 5px #ccc;
+}
+:deep(.yulang-main-container) {
+  box-shadow: 0px -1px 5px #ccc;
+}
+
+:deep(.yulang-footer-container) {
+  box-shadow: 0px -1px 5px #ccc;
+}
+
+:deep(.yulang-aside-container) {
+  box-shadow: 0px -1px 5px #ccc;
+}
+
+:deep(.packages-yulang-container-container) {
+  box-shadow: 0px -1px 5px #ccc;
+}
 </style>

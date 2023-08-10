@@ -30,7 +30,7 @@ export default {
       codeStrC,
       slotArr: [
         { slotName: "a", slotTitle: "快速开始", level: 1 },
-        { slotName: "b", slotTitle: "引入 Element", level: 2 },
+        { slotName: "b", slotTitle: "引入 YulangUI", level: 2 },
         { slotName: "c", slotTitle: "完整引入", level: 3 },
         // { slotName: "d", slotTitle: "按需加载", level: 3 },
       ],

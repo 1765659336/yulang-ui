@@ -87,7 +87,19 @@ import YulangAddDom from "@/instruction/addDom";
 import YulangDrag from "@/instruction/drag.js";
 
 // 引入多语言
-import "@/locale";
+import Locale from "@/locales/index";
+const locales = require.context("@/locales", true, /.json$/);
+const messages = {};
+locales.keys().forEach((file) => {
+  const keyArr = file.split("/");
+  keyArr.shift();
+  messages[keyArr.join(".").replace(/\.json$/g, "")] = locales(file);
+});
+
+const locale = new Locale({
+  locale: "zh",
+  messages,
+});
 
 // 自定义指令对象
 export const Directives = {
@@ -178,7 +190,7 @@ export const Packages = [
   YulangAvatar,
 ];
 
-// 注册按需加载
+// 组件按需加载
 Packages.forEach(
   (component) =>
     (component.install = (Vue) => {
@@ -195,6 +207,8 @@ import Index from "@/tools/getIndex";
 // 把所有的组件注册成全局组件
 const install = function (Vue, option) {
   console.log(option, "全局引入option");
+
+  Vue.use(locale);
 
   Packages.forEach((component) => {
     Vue.component(component.name, component);

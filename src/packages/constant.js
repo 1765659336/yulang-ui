@@ -12,3 +12,5 @@ export const positionArr = [
     "right-end",
     "bottom-end",
 ]
+
+export const sizeArr = ["medium", "small", "mini"]

@@ -3,7 +3,7 @@
     <div
       class="yulang-popover-reference"
       ref="yulangPopoverReferenceRef"
-      v-YulangClickOutside="closeShow"
+      v-YulangClickOutside:[contentUUID]="closeShow"
     >
       <!-- 触发点 -->
       <div ref="referenceRef" class="yulang-popover-reference-trigger">
@@ -19,6 +19,7 @@
           class="yulang-popover-position"
           v-if="isShow"
           ref="yulangPopoverContentRef"
+          :id="contentUUID"
         >
           <!-- 箭头 -->
           <!-- <div class="yulang-popover-triangle"></div> -->
@@ -109,6 +110,8 @@ export default {
       isFirst: true,
       time: null,
       time2: null,
+      contentUUID: "yulang-popover-content-uuid",
+      triggerBoundClientRect: {},
     };
   },
   methods: {
@@ -202,6 +205,26 @@ export default {
         }
       }
     },
+    popoverContentPosition() {
+      if (
+        this.$refs.yulangPopoverReferenceRef &&
+        this.$refs.referenceRef &&
+        this.$refs.yulangPopoverContentRef
+      ) {
+        changePosition(
+          this.$refs.yulangPopoverReferenceRef,
+          this.$refs.referenceRef,
+          this.$refs.yulangPopoverContentRef,
+          getPosition(
+            this.placement,
+            this.$refs.referenceRef,
+            this.$refs.yulangPopoverContentRef,
+            20,
+            20
+          )
+        );
+      }
+    },
     getPositionFn() {
       const root = document.querySelector(":root");
       root.style.setProperty(
@@ -216,18 +239,7 @@ export default {
         "--yulang-popover-position-max-height--",
         this.maxHeight + "px"
       );
-      changePosition(
-        this.$refs.yulangPopoverReferenceRef,
-        this.$refs.referenceRef,
-        this.$refs.yulangPopoverContentRef,
-        getPosition(
-          this.placement,
-          this.$refs.referenceRef,
-          this.$refs.yulangPopoverContentRef,
-          20,
-          20
-        )
-      );
+      this.popoverContentPosition();
       document.body.appendChild(this.$refs.yulangPopoverContentRef);
     },
     // 给hover内容区也添加监听
@@ -242,6 +254,15 @@ export default {
           this.isFirst = true;
         }, 100);
       });
+    },
+  },
+  watch: {
+    $route: {
+      handler: function () {
+        this.closeShow();
+      },
+      // 深度观察监听
+      deep: true,
     },
   },
   mounted() {
@@ -267,6 +288,21 @@ export default {
         longClick(this.$refs.referenceRef, this.showChange.bind(this));
       }
     }
+    this.interval = setInterval(() => {
+      const newBoundClientRect =
+        this.$refs.yulangPopoverReferenceRef.getBoundingClientRect();
+      if (
+        JSON.stringify(this.triggerBoundClientRect) !==
+          JSON.stringify(newBoundClientRect) &&
+        this.isShow
+      ) {
+        this.triggerBoundClientRect = newBoundClientRect;
+        this.popoverContentPosition();
+      }
+    }, 10);
+  },
+  beforeDestroy() {
+    clearInterval(this.interval);
   },
 };
 </script>

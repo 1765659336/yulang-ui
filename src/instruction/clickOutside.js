@@ -7,9 +7,9 @@ export default {
       // 是否是父级元素
       let isFather = false;
       let parentNode = e.target.parentNode;
+      let contentFather = document.getElementById(inserted.arg);
       while (parentNode && parentNode !== document.body) {
-        // console.log(el, parentNode);
-        if (el === parentNode) {
+        if (el === parentNode || contentFather === parentNode) {
           isFather = true;
         }
         parentNode = parentNode.parentNode;

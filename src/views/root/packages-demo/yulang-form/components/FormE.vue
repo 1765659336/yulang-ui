@@ -1,5 +1,10 @@
 <template>
-  <yulang-form :model="ruleForm" :rules="rules" ref="form" label-width="100px">
+  <yulang-form
+    :model="ruleForm"
+    :rules="rules"
+    ref="form"
+    label-width="100px"
+  >
     <yulang-form-item label="密码" prop="pass">
       <yulang-input type="password" v-model="ruleForm.pass"></yulang-input>
     </yulang-form-item>
@@ -10,9 +15,7 @@
       <yulang-input v-model.number="ruleForm.age"></yulang-input>
     </yulang-form-item>
     <yulang-form-item>
-      <yulang-button @click="submitForm('ruleForm')"
-        >提交</yulang-button
-      >
+      <yulang-button @click="submitForm('ruleForm')">提交</yulang-button>
       <yulang-button @click="resetForm('ruleForm')">重置</yulang-button>
     </yulang-form-item>
   </yulang-form>
@@ -38,11 +41,12 @@ export default {
       }, 1000);
     };
     var validatePass = (rule, value, callback) => {
+      console.log(callback);
       if (value === "") {
         callback(new Error("请输入密码"));
       } else {
         if (this.ruleForm.checkPass !== "") {
-          this.$refs.ruleForm.validateField("checkPass");
+          this.$refs.form.validateField("checkPass");
         }
         callback();
       }

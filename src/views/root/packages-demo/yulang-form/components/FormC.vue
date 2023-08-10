@@ -1,27 +1,27 @@
 <template>
   <div>
-    <el-radio-group v-model="labelPosition">
-      <el-radio label="left">左对齐</el-radio>
-      <el-radio label="right">右对齐</el-radio>
-      <el-radio label="top">顶部对齐</el-radio>
-    </el-radio-group>
+    <yulang-radio-group v-model="labelPosition">
+      <yulang-radio label="left">左对齐</yulang-radio>
+      <yulang-radio label="right">右对齐</yulang-radio>
+      <yulang-radio label="top">顶部对齐</yulang-radio>
+    </yulang-radio-group>
     <div style="margin: 20px"></div>
-    <el-form
+    <yulang-form
       :label-position="labelPosition"
       label-width="80px"
       :model="formLabelAlign"
       :style="{ width: '400px' }"
     >
-      <el-form-item label="名称">
-        <el-input v-model="formLabelAlign.name"></el-input>
-      </el-form-item>
-      <el-form-item label="活动区域">
-        <el-input v-model="formLabelAlign.region"></el-input>
-      </el-form-item>
-      <el-form-item label="活动形式">
-        <el-input v-model="formLabelAlign.type"></el-input>
-      </el-form-item>
-    </el-form>
+      <yulang-form-item label="名称">
+        <yulang-input v-model="formLabelAlign.name"></yulang-input>
+      </yulang-form-item>
+      <yulang-form-item label="活动区域">
+        <yulang-input v-model="formLabelAlign.region"></yulang-input>
+      </yulang-form-item>
+      <yulang-form-item label="活动形式">
+        <yulang-input v-model="formLabelAlign.type"></yulang-input>
+      </yulang-form-item>
+    </yulang-form>
   </div>
 </template>
 

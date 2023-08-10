@@ -1,6 +1,10 @@
 <template>
   <div class="packages-yulang-date-picker-container">
-    <yulang-popover trigger="click" placement="bottom-start" ref="popoverRef">
+    <yulang-popover
+      trigger="click"
+      placement="bottom-start"
+      ref="popoverRef"
+    >
       <template #reference>
         <yulang-input
           v-model="valueComputed"

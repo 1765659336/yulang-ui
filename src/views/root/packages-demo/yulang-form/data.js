@@ -1,32 +1,32 @@
 export const codeStrB = `
 
-`
+`;
 
 export const codeStrC = `
 <template>
   <div>
-    <el-radio-group v-model="labelPosition">
-      <el-radio label="left">左对齐</el-radio>
-      <el-radio label="right">右对齐</el-radio>
-      <el-radio label="top">顶部对齐</el-radio>
-    </el-radio-group>
+    <yulang-radio-group v-model="labelPosition">
+      <yulang-radio label="left">左对齐</yulang-radio>
+      <yulang-radio label="right">右对齐</yulang-radio>
+      <yulang-radio label="top">顶部对齐</yulang-radio>
+    </yulang-radio-group>
     <div style="margin: 20px"></div>
-    <el-form
+    <yulang-form
       :label-position="labelPosition"
       label-width="80px"
       :model="formLabelAlign"
       :style="{ width: '400px' }"
     >
-      <el-form-item label="名称">
-        <el-input v-model="formLabelAlign.name"></el-input>
-      </el-form-item>
-      <el-form-item label="活动区域">
-        <el-input v-model="formLabelAlign.region"></el-input>
-      </el-form-item>
-      <el-form-item label="活动形式">
-        <el-input v-model="formLabelAlign.type"></el-input>
-      </el-form-item>
-    </el-form>
+      <yulang-form-item label="名称">
+        <yulang-input v-model="formLabelAlign.name"></yulang-input>
+      </yulang-form-item>
+      <yulang-form-item label="活动区域">
+        <yulang-input v-model="formLabelAlign.region"></yulang-input>
+      </yulang-form-item>
+      <yulang-form-item label="活动形式">
+        <yulang-input v-model="formLabelAlign.type"></yulang-input>
+      </yulang-form-item>
+    </yulang-form>
   </div>
 </template>
 
@@ -46,7 +46,8 @@ export default {
 </script>
 
 <style lang="less" scoped></style>
-`
+
+`;
 
 export const codeStrD = `
 <template>
@@ -195,11 +196,16 @@ export default {
   justify-content: end;
 }
 </style>
-`
+`;
 
 export const codeStrE = `
 <template>
-  <yulang-form :model="ruleForm" :rules="rules" ref="form" label-width="100px">
+  <yulang-form
+    :model="ruleForm"
+    :rules="rules"
+    ref="form"
+    label-width="100px"
+  >
     <yulang-form-item label="密码" prop="pass">
       <yulang-input type="password" v-model="ruleForm.pass"></yulang-input>
     </yulang-form-item>
@@ -210,9 +216,7 @@ export const codeStrE = `
       <yulang-input v-model.number="ruleForm.age"></yulang-input>
     </yulang-form-item>
     <yulang-form-item>
-      <yulang-button type="primary" @click="submitForm('ruleForm')"
-        >提交</yulang-button
-      >
+      <yulang-button @click="submitForm('ruleForm')">提交</yulang-button>
       <yulang-button @click="resetForm('ruleForm')">重置</yulang-button>
     </yulang-form-item>
   </yulang-form>
@@ -238,11 +242,12 @@ export default {
       }, 1000);
     };
     var validatePass = (rule, value, callback) => {
+      console.log(callback);
       if (value === "") {
         callback(new Error("请输入密码"));
       } else {
         if (this.ruleForm.checkPass !== "") {
-          this.$refs.ruleForm.validateField("checkPass");
+          this.$refs.form.validateField("checkPass");
         }
         callback();
       }
@@ -294,4 +299,4 @@ export default {
 </script>
 
 <style lang="less" scoped></style>
-`
+`;

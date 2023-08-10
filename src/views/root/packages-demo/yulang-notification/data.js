@@ -2,7 +2,7 @@ export const codeStr = `
 <yulang-button @click="showNotice('success')" type="success">
   成功消息
 </yulang-button>
-<yulang-button @click="showNotice('fail')" type="error">
+<yulang-button @click="showNotice('fail')" type="danger">
   失败消息
 </yulang-button>
 <yulang-button @click="showNotice('warn')">警告消息</yulang-button>
@@ -23,7 +23,7 @@ export const codeStr2 = `
 <yulang-button @click="showNoticeTimeout('success')" type="success">
   成功消息
 </yulang-button>
-<yulang-button @click="showNoticeTimeout('fail')" type="error">
+<yulang-button @click="showNoticeTimeout('fail')" type="danger">
   失败消息
 </yulang-button>
 <yulang-button @click="showNoticeTimeout('warn')"
@@ -49,7 +49,7 @@ export const codeStr3 = `
 <yulang-button @click="showNoticeDefault()" type="success">
   成功消息
 </yulang-button>
-<yulang-button @click="showNoticeDefault()" type="error">
+<yulang-button @click="showNoticeDefault()" type="danger">
   失败消息
 </yulang-button>
 <yulang-button @click="showNoticeDefault()">警告消息</yulang-button>
@@ -71,7 +71,7 @@ export const codeStr4 = `
 <yulang-button @click="showNoticeSetTitle('success')" type="success">
   成功消息
 </yulang-button>
-<yulang-button @click="showNoticeSetTitle('fail')" type="error">
+<yulang-button @click="showNoticeSetTitle('fail')" type="danger">
   失败消息
 </yulang-button>
 <yulang-button @click="showNoticeSetTitle('warn')">警告消息</yulang-button>

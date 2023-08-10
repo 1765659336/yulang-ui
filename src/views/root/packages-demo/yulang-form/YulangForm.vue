@@ -41,7 +41,7 @@
         </template>
       </yulang-describe-frame>
     </template>
-    <!-- <template #e>
+    <template #e>
       这个例子中展示了如何使用自定义验证规则来完成密码的二次验证。
       <yulang-describe-frame :codeStr="codeStrE">
         <form-e></form-e>
@@ -55,7 +55,7 @@
           >
         </template>
       </yulang-describe-frame>
-    </template> -->
+    </template>
   </yulang-anchor-point>
 </template>
 
@@ -66,7 +66,7 @@ import YulangLink from "@/packages/yulang-link/YulangLink.vue";
 import FormB from "./components/FormB.vue";
 import FormC from "./components/FormC.vue";
 import FormD from "./components/FormD.vue";
-// import FormE from "./components/FormE.vue";
+import FormE from "./components/FormE.vue";
 import { codeStrB, codeStrC, codeStrD, codeStrE } from "./data";
 
 export default {
@@ -78,7 +78,7 @@ export default {
     FormB,
     FormC,
     FormD,
-    // FormE,
+    FormE,
   },
   data() {
     return {
